@@ -1,0 +1,78 @@
+.setting p {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: var(--font-color);
+  text-transform: capitalize;
+}
+.setting .language .center {
+  justify-content: flex-start;
+  cursor: pointer;
+  width: fit-content;
+}
+.setting .language .center i {
+  font-size: 12px;
+  pointer-events: none;
+  color: var(--font-color);
+}
+.setting .language .center span {
+  margin: 0 5px;
+  pointer-events: none;
+  text-transform: capitalize;
+  font-size: 15px;
+  color: var(--font-color);
+}
+.setting .language .select {
+  position: absolute;
+  top: -55px;
+  width: 130px;
+  background: var(--section-color);
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+}
+.setting .language .select.active {
+  opacity: 1;
+  z-index: 1;
+}
+.setting .language .select p {
+  border-top: var(--body-color) 1px solid;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0;
+}
+.setting .language .select p:hover {
+  background-color: var(--border-color);
+}
+.setting .mode div {
+  width: 50px;
+  height: 20px;
+  border: 2px solid var(--section-color);
+  background-color: var(--body-color);
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.setting .mode div::before {
+  content: "\f185";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  top: 50%;
+  background-color: var(--border-color);
+  left: 5px;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  color: var(--font-color);
+}
+.setting .mode div.dark::before {
+  left: 60%;
+  content: "\f186";
+}
