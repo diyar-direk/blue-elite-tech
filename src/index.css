@@ -56,18 +56,64 @@ h1 > span.inside-span {
 }
 body {
   --font-color: black;
-  --body-color: #eee;
+  --body-color: #fff;
   --main-color: #07c1eb;
   --border-color: #83838340;
-  --hover-color: #105867;
+  --hover-color: #14768b;
   --section-color: #ddd;
+  background-color: var(--body-color);
 }
 body.dark {
   --font-color: white;
-  --body-color: #181e2c;
-  --section-color: #212737;
+  --body-color: #181b20;
+  --section-color: #22252c;
   --border-color: #4c4c4c;
 }
 .flex-direction {
   flex-direction: column;
+}
+h1.title {
+  -webkit-text-fill-color: var(--body-color);
+  -webkit-text-stroke: 1px var(--main-color);
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  letter-spacing: 1px;
+  font-size: 40px;
+}
+h1.title::before {
+  content: attr(data-fill);
+  position: absolute;
+  left: 0;
+  width: 0;
+  top: 0px;
+  -webkit-text-fill-color: var(--main-color);
+  transition: 1s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+h1.title:hover::before {
+  width: 100%;
+}
+.section-color h1.title {
+  -webkit-text-fill-color: var(--section-color);
+}
+.btn {
+  padding: 10px;
+  width: fit-content;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  border: solid 1px var(--main-color);
+  color: var(--main-color);
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+.btn:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.body-color {
+  background-color: var(--body-color);
 }

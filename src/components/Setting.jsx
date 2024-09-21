@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./setting.css";
+import { Context } from "../context/Context";
 
 const Setting = () => {
+  const context = useContext(Context);
+
   function darkMode(e) {
     e.target.classList.toggle("dark");
-    document.body.classList.toggle("dark");
+    e.target.classList.contains("dark")
+      ? context.setTheme(1)
+      : context.setTheme(0);
   }
   function openLangDiv(e) {
     document

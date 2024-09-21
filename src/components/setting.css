@@ -1,7 +1,7 @@
 .setting p {
   font-size: 13px;
   margin-bottom: 5px;
-  color: var(--font-color);
+  color: white;
   text-transform: capitalize;
 }
 .setting .language .center {
@@ -12,14 +12,14 @@
 .setting .language .center i {
   font-size: 12px;
   pointer-events: none;
-  color: var(--font-color);
+  color: white;
 }
 .setting .language .center span {
   margin: 0 5px;
   pointer-events: none;
   text-transform: capitalize;
   font-size: 15px;
-  color: var(--font-color);
+  color: white;
 }
 .setting .language .select {
   position: absolute;
@@ -47,11 +47,14 @@
 .setting .mode div {
   width: 50px;
   height: 20px;
-  border: 2px solid var(--section-color);
-  background-color: var(--body-color);
+  border: 2px solid #505051;
+  background-color: #312d2d;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
+}
+.setting .mode div.dark {
+  background-color: #1a1d24ad;
 }
 .setting .mode div::before {
   content: "\f185";
@@ -61,7 +64,7 @@
   border-radius: 50%;
   transform: translateY(-50%);
   top: 50%;
-  background-color: var(--border-color);
+  background-color: #858586;
   left: 5px;
   transition: 0.4s;
   display: flex;
@@ -70,7 +73,7 @@
   font-size: 8px;
   font-weight: 400;
   font-family: "Font Awesome 6 Free";
-  color: var(--font-color);
+  color: white;
 }
 .setting .mode div.dark::before {
   left: 60%;
