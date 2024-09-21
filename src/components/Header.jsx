@@ -8,11 +8,30 @@ const Header = () => {
   function OpenAsid(e) {
     e.stopPropagation();
     document.querySelector(".aside-overlay").classList.toggle("open");
-    document.querySelector("header").classList.add("active");
+    if (document.querySelector(".aside-overlay").classList.contains("open"))
+      document.querySelector("header").classList.add("active");
+    else {
+      const main = document.querySelector("main.landing");
+      if (main) {
+        if (window.scrollY >= main.clientHeight / 2 - 150) {
+          document.querySelector("header").classList.remove("active");
+        }
+      }
+    }
   }
   window.addEventListener("click", (e) => {
     const overlay = document.querySelector(".aside-overlay.open");
     overlay && overlay.classList.remove("open");
+  });
+  window.addEventListener("scroll", () => {
+    const main = document.querySelector("main.landing");
+    const header = document.querySelector("header");
+
+    if (main) {
+      if (window.scrollY >= main.clientHeight / 2 - 150)
+        header.classList.add("active");
+      else header.classList.remove("active");
+    }
   });
   return (
     <>

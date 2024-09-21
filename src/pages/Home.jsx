@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./home.css";
-import img from "./landing3.png";
+import Svg from "../components/Svg";
 import { Context } from "../context/Context";
 import { Link } from "react-router-dom";
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
               </p>
             </div>
             <div className="center">
-              <img src={img} alt="" />
+              <Svg />
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@ const Home = () => {
         style={{ transform: "translateY(-10px)" }}
       >
         <div className="container flex about-company">
-          <div className="">
+          <div>
             <h1 data-fill="About The Company" className="title">
               About The Company
             </h1>
@@ -97,9 +97,11 @@ const Home = () => {
       </main>
       <main className="center section-color home-services">
         <div className="container">
-          <h1 data-fill="Services we provide" className="title">
-            Services we provide
-          </h1>
+          <div className="title">
+            <h1 data-fill="Services we provide" className="title section-color">
+              Services we provide
+            </h1>
+          </div>
           <div className="services">
             <article>
               <div>
@@ -139,10 +141,7 @@ const Home = () => {
               <div>
                 <i className="fa-brands fa-chrome"></i>
                 <h1>Websites</h1>
-                <p>
-                  We program all desktop applications according to the
-                  customer's needs
-                </p>
+                <p>We design, manage and fully supervise websites</p>
               </div>
               <article>
                 <div className="between">
@@ -189,7 +188,57 @@ const Home = () => {
           <Link className="btn">see all services</Link>
         </div>
       </main>
-      <main className="body-color"></main>
+      <main className="body-color center">
+        <div className="container">
+          <div className="title">
+            <h1 className="title body-color" data-fill="our projects">
+              Our Projects
+            </h1>
+          </div>
+          <div className="home-project">
+            <article>
+              <div className="overlay relative flex">
+                <img src={require("./project1.png")} alt="" />
+                <div className="center">
+                  <Link>
+                    see live preview <i className="fa-solid fa-eye"></i>
+                  </Link>
+                </div>
+              </div>
+              <div className="info">
+                <h1>dashboard</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                  consectetur iste voluptatum, vitae mollitia incidunt quasi quo
+                  quod explicabo sed quaerat quae cum temporibus saepe! Eveniet
+                  odit mollitia eaque repellat!
+                </p>
+                <Link> Live preview</Link>
+              </div>
+            </article>
+            <article>
+              <div className="overlay relative flex">
+                <img src={require("./project2.png")} alt="" />
+                <div className="center">
+                  <Link>
+                    see live preview <i className="fa-solid fa-eye"></i>
+                  </Link>
+                </div>
+              </div>
+              <div className="info">
+                <h1>dashboard</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                  consectetur iste voluptatum, vitae mollitia incidunt quasi quo
+                  quod explicabo sed quaerat quae cum temporibus saepe! Eveniet
+                  odit mollitia eaque repellat!
+                </p>
+                <Link> Live preview</Link>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
     </>
   );
 };

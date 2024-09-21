@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useState } from "react";
 export const Context = createContext({});
 const PageContext = ({ children }) => {
   const [theme, setTheme] = useState(+localStorage.getItem("theme") || 0);
-  console.log(theme ? 1 : 0);
 
   useEffect(() => {
     darkMode();

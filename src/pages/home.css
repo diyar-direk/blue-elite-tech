@@ -24,7 +24,7 @@ main.landing {
 .landing > .container > .flex > div h1 {
   text-transform: capitalize;
 }
-.landing > .container > .flex > div > img {
+.landing > .container > .flex > div > .landing-svg {
   max-width: 400px;
   transform: translateY(0);
   animation: 2s linear infinite alternate img;
@@ -113,6 +113,32 @@ main:not(.landing) {
   text-align: center;
   box-shadow: 0 0 20px #bfbfbf;
   overflow: hidden;
+  position: relative;
+}
+.home-services .services > article:hover {
+  transform: translateY(-10px);
+}
+.home-services .services > article::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: 0.4s;
+}
+.home-services .services > article::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+  top: 0;
+  transition: 0.4s;
+  right: 50%;
+}
+.home-services .services > article:hover::before,
+.home-services .services > article:hover::after {
+  width: 50%;
 }
 body.dark .home-services .services > article {
   box-shadow: 0 0 20px #19191d;
@@ -136,6 +162,9 @@ body.dark .home-services .services > article {
   color: var(--font-color);
   max-width: 90%;
   margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .home-services .services > article > article {
   background-color: #f3f3f3;
@@ -179,6 +208,52 @@ body.dark .home-services .services > article > article a.started::before {
 .home-services .btn {
   margin: 20px auto;
   display: block;
+}
+/* services end  */
+
+.home-project {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.home-project > article {
+  border-radius: 6px;
+  overflow: hidden;
+  border: solid 1px var(--border-color);
+  background-color: var(--section-color);
+}
+
+.home-project > article > .overlay > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #0000004b;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  z-index: -1;
+}
+.home-project > article > .overlay > div a {
+  color: white;
+  background: #00000012;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+.home-project > article > .overlay > div a:hover {
+  background: #00000024;
+}
+.home-project > article > .overlay:hover > div {
+  opacity: 1;
+  z-index: 1;
+}
+.home-project > article > .info {
+  padding: 10px 20px;
+  color: var(--font-color);
 }
 @keyframes writer {
   0%,

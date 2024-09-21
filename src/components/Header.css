@@ -6,7 +6,7 @@ header {
   z-index: 1;
 }
 header.active {
-  background: #00000017;
+  background: #00000059;
   backdrop-filter: blur(2px);
 }
 header > .container {
@@ -115,7 +115,7 @@ aside.header-aside > div.flex:first-of-type i {
   font-size: 21px;
   color: white;
 }
-aside.header-aside > div.flex:first-of-type i:hover{
+aside.header-aside > div.flex:first-of-type i:hover {
   color: #c90606;
 }
 aside.header-aside > a {
