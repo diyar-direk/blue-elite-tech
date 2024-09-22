@@ -35,10 +35,12 @@ main.landing::before {
 }
 .landing > .container > div h1 {
   text-transform: capitalize;
+  font-size: 38px;
 }
 .landing > .container > div p {
   width: 80%;
   line-height: 2;
+  font-size: 20px;
 }
 .landing > .container > div > div {
   gap: 20px;

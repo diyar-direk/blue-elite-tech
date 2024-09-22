@@ -65,8 +65,11 @@ footer .copyright {
   padding-top: 10px;
   color: #ddd;
 }
-footer .setting .language .center {
-  margin-top: 10px;
+footer .setting .language .select {
+  top: -125px;
+}
+footer .setting .language .select p {
+  color: white;
 }
 footer .setting .language .center i {
   color: #777;

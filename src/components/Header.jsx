@@ -13,7 +13,7 @@ const Header = () => {
     else {
       const main = document.querySelector("main.landing");
       if (main) {
-        if (window.scrollY >= main.clientHeight / 2 - 150) {
+        if (window.scrollY <= main.clientHeight / 2 - 150) {
           document.querySelector("header").classList.remove("active");
         }
       }
@@ -73,6 +73,9 @@ const Header = () => {
           <NavLink to="/academy">
             <i className="fa-solid fa-graduation-cap"></i>academy
           </NavLink>
+          <NavLink to="/academy">
+            <i className="fa-solid fa-diagram-project"></i>our project
+          </NavLink>
           <NavLink to="/contact">
             <i className="fa-solid fa-phone"></i>contact us
           </NavLink>
@@ -83,7 +86,7 @@ const Header = () => {
             <i className="fa-solid fa-circle-exclamation"></i> about us
           </NavLink>
           <div className="aside-setting">
-            <Setting mode={true} title={true} />
+            <Setting mode={true} title={true} position="navbar" />
           </div>
         </aside>
       </div>

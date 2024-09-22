@@ -54,8 +54,10 @@ const Home = () => {
               suscipit?
             </p>
             <div className="flex">
-              <Link className="btn2">get started</Link>
-              <Link className="btn">join us</Link>
+              <Link className="btn2">
+                contact us <i className="fa-solid fa-phone"></i>
+              </Link>
+              <Link className="btn">join usgi</Link>
             </div>
           </div>
         </div>

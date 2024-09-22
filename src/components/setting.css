@@ -23,9 +23,9 @@
 }
 .setting .language .select {
   position: absolute;
-  top: -55px;
+  top: -100px;
   width: 130px;
-  background: var(--section-color);
+  background-color: #22252c;
   left: 0;
   z-index: -1;
   opacity: 0;
@@ -35,11 +35,13 @@
   z-index: 1;
 }
 .setting .language .select p {
-  border-top: var(--body-color) 1px solid;
   padding: 8px 10px;
   cursor: pointer;
   font-weight: bold;
   margin: 0;
+}
+.setting .language .select p:not(:first-of-type) {
+  border-top: solid 1px #424347;
 }
 .setting .language .select p:hover {
   background-color: var(--border-color);

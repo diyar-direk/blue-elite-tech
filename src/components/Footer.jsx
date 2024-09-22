@@ -43,7 +43,7 @@ const Footer = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Consequuntur, omnis?
             </p>
-            <Setting />
+            <Setting position="footer" />
           </div>
           <div>
             <NavLink to="/">home</NavLink>

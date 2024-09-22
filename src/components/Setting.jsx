@@ -13,22 +13,54 @@ const Setting = (props) => {
   }
   function openLangDiv(e) {
     document
-      .querySelector("div.setting article.select")
+      .querySelector(
+        `div.setting article.select[data-position="${e.target.dataset.position}"]`
+      )
       .classList.toggle("active");
+  }
+  function selectLanguage(e) {
+    context.setSelectedLang(e.target.dataset.lang);
   }
   return (
     <div className="setting flex">
       <div className="language flex-1 relative">
         {props.title && <p>language:</p>}
-        <div className="center" onClick={openLangDiv}>
+        <div
+          data-position={props.position}
+          className="center"
+          onClick={openLangDiv}
+        >
           <i className="fa-solid fa-globe"></i>
           <span>english</span>
           <i className="fa-solid fa-chevron-down"></i>
         </div>
 
-        <article className="select">
-          <p>عربي</p>
-          <p>English</p>
+        <article data-position={props.position} className="select">
+          <p
+            onClick={selectLanguage}
+            data-lang="arabic"
+            className={context.selectedLang === "arabic" ? "active" : undefined}
+          >
+            عربي
+          </p>
+          <p
+            onClick={selectLanguage}
+            data-lang="kurdish"
+            className={
+              context.selectedLang === "kurdish" ? "active" : undefined
+            }
+          >
+            kurdi
+          </p>
+          <p
+            onClick={selectLanguage}
+            className={
+              context.selectedLang === "english" ? "active" : undefined
+            }
+            data-lang="english"
+          >
+            English
+          </p>
         </article>
       </div>
       {props.mode && (
