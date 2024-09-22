@@ -1,56 +1,66 @@
-import React, { useContext, useEffect, useState } from "react";
 import "./home.css";
-import Svg from "../components/Svg";
-import { Context } from "../context/Context";
 import { Link } from "react-router-dom";
+import Svg from "../components/Svg";
+let index = 0;
+// const interval = setInterval(() => {
+//   const dataDiv = document.querySelectorAll(".about-company .slider");
+//   const dots = document.querySelectorAll(".about-company .dots span");
+//   if (dataDiv && dots) {
+//     dataDiv.forEach((e) => e.classList.remove("active"));
+//     dots.forEach((e) => e.classList.remove("active"));
+//     index = ++index % dataDiv.length;
+//     dataDiv[index].classList.add("active");
+//     dots[index].classList.add("active");
+//   }
+// }, 10000);
+
 const Home = () => {
-  const context = useContext(Context);
+  function handelSpan(e) {
+    // clearInterval(interval);
+    const dataDiv = document.querySelectorAll(".about-company .slider");
+    const dots = document.querySelectorAll(".about-company .dots span");
+    dataDiv.forEach((e) => e.classList.remove("active"));
+    dots.forEach((e) => e.classList.remove("active"));
+    index = +e.target.dataset.index;
+    dataDiv[index].classList.add("active");
+    dots[index].classList.add("active");
+    setInterval(() => {
+      if (dataDiv && dots) {
+        dataDiv.forEach((e) => e.classList.remove("active"));
+        dots.forEach((e) => e.classList.remove("active"));
+        index = ++index % dataDiv.length;
+        dataDiv[index].classList.add("active");
+        dots[index].classList.add("active");
+      }
+    }, 10000);
+  }
   return (
     <>
       <main className="landing center">
         <div className="container">
-          <div className="flex wrap">
-            <div className="center flex-direction">
-              <h1>
-                welcom to <span className="inside-span"> blue elite tech </span>
-                world
-              </h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                laudantium consectetur! Accusantium maxime, nam enim voluptatum
-                tenetur et nemo. Quibusdam deleniti voluptatum commodi, enim
-                dicta hic minima alias veritatis suscipit?
-              </p>
-            </div>
-            <div className="center">
-              <Svg />
+          <div className="center flex-direction">
+            <h1>
+              welcom to <span className="inside-span"> blue elite tech </span>
+              company
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+              laudantium consectetur! Accusantium maxime, nam enim voluptatum
+              tenetur et nemo. Quibusdam deleniti voluptatum commodi, enim dicta
+              hic minima alias veritatis suscipit? Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Maxime, laudantium consectetur!
+              Accusantium maxime, nam enim voluptatum tenetur et nemo. Quibusdam
+              deleniti voluptatum commodi, enim dicta hic minima alias veritatis
+              suscipit?
+            </p>
+            <div className="flex">
+              <Link className="btn2">get started</Link>
+              <Link className="btn">join us</Link>
             </div>
           </div>
         </div>
-        {/* <div className="svg">
-          <svg
-            id="wave"
-            viewBox="0 0 1440 100"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
-                <stop stopColor="rgba(243, 106, 62, 1)" offset="0%" />
-                <stop stopColor="rgba(255, 179, 11, 1)" offset="100%" />
-              </linearGradient>
-            </defs>
-            <path
-              fill={context.theme ? "#181b20" : "#fff"}
-              d="M0,60L20,53.3C40,47,80,33,120,25C160,17,200,13,240,16.7C280,20,320,30,360,35C400,40,440,40,480,40C520,40,560,40,600,43.3C640,47,680,53,720,56.7C760,60,800,60,840,55C880,50,920,40,960,41.7C1000,43,1040,57,1080,63.3C1120,70,1160,70,1200,60C1240,50,1280,30,1320,33.3C1360,37,1400,63,1440,61.7C1480,60,1520,30,1560,28.3C1600,27,1640,53,1680,68.3C1720,83,1760,87,1800,73.3C1840,60,1880,30,1920,16.7C1960,3,2000,7,2040,10C2080,13,2120,17,2160,15C2200,13,2240,7,2280,11.7C2320,17,2360,33,2400,43.3C2440,53,2480,57,2520,48.3C2560,40,2600,20,2640,18.3C2680,17,2720,33,2760,43.3C2800,53,2840,57,2860,58.3L2880,60L2880,100L2860,100C2840,100,2800,100,2760,100C2720,100,2680,100,2640,100C2600,100,2560,100,2520,100C2480,100,2440,100,2400,100C2360,100,2320,100,2280,100C2240,100,2200,100,2160,100C2120,100,2080,100,2040,100C2000,100,1960,100,1920,100C1880,100,1840,100,1800,100C1760,100,1720,100,1680,100C1640,100,1600,100,1560,100C1520,100,1480,100,1440,100C1400,100,1360,100,1320,100C1280,100,1240,100,1200,100C1160,100,1120,100,1080,100C1040,100,1000,100,960,100C920,100,880,100,840,100C800,100,760,100,720,100C680,100,640,100,600,100C560,100,520,100,480,100C440,100,400,100,360,100C320,100,280,100,240,100C200,100,160,100,120,100C80,100,40,100,20,100L0,100Z"
-            ></path>
-          </svg>
-        </div> */}
       </main>
-      <main
-        className="center body-color"
-        style={{ transform: "translateY(-10px)" }}
-      >
+      <main className="center body-color">
         <div className="container flex about-company">
           <div>
             <h1 data-fill="About The Company" className="title">
@@ -63,10 +73,17 @@ const Home = () => {
                   we are <span>lorem ipsum</span>
                 </h2>
                 <h3>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                  inventore debitis, cum non, quibusdam pariatur minus omnis vel
-                  excepturi, quia eos. Eos modi earum vitae accusantium
-                  consectetur. Nobis, delectus amet?
+                  Blue Elite boasts extensive experience in software
+                  development, backed by a team of specialized experts.
+                </h3>
+              </div>
+              <div className="slider ">
+                <h2>Why Blue Elite Tech?</h2>
+                <h3>
+                  At Blue Elite, we take pride in partnering with our clients to
+                  become an integral part of their journey towards success.
+                  Contact us today to explore how we can collaborate to drive
+                  your business forward through innovative software solutions.
                 </h3>
               </div>
               <div className="slider">
@@ -85,13 +102,18 @@ const Home = () => {
               </div>
             </div>
             <div className="dots">
-              <span className="active"></span>
-              <span></span>
+              <span
+                onClick={handelSpan}
+                data-index="0"
+                className="active"
+              ></span>
+              <span onClick={handelSpan} data-index="1"></span>
+              <span onClick={handelSpan} data-index="2"></span>
             </div>
             <div className="btn">contact us</div>
           </div>
           <div className="">
-            <img src={require("./icon12.png")} alt="" />
+            <img src={require("./icon18.png")} alt="" />
           </div>
         </div>
       </main>
@@ -213,7 +235,9 @@ const Home = () => {
                   quod explicabo sed quaerat quae cum temporibus saepe! Eveniet
                   odit mollitia eaque repellat!
                 </p>
-                <Link> Live preview</Link>
+                <Link>
+                  Live preview <i className="fa-solid fa-eye"></i>
+                </Link>
               </div>
             </article>
             <article>
@@ -233,9 +257,83 @@ const Home = () => {
                   quod explicabo sed quaerat quae cum temporibus saepe! Eveniet
                   odit mollitia eaque repellat!
                 </p>
-                <Link> Live preview</Link>
+                <Link>
+                  Live preview<i className="fa-solid fa-eye"></i>
+                </Link>
               </div>
             </article>
+            <article>
+              <div className="overlay relative flex">
+                <img src={require("./project2.png")} alt="" />
+                <div className="center">
+                  <Link>
+                    see live preview <i className="fa-solid fa-eye"></i>
+                  </Link>
+                </div>
+              </div>
+              <div className="info">
+                <h1>dashboard</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+                  consectetur iste voluptatum, vitae mollitia incidunt quasi quo
+                  quod explicabo sed quaerat quae cum temporibus saepe! Eveniet
+                  odit mollitia eaque repellat!
+                </p>
+                <Link>
+                  Live preview<i className="fa-solid fa-eye"></i>
+                </Link>
+              </div>
+            </article>
+          </div>
+          <Link className="btn home-projects">see all projects </Link>
+        </div>
+      </main>
+
+      <main className="center section-color">
+        <div className="container home-academy wrap flex">
+          <div className="title">
+            <h1 className="title section-color" data-fill="academy">
+              Academy
+            </h1>
+          </div>
+          <div className="academy-services">
+            <div className="flex">
+              <img src={require("./icons8-services-64 (1).png")} alt="" />
+              <article>
+                <h1>What We Offer ?</h1>
+                <p>
+                  Covering the basics of various programming languages and
+                  tools.Real-world projects & practical exercises.
+                </p>
+              </article>
+            </div>
+            <div className="flex">
+              <img src={require("./icons8-projects-58.png")} alt="" />
+              <article>
+                <h1>Our Mission</h1>
+                <p>
+                  Our mission is to make coding education accessible and
+                  engaging, providing students with the knowledge and skills
+                  they need to thrive in the tech industry
+                </p>
+              </article>
+            </div>
+            <div className="flex">
+              <img src={require("./icons8-group-50.png")} alt="" />
+              <article>
+                <h1>Our Team</h1>
+                <p>
+                  Our instructors are industry professionals, including
+                  developers from Blue Elite Tech, who bring their real-world
+                  experience and expertise into the classroom. This ensures that
+                  our students receive top-quality education.
+                </p>
+              </article>
+            </div>
+            <Link className="btn d-block"> see more about our academy </Link>
+          </div>
+          <div className="flex svg">
+            <Svg />
           </div>
         </div>
       </main>

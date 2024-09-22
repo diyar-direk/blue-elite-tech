@@ -120,7 +120,8 @@ div.title h1.title {
 div.title h1.title::before {
   left: 15px;
 }
-.btn {
+.btn,
+.btn2 {
   padding: 10px;
   width: fit-content;
   border-radius: 6px;
@@ -130,12 +131,42 @@ div.title h1.title::before {
   color: var(--main-color);
   letter-spacing: 1px;
   text-transform: capitalize;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--main-color);
+  z-index: -1;
+  transition: 0.4s;
+  opacity: 0;
 }
 .btn:hover {
+  color: white;
+}
+.btn:hover::before {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.btn2 {
+  border: none;
   background-color: var(--main-color);
   color: white;
 }
-
+.btn2:hover {
+  background-color: var(--hover-color);
+}
 .body-color {
   background-color: var(--body-color);
+}
+.d-block {
+  display: block;
 }

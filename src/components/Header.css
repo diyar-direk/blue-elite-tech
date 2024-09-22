@@ -3,7 +3,7 @@ header {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 3;
 }
 header.active {
   background: #00000059;
@@ -86,7 +86,7 @@ header > .container > .links > a.active::before {
 }
 .aside-overlay.open {
   opacity: 1;
-  z-index: 1;
+  z-index: 3;
 }
 .aside-overlay aside.header-aside {
   right: -50%;
@@ -96,6 +96,7 @@ header > .container > .links > a.active::before {
   background: linear-gradient(132deg, #181e2c7d, transparent);
   transition: 0.6s;
   box-shadow: -11px 2px 15px 0px #0000003b;
+  z-index: 4;
 }
 .aside-overlay.open aside.header-aside {
   right: 0;
