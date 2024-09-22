@@ -70,7 +70,7 @@ const Header = () => {
           <NavLink to="/services">
             <i className="fa-solid fa-code"></i>our services
           </NavLink>
-          <NavLink to="/about">
+          <NavLink to="/academy">
             <i className="fa-solid fa-graduation-cap"></i>academy
           </NavLink>
           <NavLink to="/contact">
@@ -83,7 +83,7 @@ const Header = () => {
             <i className="fa-solid fa-circle-exclamation"></i> about us
           </NavLink>
           <div className="aside-setting">
-            <Setting />
+            <Setting mode={true} title={true} />
           </div>
         </aside>
       </div>

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./setting.css";
 import { Context } from "../context/Context";
 
-const Setting = () => {
+const Setting = (props) => {
   const context = useContext(Context);
 
   function darkMode(e) {
@@ -19,7 +19,7 @@ const Setting = () => {
   return (
     <div className="setting flex">
       <div className="language flex-1 relative">
-        <p>language:</p>
+        {props.title && <p>language:</p>}
         <div className="center" onClick={openLangDiv}>
           <i className="fa-solid fa-globe"></i>
           <span>english</span>
@@ -31,10 +31,12 @@ const Setting = () => {
           <p>English</p>
         </article>
       </div>
-      <div className="mode">
-        <p>mode:</p>
-        <div onClick={darkMode}></div>
-      </div>
+      {props.mode && (
+        <div className="mode">
+          {props.title && <p>mode:</p>}
+          <div onClick={darkMode}></div>
+        </div>
+      )}
     </div>
   );
 };

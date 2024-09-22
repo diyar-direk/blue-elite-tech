@@ -150,6 +150,7 @@ div.title h1.title::before {
 }
 .btn:hover {
   color: white;
+  border: solid 1px transparent;
 }
 .btn:hover::before {
   width: 100%;

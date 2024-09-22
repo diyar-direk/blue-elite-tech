@@ -74,7 +74,14 @@ const Home = () => {
                 </h2>
                 <h3>
                   Blue Elite boasts extensive experience in software
-                  development, backed by a team of specialized experts.
+                  development, supported by a dedicated team of specialized
+                  experts with deep industry knowledge. Our team is skilled in
+                  delivering innovative solutions across diverse platforms,
+                  ensuring cutting-edge technology and tailored strategies to
+                  meet the unique needs of each client. With a strong focus on
+                  quality, efficiency, and customer satisfaction, Blue Elite is
+                  committed to driving success through robust and scalable
+                  software development services.
                 </h3>
               </div>
               <div className="slider ">
@@ -113,7 +120,7 @@ const Home = () => {
             <div className="btn">contact us</div>
           </div>
           <div className="">
-            <img src={require("./icon18.png")} alt="" />
+            <img loading="lazy" src={require("./icon18.png")} alt="" />
           </div>
         </div>
       </main>
@@ -220,7 +227,7 @@ const Home = () => {
           <div className="home-project">
             <article>
               <div className="overlay relative flex">
-                <img src={require("./project1.png")} alt="" />
+                <img loading="lazy" src={require("./project1.png")} alt="" />
                 <div className="center">
                   <Link>
                     see live preview <i className="fa-solid fa-eye"></i>
@@ -242,7 +249,7 @@ const Home = () => {
             </article>
             <article>
               <div className="overlay relative flex">
-                <img src={require("./project2.png")} alt="" />
+                <img loading="lazy" src={require("./project2.png")} alt="" />
                 <div className="center">
                   <Link>
                     see live preview <i className="fa-solid fa-eye"></i>
@@ -264,7 +271,7 @@ const Home = () => {
             </article>
             <article>
               <div className="overlay relative flex">
-                <img src={require("./project2.png")} alt="" />
+                <img loading="lazy" src={require("./project2.png")} alt="" />
                 <div className="center">
                   <Link>
                     see live preview <i className="fa-solid fa-eye"></i>
@@ -298,7 +305,11 @@ const Home = () => {
           </div>
           <div className="academy-services">
             <div className="flex">
-              <img src={require("./icons8-services-64 (1).png")} alt="" />
+              <img
+                loading="lazy"
+                src={require("./icons8-services-64 (1).png")}
+                alt=""
+              />
               <article>
                 <h1>What We Offer ?</h1>
                 <p>
@@ -308,7 +319,11 @@ const Home = () => {
               </article>
             </div>
             <div className="flex">
-              <img src={require("./icons8-projects-58.png")} alt="" />
+              <img
+                loading="lazy"
+                src={require("./icons8-projects-58.png")}
+                alt=""
+              />
               <article>
                 <h1>Our Mission</h1>
                 <p>
@@ -319,7 +334,11 @@ const Home = () => {
               </article>
             </div>
             <div className="flex">
-              <img src={require("./icons8-group-50.png")} alt="" />
+              <img
+                loading="lazy"
+                src={require("./icons8-group-50.png")}
+                alt=""
+              />
               <article>
                 <h1>Our Team</h1>
                 <p>
