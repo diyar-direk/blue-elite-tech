@@ -13,9 +13,6 @@
   opacity: 0;
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
-.services > article:hover {
-  transform: translateY(-10px);
-}
 .services > article::before {
   content: "";
   position: absolute;
@@ -124,3 +121,10 @@ body.dark .services > article > article a.started::before {
 .services-page .services > article > article a:hover {
   background-color: var(--hover-color);
 }
+.services-animation {
+  transform: translateY(0px) !important;
+  opacity: 1 !important;
+}
+  .services > article:hover {
+    transform: translateY(-10px) !important;
+  }

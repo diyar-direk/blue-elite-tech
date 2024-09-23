@@ -326,10 +326,7 @@ a.home-projects {
   transform: translateY(0%) !important;
   transition: 0.7s linear;
 }
-.services-animation {
-  transform: translateY(0px) !important;
-  opacity: 1 !important;
-}
+
 .services-stable {
   transform: translateY(0px) !important;
   opacity: 1 !important;

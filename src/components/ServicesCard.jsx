@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 
 const ServicesCard = ({ children, className }) => {
   const { ref, inView } = useInView({
-    threshold: 0.5, // 50% of the element is visible
+    threshold: 0.1, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
   return (

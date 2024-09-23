@@ -1,7 +1,6 @@
 import "./home.css";
 import { Link } from "react-router-dom";
 import ServicesCard from "../../components/ServicesCard";
-import Svg from "./Svg";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader";
