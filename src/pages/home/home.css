@@ -63,6 +63,15 @@ main.landing::before {
   bottom: 0;
   left: 0;
 } */
+
+.animation-image {
+  animation: 1.5s linear infinite alternate img;
+}
+.animation-image svg {
+  width: 100%;
+  height: 100%;
+}
+
 main:not(.landing) {
   padding: 55px 0;
 }
@@ -122,6 +131,9 @@ main:not(.landing) {
 }
 .about-company > div img {
   max-width: 350px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: 0.7s linear;
 }
 
 /* about end  */
@@ -250,6 +262,7 @@ a.home-projects {
 }
 .home-academy .svg {
   max-width: 40%;
+  position: relative;
 }
 @keyframes writer {
   0%,
@@ -268,4 +281,33 @@ a.home-projects {
   100% {
     transform: translateY(-45px);
   }
+}
+.opavity-animation {
+  animation: 2s linear alternate opacity;
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.slide-down-animation {
+  animation: 1s linear alternate slide-down;
+}
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.slide-up-animation img {
+  opacity: 1 !important;
+  transform: translateY(0%) !important;
+  transition: 0.7s linear;
 }

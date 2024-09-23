@@ -1,7 +1,8 @@
 import "./home.css";
 import { Link } from "react-router-dom";
-import Svg from "./Svg";
 import ServicesCard from "../../components/ServicesCard";
+import Svg from "./Svg";
+import { useInView } from "react-intersection-observer";
 let index = 0;
 // const interval = setInterval(() => {
 //   const dataDiv = document.querySelectorAll(".about-company .slider");
@@ -16,6 +17,10 @@ let index = 0;
 // }, 10000);
 
 const Home = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.5, // 50% of the element is visible
+    triggerOnce: true, // Trigger only once
+  });
   function handelSpan(e) {
     // clearInterval(interval);
     const dataDiv = document.querySelectorAll(".about-company .slider");
@@ -39,7 +44,7 @@ const Home = () => {
     <>
       <main className="landing center">
         <div className="container">
-          <div className="center flex-direction">
+          <div className="center opavity-animation flex-direction">
             <h1>
               welcom to <span className="inside-span"> blue elite tech </span>
               company
@@ -122,7 +127,7 @@ const Home = () => {
             </div>
             <div className="btn">contact us</div>
           </div>
-          <div className="">
+          <div ref={ref} className={`${inView ? "slide-up-animation" : ""}`}>
             <img loading="lazy" src={require("./icon18.png")} alt="" />
           </div>
         </div>
@@ -361,7 +366,9 @@ const Home = () => {
             <Link className="btn d-block"> see more about our academy </Link>
           </div>
           <div className="flex svg">
-            <Svg />
+            <div className=" animation-image">
+              <Svg className="svg-image" />
+            </div>
           </div>
         </div>
       </main>
