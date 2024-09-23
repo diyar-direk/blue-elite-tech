@@ -1,20 +1,7 @@
 main.landing {
   height: 100vh;
   position: relative;
-  background-image: linear-gradient(
-    56deg,
-    hsl(0deg 0% 0%) 0%,
-    hsl(256deg 73% 3%) 11%,
-    hsl(257deg 72% 6%) 22%,
-    hsl(259deg 73% 9%) 33%,
-    hsl(258deg 73% 12%) 44%,
-    hsl(258deg 73% 14%) 56%,
-    hsl(258deg 73% 17%) 67%,
-    hsl(258deg 73% 20%) 78%,
-    hsl(258deg 73% 23%) 89%,
-    hsl(258deg 73% 26%) 100%
-  );
-  background: url(./bg7.jpg) bottom no-repeat;
+  background: url(./Picsart_24-09-22_09-43-21-343.jpg) bottom no-repeat;
   background-size: cover;
   z-index: 1;
 }
@@ -25,7 +12,7 @@ main.landing::before {
   left: 0;
   height: 100%;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.537);
+  /* background-color: #00000093; */
   z-index: -1;
 }
 .landing > .container > div {
