@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 import "./Header.css";
 import Setting from "./Setting";
@@ -9,33 +9,39 @@ const Header = () => {
     threshold: 0.5, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
+  const location = useLocation();
+  const [animationDone, setAnimationDone] = useState(false);
 
   useEffect(() => {
-    let headerLink = document.querySelectorAll(".js-class");
-    let linkCounter = 0;
-    let headerInterval = setInterval((e) => {
-      console.log(1);
-      console.log(headerLink);
+    // Check if we are on the home page and animation hasn't run yet
 
-      if (linkCounter < headerLink.length) {
-        headerLink[linkCounter++].classList.add("slide-down-animation");
-      } else if (linkCounter >= headerLink.length) {
+    const headerLinks = document.querySelectorAll(".js-class");
+    let linkCounter = 0;
+
+    if (location.pathname !== "/") {
+      headerLinks.forEach((e, i) => {
+        e.classList.add("services-stable");
+      });
+    }
+    if (animationDone) {
+      headerLinks.forEach((e, i) => {
+        e.classList.add("services-stable");
+      });
+      return;
+      
+    }
+    const headerInterval = setInterval(() => {
+      if (linkCounter < headerLinks.length) {
+        headerLinks[linkCounter].classList.add("slide-down-animation");
+        linkCounter++;
+      } else {
         clearInterval(headerInterval);
+        setAnimationDone(true); // Mark animation as done
       }
     }, 100);
-  }, []);
-  let headerLink = document.querySelectorAll(".js-class");
-  let linkCounter = 0;
-  let headerInterval = setInterval((e) => {
-    console.log(1);
-    console.log(headerLink);
 
-    if (linkCounter < headerLink.length) {
-      headerLink[linkCounter++].classList.add("slide-down-animation");
-    } else if (linkCounter >= headerLink.length) {
-      clearInterval(headerInterval);
-    }
-  }, 100);
+    return () => clearInterval(headerInterval);
+  }, [location, animationDone]); // Dependencies include location and animationDone
 
   function OpenAsid(e) {
     e.stopPropagation();

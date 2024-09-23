@@ -14,7 +14,7 @@ main.landing {
     hsl(258deg 73% 23%) 89%,
     hsl(258deg 73% 26%) 100%
   );
-  background: url(./getty_813402032_339661.jpg) top no-repeat;
+  background: url(./bg7.jpg) bottom no-repeat;
   background-size: cover;
   z-index: 1;
 }
@@ -25,7 +25,7 @@ main.landing::before {
   left: 0;
   height: 100%;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.459);
+  background-color: rgba(0, 0, 0, 0.537);
   z-index: -1;
 }
 .landing > .container > div {
@@ -36,6 +36,8 @@ main.landing::before {
 .landing > .container > div h1 {
   text-transform: capitalize;
   font-size: 38px;
+  font-family: "Oxanium", sans-serif;
+  font-style: normal;
 }
 .landing > .container > div p {
   width: 80%;
@@ -138,7 +140,6 @@ main:not(.landing) {
 
 /* about end  */
 
-
 .home-services .btn {
   margin: 20px auto;
   display: block;
@@ -157,6 +158,11 @@ main:not(.landing) {
   overflow: hidden;
   border: solid 1px var(--border-color);
   background-color: var(--section-color);
+  opacity: 0;
+  transition: 1s linear;
+}
+.home-project .project-animation {
+  opacity: 1;
 }
 
 .home-project > article > .overlay > div {
@@ -228,6 +234,11 @@ a.home-projects {
   padding-right: 25px;
   overflow: hidden;
   background-color: var(--body-color);
+  transform: translateX(-122%);
+  transition: 0.7s linear;
+}
+.home-academy .academy-services > div.active-academy {
+  transform: translateX(0px);
 }
 .home-academy .academy-services > div:hover {
   border: solid 2px var(--body-color);
@@ -263,7 +274,13 @@ a.home-projects {
 .home-academy .svg {
   max-width: 40%;
   position: relative;
+  transform: translateX(127%);
+  transition: 1s linear;
 }
+.home-academy .svg-active {
+  transform: translateX(0px);
+}
+
 @keyframes writer {
   0%,
   100% {
@@ -293,21 +310,27 @@ a.home-projects {
     opacity: 1;
   }
 }
+.js-class {
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: 0.5s linear;
+}
 .slide-down-animation {
-  animation: 1s linear alternate slide-down;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.5s linear;
 }
-@keyframes slide-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
+
 .slide-up-animation img {
   opacity: 1 !important;
   transform: translateY(0%) !important;
   transition: 0.7s linear;
+}
+.services-animation {
+  transform: translateY(0px) !important;
+  opacity: 1 !important;
+}
+.services-stable {
+  transform: translateY(0px) !important;
+  opacity: 1 !important;
 }

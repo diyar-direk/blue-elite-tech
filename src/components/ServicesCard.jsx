@@ -1,8 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./services.css";
+import { useInView } from "react-intersection-observer";
+
 const ServicesCard = ({ children, className }) => {
-  return <article className={className}>{children}</article>;
+  const { ref, inView } = useInView({
+    threshold: 0.5, // 50% of the element is visible
+    triggerOnce: true, // Trigger only once
+  });
+  return (
+    <article
+      ref={ref}
+      className={`${inView && "services-animation"} ${
+        className ? className : ""
+      }`}
+    >
+      {children}
+    </article>
+  );
 };
 
 ServicesCard.Body = ({ children }) => {
