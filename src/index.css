@@ -14,6 +14,9 @@ img {
 main {
   min-height: 60vh;
 }
+main.sub-page {
+  margin-top: 60px;
+}
 .flex {
   display: flex;
 }
@@ -84,6 +87,8 @@ h1.title {
   letter-spacing: 1px;
   font-size: 40px;
   text-transform: capitalize;
+  text-shadow: 0px 0px 20px #07c1eb52;
+  font-weight: 500;
 }
 h1.title::before {
   content: attr(data-fill);
@@ -107,6 +112,7 @@ div.title {
   display: flex;
   justify-content: center;
   position: relative;
+  margin-bottom: 40px;
 }
 div.title::before {
   content: "";
@@ -171,6 +177,12 @@ div.title h1.title::before {
 }
 .d-block {
   display: block;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
+  gap: 30px;
+  margin-top: 80px;
 }
 .grid-3 {
   display: grid;

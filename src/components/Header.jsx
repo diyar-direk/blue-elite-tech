@@ -79,7 +79,7 @@ const Header = () => {
             <NavLink className="js-class " to="/services">
               our services
             </NavLink>
-            <NavLink className="js-class " to="/about">
+            <NavLink className="js-class " to="/academy">
               academy
             </NavLink>
             <NavLink className="js-class " to="/contact">

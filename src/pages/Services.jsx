@@ -3,7 +3,7 @@ import ServicesCard from "../components/ServicesCard";
 
 const Services = () => {
   return (
-    <main className="center section-color">
+    <main className="center sub-page section-color services-page">
       <div className="container">
         <div className="title">
           <h1 className="title section-color" data-fill="our services ">
@@ -30,8 +30,7 @@ const Services = () => {
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink className="started" />
-              <ServicesCard.Bottom.Details />
+              <ServicesCard.Bottom.StartedLink />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -47,8 +46,7 @@ const Services = () => {
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink className="started" />
-              <ServicesCard.Bottom.Details />
+              <ServicesCard.Bottom.StartedLink />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -63,8 +61,7 @@ const Services = () => {
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink className="started" />
-              <ServicesCard.Bottom.Details />
+              <ServicesCard.Bottom.StartedLink />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -82,8 +79,7 @@ const Services = () => {
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink className="started" />
-              <ServicesCard.Bottom.Details />
+              <ServicesCard.Bottom.StartedLink />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -99,8 +95,53 @@ const Services = () => {
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink className="started" />
-              <ServicesCard.Bottom.Details />
+              <ServicesCard.Bottom.StartedLink />
+            </ServicesCard.Bottom>
+          </ServicesCard>
+
+          <ServicesCard>
+            <ServicesCard.Body>
+              <ServicesCard.Body.Icon>
+                <i className="fa-solid fa-list-check"></i>
+              </ServicesCard.Body.Icon>
+              <ServicesCard.Body.Title>Qualifying</ServicesCard.Body.Title>
+              <ServicesCard.Body.Paragraph>
+                Providing technical consultations and protection in the areas of
+                developing
+              </ServicesCard.Body.Paragraph>
+            </ServicesCard.Body>
+            <ServicesCard.Bottom>
+              <ServicesCard.Bottom.StartedLink />
+            </ServicesCard.Bottom>
+          </ServicesCard>
+
+          <ServicesCard>
+            <ServicesCard.Body>
+              <ServicesCard.Body.Icon>
+                <i className="fa-solid fa-camera-retro"></i>
+              </ServicesCard.Body.Icon>
+              <ServicesCard.Body.Title>Camera System</ServicesCard.Body.Title>
+              <ServicesCard.Body.Paragraph>
+                Installing protection networks with surveillance cameras
+              </ServicesCard.Body.Paragraph>
+            </ServicesCard.Body>
+            <ServicesCard.Bottom>
+              <ServicesCard.Bottom.StartedLink />
+            </ServicesCard.Bottom>
+          </ServicesCard>
+
+          <ServicesCard>
+            <ServicesCard.Body>
+              <ServicesCard.Body.Icon>
+                <i className="fa-solid fa-lightbulb"></i>
+              </ServicesCard.Body.Icon>
+              <ServicesCard.Body.Title>Warning System</ServicesCard.Body.Title>
+              <ServicesCard.Body.Paragraph>
+                Establishing early warning systems and sensors upon request
+              </ServicesCard.Body.Paragraph>
+            </ServicesCard.Body>
+            <ServicesCard.Bottom>
+              <ServicesCard.Bottom.StartedLink />
             </ServicesCard.Bottom>
           </ServicesCard>
         </div>
