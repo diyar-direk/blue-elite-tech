@@ -57,7 +57,7 @@ const Home = () => {
               <Link className="btn2">
                 contact us <i className="fa-solid fa-phone"></i>
               </Link>
-              <Link className="btn">join usgi</Link>
+              <Link className="btn">join us</Link>
             </div>
           </div>
         </div>
