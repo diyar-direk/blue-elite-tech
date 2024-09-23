@@ -47,7 +47,7 @@
   background-color: var(--border-color);
 }
 .setting .mode div {
-  width: 50px;
+  width: 35px;
   height: 20px;
   border: 2px solid #505051;
   background-color: #312d2d;
@@ -67,7 +67,7 @@
   transform: translateY(-50%);
   top: 50%;
   background-color: #858586;
-  left: 5px;
+  left: 2px;
   transition: 0.4s;
   display: flex;
   align-items: center;

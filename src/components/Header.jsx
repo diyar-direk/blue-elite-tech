@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import "./Header.css";
 import Setting from "./Setting";
-
+import { useInView } from "react-intersection-observer";
 const Header = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.5, // 50% of the element is visible
+    triggerOnce: true, // Trigger only once
+  });
+
+  useEffect(() => {
+    let headerLink = document.querySelectorAll(".js-class");
+    let linkCounter = 0;
+    let headerInterval = setInterval((e) => {
+      console.log(1);
+      console.log(headerLink);
+
+      if (linkCounter < headerLink.length) {
+        headerLink[linkCounter++].classList.add("slide-down-animation");
+      } else if (linkCounter >= headerLink.length) {
+        clearInterval(headerInterval);
+      }
+    }, 100);
+  }, []);
+  let headerLink = document.querySelectorAll(".js-class");
+  let linkCounter = 0;
+  let headerInterval = setInterval((e) => {
+    console.log(1);
+    console.log(headerLink);
+
+    if (linkCounter < headerLink.length) {
+      headerLink[linkCounter++].classList.add("slide-down-animation");
+    } else if (linkCounter >= headerLink.length) {
+      clearInterval(headerInterval);
+    }
+  }, 100);
+
   function OpenAsid(e) {
     e.stopPropagation();
     document.querySelector(".aside-overlay").classList.toggle("open");
@@ -41,12 +73,23 @@ const Header = () => {
             <Logo show={true} />
           </div>
           <div className="links flex-1">
-            <NavLink to="/">home</NavLink>
-            <NavLink to="/services">our services</NavLink>
-            <NavLink to="/about">academy</NavLink>
-            <NavLink to="/contact">contact us</NavLink>
+            <NavLink className="js-class " to="/">
+              home
+            </NavLink>
+            <NavLink className="js-class " to="/services">
+              our services
+            </NavLink>
+            <NavLink className="js-class " to="/about">
+              academy
+            </NavLink>
+            <NavLink className="js-class " to="/contact">
+              contact us
+            </NavLink>
 
-            <i className="fa-solid fa-bars-staggered" onClick={OpenAsid}></i>
+            <i
+              className="fa-solid js-class fa-bars-staggered"
+              onClick={OpenAsid}
+            ></i>
           </div>
         </div>
       </header>
