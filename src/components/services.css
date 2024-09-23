@@ -1,102 +1,105 @@
 .services {
-    margin-top: 30px;
-    align-items: baseline;
-  }
-  .services > article {
-    background: var(--body-color);
-    border-radius: 6px;
-    text-align: center;
-    box-shadow: 0 0 20px #bfbfbf;
-    overflow: hidden;
-    position: relative;
-  }
-  .services > article:hover {
-    transform: translateY(-10px);
-  }
-  .services > article::before {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background-color: var(--main-color);
-    transition: 0.4s;
-  }
-  .services > article::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background-color: var(--main-color);
-    top: 0;
-    transition: 0.4s;
-    right: 50%;
-  }
-  .services > article:hover::before,
-  .services > article:hover::after {
-    width: 50%;
-  }
-  body.dark .services > article {
-    box-shadow: 0 0 20px #19191d;
-  }
-  .services > article i {
-    font-size: 30px;
-    color: #777;
-    margin-top: 10px;
-  }
-  .services > article > div {
-    padding: 20px 15px;
-  }
-  .services > article > div > div {
-    padding: 0 10px;
-  }
-  .services > article h1 {
-    color: var(--font-color);
-    text-transform: capitalize;
-  }
-  .services > article p {
-    color: var(--font-color);
-    max-width: 90%;
-    margin: 0 auto;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .services > article > article {
-    background-color: #f3f3f3;
-  }
-  body.dark .services > article > article {
-    background-color: #1a1f27;
-  }
-  .services > article > article a.started {
-    padding: 8px;
-    background: var(--main-color);
-    color: white;
-    width: 120px;
-    position: relative;
-    text-transform: capitalize;
-    text-align: left;
-  }
-  .services > article > article a.started:hover {
-    background-color: var(--hover-color);
-  }
-  .services > article > article a.started::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 25px;
-    background-color: #dedede;
-    top: 0;
-    font-weight: 400;
-    right: -12px;
-    transform: skewX(-24deg);
-  }
-  body.dark .services > article > article a.started::before {
-    background-color: #343434;
-  }
-  .services > article > article a:last-of-type {
-    margin-right: 15px;
-    color: var(--font-color);
-  }
-  .services > article > article a:last-of-type:hover {
-    color: var(--main-color);
-  }
+  margin-top: 30px;
+  align-items: baseline;
+}
+.services > article {
+  background: var(--body-color);
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 0 20px #bfbfbf;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.services > article:hover {
+  transform: translateY(-10px);
+}
+.services > article::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: 0.4s;
+}
+.services > article::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+  top: 0;
+  transition: 0.4s;
+  right: 50%;
+}
+.services > article:hover::before,
+.services > article:hover::after {
+  width: 50%;
+}
+body.dark .services > article {
+  box-shadow: 0 0 20px #19191d;
+}
+.services > article i {
+  font-size: 30px;
+  color: #777;
+  margin-top: 10px;
+}
+.services > article > div {
+  padding: 20px 15px;
+}
+.services > article > div > div {
+  padding: 0 10px;
+}
+.services > article h1 {
+  color: var(--font-color);
+  text-transform: capitalize;
+}
+.services > article p {
+  color: var(--font-color);
+  max-width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.services > article > article {
+  background-color: #f3f3f3;
+}
+body.dark .services > article > article {
+  background-color: #1a1f27;
+}
+.services > article > article a.started {
+  padding: 8px;
+  background: var(--main-color);
+  color: white;
+  width: 120px;
+  position: relative;
+  text-transform: capitalize;
+  text-align: left;
+}
+.services > article > article a.started:hover {
+  background-color: var(--hover-color);
+}
+.services > article > article a.started::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 25px;
+  background-color: #dedede;
+  top: 0;
+  font-weight: 400;
+  right: -12px;
+  transform: skewX(-24deg);
+}
+body.dark .services > article > article a.started::before {
+  background-color: #343434;
+}
+.services > article > article a:last-of-type {
+  margin-right: 15px;
+  color: var(--font-color);
+}
+.services > article > article a:last-of-type:hover {
+  color: var(--main-color);
+}

@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import ServicesCard from "../../components/ServicesCard";
 import Svg from "./Svg";
 import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
+import Loader from "../../components/Loader";
+import ProjectsComponent from "../../components/ProjectsComponent";
+import AcademyComponent from "../../components/AcademyComponent";
 let index = 0;
 // const interval = setInterval(() => {
 //   const dataDiv = document.querySelectorAll(".about-company .slider");
@@ -17,6 +21,7 @@ let index = 0;
 // }, 10000);
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
   const { ref, inView } = useInView({
     threshold: 0.5, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
@@ -40,25 +45,48 @@ const Home = () => {
       }
     }, 10000);
   }
+
+  //this might be a problem
+  useEffect(() => {
+    const imgElements = document.querySelectorAll("img");
+    let loadedImages = 0;
+
+    const handleImageLoad = () => {
+      loadedImages += 1;
+      if (loadedImages === imgElements.length) {
+        setLoading(false);
+      }
+    };
+
+    imgElements.forEach((img) => {
+      if (img.complete) {
+        handleImageLoad();
+      } else {
+        img.addEventListener("load", handleImageLoad);
+      }
+    });
+
+    return () => {
+      imgElements.forEach((img) => {
+        img.removeEventListener("load", handleImageLoad);
+      });
+    };
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+  //this might be a problem
   return (
     <>
       <main className="landing center">
         <div className="container">
           <div className="center opavity-animation flex-direction">
             <h1>
-              welcom to <span className="inside-span"> blue elite tech </span>
+              welcome to <span className="inside-span"> blue elite tech </span>
               company
             </h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-              laudantium consectetur! Accusantium maxime, nam enim voluptatum
-              tenetur et nemo. Quibusdam deleniti voluptatum commodi, enim dicta
-              hic minima alias veritatis suscipit? Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Maxime, laudantium consectetur!
-              Accusantium maxime, nam enim voluptatum tenetur et nemo. Quibusdam
-              deleniti voluptatum commodi, enim dicta hic minima alias veritatis
-              suscipit?
-            </p>
+            <p>Where we turn your ideas into reality</p>
             <div className="flex">
               <Link className="btn2">
                 contact us <i className="fa-solid fa-phone"></i>
@@ -239,139 +267,15 @@ const Home = () => {
             </h1>
           </div>
           <div className="home-project">
-            <article>
-              <div className="overlay relative flex">
-                <img loading="lazy" src={require("./project1.png")} alt="" />
-                <div className="center">
-                  <Link>
-                    see live preview <i className="fa-solid fa-eye"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="info">
-                <h1>dashboard</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                  consectetur iste voluptatum, vitae mollitia incidunt quasi quo
-                  quod explicabo sed quaerat quae cum temporibus saepe! Eveniet
-                  odit mollitia eaque repellat!
-                </p>
-                <Link>
-                  Live preview <i className="fa-solid fa-eye"></i>
-                </Link>
-              </div>
-            </article>
-            <article>
-              <div className="overlay relative flex">
-                <img loading="lazy" src={require("./project2.png")} alt="" />
-                <div className="center">
-                  <Link>
-                    see live preview <i className="fa-solid fa-eye"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="info">
-                <h1>dashboard</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                  consectetur iste voluptatum, vitae mollitia incidunt quasi quo
-                  quod explicabo sed quaerat quae cum temporibus saepe! Eveniet
-                  odit mollitia eaque repellat!
-                </p>
-                <Link>
-                  Live preview<i className="fa-solid fa-eye"></i>
-                </Link>
-              </div>
-            </article>
-            <article>
-              <div className="overlay relative flex">
-                <img loading="lazy" src={require("./project2.png")} alt="" />
-                <div className="center">
-                  <Link>
-                    see live preview <i className="fa-solid fa-eye"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="info">
-                <h1>dashboard</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                  consectetur iste voluptatum, vitae mollitia incidunt quasi quo
-                  quod explicabo sed quaerat quae cum temporibus saepe! Eveniet
-                  odit mollitia eaque repellat!
-                </p>
-                <Link>
-                  Live preview<i className="fa-solid fa-eye"></i>
-                </Link>
-              </div>
-            </article>
+            <ProjectsComponent />
+            <ProjectsComponent />
+            <ProjectsComponent />
           </div>
+
           <Link className="btn home-projects">see all projects </Link>
         </div>
       </main>
-
-      <main className="center section-color">
-        <div className="container home-academy wrap flex">
-          <div className="title">
-            <h1 className="title section-color" data-fill="academy">
-              Academy
-            </h1>
-          </div>
-          <div className="academy-services">
-            <div className="flex">
-              <img
-                loading="lazy"
-                src={require("./icons8-services-64 (1).png")}
-                alt=""
-              />
-              <article>
-                <h1>What We Offer ?</h1>
-                <p>
-                  Covering the basics of various programming languages and
-                  tools.Real-world projects & practical exercises.
-                </p>
-              </article>
-            </div>
-            <div className="flex">
-              <img
-                loading="lazy"
-                src={require("./icons8-projects-58.png")}
-                alt=""
-              />
-              <article>
-                <h1>Our Mission</h1>
-                <p>
-                  Our mission is to make coding education accessible and
-                  engaging, providing students with the knowledge and skills
-                  they need to thrive in the tech industry
-                </p>
-              </article>
-            </div>
-            <div className="flex">
-              <img
-                loading="lazy"
-                src={require("./icons8-group-50.png")}
-                alt=""
-              />
-              <article>
-                <h1>Our Team</h1>
-                <p>
-                  Our instructors are industry professionals, including
-                  developers from Blue Elite Tech, who bring their real-world
-                  experience and expertise into the classroom. This ensures that
-                  our students receive top-quality education.
-                </p>
-              </article>
-            </div>
-            <Link className="btn d-block"> see more about our academy </Link>
-          </div>
-          <div className="flex svg">
-            <div className=" animation-image">
-              <Svg className="svg-image" />
-            </div>
-          </div>
-        </div>
-      </main>
+      <AcademyComponent />
     </>
   );
 };
