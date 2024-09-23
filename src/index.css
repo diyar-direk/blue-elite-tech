@@ -11,6 +11,9 @@ a {
 img {
   max-width: 100%;
 }
+main {
+  min-height: 60vh;
+}
 .flex {
   display: flex;
 }
@@ -168,4 +171,9 @@ div.title h1.title::before {
 }
 .d-block {
   display: block;
+}
+.grid-3 {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
 }

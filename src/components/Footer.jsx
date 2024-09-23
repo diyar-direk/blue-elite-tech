@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer center">
       <div className="container">
-        <div className="flex-3">
+        <div className="grid-3">
           <div>
             <h1>blue elite tech</h1>
             <div className="flex icon">

@@ -1,6 +1,7 @@
 import "./home.css";
 import { Link } from "react-router-dom";
-import Svg from "../components/Svg";
+import Svg from "./Svg";
+import ServicesCard from "../../components/ServicesCard";
 let index = 0;
 // const interval = setInterval(() => {
 //   const dataDiv = document.querySelectorAll(".about-company .slider");
@@ -133,88 +134,94 @@ const Home = () => {
               Services we provide
             </h1>
           </div>
-          <div className="services">
-            <article>
-              <div>
-                <i className="fa-solid fa-laptop-code"></i>
-                <h1>Desktop Apps</h1>
-                <p>
+          <div className="services grid-3">
+            <ServicesCard>
+              <ServicesCard.Body>
+                <ServicesCard.Body.Icon>
+                  <i className="fa-solid fa-laptop-code"></i>
+                </ServicesCard.Body.Icon>
+                <ServicesCard.Body.Title> Desktop Apps</ServicesCard.Body.Title>
+                <ServicesCard.Body.Paragraph>
                   We program all desktop applications according to the
                   customer's needs
-                </p>
-              </div>
-              <article>
-                <div className="between">
-                  <Link className="started">get started</Link>
-                  <Link>Details</Link>
-                </div>
-              </article>
-            </article>
+                </ServicesCard.Body.Paragraph>
+              </ServicesCard.Body>
+              <ServicesCard.Bottom>
+                <ServicesCard.Bottom.StartedLink className="started" />
+                <ServicesCard.Bottom.Details />
+              </ServicesCard.Bottom>
+            </ServicesCard>
 
-            <article>
-              <div>
-                <i className="fa-solid fa-mobile-screen-button"></i>
-                <h1>mobile Apps</h1>
-                <p>
+            <ServicesCard>
+              <ServicesCard.Body>
+                <ServicesCard.Body.Icon>
+                  <i className="fa-solid fa-mobile-screen-button"></i>
+                </ServicesCard.Body.Icon>
+                <ServicesCard.Body.Title> mobile Apps</ServicesCard.Body.Title>
+                <ServicesCard.Body.Paragraph>
                   We program all android applications according to the
                   customer’s needs
-                </p>
-              </div>
-              <article>
-                <div className="between">
-                  <Link className="started">get started</Link>
-                  <Link>Details</Link>
-                </div>
-              </article>
-            </article>
+                </ServicesCard.Body.Paragraph>
+              </ServicesCard.Body>
+              <ServicesCard.Bottom>
+                <ServicesCard.Bottom.StartedLink className="started" />
+                <ServicesCard.Bottom.Details />
+              </ServicesCard.Bottom>
+            </ServicesCard>
 
-            <article>
-              <div>
-                <i className="fa-brands fa-chrome"></i>
-                <h1>Websites</h1>
-                <p>We design, manage and fully supervise websites</p>
-              </div>
-              <article>
-                <div className="between">
-                  <Link className="started">get started</Link>
-                  <Link>Details</Link>
-                </div>
-              </article>
-            </article>
+            <ServicesCard>
+              <ServicesCard.Body>
+                <ServicesCard.Body.Icon>
+                  <i className="fa-brands fa-chrome"></i>
+                </ServicesCard.Body.Icon>
+                <ServicesCard.Body.Title> Websites</ServicesCard.Body.Title>
+                <ServicesCard.Body.Paragraph>
+                  We design, manage and fully supervise websites
+                </ServicesCard.Body.Paragraph>
+              </ServicesCard.Body>
+              <ServicesCard.Bottom>
+                <ServicesCard.Bottom.StartedLink className="started" />
+                <ServicesCard.Bottom.Details />
+              </ServicesCard.Bottom>
+            </ServicesCard>
 
-            <article>
-              <div>
-                <i className="fa-solid fa-cloud"></i>
-                <h1>Server Management</h1>
-                <p>
+            <ServicesCard>
+              <ServicesCard.Body>
+                <ServicesCard.Body.Icon>
+                  <i className="fa-solid fa-cloud"></i>
+                </ServicesCard.Body.Icon>
+                <ServicesCard.Body.Title>
+                  Server Management
+                </ServicesCard.Body.Title>
+                <ServicesCard.Body.Paragraph>
                   We install local servers and manage them according to the
                   needs of institutions and companies
-                </p>
-              </div>
-              <article>
-                <div className="between">
-                  <Link className="started">get started</Link>
-                  <Link>Details</Link>
-                </div>
-              </article>
-            </article>
+                </ServicesCard.Body.Paragraph>
+              </ServicesCard.Body>
+              <ServicesCard.Bottom>
+                <ServicesCard.Bottom.StartedLink className="started" />
+                <ServicesCard.Bottom.Details />
+              </ServicesCard.Bottom>
+            </ServicesCard>
 
-            <article>
-              <div>
-                <i className="fa-solid fa-network-wired"></i>
-                <h1>Local Networks</h1>
-                <p>
+            <ServicesCard>
+              <ServicesCard.Body>
+                <ServicesCard.Body.Icon>
+                  <i className="fa-solid fa-network-wired"></i>
+                </ServicesCard.Body.Icon>
+                <ServicesCard.Body.Title>
+                  Local Networks
+                </ServicesCard.Body.Title>
+                <ServicesCard.Body.Paragraph>
                   We install LAN networks according to the needs of companies
                   and institutions
-                </p>
-              </div>
-              <article>
-                <div className="between">
-                  <Link className="started">get started</Link>
-                  <Link>Details</Link>
-                </div>
-              </article>
-            </article>
+                </ServicesCard.Body.Paragraph>
+              </ServicesCard.Body>
+              <ServicesCard.Bottom>
+                <ServicesCard.Bottom.StartedLink className="started" />
+                <ServicesCard.Bottom.Details />
+              </ServicesCard.Bottom>
+            </ServicesCard>
           </div>
           <Link className="btn">see all services</Link>
         </div>
