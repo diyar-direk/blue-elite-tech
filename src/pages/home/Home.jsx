@@ -267,11 +267,7 @@ const Home = () => {
               Our Projects
             </h1>
           </div>
-          <div className="home-project">
             <ProjectsComponent />
-            <ProjectsComponent />
-            <ProjectsComponent />
-          </div>
 
           <Link className="btn home-projects">see all projects </Link>
         </div>
