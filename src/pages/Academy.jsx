@@ -32,46 +32,57 @@ const Academy = () => {
             </div>
           </div>
 
-          <div className="mission ">
-            <h2> Our Mission </h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Molestiae, repellendus? Sunt aut distinctio consequuntur cumque at
-              magni quas quibusdam? Enim architecto officia dolore corrupti
-              labore vero ipsa dicta aut voluptates?
-            </p>
+          <div className="mission grid-2">
+            <div>
+              <h2> Our Mission </h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Molestiae, repellendus? Sunt aut distinctio consequuntur cumque
+                at magni quas quibusdam? Enim architecto officia dolore corrupti
+                labore vero ipsa dicta aut voluptates?
+              </p>
+            </div>
 
-            <h2> What We Offer ? </h2>
-            <p>
-              Beginner Courses: Covering the basics of various programming
-              languages and tools. Hands-On Learning: Real-world projects &
-              practical exercises.
-            </p>
+            <div>
+              <h2> What We Offer ? </h2>
+              <p>
+                Beginner Courses: Covering the basics of various programming
+                languages and tools. Hands-On Learning: Real-world projects &
+                practical exercises.
+              </p>
+            </div>
 
-            <h2> Our Team </h2>
-            <p>
-              Our instructors are industry professionals, including developers
-              from Blue Elite Tech, who bring their real-world experience and
-              expertise into the classroom. This ensures that our students
-              receive top-quality education.
-            </p>
+            <div>
+              <h2> Our Team </h2>
+              <p>
+                Our instructors are industry professionals, including developers
+                from Blue Elite Tech, who bring their real-world experience and
+                expertise into the classroom. This ensures that our students
+                receive top-quality education.
+              </p>
+            </div>
 
-            <h2> Why SÎMURX </h2>
-            <p className="count">Expert Instructors</p>
-            <p className="count">
-              modern software: Always master the latest tools and environments.
-            </p>
-            <p className="count">
-              Supportive Environment: We foster a supportive and collaborative
-              learning environment where students can thrive.
-            </p>
+            <div>
+              <h2> Why SÎMURX </h2>
+              <p className="count">Expert Instructors</p>
+              <p className="count">
+                modern software: Always master the latest tools and
+                environments.
+              </p>
+              <p className="count">
+                Supportive Environment: We foster a supportive and collaborative
+                learning environment where students can thrive.
+              </p>
+            </div>
 
-            <h2>Our Partnership</h2>
-            <p>
-              Through our partnership with Blue Elite Tech, we stay connected
-              with the latest developments in the tech industry, ensuring that
-              our curriculum is always relevant and cutting-edge.
-            </p>
+            <div>
+              <h2>Our Partnership</h2>
+              <p>
+                Through our partnership with Blue Elite Tech, we stay connected
+                with the latest developments in the tech industry, ensuring that
+                our curriculum is always relevant and cutting-edge.
+              </p>
+            </div>
           </div>
         </div>
       </main>
