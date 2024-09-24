@@ -152,7 +152,6 @@ const Academy = () => {
             <ContactComponenet>
               <ContactComponenet.Info
                 title={"Contact SÎMURX Academy"}
-                location={"blue tech"}
                 showBtn={true}
               >
                 <MapComponent />

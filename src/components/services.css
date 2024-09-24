@@ -68,7 +68,7 @@ body.dark .services > article {
   background-color: #f3f3f3;
 }
 body.dark .services > article > article {
-  background-color: #1a1f27;
+  background-color: #272727;
 }
 .services > article > article a.started {
   padding: 8px;
@@ -125,6 +125,6 @@ body.dark .services > article > article a.started::before {
   transform: translateY(0px) !important;
   opacity: 1 !important;
 }
-  .services > article:hover {
-    transform: translateY(-10px) !important;
-  }
+.services > article:hover {
+  transform: translateY(-10px) !important;
+}

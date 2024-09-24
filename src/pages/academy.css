@@ -113,6 +113,7 @@
   font-weight: 600;
   color: var(--font-color);
   line-height: 1;
+  text-transform: capitalize;
 }
 .contact-comp .info > div h3.title {
   margin-bottom: 20px;
