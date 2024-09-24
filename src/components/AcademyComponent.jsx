@@ -75,7 +75,7 @@ const AcademyComponent = () => {
               </p>
             </article>
           </div>
-          <Link className="btn d-block"> see more about our academy </Link>
+          <Link to="/academy" className="btn d-block"> see more about our academy </Link>
         </div>
         <div className={` ${inView && "svg-active"}  flex svg `}>
           <div className=" animation-image">

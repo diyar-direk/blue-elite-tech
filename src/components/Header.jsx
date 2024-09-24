@@ -122,8 +122,8 @@ const Header = () => {
           <NavLink to="/academy">
             <i className="fa-solid fa-graduation-cap"></i>academy
           </NavLink>
-          <NavLink to="/academy">
-            <i className="fa-solid fa-diagram-project"></i>our project
+          <NavLink to="/projects">
+            <i className="fa-solid fa-diagram-project"></i>our projects
           </NavLink>
           <NavLink to="/contact">
             <i className="fa-solid fa-phone"></i>contact us
