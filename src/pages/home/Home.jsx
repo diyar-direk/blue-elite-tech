@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../components/Loader";
 import ProjectsComponent from "../../components/ProjectsComponent";
 import AcademyComponent from "../../components/AcademyComponent";
+import ParticlesBackground from "../../components/ParticlesBackground";
 let index = 0;
 // const interval = setInterval(() => {
 //   const dataDiv = document.querySelectorAll(".about-company .slider");
@@ -78,6 +79,7 @@ const Home = () => {
   //this might be a problem
   return (
     <>
+      <ParticlesBackground />
       <main className="landing center">
         <div className="container">
           <div className="center opavity-animation flex-direction">

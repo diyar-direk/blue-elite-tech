@@ -1,7 +1,7 @@
 main.landing {
   height: 100vh;
   position: relative;
-  background: url(./Picsart_24-09-22_09-43-21-343.jpg) bottom no-repeat;
+  /* background: url(./bg11.jpg) bottom no-repeat; */
   background-size: cover;
   z-index: 1;
 }
@@ -12,13 +12,14 @@ main.landing::before {
   left: 0;
   height: 100%;
   top: 0;
-  /* background-color: #00000093; */
+  background-color: #00000059;
   z-index: -1;
 }
 .landing > .container > div {
   text-align: center;
   color: white;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  width: 50%;
 }
 .landing > .container > div h1 {
   text-transform: capitalize;
@@ -287,14 +288,16 @@ a.home-projects {
   }
 }
 .opavity-animation {
-  animation: 2s linear alternate opacity;
+  animation: 0.7s linear alternate opacity;
 }
 @keyframes opacity {
   0% {
     opacity: 0;
+    transform: translateX(-60%);
   }
   100% {
     opacity: 1;
+    transform: translateX(0px);
   }
 }
 .js-class {

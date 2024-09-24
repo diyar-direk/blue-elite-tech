@@ -28,6 +28,7 @@ const Academy = () => {
               <img src={require("./academy1.png")} alt="" />
             </div>
           </div>
+
           <div className="mission ">
             <h2> Our Mission </h2>
             <p>
@@ -36,6 +37,7 @@ const Academy = () => {
               magni quas quibusdam? Enim architecto officia dolore corrupti
               labore vero ipsa dicta aut voluptates?
             </p>
+
 
             <h2> What We Offer ? </h2>
             <p>
