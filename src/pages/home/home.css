@@ -135,9 +135,7 @@ main:not(.landing) {
 /* services end  */
 
 .home-project {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
-  gap: 30px;
+
   margin-top: 30px;
 }
 
@@ -148,6 +146,11 @@ main:not(.landing) {
   background-color: var(--section-color);
   opacity: 0;
   transition: 1s linear;
+}
+.home-project > article img{
+  max-height: 400px ;
+  width: 100%;
+  object-fit: cover;
 }
 .home-project .project-animation {
   opacity: 1;
