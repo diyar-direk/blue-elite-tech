@@ -13,7 +13,7 @@ const ParticlesBackground = () => {
       color: 0x07c1eb,
       backgroundColor: 0x000000,
       mouseControls: false, //
-  
+      scaleMobile: 1.0,
     });
     return () => {
       if (vantaRef.current) {
@@ -26,7 +26,7 @@ const ParticlesBackground = () => {
     <div
       className="particles-background"
       id="vanta"
-      style={{position:"absolute", width: "100%", height: "100vh" }}
+      style={{ position: "absolute", width: "100%", height: "100vh" }}
     >
       {/* Additional content can go here */}
     </div>

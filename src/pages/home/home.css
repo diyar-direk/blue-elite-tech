@@ -12,7 +12,7 @@ main.landing::before {
   left: 0;
   height: 100%;
   top: 0;
-  background-color: #00000093;
+  background-color: #00000059;
   z-index: -1;
 }
 .landing > .container > div {
@@ -288,7 +288,7 @@ a.home-projects {
   }
 }
 .opavity-animation {
-  animation: .7s linear alternate opacity;
+  animation: 0.7s linear alternate opacity;
 }
 @keyframes opacity {
   0% {

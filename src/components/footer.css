@@ -24,6 +24,9 @@ footer .grid-3 > div > a {
   font-size: 17px;
   letter-spacing: 1px;
 }
+footer .grid-3 > div .icon a:first-child {
+  margin-left: 0px;
+}
 footer .grid-3 > div .icon a {
   margin-left: 10px;
   color: #777;
