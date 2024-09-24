@@ -1,6 +1,5 @@
 import React from "react";
 import "./academy.css";
-import SimpleSlider from "./Slider";
 
 const Academy = () => {
   return (
@@ -28,7 +27,6 @@ const Academy = () => {
             <img src={require("./academy1.png")} alt="" />
           </div>
         </div>
-        <SimpleSlider />
         <div className="mission">
           <h2> Our Mission </h2>
           <p>
