@@ -1,6 +1,8 @@
 import React from "react";
 import "./academy.css";
-import Form from "../components/Form";
+import ContactComponenet from "../components/ContactComponenet";
+import MapComponent from "./../components/MapComponent";
+import { Link } from "react-router-dom";
 
 const Academy = () => {
   return (
@@ -29,6 +31,7 @@ const Academy = () => {
               <img src={require("./academy1.png")} alt="" />
             </div>
           </div>
+
           <div className="mission ">
             <h2> Our Mission </h2>
             <p>
@@ -72,19 +75,89 @@ const Academy = () => {
           </div>
         </div>
       </main>
-      <main className="center">
+
+      <main className="body-color center">
         <div className="container">
           <div className="title">
-            <h1 className="title body-color" data-fill="contact us">
+            <h1 className="title body-color" data-fill="our courses">
+              Our Courses
+            </h1>
+          </div>
+          <div className="grid-3">
+            <article className="academy-card">
+              <img
+                src={require("./academy3.07ee47e15b16e884da6a.jpg")}
+                alt=""
+              />
+              <div>
+                <h1>title</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Recusandae non soluta reiciendis esse consectetur provident
+                  voluptatem natus nulla cum aspernatur quasi temporibus,
+                  possimus reprehenderit sint quos fugiat modi. Minus, optio.
+                </p>
+                <Link to={""}>get started</Link>
+              </div>
+            </article>
+            <article className="academy-card">
+              <img
+                src={require("./academy3.07ee47e15b16e884da6a.jpg")}
+                alt=""
+              />
+              <div>
+                <h1>title</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Recusandae non soluta reiciendis esse consectetur provident
+                  voluptatem natus nulla cum aspernatur quasi temporibus,
+                  possimus reprehenderit sint quos fugiat modi. Minus, optio.
+                </p>
+                <Link to={""}>get started</Link>
+              </div>
+            </article>
+            <article className="academy-card">
+              <img
+                src={require("./academy3.07ee47e15b16e884da6a.jpg")}
+                alt=""
+              />
+              <div>
+                <h1>title</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Recusandae non soluta reiciendis esse consectetur provident
+                  voluptatem natus nulla cum aspernatur quasi temporibus,
+                  possimus reprehenderit sint quos fugiat modi. Minus, optio.
+                </p>
+                <Link to={""}>get started</Link>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+
+      <main className="center section-color">
+        <div className="container">
+          <div className="title">
+            <h1 className="title section-color" data-fill="contact us">
               Contact Us
             </h1>
           </div>
-          <div>
+          <div className="academy-contact">
             <h3>
               Ready to start your coding journey? Contact Symorx Academy today
               to learn more about our courses and how we can help you achieve
               your career goals.
             </h3>
+            <ContactComponenet>
+              <ContactComponenet.Info
+                title={"Contact SÎMURX Academy"}
+                location={"blue tech"}
+                showBtn={true}
+              >
+                <MapComponent />
+              </ContactComponenet.Info>
+            </ContactComponenet>
           </div>
         </div>
       </main>

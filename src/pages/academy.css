@@ -53,3 +53,79 @@
   left: 25px;
   font-weight: bold;
 }
+
+.academy-contact > h3 {
+  font-weight: 600;
+  margin-bottom: 30px;
+  max-width: 60%;
+  color: var(--font-color);
+}
+.academy-card {
+  border: solid 2px var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.academy-card img {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+}
+.academy-card > div {
+  padding: 10px 20px;
+  background-color: var(--section-color);
+}
+
+.academy-card > div h1 {
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: var(--font-color);
+}
+
+.academy-card > div p {
+  color: var(--font-color);
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+.academy-card > div a {
+  text-transform: capitalize;
+  color: white;
+  background-color: #4c4c4c;
+  padding: 6px;
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  text-align: center;
+  margin: 10px auto;
+}
+.academy-card > div a:hover {
+  background-color: var(--main-color);
+}
+.contact-comp .info > div:first-child {
+  flex: 1;
+}
+
+.contact-comp .info > div:first-child i {
+  color: #666;
+  margin-right: 10px;
+}
+.contact-comp .info > div h3 {
+  font-weight: 600;
+  color: var(--font-color);
+  line-height: 1;
+}
+.contact-comp .info > div h3.title {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.contact-comp .info > div a {
+  color: var(--font-color);
+  opacity: 0.9;
+}
+.contact-comp .info > div:first-child article {
+  margin-bottom: 20px;
+}
+
+.contact-comp .info > div:first-child > a {
+  color: white;
+}
