@@ -1,5 +1,6 @@
 import React from "react";
 import "./academy.css";
+import Form from "../components/Form";
 
 const Academy = () => {
   return (
