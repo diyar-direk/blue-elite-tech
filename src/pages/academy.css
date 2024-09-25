@@ -10,10 +10,11 @@
 }
 
 .academy-page .mission {
-  width: 70%;
   margin-top: 50px;
 }
-
+.academy-page .mission > div:not(:last-of-type) {
+  border-bottom: solid 1px var(--border-color);
+}
 .academy-page .mission h2 {
   padding-left: 20px;
   position: relative;
@@ -52,4 +53,114 @@
   position: absolute;
   left: 25px;
   font-weight: bold;
+}
+
+.academy-contact > h3 {
+  font-weight: 600;
+  margin-bottom: 30px;
+  max-width: 60%;
+  color: var(--font-color);
+}
+.academy-card {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #cbcbcb;
+}
+body.dark .academy-card {
+  box-shadow: 0 0 20px #0000009a;
+}
+.academy-card:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+.academy-card > div {
+  flex: 50%;
+  display: flex;
+}
+.academy-card > div.info {
+  padding: 20px;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--section-color);
+  padding-left: 30px;
+}
+.academy-card > div.info h1 {
+  font-size: 30px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  color: var(--font-color);
+}
+.academy-card > div.info h3 {
+  font-weight: 300;
+  font-size: 20px;
+  color: var(--font-color);
+  opacity: 0.7;
+}
+.academy-card > div.info a {
+  display: flex;
+  padding: 10px;
+  color: white;
+  margin-top: 20px;
+  background-color: var(--main-color);
+  width: fit-content;
+  border-radius: 4px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.academy-card > div.info a::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.384);
+  top: 0;
+  transform: skewx(-20deg);
+  backdrop-filter: blur(1px);
+  left: -50%;
+  transition: 0.4s;
+}
+.academy-card > div.info a:hover::before {
+  left: 150%;
+}
+.academy-card > div img {
+  aspect-ratio: 4/4;
+  max-height: 450px;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.contact-comp .info > div:first-child {
+  flex: 1;
+}
+
+.contact-comp .info > div:first-child i {
+  color: var(--hover-color);
+  margin-right: 10px;
+}
+.contact-comp .info > div h3 {
+  font-weight: 600;
+  color: var(--font-color);
+  line-height: 1;
+  text-transform: capitalize;
+}
+.contact-comp .info > div h3.title {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.contact-comp .info > div a {
+  color: var(--font-color);
+  opacity: 0.9;
+}
+.contact-comp .info > div:first-child article {
+  margin-bottom: 20px;
+}
+
+.contact-comp .info > div:first-child > a {
+  color: white;
 }

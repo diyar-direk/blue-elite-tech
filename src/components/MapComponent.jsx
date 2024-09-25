@@ -12,14 +12,17 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 
-const MapComponent = () => {
-  const position = [36.51578272727788, 40.74949459563883]; // Coordinates for the map center
+const MapComponent = (props) => {
+  const position =
+    props.location === "blue tech"
+      ? [36.51578272727788, 40.74949459563883]
+      : [37.04506821799898, 41.22529714364288]; // Coordinates for the map center
 
   return (
     <MapContainer
       center={position}
       zoom={16}
-      style={{ height: "50vh", width: "50%" }}
+      style={{ height: "50vh", width: "50%", zIndex: "1" }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

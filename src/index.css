@@ -74,8 +74,8 @@ body {
 }
 body.dark {
   --font-color: white;
-  --body-color: #181b20;
-  --section-color: #22252c;
+  --body-color: #111;
+  --section-color: #171717;
   --border-color: #4c4c4c;
 }
 .flex-direction {

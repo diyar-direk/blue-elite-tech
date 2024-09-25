@@ -7,18 +7,6 @@ import Loader from "../../components/Loader";
 import ProjectsComponent from "../../components/ProjectsComponent";
 import AcademyComponent from "../../components/AcademyComponent";
 import ParticlesBackground from "../../components/ParticlesBackground";
-let index = 0;
-// const interval = setInterval(() => {
-//   const dataDiv = document.querySelectorAll(".about-company .slider");
-//   const dots = document.querySelectorAll(".about-company .dots span");
-//   if (dataDiv && dots) {
-//     dataDiv.forEach((e) => e.classList.remove("active"));
-//     dots.forEach((e) => e.classList.remove("active"));
-//     index = ++index % dataDiv.length;
-//     dataDiv[index].classList.add("active");
-//     dots[index].classList.add("active");
-//   }
-// }, 10000);
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -26,25 +14,6 @@ const Home = () => {
     threshold: 0.5, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
-  function handelSpan(e) {
-    // clearInterval(interval);
-    const dataDiv = document.querySelectorAll(".about-company .slider");
-    const dots = document.querySelectorAll(".about-company .dots span");
-    dataDiv.forEach((e) => e.classList.remove("active"));
-    dots.forEach((e) => e.classList.remove("active"));
-    index = +e.target.dataset.index;
-    dataDiv[index].classList.add("active");
-    dots[index].classList.add("active");
-    setInterval(() => {
-      if (dataDiv && dots) {
-        dataDiv.forEach((e) => e.classList.remove("active"));
-        dots.forEach((e) => e.classList.remove("active"));
-        index = ++index % dataDiv.length;
-        dataDiv[index].classList.add("active");
-        dots[index].classList.add("active");
-      }
-    }, 10000);
-  }
 
   //this might be a problem
   useEffect(() => {
@@ -105,7 +74,7 @@ const Home = () => {
             </h1>
 
             <div className="relative">
-              <div className="slider active">
+              <div>
                 <h2>
                   we are <span>lorem ipsum</span>
                 </h2>
@@ -121,7 +90,7 @@ const Home = () => {
                   software development services.
                 </h3>
               </div>
-              <div className="slider ">
+              <div>
                 <h2>Why Blue Elite Tech?</h2>
                 <h3>
                   At Blue Elite, we take pride in partnering with our clients to
@@ -130,7 +99,7 @@ const Home = () => {
                   your business forward through innovative software solutions.
                 </h3>
               </div>
-              <div className="slider">
+              <div className="before">
                 <h2>
                   In the World of Technological Advancement Introducing Blue
                   Elite Tech
@@ -145,18 +114,13 @@ const Home = () => {
                 </h3>
               </div>
             </div>
-            <div className="dots">
-              <span
-                onClick={handelSpan}
-                data-index="0"
-                className="active"
-              ></span>
-              <span onClick={handelSpan} data-index="1"></span>
-              <span onClick={handelSpan} data-index="2"></span>
-            </div>
-            <div className="btn">contact us</div>
+
+            <Link className="btn d-block">contact us</Link>
           </div>
-          <div ref={ref} className={`${inView ? "slide-up-animation" : ""}`}>
+          <div
+            ref={ref}
+            className={`${inView ? "slide-up-animation" : ""} center`}
+          >
             <img loading="lazy" src={require("./icon18.png")} alt="" />
           </div>
         </div>
@@ -267,7 +231,7 @@ const Home = () => {
               Our Projects
             </h1>
           </div>
-            <ProjectsComponent />
+          {/* <ProjectsComponent /> */}
 
           <Link className="btn home-projects">see all projects </Link>
         </div>
