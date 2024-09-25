@@ -192,3 +192,12 @@ div.title h1.title::before {
   gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
 }
+
+
+
+@media (max-width: 675px) {
+  .grid-3{
+    grid-template-columns: 1fr;
+  }
+  
+}

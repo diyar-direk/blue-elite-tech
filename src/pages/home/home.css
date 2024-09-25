@@ -135,7 +135,6 @@ main:not(.landing) {
 /* services end  */
 
 .home-project {
-
   margin-top: 30px;
 }
 
@@ -147,8 +146,8 @@ main:not(.landing) {
   opacity: 0;
   transition: 1s linear;
 }
-.home-project > article img{
-  max-height: 400px ;
+.home-project > article img {
+  max-height: 400px;
   width: 100%;
   object-fit: cover;
 }
@@ -323,4 +322,21 @@ a.home-projects {
 .services-stable {
   transform: translateY(0px) !important;
   opacity: 1 !important;
+}
+
+@media (max-width: 720px) {
+  .landing > .container > div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .home-academy .svg {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .home-academy .academy-services > div.active-academy {
+    flex-direction: column;
+  }
 }

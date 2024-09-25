@@ -10,13 +10,16 @@ const Services = () => {
             our services
           </h1>
         </div>
-        <h3>
-          Blue Elite Tech is a leading software company known for its innovative
-          solutions and advanced technology services. Founded on the principles
-          of innovation and excellence, we have assembled a team of specialized
-          developers and engineers dedicated to realizing our clients’ vision
-          and meeting their technological needs.
-        </h3>
+        <div className="sevice-info flex">
+          <h3>
+            Blue Elite Tech is a leading software company known for its
+            innovative solutions and advanced technology services. Founded on
+            the principles of innovation and excellence, we have assembled a
+            team of specialized developers and engineers dedicated to realizing
+            our clients’ vision and meeting their technological needs.
+          </h3>
+          <img src={require("./32.png")} alt="" />
+        </div>
         <div className="grid-3 services">
           <ServicesCard>
             <ServicesCard.Body>
@@ -57,7 +60,8 @@ const Services = () => {
               </ServicesCard.Body.Icon>
               <ServicesCard.Body.Title> Websites</ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We design, manage and fully supervise websites
+                We design, develop, manage, and fully supervise websites,
+                ensuring  performance, and user-friendly functionality.
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>

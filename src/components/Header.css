@@ -144,3 +144,9 @@ aside.header-aside > .aside-setting {
   padding: 0 15px;
   width: 100%;
 }
+
+@media (max-width: 850px) {
+  header > .container > .links > a {
+    display: none;
+  }
+}

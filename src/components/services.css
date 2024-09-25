@@ -108,6 +108,17 @@ body.dark .services > article > article a.started::before {
   letter-spacing: 1px;
   color: var(--font-color);
   margin: 20px 0 50px;
+  position: relative;
+
+}
+.sevice-info {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sevice-info img {
+  width: 100%;
+  height: 340px;
 }
 .services-page .services > article > article a {
   padding: 8px;
@@ -125,6 +136,6 @@ body.dark .services > article > article a.started::before {
   transform: translateY(0px) !important;
   opacity: 1 !important;
 }
-  .services > article:hover {
-    transform: translateY(-10px) !important;
-  }
+.services > article:hover {
+  transform: translateY(-10px) !important;
+}
