@@ -83,11 +83,7 @@ const Home = () => {
                   development, supported by a dedicated team of specialized
                   experts with deep industry knowledge. Our team is skilled in
                   delivering innovative solutions across diverse platforms,
-                  ensuring cutting-edge technology and tailored strategies to
-                  meet the unique needs of each client. With a strong focus on
-                  quality, efficiency, and customer satisfaction, Blue Elite is
-                  committed to driving success through robust and scalable
-                  software development services.
+         
                 </h3>
               </div>
               <div>
@@ -101,16 +97,14 @@ const Home = () => {
               </div>
               <div className="before">
                 <h2>
-                  In the World of Technological Advancement Introducing Blue
+                  In the World of Technology Introducing Blue
                   Elite Tech
                 </h2>
                 <h3>
                   In the modern age of technology, software development has
                   become essential for business success and goal achievement.
                   Stepping into the spotlight is Blue Elite, a trusted partner
-                  in the realm of software development, committed to delivering
-                  innovative solutions that efficiently meet our clients' needs
-                  with unparalleled quality.
+           
                 </h3>
               </div>
             </div>
@@ -119,8 +113,10 @@ const Home = () => {
           </div>
           <div
             ref={ref}
-            className={`${inView ? "slide-up-animation" : ""} center`}
+            className={`${inView ? "slide-up-animation" : ""}  flex-100 center`}
           >
+          {  console.log(inView)}
+            
             <img loading="lazy" src={require("./icon18.png")} alt="" />
           </div>
         </div>
@@ -231,7 +227,7 @@ const Home = () => {
               Our Projects
             </h1>
           </div>
-          {/* <ProjectsComponent /> */}
+          <ProjectsComponent />
 
           <Link className="btn home-projects">see all projects </Link>
         </div>

@@ -164,3 +164,32 @@ body.dark .academy-card {
 .contact-comp .info > div:first-child > a {
   color: white;
 }
+.leaflet-container{
+  z-index: 1 !important;
+  width: 50% !important;
+  height: 50vh !important;
+}
+@media (max-width: 850px) {
+  .contact-comp .info > div:first-child {
+    margin-bottom: 30px;
+  }
+  .leaflet-container {
+    width: 100% !important;
+    height: 50vh !important;
+    z-index: 1 !important;
+  }
+  .contact-comp .info {
+    flex-direction: column;
+  }
+}
+@media (max-width: 450px) {
+ 
+  .leaflet-container {
+    width: 100% !important;
+    height: 30vh !important;
+    z-index: 1 !important;
+  }
+
+}
+
+

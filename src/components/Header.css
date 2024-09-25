@@ -86,7 +86,7 @@ header > .container > .links > a.active::before {
 }
 .aside-overlay.open {
   opacity: 1;
-  z-index: 3;
+  z-index: 1000;
 }
 .aside-overlay aside.header-aside {
   right: -50%;
@@ -143,4 +143,10 @@ aside.header-aside > .aside-setting {
   bottom: 20px;
   padding: 0 15px;
   width: 100%;
+}
+
+@media (max-width: 850px) {
+  header > .container > .links > a {
+    display: none;
+  }
 }

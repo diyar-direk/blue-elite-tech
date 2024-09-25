@@ -308,14 +308,40 @@ a.home-projects {
   transform: translateY(0px);
   transition: 0.5s linear;
 }
+.flex-100 {
+  flex: 100%;
+}
+.flex-100 img {
+  height: 50%;
+  opacity: 0;
+  transform: translateY(100%) !important;
 
+  object-fit: contain;
+}
 .slide-up-animation img {
   opacity: 1 !important;
   transform: translateY(0%) !important;
-  transition: 0.7s linear;
+  transition: 0.5s linear;
 }
 
 .services-stable {
   transform: translateY(0px) !important;
   opacity: 1 !important;
+}
+
+@media (max-width: 720px) {
+  .landing > .container > div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .home-academy .svg {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .home-academy .academy-services > div.active-academy {
+    flex-direction: column;
+  }
 }
