@@ -3,10 +3,10 @@ import ServicesCard from "../components/ServicesCard";
 
 const Services = () => {
   return (
-    <main className="center sub-page section-color services-page">
+    <main className="center sub-page body-color services-page">
       <div className="container">
         <div className="title">
-          <h1 className="title section-color" data-fill="our services ">
+          <h1 className="title body-color" data-fill="our services ">
             our services
           </h1>
         </div>

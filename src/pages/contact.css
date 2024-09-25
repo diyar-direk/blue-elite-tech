@@ -1,0 +1,82 @@
+.contact-page {
+  gap: 40px;
+}
+.contact-page .contact-comp {
+  width: 40%;
+}
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page form label {
+  cursor: text;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  color: var(--font-color);
+  font-weight: 600;
+}
+.contact-page form .inp {
+  outline: none;
+  padding: 8px 10px;
+  resize: none;
+  background: var(--section-color);
+  border: solid 1px var(--border-color);
+  color: var(--font-color);
+  caret-color: var(--main-color);
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.contact-page .leaflet-container {
+  width: 100% !important;
+}
+.contact-page form .inp:focus {
+  border: solid 1px var(--main-color);
+}
+.contact-page form div.inp {
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.contact-page form div.inp > i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  right: 15px;
+  pointer-events: none;
+}
+.contact-page form div.inp > div {
+  position: absolute;
+  width: 100%;
+  background: var(--section-color);
+  left: 0;
+  z-index: 2;
+  top: calc(100% + 2px);
+  overflow: hidden;
+  max-height: 0;
+}
+
+.contact-page form div.inp > div.active {
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+.contact-page form div.inp > div p {
+  padding: 6px 10px;
+  border-bottom: solid 1px var(--border-color);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+}
+.contact-page form div.inp > div p:hover {
+  background-color: #464141;
+  color: white;
+}
+.contact-page form button {
+  width: 50%;
+  margin-top: 30px;
+  border-radius: 4px;
+}
