@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 const Academy = () => {
   return (
     <>
-      <main className="center sub-page academy-page section-color">
+      <main className="center sub-page academy-page body-color">
         <div className="container">
           <div className="title">
-            <h1 className="title section-color" data-fill="SÎMURX ACADEMY">
+            <h1 className="title body-color" data-fill="SÎMURX ACADEMY">
               SÎMURX ACADEMY
             </h1>
           </div>
@@ -87,10 +87,10 @@ const Academy = () => {
         </div>
       </main>
 
-      <main className="body-color center">
+      <main className="section-color center">
         <div className="container">
           <div className="title">
-            <h1 className="title body-color" data-fill="our courses">
+            <h1 className="title section-color" data-fill="our courses">
               Our Courses
             </h1>
           </div>
@@ -102,7 +102,7 @@ const Academy = () => {
               />
             </div>
             <div className="info">
-              <h1>title</h1>
+              <h1>fist cours</h1>
               <h3>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Recusandae non soluta reiciendis esse consectetur provident
@@ -120,7 +120,7 @@ const Academy = () => {
               />
             </div>
             <div className="info">
-              <h1>title</h1>
+              <h1>second cours</h1>
               <h3>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Recusandae non soluta reiciendis esse consectetur provident
@@ -138,7 +138,7 @@ const Academy = () => {
               />
             </div>
             <div className="info">
-              <h1>title</h1>
+              <h1>third cours</h1>
               <h3>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Recusandae non soluta reiciendis esse consectetur provident
@@ -151,10 +151,10 @@ const Academy = () => {
         </div>
       </main>
 
-      <main className="center section-color">
+      <main className="center body-color">
         <div className="container">
           <div className="title">
-            <h1 className="title section-color" data-fill="contact us">
+            <h1 className="title body-color" data-fill="contact us">
               Contact Us
             </h1>
           </div>
@@ -168,8 +168,9 @@ const Academy = () => {
               <ContactComponenet.Info
                 title={"Contact SÎMURX Academy"}
                 showBtn={true}
+                location="simurx"
               >
-                <MapComponent />
+                <MapComponent location="simurx" />
               </ContactComponenet.Info>
             </ContactComponenet>
           </div>

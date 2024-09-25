@@ -30,7 +30,9 @@ const MapComponent = (props) => {
       />
       <Marker name={"Blue Elite Tech"} position={position}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          {props.location === "blue tech"
+            ? "Blue Elite Tech"
+            : "SÎMURX Academy"}
         </Popup>
       </Marker>
     </MapContainer>
