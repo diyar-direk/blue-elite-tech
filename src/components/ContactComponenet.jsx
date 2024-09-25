@@ -11,7 +11,7 @@ ContactComponenet.Info = ({ children, title, location, showBtn }) => {
         <div>
           <h3 className="title"> {title} </h3>
           <article className="flex">
-            <div>
+            <div className="flex">
               <i className="fa-solid fa-envelope"></i>
             </div>
             <div>
@@ -31,7 +31,7 @@ ContactComponenet.Info = ({ children, title, location, showBtn }) => {
             </div>
           </article>
           <article className="flex">
-            <div>
+            <div className="flex">
               <i className="fa-solid fa-phone"></i>
             </div>
             <div>
@@ -51,7 +51,7 @@ ContactComponenet.Info = ({ children, title, location, showBtn }) => {
             </div>
           </article>
           <article className="flex">
-            <div>
+            <div className="flex">
               <i className="fa-solid fa-building"></i>
             </div>
             <div>

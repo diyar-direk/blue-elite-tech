@@ -66,13 +66,16 @@ const Home = () => {
           </div>
         </div>
       </main>
-      <main className="center body-color">
-        <div className="container flex about-company">
-          <div>
-            <h1 data-fill="About The Company" className="title">
+      <main className="center body-color wrap">
+        <div className="container">
+          <div className="title">
+            <h1 data-fill="About The Company" className="title body-color">
               About The Company
             </h1>
-
+          </div>
+        </div>
+        <div className="container flex about-company">
+          <div>
             <div className="relative">
               <div>
                 <h2>
@@ -83,7 +86,6 @@ const Home = () => {
                   development, supported by a dedicated team of specialized
                   experts with deep industry knowledge. Our team is skilled in
                   delivering innovative solutions across diverse platforms,
-         
                 </h3>
               </div>
               <div>
@@ -96,15 +98,11 @@ const Home = () => {
                 </h3>
               </div>
               <div className="before">
-                <h2>
-                  In the World of Technology Introducing Blue
-                  Elite Tech
-                </h2>
+                <h2>In the World of Technology Introducing Blue Elite Tech</h2>
                 <h3>
                   In the modern age of technology, software development has
                   become essential for business success and goal achievement.
                   Stepping into the spotlight is Blue Elite, a trusted partner
-           
                 </h3>
               </div>
             </div>
@@ -115,8 +113,8 @@ const Home = () => {
             ref={ref}
             className={`${inView ? "slide-up-animation" : ""}  flex-100 center`}
           >
-          {  console.log(inView)}
-            
+            {console.log(inView)}
+
             <img loading="lazy" src={require("./icon18.png")} alt="" />
           </div>
         </div>
