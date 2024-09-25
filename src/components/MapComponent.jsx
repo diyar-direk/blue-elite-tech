@@ -22,7 +22,7 @@ const MapComponent = (props) => {
     <MapContainer
       center={position}
       zoom={16}
-      style={{ height: "50vh", width: "50%", zIndex: "1" }}
+     
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -308,11 +308,20 @@ a.home-projects {
   transform: translateY(0px);
   transition: 0.5s linear;
 }
+.flex-100 {
+  flex: 100%;
+}
+.flex-100 img {
+  height: 50%;
+  opacity: 0;
+  transform: translateY(100%) !important;
 
+  object-fit: contain;
+}
 .slide-up-animation img {
   opacity: 1 !important;
   transform: translateY(0%) !important;
-  transition: 0.7s linear;
+  transition: 0.5s linear;
 }
 
 .services-stable {
