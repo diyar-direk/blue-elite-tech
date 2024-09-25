@@ -62,52 +62,85 @@
   color: var(--font-color);
 }
 .academy-card {
-  border: solid 2px var(--border-color);
-  border-radius: 6px;
-  overflow: hidden;
-}
-.academy-card img {
-  max-height: 300px;
-  width: 100%;
-  object-fit: cover;
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #cbcbcb;
+}
+body.dark .academy-card {
+  box-shadow: 0 0 20px #0000009a;
+}
+.academy-card:nth-child(odd) {
+  flex-direction: row-reverse;
 }
 .academy-card > div {
-  padding: 10px 20px;
-  background-color: var(--section-color);
+  flex: 50%;
+  display: flex;
 }
-
-.academy-card > div h1 {
+.academy-card > div.info {
+  padding: 20px;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--section-color);
+  padding-left: 30px;
+}
+.academy-card > div.info h1 {
+  font-size: 30px;
+  text-transform: capitalize;
   letter-spacing: 1px;
-  text-transform: capitalize;
   color: var(--font-color);
+}
+.academy-card > div.info h3 {
+  font-weight: 300;
+  font-size: 20px;
+  color: var(--font-color);
+  opacity: 0.7;
+}
+.academy-card > div.info a {
+  display: flex;
+  padding: 10px;
+  color: white;
+  margin-top: 20px;
+  background-color: var(--main-color);
+  width: fit-content;
+  border-radius: 4px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
 }
 
-.academy-card > div p {
-  color: var(--font-color);
-  opacity: 0.8;
-  margin-bottom: 10px;
+.academy-card > div.info a::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.384);
+  top: 0;
+  transform: skewx(-20deg);
+  backdrop-filter: blur(1px);
+  left: -50%;
+  transition: 0.4s;
 }
-.academy-card > div a {
-  text-transform: capitalize;
-  color: white;
-  background-color: #4c4c4c;
-  padding: 6px;
+.academy-card > div.info a:hover::before {
+  left: 150%;
+}
+.academy-card > div img {
+  aspect-ratio: 4/4;
+  max-height: 450px;
   width: 100%;
-  display: block;
-  border-radius: 6px;
-  text-align: center;
-  margin: 10px auto;
+  object-fit: cover;
+  height: 100%;
 }
-.academy-card > div a:hover {
-  background-color: var(--main-color);
-}
+
 .contact-comp .info > div:first-child {
   flex: 1;
 }
 
 .contact-comp .info > div:first-child i {
-  color: #666;
+  color: var(--hover-color);
   margin-right: 10px;
 }
 .contact-comp .info > div h3 {

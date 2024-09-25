@@ -40,7 +40,7 @@ body.dark .services > article {
 }
 .services > article i {
   font-size: 30px;
-  color: #777;
+  color: var(--hover-color);
   margin-top: 10px;
 }
 .services > article > div {

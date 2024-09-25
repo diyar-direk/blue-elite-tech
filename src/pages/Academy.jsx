@@ -94,56 +94,60 @@ const Academy = () => {
               Our Courses
             </h1>
           </div>
-          <div className="grid-3">
-            <article className="academy-card">
+          <article className="academy-card">
+            <div>
               <img
                 src={require("./academy3.07ee47e15b16e884da6a.jpg")}
                 alt=""
               />
-              <div>
-                <h1>title</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Recusandae non soluta reiciendis esse consectetur provident
-                  voluptatem natus nulla cum aspernatur quasi temporibus,
-                  possimus reprehenderit sint quos fugiat modi. Minus, optio.
-                </p>
-                <Link to={""}>get started</Link>
-              </div>
-            </article>
-            <article className="academy-card">
+            </div>
+            <div className="info">
+              <h1>title</h1>
+              <h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Recusandae non soluta reiciendis esse consectetur provident
+                voluptatem natus nulla cum aspernatur quasi temporibus, possimus
+                reprehenderit sint quos fugiat modi. Minus, optio.
+              </h3>
+              <Link to={""}>get started</Link>
+            </div>
+          </article>
+          <article className="academy-card">
+            <div>
               <img
                 src={require("./academy3.07ee47e15b16e884da6a.jpg")}
                 alt=""
               />
-              <div>
-                <h1>title</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Recusandae non soluta reiciendis esse consectetur provident
-                  voluptatem natus nulla cum aspernatur quasi temporibus,
-                  possimus reprehenderit sint quos fugiat modi. Minus, optio.
-                </p>
-                <Link to={""}>get started</Link>
-              </div>
-            </article>
-            <article className="academy-card">
+            </div>
+            <div className="info">
+              <h1>title</h1>
+              <h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Recusandae non soluta reiciendis esse consectetur provident
+                voluptatem natus nulla cum aspernatur quasi temporibus, possimus
+                reprehenderit sint quos fugiat modi. Minus, optio.
+              </h3>
+              <Link to={""}>get started</Link>
+            </div>
+          </article>
+          <article className="academy-card">
+            <div>
               <img
                 src={require("./academy3.07ee47e15b16e884da6a.jpg")}
                 alt=""
               />
-              <div>
-                <h1>title</h1>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Recusandae non soluta reiciendis esse consectetur provident
-                  voluptatem natus nulla cum aspernatur quasi temporibus,
-                  possimus reprehenderit sint quos fugiat modi. Minus, optio.
-                </p>
-                <Link to={""}>get started</Link>
-              </div>
-            </article>
-          </div>
+            </div>
+            <div className="info">
+              <h1>title</h1>
+              <h3>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Recusandae non soluta reiciendis esse consectetur provident
+                voluptatem natus nulla cum aspernatur quasi temporibus, possimus
+                reprehenderit sint quos fugiat modi. Minus, optio.
+              </h3>
+              <Link to={""}>get started</Link>
+            </div>
+          </article>
         </div>
       </main>
 
