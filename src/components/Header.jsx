@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 import "./Header.css";
 import Setting from "./Setting";
 import { useInView } from "react-intersection-observer";
+import { Context } from "../context/Context";
+import Loader from "./Loader";
 const Header = () => {
+  const context = useContext(Context);
+  const language = context && context.language;
+
   const { ref, inView } = useInView({
     threshold: 0.5, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
@@ -28,7 +33,6 @@ const Header = () => {
         e.classList.add("services-stable");
       });
       return;
-      
     }
     const headerInterval = setInterval(() => {
       if (linkCounter < headerLinks.length) {
@@ -71,6 +75,9 @@ const Header = () => {
       else header.classList.remove("active");
     }
   });
+  if (!context) {
+    <Loader />;
+  }
   return (
     <>
       <header className="center">
@@ -80,16 +87,16 @@ const Header = () => {
           </div>
           <div className="links flex-1">
             <NavLink className="js-class " to="/">
-              home
+              {language.links && language.links.home}
             </NavLink>
             <NavLink className="js-class " to="/services">
-              our services
+              {language.links && language.links.our_services}
             </NavLink>
             <NavLink className="js-class " to="/academy">
-              academy
+              {language.links && language.links.academy}
             </NavLink>
             <NavLink className="js-class " to="/contact">
-              contact us
+              {language.links && language.links.contact_us}
             </NavLink>
 
             <i
@@ -114,25 +121,31 @@ const Header = () => {
           </div>
           <NavLink to="/">
             <i className="fa-solid fa-house"></i>
-            home
+            {language.links && language.links.home}
           </NavLink>
           <NavLink to="/services">
-            <i className="fa-solid fa-code"></i>our services
+            <i className="fa-solid fa-code"></i>{" "}
+            {language.links && language.links.our_services}
           </NavLink>
           <NavLink to="/academy">
-            <i className="fa-solid fa-graduation-cap"></i>academy
+            <i className="fa-solid fa-graduation-cap"></i>{" "}
+            {language.links && language.links.academy}
           </NavLink>
           <NavLink to="/projects">
-            <i className="fa-solid fa-diagram-project"></i>our projects
+            <i className="fa-solid fa-diagram-project"></i>{" "}
+            {language.links && language.links.our_projects}
           </NavLink>
           <NavLink to="/contact">
-            <i className="fa-solid fa-phone"></i>contact us
+            <i className="fa-solid fa-phone"></i>{" "}
+            {language.links && language.links.contact_us}
           </NavLink>
           <NavLink to={"/join"}>
-            <i className="fa-solid fa-circle-plus"></i> join us
+            <i className="fa-solid fa-circle-plus"></i>{" "}
+            {language.links && language.links.join_us}
           </NavLink>
           <NavLink to={"/about"}>
-            <i className="fa-solid fa-circle-exclamation"></i> about us
+            <i className="fa-solid fa-circle-exclamation"></i>{" "}
+            {language.links && language.links.about_us}
           </NavLink>
           <div className="aside-setting">
             <Setting mode={true} title={true} position="navbar" />
