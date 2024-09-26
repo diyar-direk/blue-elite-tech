@@ -49,7 +49,7 @@ const Footer = () => {
             <NavLink to="/">home</NavLink>
             <NavLink to="/services">our services</NavLink>
             <NavLink to="/academy">academy</NavLink>
-            <NavLink to="/about">our projects</NavLink>
+            <NavLink to="/projects">our projects</NavLink>
           </div>
           <div>
             <NavLink to="/contact">contact us</NavLink>

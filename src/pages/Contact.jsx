@@ -8,7 +8,7 @@ const Contact = () => {
     name: "",
     phone: "",
     email: "",
-    services: "Desktop Application",
+    services: "",
     message: "",
   });
 
@@ -53,6 +53,7 @@ const Contact = () => {
         </div>
         <div className="contact-page flex">
           <form className="flex-1">
+            <h2>Let's get in touch..</h2>
             <label htmlFor="name">full name</label>
             <input
               required
@@ -93,7 +94,8 @@ const Contact = () => {
               onClick={activeDiv}
               className="select-services inp"
             >
-              {form.services} <i className="fa-solid fa-chevron-down"></i>
+              {form.services || "choose services"}{" "}
+              <i className="fa-solid fa-chevron-down"></i>
               <div data-input="services">
                 <p onClick={selectServices} data-services="mobile Application">
                   mobile Application
@@ -143,7 +145,7 @@ const Contact = () => {
             {form.services === "SÎMURX Academy" && (
               <div
                 data-input="cours"
-                data-index="1s"
+                data-index="1"
                 onClick={activeDiv}
                 className="select-services inp"
               >
@@ -178,6 +180,10 @@ const Contact = () => {
           </form>
           <ContactComponenet>
             <ContactComponenet.Form>
+              <p>
+                We love our customers, so feel free to visit during normal
+                business hours.
+              </p>
               <ContactComponenet.Info location="blue tech"></ContactComponenet.Info>
               <MapComponent location="blue tech" />
             </ContactComponenet.Form>
