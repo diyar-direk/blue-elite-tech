@@ -91,7 +91,7 @@ const Home = () => {
         <div className="container">
           <div className="title">
             <h1 data-fill="About The Company" className="title body-color">
-              {language.about_home &&language.about_home.about_header}
+              {language.about_home && language.about_home.about_header}
             </h1>
           </div>
         </div>
@@ -100,7 +100,8 @@ const Home = () => {
             <div className="relative">
               <div>
                 <h2>
-                  {language.about_home && language.about_home.first_h1} <span>lorem ipsum</span>
+                  {language.about_home && language.about_home.first_h1}{" "}
+                  <span>lorem ipsum</span>
                 </h2>
                 <h3>{language.about_home && language.about_home.first_p}</h3>
               </div>
@@ -114,7 +115,9 @@ const Home = () => {
               </div>
             </div>
 
-            <Link className="btn d-block">{language.about_home && language.about_home.about_btn}</Link>
+            <Link className="btn d-block">
+              {language.about_home && language.about_home.about_btn}
+            </Link>
           </div>
           <div
             ref={ref}
@@ -128,7 +131,7 @@ const Home = () => {
         <div className="container">
           <div className="title">
             <h1 data-fill="Services we provide" className="title section-color">
-              {language.services &&language.services.sevices_home_header}
+              {language.services && language.services.sevices_home_header}
             </h1>
           </div>
           <div className="services grid-3">
@@ -156,7 +159,6 @@ const Home = () => {
                   <i className="fa-solid fa-mobile-screen-button"></i>
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
-                  {" "}
                   {language.services && language.services.mobile_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
@@ -233,7 +235,7 @@ const Home = () => {
         <div className="container">
           <div className="title">
             <h1 className="title body-color" data-fill="our projects">
-              {language.projects &&language.projects.projects_home_header}
+              {language.projects && language.projects.projects_home_header}
             </h1>
           </div>
           <ProjectsComponent />

@@ -15,7 +15,6 @@ const AcademyComponent = () => {
     academyDivs.forEach((e, i) => {
       setTimeout(() => {
         e.classList.add("active-academy");
-        console.log(e);
       }, i * 100); // Adjust the delay (e.g., 1000ms = 1 second) based on the index
     });
   };
@@ -75,7 +74,10 @@ const AcademyComponent = () => {
               </p>
             </article>
           </div>
-          <Link to="/academy" className="btn d-block"> see more about our academy </Link>
+          <Link to="/academy" className="btn d-block">
+            {" "}
+            see more about our academy{" "}
+          </Link>
         </div>
         <div className={` ${inView && "svg-active"}  flex svg `}>
           <div className=" animation-image">
