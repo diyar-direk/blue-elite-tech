@@ -3,6 +3,7 @@
 }
 .contact-page .contact-comp {
   width: 40%;
+  color: var(--font-color);
 }
 
 .contact-page form {
@@ -16,6 +17,7 @@
   margin-bottom: 10px;
   color: var(--font-color);
   font-weight: 600;
+  width: fit-content;
 }
 .contact-page form .inp {
   outline: none;

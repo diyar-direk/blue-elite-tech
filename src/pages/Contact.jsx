@@ -51,7 +51,7 @@ const Contact = () => {
     <Loader />;
   }
   return (
-    <main className="center">
+    <main className="center sub-page">
       <div className="container">
         <div className="title">
           <h1 className="title body-color" data-fill="contact us">
@@ -107,8 +107,13 @@ const Contact = () => {
               }
             />
 
-            <label>
-              {language.contact && language.contact.contact_service}
+            <label
+              onClick={(e) => {
+                e.stopPropagation();
+                document.querySelector(".contact-page form div.inp").click();
+              }}
+            >
+              Choose a Service
             </label>
             <div
               data-input="services"
@@ -116,7 +121,7 @@ const Contact = () => {
               onClick={activeDiv}
               className="select-services inp"
             >
-              {form.services || "choose services"}{" "}
+              {form.services || "choose services"}
               <i className="fa-solid fa-chevron-down"></i>
               <div data-input="services">
                 <p onClick={selectServices} data-services="mobile Application">
@@ -171,9 +176,15 @@ const Contact = () => {
             </div>
 
             {form.services === "SÎMURX Academy" && (
-              <label>
-                {" "}
-                {language.contact && language.contact.contact_choose_course}
+              <label
+                onClick={(e) => {
+                  e.stopPropagation();
+                  document
+                    .querySelector(".contact-page form div.inp[data-index='1']")
+                    .click();
+                }}
+              >
+                Choose a cours you need
               </label>
             )}
             {form.services === "SÎMURX Academy" && (

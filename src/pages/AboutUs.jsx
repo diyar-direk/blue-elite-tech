@@ -7,22 +7,23 @@ const AboutUs = () => {
   const language = context.language && context.language;
   return (
     <>
-      <main class="responsive-container-block bigContainer section-color ">
+      <main class="responsive-container-block sub-page bigContainer section-color ">
         <div class="responsive-container-block container">
           <div className="title">
             <h1 className="title body-color" data-fill="About Us">
-              {language.about && language.about.about_header}
+              About Us
             </h1>
           </div>
           <div class="responsive-container-block textSide">
             <div className="about-info flex">
               <div className="info-first">
-                <p class="text-blk heading">
-                  {" "}
-                  {language.about && language.about.about_top_h1}
-                </p>
+                <p class="text-blk heading">Who Are We?</p>
                 <p class="text-blk subHeading">
-                  {language.about && language.about.about_top_p}
+                  Blue Elite Tech is a leading company in software development,
+                  we are passionate about driving innovation and excellence in
+                  the world of software development. Founded with the vision to
+                  revolutionize the tech industry, we specialize in creating
+                  cutting-edge solutions for businesses and individuals alike.
                 </p>
               </div>
               <img loading="lazy" src={require("./home/icon32.png")} alt="" />
