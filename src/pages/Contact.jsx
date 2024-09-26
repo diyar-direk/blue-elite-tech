@@ -10,7 +10,7 @@ const Contact = () => {
     name: "",
     phone: "",
     email: "",
-    services: "Desktop Application",
+    services: "",
     message: "",
   });
   const context = useContext(Context);
@@ -116,7 +116,8 @@ const Contact = () => {
               onClick={activeDiv}
               className="select-services inp"
             >
-              {form.services} <i className="fa-solid fa-chevron-down"></i>
+              {form.services || "choose services"}{" "}
+              <i className="fa-solid fa-chevron-down"></i>
               <div data-input="services">
                 <p onClick={selectServices} data-services="mobile Application">
                   {language.contact &&
@@ -178,7 +179,7 @@ const Contact = () => {
             {form.services === "SÎMURX Academy" && (
               <div
                 data-input="cours"
-                data-index="1s"
+                data-index="1"
                 onClick={activeDiv}
                 className="select-services inp"
               >

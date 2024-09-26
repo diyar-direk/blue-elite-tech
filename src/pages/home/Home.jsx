@@ -160,7 +160,6 @@ const Home = () => {
                   <i className="fa-solid fa-mobile-screen-button"></i>
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
-                  {" "}
                   {language.services && language.services.mobile_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
@@ -186,8 +185,8 @@ const Home = () => {
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
-                <ServicesCard.Bottom.StartedLink className="started" />
-                <ServicesCard.Bottom.Details />
+                <ServicesCard.Bottom.StartedLink language={language} className="started" />
+                <ServicesCard.Bottom.Details language={language} />
               </ServicesCard.Bottom>
             </ServicesCard>
 

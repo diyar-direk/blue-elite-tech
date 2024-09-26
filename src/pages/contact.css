@@ -4,6 +4,7 @@
 .contact-page .contact-comp {
   width: 40%;
 }
+
 .contact-page form {
   display: flex;
   flex-direction: column;
@@ -79,4 +80,41 @@
   width: 50%;
   margin-top: 30px;
   border-radius: 4px;
+}
+
+/* join us page  */
+.join_page.contact-page {
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #dadada;
+}
+.contact-page form > h2 {
+  text-align: center;
+  color: var(--font-color);
+}
+body.dark .join_page.contact-page {
+  box-shadow: 0 0 20px #000000;
+}
+.join_page.contact-page form {
+  padding: 30px;
+  background-color: var(--body-color);
+}
+.join_page.contact-page > div {
+  background-image: linear-gradient(180deg, #07c1eb4b, #07c1eb07);
+}
+.join_page.contact-page form label.inp {
+  cursor: pointer;
+  text-align: center;
+  color: #777;
+}
+.join_page.contact-page form label.inp input {
+  display: none;
+}
+.join_page.contact-page form label.inp i {
+  margin-left: 10px;
+}
+
+.join_page.contact-page > form > button {
+  width: 100%;
 }

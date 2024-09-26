@@ -11,13 +11,11 @@
 
 .academy-page .mission {
   margin-top: 50px;
+  align-items: flex-start;
 }
 .academy-page .mission > div {
   background-color: var(--section-color);
   padding: 15px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 .academy-page .mission > div.background {
   background-color: #07c1eb15;

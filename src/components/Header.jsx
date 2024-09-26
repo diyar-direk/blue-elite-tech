@@ -3,17 +3,13 @@ import { NavLink, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 import "./Header.css";
 import Setting from "./Setting";
-import { useInView } from "react-intersection-observer";
 import { Context } from "../context/Context";
 import Loader from "./Loader";
+
 const Header = () => {
   const context = useContext(Context);
   const language = context && context.language;
 
-  const { ref, inView } = useInView({
-    threshold: 0.5, // 50% of the element is visible
-    triggerOnce: true, // Trigger only once
-  });
   const location = useLocation();
   const [animationDone, setAnimationDone] = useState(false);
 
@@ -53,34 +49,31 @@ const Header = () => {
     if (document.querySelector(".aside-overlay").classList.contains("open"))
       document.querySelector("header").classList.add("active");
     else {
-      const main = document.querySelector("main.landing");
-      if (main) {
-        if (window.scrollY <= main.clientHeight / 2 - 150) {
-          document.querySelector("header").classList.remove("active");
-        }
+      if (window.scrollY < 250) {
+        document.querySelector("header").classList.remove("active");
       }
     }
   }
-  window.addEventListener("click", (e) => {
+  window.addEventListener("click", () => {
     const overlay = document.querySelector(".aside-overlay.open");
     overlay && overlay.classList.remove("open");
   });
-  window.addEventListener("scroll", () => {
-    const main = document.querySelector("main.landing");
-    const header = document.querySelector("header");
 
-    if (main) {
-      if (window.scrollY >= main.clientHeight / 2 - 150)
-        header.classList.add("active");
-      else header.classList.remove("active");
-    }
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY >= 250 && location.pathname === "/")
+      header.classList.add("active");
+    else header.classList.remove("active");
   });
   if (!context) {
     <Loader />;
   }
+
   return (
     <>
-      <header className="center">
+      <header
+        className={`center ${location.pathname !== "/" ? "pages-desgin" : ""} `}
+      >
         <div className="container flex">
           <div className="flex">
             <Logo show={true} />

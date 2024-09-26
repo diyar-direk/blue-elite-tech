@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "./academy.css";
-import ContactComponenet from "../components/ContactComponenet";
-import MapComponent from "./../components/MapComponent";
+import ContactComponenet from "../../components/ContactComponenet";
+import MapComponent from "../../components/MapComponent";
 import { Link } from "react-router-dom";
-import { Context } from "../context/Context";
+import { Context } from "../../context/Context";
 
 const Academy = () => {
   const context = useContext(Context);
