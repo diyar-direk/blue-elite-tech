@@ -36,7 +36,7 @@ const Academy = () => {
           </div>
 
           <div className="mission grid-2">
-            <div>
+            <div className="background">
               <h2> Our Mission </h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -65,7 +65,7 @@ const Academy = () => {
               </p>
             </div>
 
-            <div>
+            <div className="background">
               <h2> Why SÎMURX </h2>
               <p className="count">Expert Instructors</p>
               <p className="count">
@@ -78,7 +78,7 @@ const Academy = () => {
               </p>
             </div>
 
-            <div>
+            <div className="background">
               <h2>Our Partnership</h2>
               <p>
                 Through our partnership with Blue Elite Tech, we stay connected
