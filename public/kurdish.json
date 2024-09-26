@@ -1,0 +1,129 @@
+{
+  "links": {
+    "home": "",
+    "our_services": "",
+    "academy": "",
+    "contact_us": "",
+    "our_projects": "",
+    "join_us": "",
+    "about_us": "",
+    "theme": "",
+    "language": ""
+  },
+
+  "landing": {
+    "landing_h1": "",
+    "landing_p": "",
+    "first_button": "",
+    "second_button": ""
+  },
+  "about_home": {
+    "about_header": "",
+    "first_h1": "",
+    "first_p": "",
+    "second_h1": "",
+    "second_p": "",
+    "third_h1": "",
+    "third_p": "",
+    "about_btn": ""
+  },
+
+  "services": {
+    "sevices_home_header": "",
+    "sevices_section_header": "",
+    "sevices_section_text": "",
+    "desktop_header": "",
+    "desktop_p": "",
+    "mobile_header": "",
+    "mobile_p": "",
+    "websites_header": "",
+    "websites_p": "",
+    "server_header": "",
+    "server_p": "",
+    "local_header": "",
+    "local_p": "",
+    "qualifying_header": "",
+    "qualifying_p": "",
+    "camera_header": "",
+    "camera_p": "",
+    "warning_header": "",
+    "warning_p": "",
+    "button_getStarted": "",
+    "button_seeAllServices": "",
+    "details": ""
+  },
+  "projects": {
+    "projects_home_header": "",
+    "see_live_preview": "",
+    "btn_livePreview": "",
+    "btn_allProjects": ""
+  },
+  "academy": {
+    "academy_home_header": "",
+    "academy_home_what_we_offer": "",
+    "academy_home_what_we_offer_p": "",
+    "academy_home_our_mission": "",
+    "academy_home_our_mission_p": "",
+    "academy_home_our_Team": "",
+    "academy_home_our_team_p": "",
+    "button_seeMore": "",
+
+    "academy_section_header": "",
+    "academy_section_h4": "",
+    "academy_section_what_we_offer": "",
+    "academy_section_what_we_offer_p1": "",
+    "academy_section_our_mission": "",
+    "academy_section_our_mission_p": "",
+    "academy_section_our_team": "",
+    "academy_section_our_team_p": "",
+    "academy_section_why_simurx": "",
+    "academy_section_why_simurx_p": "",
+    "academy_section_our_partnership": "",
+    "academy_section_our_partnership_p": "",
+    "button_getStarted": "",
+    "courses_header": "",
+    "contact_header": "",
+    "contact_discription": "",
+    "contact_academy_h1": "",
+    "academy_contact_email": "",
+    "academy_contact_phone": "",
+    "academy_contact_adress_h1": "",
+    "academy_contact_adress_info": ""
+  },
+  "contact": {
+    "contact_header": "",
+    "contact_email": "",
+    "contact_phone": "",
+    "contact_adress_h1": "",
+    "contact_adress_info": "",
+    "contact_fullName": "",
+    "contact_fullName_placeholder": "",
+    "contact_phone_placeholder": "",
+    "contact_email_placeholder": "",
+    "contact_service": "",
+    "contact_service_placeholder": "",
+    "contact_service_description": "",
+    "contact_service_description_placeholder": ""
+  },
+  "about": {
+    "about_header": "",
+    "about_top_h1": "",
+    "about_top_p": "",
+
+    "about_our_mission": "",
+    "about_our_mission_p": "",
+
+    "about_our_team": "",
+    "about_our_team_p": "",
+    "about_what_we_do": "",
+    "about_what_we_do_p": "",
+    "about_why_choose_us": "",
+    "about_why_choose_us_p": "",
+    "button_explore_services": "",
+    "button_contact_us": ""
+  },
+  "footer":{
+    "footer_p":"",
+    "footer_rights":""
+  }
+}

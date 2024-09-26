@@ -12,8 +12,15 @@
 .academy-page .mission {
   margin-top: 50px;
 }
-.academy-page .mission > div:not(:last-of-type) {
-  border-bottom: solid 1px var(--border-color);
+.academy-page .mission > div {
+  background-color: var(--section-color);
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.academy-page .mission > div.background {
+  background-color: #07c1eb15;
 }
 .academy-page .mission h2 {
   padding-left: 20px;
@@ -21,6 +28,8 @@
   letter-spacing: 1px;
   text-transform: capitalize;
   color: var(--font-color);
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .academy-page .mission h2::before {
@@ -29,15 +38,15 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: var(--main-color);
   border-radius: 50%;
 }
 
 .academy-page .mission p {
   padding-left: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: var(--font-color);
   opacity: 0.9;
   font-weight: 550;
@@ -78,9 +87,9 @@ body.dark .academy-card {
 .academy-card > div {
   flex: 50%;
   display: flex;
+  padding: 20px;
 }
 .academy-card > div.info {
-  padding: 20px;
   justify-content: center;
   flex-direction: column;
   background: var(--section-color);
@@ -133,6 +142,7 @@ body.dark .academy-card {
   width: 100%;
   object-fit: cover;
   height: 100%;
+  border-radius: 4px;
 }
 
 .contact-comp .info > div:first-child {
@@ -164,7 +174,7 @@ body.dark .academy-card {
 .contact-comp .info > div:first-child > a {
   color: white;
 }
-.leaflet-container{
+.leaflet-container {
   z-index: 1 !important;
   width: 50% !important;
   height: 50vh !important;
@@ -183,13 +193,9 @@ body.dark .academy-card {
   }
 }
 @media (max-width: 450px) {
- 
   .leaflet-container {
     width: 100% !important;
     height: 30vh !important;
     z-index: 1 !important;
   }
-
 }
-
-

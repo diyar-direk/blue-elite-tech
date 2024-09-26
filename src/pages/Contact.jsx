@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./contact.css";
 import MapComponent from "../components/MapComponent";
 import ContactComponenet from "../components/ContactComponenet";
+
 const Contact = () => {
   const [form, setForm] = useState({
     name: "",
@@ -10,6 +11,7 @@ const Contact = () => {
     services: "Desktop Application",
     message: "",
   });
+
   document.addEventListener("click", () => {
     const selectDiv = document.querySelector(
       ".contact-page form div.inp > div.active"
@@ -22,6 +24,12 @@ const Contact = () => {
   function activeDiv(e) {
     e.stopPropagation();
 
+    const allActive = document.querySelectorAll(
+      `.contact-page form div.inp > div`
+    );
+    allActive.forEach((ele, i) => {
+      if (e.target.dataset.index != i) ele.classList.remove("active");
+    });
     const active = document.querySelector(
       `.contact-page form div.inp > div[data-input="${e.target.dataset.input}"]`
     );
@@ -81,6 +89,7 @@ const Contact = () => {
             <label>Choose a Service </label>
             <div
               data-input="services"
+              data-index="0"
               onClick={activeDiv}
               className="select-services inp"
             >
@@ -134,6 +143,7 @@ const Contact = () => {
             {form.services === "SÎMURX Academy" && (
               <div
                 data-input="cours"
+                data-index="1s"
                 onClick={activeDiv}
                 className="select-services inp"
               >
@@ -162,6 +172,7 @@ const Contact = () => {
               id="message"
               className="inp"
               required
+              name="message"
             />
             <button className="btn2"> submit </button>
           </form>

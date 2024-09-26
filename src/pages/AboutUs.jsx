@@ -4,13 +4,13 @@ import "./about.css";
 const AboutUs = () => {
   return (
     <>
-    <main class="responsive-container-block bigContainer ">
+    <main class="responsive-container-block bigContainer section-color ">
+      <div class="responsive-container-block container">
       <div className="title">
         <h1 className="title body-color" data-fill="About Us">
           About Us
         </h1>
       </div>
-      <div class="responsive-container-block container">
         <div class="responsive-container-block textSide">
           <div className="about-info flex">
             <div className="info-first">
@@ -29,9 +29,12 @@ const AboutUs = () => {
       </div>
       </main>
 
-      <main className="about-wrapper">
+      <main className="about-wrapper body-color">
+        <div className="spikes">
+
+        </div>
         <div className="about-flex grid-2 container ">
-          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background1">
             <div class="cardImgContainer">
               <i></i>
             </div>
@@ -45,7 +48,7 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background2">
             <div class="cardImgContainer">
               <i></i>
             </div>
@@ -59,7 +62,7 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background2 ">
             <div class="cardImgContainer">
               <i></i>
             </div>
@@ -79,7 +82,7 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background1">
             <div class="cardImgContainer">
               <i></i>
             </div>

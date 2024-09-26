@@ -14,26 +14,29 @@ const Academy = () => {
               SÎMURX ACADEMY
             </h1>
           </div>
-          <div className="flex">
-            <div className="flex-1">
-              <h1 className="title">SÎMURX</h1>
-              <h2>A Beacon of Computer Science and Education</h2>
-              <h3 style={{ color: "#bebe11" }}>Navenda Zanistên Komputerê</h3>
-              <h4>
-                Simorx Academy is a leading programming academy dedicated to
-                developing the next generation of developers. In collaboration
-                with Blue Elite Tech, we offer a range of courses designed to
-                help beginners and recent graduates kick-start their careers in
-                technology
-              </h4>
-            </div>
-            <div className="flex-1">
-              <img src={require("./academy1.png")} alt="" />
+
+          <div className="main">
+            <div className="flex">
+              <div className="flex-1">
+                <h1 className="title">SÎMURX</h1>
+                <h2>A Beacon of Computer Science and Education</h2>
+                <h3 style={{ color: "#bebe11" }}>Navenda Zanistên Komputerê</h3>
+                <h4>
+                  Simorx Academy is a leading programming academy dedicated to
+                  developing the next generation of developers. In collaboration
+                  with Blue Elite Tech, we offer a range of courses designed to
+                  help beginners and recent graduates kick-start their careers
+                  in technology
+                </h4>
+              </div>
+              <div className="flex-1 center">
+                <img src={require("./academy1.png")} alt="" />
+              </div>
             </div>
           </div>
 
           <div className="mission grid-2">
-            <div>
+            <div className="background">
               <h2> Our Mission </h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -62,7 +65,7 @@ const Academy = () => {
               </p>
             </div>
 
-            <div>
+            <div className="background">
               <h2> Why SÎMURX </h2>
               <p className="count">Expert Instructors</p>
               <p className="count">
@@ -75,7 +78,7 @@ const Academy = () => {
               </p>
             </div>
 
-            <div>
+            <div className="background">
               <h2>Our Partnership</h2>
               <p>
                 Through our partnership with Blue Elite Tech, we stay connected
@@ -96,10 +99,7 @@ const Academy = () => {
           </div>
           <article className="academy-card">
             <div>
-              <img
-                src={require("./academy3.07ee47e15b16e884da6a.jpg")}
-                alt=""
-              />
+              <img src={require("./sb2.png")} alt="" />
             </div>
             <div className="info">
               <h1>fist cours</h1>
@@ -114,10 +114,7 @@ const Academy = () => {
           </article>
           <article className="academy-card">
             <div>
-              <img
-                src={require("./academy3.07ee47e15b16e884da6a.jpg")}
-                alt=""
-              />
+              <img src={require("./sb9.png")} alt="" />
             </div>
             <div className="info">
               <h1>second cours</h1>
@@ -132,10 +129,7 @@ const Academy = () => {
           </article>
           <article className="academy-card">
             <div>
-              <img
-                src={require("./academy3.07ee47e15b16e884da6a.jpg")}
-                alt=""
-              />
+              <img src={require("./course-05.jpg")} alt="" />
             </div>
             <div className="info">
               <h1>third cours</h1>

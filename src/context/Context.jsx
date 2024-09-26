@@ -5,6 +5,12 @@ const PageContext = ({ children }) => {
   const [selectedLang, setSelectedLang] = useState(
     localStorage.getItem("language") || "english"
   );
+  const [language, setLanguage] = useState({});
+  useEffect(() => {
+    fetch(`/${selectedLang}.json`)
+      .then((res) => res.json())
+      .then((data) => setLanguage(data));
+  }, [selectedLang]);
 
   useEffect(() => {
     darkMode();
@@ -37,7 +43,7 @@ const PageContext = ({ children }) => {
 
   return (
     <Context.Provider
-      value={{ theme, setTheme, selectedLang, setSelectedLang }}
+      value={{ theme, setTheme, selectedLang, setSelectedLang, language }}
     >
       {children}
     </Context.Provider>
