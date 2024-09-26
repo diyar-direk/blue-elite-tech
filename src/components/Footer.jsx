@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./footer.css";
 import { NavLink } from "react-router-dom";
 import Setting from "./Setting";
+import { Context } from "../context/Context";
 const Footer = () => {
+  const context = useContext(Context);
+  const language = context.language && context.language;
   return (
     <footer className="footer center">
       <div className="container">
@@ -39,26 +42,40 @@ const Footer = () => {
                 <i className="fa-brands fa-linkedin"></i>
               </a>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequuntur, omnis?
-            </p>
+            <p>{language.footer && language.footer.footer_p}</p>
             <Setting position="footer" />
           </div>
           <div>
-            <NavLink to="/">home</NavLink>
-            <NavLink to="/services">our services</NavLink>
-            <NavLink to="/academy">academy</NavLink>
-            <NavLink to="/about">our projects</NavLink>
+            <NavLink to="/"> {language.links && language.links.home}</NavLink>
+            <NavLink to="/services">
+              {" "}
+              {language.links && language.links.our_services}
+            </NavLink>
+            <NavLink to="/academy">
+              {language.links && language.links.academy}
+            </NavLink>
+            <NavLink to="/project">
+              {" "}
+              {language.links && language.links.our_projects}
+            </NavLink>
           </div>
           <div>
-            <NavLink to="/contact">contact us</NavLink>
-            <NavLink to={"/join"}>join us</NavLink>
-            <NavLink to={"/about"}>about us</NavLink>
+            <NavLink to="/contact">
+              {" "}
+              {language.links && language.links.contact_us}
+            </NavLink>
+            <NavLink to={"/join"}>
+              {" "}
+              {language.links && language.links.join_us}
+            </NavLink>
+            <NavLink to={"/about"}>
+              {" "}
+              {language.links && language.links.about_us}
+            </NavLink>
           </div>
         </div>
         <div className="copyright center">
-          © 2024 All rights reserved for Blue Elite Tech.
+          {language.footer && language.footer.footer_rights}
         </div>
       </div>
     </footer>

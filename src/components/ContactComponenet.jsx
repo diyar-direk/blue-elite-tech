@@ -4,7 +4,7 @@ const ContactComponenet = ({ children }) => {
   return <div className="contact-comp"> {children} </div>;
 };
 
-ContactComponenet.Info = ({ children, title, location, showBtn }) => {
+ContactComponenet.Info = ({ children, title, location, showBtn, language }) => {
   return (
     <>
       <div className="info flex">
@@ -15,9 +15,12 @@ ContactComponenet.Info = ({ children, title, location, showBtn }) => {
               <i className="fa-solid fa-envelope"></i>
             </div>
             <div>
-              <h3>email address</h3>
+              <h3>
+               
+                {language.academy && language.academy.academy_contact_email}
+              </h3>
               <a
-                target="_blank"
+                target="_b lank"
                 href={
                   location === "blue tech"
                     ? "mailto:support@blue-elite.tech"
@@ -35,9 +38,11 @@ ContactComponenet.Info = ({ children, title, location, showBtn }) => {
               <i className="fa-solid fa-phone"></i>
             </div>
             <div>
-              <h3>Phone Number</h3>
+              <h3>
+                {language.academy && language.academy.academy_contact_phone}
+              </h3>
               <a
-                target="_blank"
+                target="_bla nk"
                 href={
                   location === "blue tech"
                     ? "tel:+963939722358"
@@ -55,9 +60,11 @@ ContactComponenet.Info = ({ children, title, location, showBtn }) => {
               <i className="fa-solid fa-building"></i>
             </div>
             <div>
-              <h3>office address</h3>
+              <h3>
+                {language.academy && language.academy.academy_contact_adress_h1}
+              </h3>
               <a
-                target="_blank"
+                target="_bla nk"
                 href={
                   location === "blue tech"
                     ? "https://www.google.com/maps/place/36%C2%B030'56.8%22N+40%C2%B044'57.9%22E/@36.5157901,40.7487793,19z/data=!3m1!4b1!4m4!3m3!8m2!3d36.515789!4d40.749423?hl=en-US&entry=ttu"
@@ -70,7 +77,12 @@ ContactComponenet.Info = ({ children, title, location, showBtn }) => {
               </a>
             </div>
           </article>
-          {showBtn && <Link className="btn2"> get started </Link>}
+          {showBtn && (
+            <Link className="btn2">
+              {" "}
+              {language.academy && language.academy.button_getStarted}
+            </Link>
+          )}
         </div>
 
         {children}

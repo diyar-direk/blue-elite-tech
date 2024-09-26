@@ -29,8 +29,8 @@
   },
   "services": {
     "sevices_home_header": "Services we provide",
-    "sevices_section_header": "",
-    "sevices_section_text": "",
+    "sevices_section_header": "our services",
+    "sevices_section_text": "Blue Elite Tech is a leading software company known for its innovative solutions and advanced technology services. Founded onthe principles of innovation and excellence, we have assembled a team of specialized developers and engineers dedicated to realizing our clients’ vision and meeting their technological needs.",
     "desktop_header": "Desktop Apps",
     "desktop_p": "We program all desktop applications according to the customer's needs",
     "mobile_header": "mobile Apps",
@@ -69,7 +69,7 @@
     "academy_section_header": "SÎMURX ACADEMY",
     "academy_section_h4": "Simorx Academy is a leading programming academy dedicated to developing the next generation of developers. In collaboration with Blue Elite Tech, we offer a range of courses designed to help beginners and recent graduates kick-start their careers in technology",
     "academy_section_our_mission": "Our Mission",
-    "academy_section_our_mission_p": "",
+    "academy_section_our_mission_p": "Our mission is to make coding education accessible and engaging, providing students with the knowledge and skills they need to thrive in the tech industry",
     "academy_section_what_we_offer": "What We Offer ?",
     "academy_section_what_we_offer_p1": "Beginner Courses: Covering the basics of various programming languages and tools. Hands-On Learning: Real-world projects & practical exercises.",
     "academy_section_our_team": "Our Team",
@@ -116,8 +116,12 @@
       "camera_system": "Camera System services",
       "SÎMURX_academy": "SÎMURX Academy"
     },
+    "contact_choose_course": "Choose a course you need",
+    "contact_select_course": "Select Course",
     "contact_service_description": "Service Description",
-    "contact_service_description_placeholder": "write your message"
+    "contact_service_placeholder": " Please choose a service",
+    "contact_service_description_placeholder": "write your message",
+    "button_submit": " Submit"
   },
   "about": {
     "about_header": "About Us",
@@ -135,7 +139,7 @@
     "button_contact_us": "Contact Us"
   },
   "footer": {
-    "footer_p": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, omnis?",
+    "footer_p": "Blue Elite Tech - Transforming Your Vision into Reality.",
     "footer_rights": "© 2024 All rights reserved for Blue Elite Tech."
   }
 }

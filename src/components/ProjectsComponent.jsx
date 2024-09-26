@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
+import { Context } from "../context/Context";
 
 const ProjectsComponent = () => {
   const { ref, inView } = useInView({
@@ -14,6 +15,8 @@ const ProjectsComponent = () => {
       .get("http://localhost:8000/api/projects")
       .then((res) => setProjects(res.data.projects));
   }, []);
+  const context = useContext(Context);
+  const language = context.language && context.language;
 
   return (
     <div ref={ref} className="home-project grid-3">
@@ -24,7 +27,8 @@ const ProjectsComponent = () => {
               <img loading="lazy" src={e.photo} alt="" />
               <div className="center">
                 <Link>
-                  see live preview <i className="fa-solid fa-eye"></i>
+                  {language.projects && language.projects.see_live_preview}
+                  <i className="fa-solid fa-eye"></i>
                 </Link>
               </div>
             </div>
@@ -32,7 +36,7 @@ const ProjectsComponent = () => {
               <h1>{e.headline.en}</h1>
               <p>{e.summary.en}</p>
               <Link>
-                Live preview <i className="fa-solid fa-eye"></i>
+              {language.projects && language.projects.btn_livePreview}<i className="fa-solid fa-eye"></i>
               </Link>
             </div>
           </article>

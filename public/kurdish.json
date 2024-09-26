@@ -101,9 +101,24 @@
     "contact_phone_placeholder": "",
     "contact_email_placeholder": "",
     "contact_service": "",
-    "contact_service_placeholder": "",
+    "contact_services": {
+      "mobile_application": "mobile Application",
+      "desktop_application": "Desktop Application",
+      "websites": "Websites ",
+      "server_managment": "Server Management",
+      "local_network": "Local Networks services",
+      "qualifying": "Qualifying services",
+      "warning_system": "Warning System services",
+      "camera_system": "Camera System services",
+      "SÎMURX_academy": "SÎMURX Academy"
+    },
+    "contact_choose_course": "يرجى اختيار دورة",
+    "contact_select_course": "Select Course",
+
     "contact_service_description": "",
-    "contact_service_description_placeholder": ""
+    "contact_service_placeholder": "يرجى اختيار الخدمة",
+    "contact_service_description_placeholder": "",
+    "button_submit": "اكتب رسالتك"
   },
   "about": {
     "about_header": "",
@@ -122,8 +137,8 @@
     "button_explore_services": "",
     "button_contact_us": ""
   },
-  "footer":{
-    "footer_p":"",
-    "footer_rights":""
+  "footer": {
+    "footer_p": "",
+    "footer_rights": ""
   }
 }

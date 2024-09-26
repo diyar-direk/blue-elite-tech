@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./services.css";
 import { useInView } from "react-intersection-observer";
+import { Context } from "../context/Context";
 
 const ServicesCard = ({ children, className }) => {
   const { ref, inView } = useInView({
     threshold: 0.1, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
+  const context = useContext(Context);
+  const language = context.language && context.language;
   return (
     <article
       ref={ref}
@@ -42,15 +45,19 @@ ServicesCard.Bottom = ({ children }) => {
   );
 };
 ServicesCard.Bottom.StartedLink = ({ className, to }) => {
+
   return (
     <Link to={to} className={className}>
-      get started
+     
+      {/* {language.services && language.services.button_getStarted} */}
     </Link>
   );
 };
 
 ServicesCard.Bottom.Details = () => {
-  return <Link to={"/services"}> Details </Link>;
+  return <Link to={"/services"}>
+     {/* {language.details && language.services.details} */}
+      </Link>;
 };
 
 export default ServicesCard;

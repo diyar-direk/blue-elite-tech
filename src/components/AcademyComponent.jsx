@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Svg from "../pages/home/Svg";
 import { useInView } from "react-intersection-observer";
+import { Context } from "../context/Context";
 
 const AcademyComponent = () => {
   const { ref, inView } = useInView({
     threshold: 0.5, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
+  const context = useContext(Context);
+  const language = context.language && context.language;
+
   const animateAcademy = () => {
     const academyDivs = document.querySelectorAll(
       ".home-academy .academy-services > div"
@@ -25,7 +29,7 @@ const AcademyComponent = () => {
       <div className="container home-academy wrap flex">
         <div className="title">
           <h1 className="title section-color" data-fill="academy">
-            Academy
+            {language.academy && language.academy.academy_home_header}
           </h1>
         </div>
         <div ref={ref} className="academy-services">
@@ -37,10 +41,13 @@ const AcademyComponent = () => {
               alt=""
             />
             <article>
-              <h1>What We Offer ?</h1>
+              <h1>
+                {language.academy &&
+                  language.academy.academy_home_what_we_offer}
+              </h1>
               <p>
-                Covering the basics of various programming languages and
-                tools.Real-world projects & practical exercises.
+                {language.academy &&
+                  language.academy.academy_home_what_we_offer_p}
               </p>
             </article>
           </div>
@@ -51,11 +58,13 @@ const AcademyComponent = () => {
               alt=""
             />
             <article>
-              <h1>Our Mission</h1>
+              <h1>
+                {" "}
+                {language.academy && language.academy.academy_home_our_mission}
+              </h1>
               <p>
-                Our mission is to make coding education accessible and engaging,
-                providing students with the knowledge and skills they need to
-                thrive in the tech industry
+                {language.academy &&
+                  language.academy.academy_home_our_mission_p}
               </p>
             </article>
           </div>
@@ -66,16 +75,17 @@ const AcademyComponent = () => {
               alt=""
             />
             <article>
-              <h1>Our Team</h1>
+              <h1>
+                {language.academy && language.academy.academy_home_our_Team}
+              </h1>
               <p>
-                Our instructors are industry professionals, including developers
-                from Blue Elite Tech, who bring their real-world experience and
-                expertise into the classroom. This ensures that our students
-                receive top-quality education.
+                {language.academy && language.academy.academy_home_our_team_p}
               </p>
             </article>
           </div>
-          <Link to="/academy" className="btn d-block"> see more about our academy </Link>
+          <Link to="/academy" className="btn d-block">
+            {language.academy && language.academy.button_seeMore}
+          </Link>
         </div>
         <div className={` ${inView && "svg-active"}  flex svg `}>
           <div className=" animation-image">

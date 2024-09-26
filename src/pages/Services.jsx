@@ -1,23 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import ServicesCard from "../components/ServicesCard";
+import { Context } from "../context/Context";
 
 const Services = () => {
+  //context for language
+  const context = useContext(Context);
+  const language = context.language && context.language;
   return (
     <main className="center sub-page body-color services-page">
       <div className="container">
         <div className="title">
           <h1 className="title body-color" data-fill="our services ">
-            our services
+            {language.services && language.services.sevices_section_header}
           </h1>
         </div>
         <div className="sevice-info flex">
-          <h3>
-            Blue Elite Tech is a leading software company known for its
-            innovative solutions and advanced technology services. Founded on
-            the principles of innovation and excellence, we have assembled a
-            team of specialized developers and engineers dedicated to realizing
-            our clients’ vision and meeting their technological needs.
-          </h3>
+          <h3>{language.services && language.services.sevices_section_text}</h3>
           <img src={require("./32.png")} alt="" />
         </div>
         <div className="grid-3 services">
@@ -26,10 +24,12 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-laptop-code"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title> Desktop Apps</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {" "}
+                {language.services && language.services.desktop_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We program all desktop applications according to the customer's
-                needs
+                {language.services && language.services.desktop_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -42,10 +42,11 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-mobile-screen-button"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title> mobile Apps</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {language.services && language.services.mobile_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We program all android applications according to the customer’s
-                needs
+                {language.services && language.services.mobile_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -58,10 +59,11 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-brands fa-chrome"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title> Websites</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {language.services && language.services.websites_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We design, develop, manage, and fully supervise websites,
-                ensuring  performance, and user-friendly functionality.
+                {language.services && language.services.websites_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -75,11 +77,10 @@ const Services = () => {
                 <i className="fa-solid fa-cloud"></i>
               </ServicesCard.Body.Icon>
               <ServicesCard.Body.Title>
-                Server Management
+                {language.services && language.services.server_header}
               </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We install local servers and manage them according to the needs
-                of institutions and companies
+                {language.services && language.services.server_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -92,10 +93,12 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-network-wired"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title>Local Networks</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {" "}
+                {language.services && language.services.local_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We install LAN networks according to the needs of companies and
-                institutions
+                {language.services && language.services.local_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -108,10 +111,12 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-list-check"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title>Qualifying</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {" "}
+                {language.services && language.services.qualifying_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                Providing technical consultations and protection in the areas of
-                developing
+                {language.services && language.services.qualifying_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -124,9 +129,11 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-camera-retro"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title>Camera System</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {language.services && language.services.camera_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                Installing protection networks with surveillance cameras
+                {language.services && language.services.camera_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -139,9 +146,12 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-lightbulb"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title>Warning System</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {" "}
+                {language.services && language.services.warning_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                Establishing early warning systems and sensors upon request
+              {language.services && language.services.warning_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
