@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import "./setting.css";
 import { Context } from "../context/Context";
+import Loader from "./Loader";
 
 const Setting = (props) => {
   const context = useContext(Context);
+  const language = context.language;
 
   function darkMode(e) {
     e.target.classList.toggle("dark");
@@ -21,10 +23,13 @@ const Setting = (props) => {
   function selectLanguage(e) {
     context.setSelectedLang(e.target.dataset.lang);
   }
+  if (!context) {
+    <Loader />;
+  }
   return (
     <div className="setting flex">
       <div className="language flex-1 relative">
-        {props.title && <p>language:</p>}
+        {props.title && <p>{language.links && language.links.language}</p>}
         <div
           data-position={props.position}
           className="center"
@@ -65,7 +70,7 @@ const Setting = (props) => {
       </div>
       {props.mode && (
         <div className="mode">
-          {props.title && <p>mode:</p>}
+          {props.title && <p>{language.links && language.links.theme}</p>}
           <div onClick={darkMode}></div>
         </div>
       )}

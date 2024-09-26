@@ -2,11 +2,12 @@ import "./home.css";
 import { Link } from "react-router-dom";
 import ServicesCard from "../../components/ServicesCard";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loader from "../../components/Loader";
 import ProjectsComponent from "../../components/ProjectsComponent";
 import AcademyComponent from "../../components/AcademyComponent";
 import ParticlesBackground from "../../components/ParticlesBackground";
+import { Context } from "../../context/Context";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -14,7 +15,8 @@ const Home = () => {
     threshold: 0.5, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
-
+  const context = useContext(Context);
+  const language = context.language;
   //this might be a problem
   useEffect(() => {
     const imgElements = document.querySelectorAll("img");
@@ -41,7 +43,9 @@ const Home = () => {
       });
     };
   }, []);
-
+  if (!context) {
+    <Loader />;
+  }
   if (loading) {
     return <Loader />;
   }
@@ -52,16 +56,33 @@ const Home = () => {
       <main className="landing center">
         <div className="container">
           <div className="center opavity-animation flex-direction">
-            <h1>
-              welcome to <span className="inside-span"> blue elite tech </span>
-              company
-            </h1>
-            <p>Where we turn your ideas into reality</p>
+            {context.selectedLang === "english" ? (
+              <h1>
+                welcome to
+                <span className="inside-span"> blue elite tech </span>
+                company
+              </h1>
+            ) : context.selectedLang === "arabic" ? (
+              <h1>
+                <span className="inside-span"> blue elite tech </span>
+                مرحبًا بكم في شركة
+              </h1>
+            ) : (
+              <h1>
+                Kurdish
+                <span className="inside-span"> blue elite tech </span>
+                company
+              </h1>
+            )}
+            <p>{language.landing.landing_p}</p>
             <div className="flex">
-              <Link className="btn2">
-                contact us <i className="fa-solid fa-phone"></i>
+              <Link to={`/contact`} className="btn2">
+                {language.landing.first_button}
+                <i className="fa-solid fa-phone"></i>
               </Link>
-              <Link className="btn">join us</Link>
+              <Link to={`/`} className="btn">
+                {language.landing.second_button}
+              </Link>
             </div>
           </div>
         </div>
@@ -70,7 +91,7 @@ const Home = () => {
         <div className="container">
           <div className="title">
             <h1 data-fill="About The Company" className="title body-color">
-              About The Company
+              {language.about_home.about_header}
             </h1>
           </div>
         </div>
@@ -79,42 +100,26 @@ const Home = () => {
             <div className="relative">
               <div>
                 <h2>
-                  we are <span>lorem ipsum</span>
+                  {language.about_home.first_h1} <span>lorem ipsum</span>
                 </h2>
-                <h3>
-                  Blue Elite boasts extensive experience in software
-                  development, supported by a dedicated team of specialized
-                  experts with deep industry knowledge. Our team is skilled in
-                  delivering innovative solutions across diverse platforms,
-                </h3>
+                <h3>{language.about_home.first_p}</h3>
               </div>
               <div>
-                <h2>Why Blue Elite Tech?</h2>
-                <h3>
-                  At Blue Elite, we take pride in partnering with our clients to
-                  become an integral part of their journey towards success.
-                  Contact us today to explore how we can collaborate to drive
-                  your business forward through innovative software solutions.
-                </h3>
+                <h2> {language.about_home.second_h1}</h2>
+                <h3>{language.about_home.second_p}</h3>
               </div>
               <div className="before">
-                <h2>In the World of Technology Introducing Blue Elite Tech</h2>
-                <h3>
-                  In the modern age of technology, software development has
-                  become essential for business success and goal achievement.
-                  Stepping into the spotlight is Blue Elite, a trusted partner
-                </h3>
+                <h2> {language.about_home.third_h1}</h2>
+                <h3>{language.about_home.third_p}</h3>
               </div>
             </div>
 
-            <Link className="btn d-block">contact us</Link>
+            <Link className="btn d-block">{language.about_home.about_btn}</Link>
           </div>
           <div
             ref={ref}
             className={`${inView ? "slide-up-animation" : ""}  flex-100 center`}
           >
-            {console.log(inView)}
-
             <img loading="lazy" src={require("./icon18.png")} alt="" />
           </div>
         </div>
@@ -123,7 +128,7 @@ const Home = () => {
         <div className="container">
           <div className="title">
             <h1 data-fill="Services we provide" className="title section-color">
-              Services we provide
+              {language.services.sevices_home_header}
             </h1>
           </div>
           <div className="services grid-3">
@@ -132,10 +137,11 @@ const Home = () => {
                 <ServicesCard.Body.Icon>
                   <i className="fa-solid fa-laptop-code"></i>
                 </ServicesCard.Body.Icon>
-                <ServicesCard.Body.Title> Desktop Apps</ServicesCard.Body.Title>
+                <ServicesCard.Body.Title>
+                  {language.services.desktop_header}
+                </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  We program all desktop applications according to the
-                  customer's needs
+                  {language.services.desktop_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -149,10 +155,12 @@ const Home = () => {
                 <ServicesCard.Body.Icon>
                   <i className="fa-solid fa-mobile-screen-button"></i>
                 </ServicesCard.Body.Icon>
-                <ServicesCard.Body.Title> mobile Apps</ServicesCard.Body.Title>
+                <ServicesCard.Body.Title>
+                  {" "}
+                  {language.services.mobile_header}
+                </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  We program all android applications according to the
-                  customer’s needs
+                  {language.services.mobile_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -166,9 +174,12 @@ const Home = () => {
                 <ServicesCard.Body.Icon>
                   <i className="fa-brands fa-chrome"></i>
                 </ServicesCard.Body.Icon>
-                <ServicesCard.Body.Title> Websites</ServicesCard.Body.Title>
+                <ServicesCard.Body.Title>
+                  {" "}
+                  {language.services.websites_header}
+                </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  We design, manage and fully supervise websites
+                  {language.services.websites_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -183,11 +194,10 @@ const Home = () => {
                   <i className="fa-solid fa-cloud"></i>
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
-                  Server Management
+                  {language.services.server_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  We install local servers and manage them according to the
-                  needs of institutions and companies
+                  {language.services.server_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -202,11 +212,10 @@ const Home = () => {
                   <i className="fa-solid fa-network-wired"></i>
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
-                  Local Networks
+                  {language.services.local_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  We install LAN networks according to the needs of companies
-                  and institutions
+                  {language.services.local_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -215,19 +224,24 @@ const Home = () => {
               </ServicesCard.Bottom>
             </ServicesCard>
           </div>
-          <Link className="btn">see all services</Link>
+          <Link className="btn">
+            {" "}
+            {language.services.button_seeAllServices}
+          </Link>
         </div>
       </main>
       <main className="body-color center">
         <div className="container">
           <div className="title">
             <h1 className="title body-color" data-fill="our projects">
-              Our Projects
+              {language.projects.projects_home_header}
             </h1>
           </div>
           <ProjectsComponent />
 
-          <Link className="btn home-projects">see all projects </Link>
+          <Link className="btn home-projects">
+            {language.projects.btn_allProjects}
+          </Link>
         </div>
       </main>
       <AcademyComponent />
