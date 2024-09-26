@@ -21,7 +21,7 @@ const JoinUs = () => {
   }
 
   return (
-    <main className="center section-color">
+    <main className="center  sub-page section-color">
       <div className="container">
         <div className="title">
           <h1 className="title section-color" data-fill="join us">

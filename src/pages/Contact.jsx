@@ -44,7 +44,7 @@ const Contact = () => {
     e.target.parentNode.classList.remove("active");
   }
   return (
-    <main className="center">
+    <main className="center sub-page">
       <div className="container">
         <div className="title">
           <h1 className="title body-color" data-fill="contact us">
@@ -87,14 +87,21 @@ const Contact = () => {
               placeholder="please enter email"
             />
 
-            <label>Choose a Service </label>
+            <label
+              onClick={(e) => {
+                e.stopPropagation();
+                document.querySelector(".contact-page form div.inp").click();
+              }}
+            >
+              Choose a Service
+            </label>
             <div
               data-input="services"
               data-index="0"
               onClick={activeDiv}
               className="select-services inp"
             >
-              {form.services || "choose services"}{" "}
+              {form.services || "choose services"}
               <i className="fa-solid fa-chevron-down"></i>
               <div data-input="services">
                 <p onClick={selectServices} data-services="mobile Application">
@@ -140,7 +147,16 @@ const Contact = () => {
             </div>
 
             {form.services === "SÎMURX Academy" && (
-              <label>Choose a cours you need</label>
+              <label
+                onClick={(e) => {
+                  e.stopPropagation();
+                  document
+                    .querySelector(".contact-page form div.inp[data-index='1']")
+                    .click();
+                }}
+              >
+                Choose a cours you need
+              </label>
             )}
             {form.services === "SÎMURX Academy" && (
               <div
