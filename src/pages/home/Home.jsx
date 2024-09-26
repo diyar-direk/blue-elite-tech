@@ -74,14 +74,14 @@ const Home = () => {
                 company
               </h1>
             )}
-            <p>{language.landing.landing_p}</p>
+            <p>{language.landing && language.landing.landing_p}</p>
             <div className="flex">
               <Link to={`/contact`} className="btn2">
-                {language.landing.first_button}
+                {language.landing && language.landing.first_button}
                 <i className="fa-solid fa-phone"></i>
               </Link>
               <Link to={`/`} className="btn">
-                {language.landing.second_button}
+                {language.landing && language.landing.second_button}
               </Link>
             </div>
           </div>
@@ -91,7 +91,7 @@ const Home = () => {
         <div className="container">
           <div className="title">
             <h1 data-fill="About The Company" className="title body-color">
-              {language.about_home.about_header}
+              {language.about_home &&language.about_home.about_header}
             </h1>
           </div>
         </div>
@@ -100,21 +100,21 @@ const Home = () => {
             <div className="relative">
               <div>
                 <h2>
-                  {language.about_home.first_h1} <span>lorem ipsum</span>
+                  {language.about_home && language.about_home.first_h1} <span>lorem ipsum</span>
                 </h2>
-                <h3>{language.about_home.first_p}</h3>
+                <h3>{language.about_home && language.about_home.first_p}</h3>
               </div>
               <div>
-                <h2> {language.about_home.second_h1}</h2>
-                <h3>{language.about_home.second_p}</h3>
+                <h2> {language.about_home && language.about_home.second_h1}</h2>
+                <h3>{language.about_home && language.about_home.second_p}</h3>
               </div>
               <div className="before">
-                <h2> {language.about_home.third_h1}</h2>
-                <h3>{language.about_home.third_p}</h3>
+                <h2> {language.about_home && language.about_home.third_h1}</h2>
+                <h3>{language.about_home && language.about_home.third_p}</h3>
               </div>
             </div>
 
-            <Link className="btn d-block">{language.about_home.about_btn}</Link>
+            <Link className="btn d-block">{language.about_home && language.about_home.about_btn}</Link>
           </div>
           <div
             ref={ref}
@@ -128,7 +128,7 @@ const Home = () => {
         <div className="container">
           <div className="title">
             <h1 data-fill="Services we provide" className="title section-color">
-              {language.services.sevices_home_header}
+              {language.services &&language.services.sevices_home_header}
             </h1>
           </div>
           <div className="services grid-3">
@@ -138,10 +138,10 @@ const Home = () => {
                   <i className="fa-solid fa-laptop-code"></i>
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
-                  {language.services.desktop_header}
+                  {language.services && language.services.desktop_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  {language.services.desktop_p}
+                  {language.services && language.services.desktop_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -157,10 +157,10 @@ const Home = () => {
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
                   {" "}
-                  {language.services.mobile_header}
+                  {language.services && language.services.mobile_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  {language.services.mobile_p}
+                  {language.services && language.services.mobile_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -176,10 +176,10 @@ const Home = () => {
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
                   {" "}
-                  {language.services.websites_header}
+                  {language.services && language.services.websites_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  {language.services.websites_p}
+                  {language.services && language.services.websites_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -194,10 +194,10 @@ const Home = () => {
                   <i className="fa-solid fa-cloud"></i>
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
-                  {language.services.server_header}
+                  {language.services && language.services.server_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  {language.services.server_p}
+                  {language.services && language.services.server_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -212,10 +212,10 @@ const Home = () => {
                   <i className="fa-solid fa-network-wired"></i>
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
-                  {language.services.local_header}
+                  {language.services && language.services.local_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
-                  {language.services.local_p}
+                  {language.services && language.services.local_p}
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
@@ -225,8 +225,7 @@ const Home = () => {
             </ServicesCard>
           </div>
           <Link className="btn">
-            {" "}
-            {language.services.button_seeAllServices}
+            {language.services && language.services.button_seeAllServices}
           </Link>
         </div>
       </main>
@@ -234,13 +233,13 @@ const Home = () => {
         <div className="container">
           <div className="title">
             <h1 className="title body-color" data-fill="our projects">
-              {language.projects.projects_home_header}
+              {language.projects &&language.projects.projects_home_header}
             </h1>
           </div>
           <ProjectsComponent />
 
           <Link className="btn home-projects">
-            {language.projects.btn_allProjects}
+            {language.projects && language.projects.btn_allProjects}
           </Link>
         </div>
       </main>
