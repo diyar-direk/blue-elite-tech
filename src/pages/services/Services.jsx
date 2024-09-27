@@ -1,7 +1,10 @@
-import React from "react";
-import ServicesCard from "../components/ServicesCard";
+import React, { useContext } from "react";
+import { Context } from "../../context/Context";
+import ServicesCard from "./ServicesCard";
 
 const Services = () => {
+  const context = useContext(Context);
+  const language = context && context.language;
   return (
     <main className="center sub-page body-color services-page">
       <div className="container">
@@ -10,7 +13,7 @@ const Services = () => {
             our services
           </h1>
         </div>
-        <div className="sevice-info flex">
+        <div className="sevice-info grid-2">
           <h3>
             Blue Elite Tech is a leading software company known for its
             innovative solutions and advanced technology services. Founded on
@@ -18,7 +21,7 @@ const Services = () => {
             team of specialized developers and engineers dedicated to realizing
             our clients’ vision and meeting their technological needs.
           </h3>
-          <img src={require("./32.png")} alt="" />
+          <img loading="lazy" src={require("./about.png")} alt="" />
         </div>
         <div className="grid-3 services">
           <ServicesCard>
@@ -26,14 +29,18 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-laptop-code"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title> Desktop Apps</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {language.services && language.services.desktop_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We program all desktop applications according to the customer's
-                needs
+                {language.services && language.services.desktop_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink />
+              <ServicesCard.Bottom.StartedLink
+                title={language.services && language.services.button_getStarted}
+                state={language.services && language.services.desktop_header}
+              />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -42,14 +49,18 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-mobile-screen-button"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title> mobile Apps</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {language.services && language.services.mobile_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We program all android applications according to the customer’s
-                needs
+                {language.services && language.services.mobile_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink />
+              <ServicesCard.Bottom.StartedLink
+                title={language.services && language.services.button_getStarted}
+                state={language.services && language.services.mobile_header}
+              />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -58,14 +69,18 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-brands fa-chrome"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title> Websites</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {language.services && language.services.websites_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We design, develop, manage, and fully supervise websites,
-                ensuring  performance, and user-friendly functionality.
+                {language.services && language.services.websites_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink />
+              <ServicesCard.Bottom.StartedLink
+                title={language.services && language.services.button_getStarted}
+                state={language.services && language.services.websites_header}
+              />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -75,15 +90,17 @@ const Services = () => {
                 <i className="fa-solid fa-cloud"></i>
               </ServicesCard.Body.Icon>
               <ServicesCard.Body.Title>
-                Server Management
+                {language.services && language.services.server_header}
               </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We install local servers and manage them according to the needs
-                of institutions and companies
+                {language.services && language.services.server_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink />
+              <ServicesCard.Bottom.StartedLink
+                title={language.services && language.services.button_getStarted}
+                state={language.services && language.services.server_header}
+              />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -92,14 +109,18 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-network-wired"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title>Local Networks</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {language.services && language.services.local_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                We install LAN networks according to the needs of companies and
-                institutions
+                {language.services && language.services.local_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink />
+              <ServicesCard.Bottom.StartedLink
+                title={language.services && language.services.button_getStarted}
+                state={language.services && language.services.local_header}
+              />
             </ServicesCard.Bottom>
           </ServicesCard>
 

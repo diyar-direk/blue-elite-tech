@@ -142,6 +142,10 @@
   text-transform: capitalize;
   color: var(--font-color);
 }
+body.arabic .text-blk.cardHeading {
+  padding-left: 0px;
+  padding-right: 20px;
+}
 .text-blk.cardHeading::before {
   content: "";
   position: absolute;
@@ -153,7 +157,9 @@
   background-color: var(--main-color);
   border-radius: 50%;
 }
-
+body.arabic .text-blk.cardHeading::before {
+  right: 0;
+}
 .text-blk.cardSubHeading {
   padding-left: 25px;
   margin-bottom: 10px;
@@ -161,7 +167,10 @@
   opacity: 0.9;
   font-weight: 550;
 }
-
+body.arabic .text-blk.cardSubHeading {
+  padding-left: 0px;
+  padding-right: 25px;
+}
 #ixvck {
   margin-top: 60px;
   margin-right: 0px;

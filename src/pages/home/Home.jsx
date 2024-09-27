@@ -1,6 +1,5 @@
 import "./home.css";
 import { Link } from "react-router-dom";
-import ServicesCard from "../../components/ServicesCard";
 import { useInView } from "react-intersection-observer";
 import { useContext, useEffect, useState } from "react";
 import Loader from "../../components/Loader";
@@ -8,6 +7,8 @@ import ProjectsComponent from "../../components/ProjectsComponent";
 import AcademyComponent from "../../components/AcademyComponent";
 import ParticlesBackground from "../../components/ParticlesBackground";
 import { Context } from "../../context/Context";
+import { topStarting } from "../../components/Header";
+import ServicesCard from "../services/ServicesCard";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -76,11 +77,11 @@ const Home = () => {
             )}
             <p>{language.landing && language.landing.landing_p}</p>
             <div className="flex">
-              <Link to={`/contact`} className="btn2">
+              <Link onClick={topStarting} to={`/contact`} className="btn2">
                 {language.landing && language.landing.first_button}
                 <i className="fa-solid fa-phone"></i>
               </Link>
-              <Link to={`/`} className="btn">
+              <Link to={`/join`} onClick={topStarting} className="btn">
                 {language.landing && language.landing.second_button}
               </Link>
             </div>
@@ -90,7 +91,12 @@ const Home = () => {
       <main className="center body-color wrap">
         <div className="container">
           <div className="title">
-            <h1 data-fill="About The Company" className="title body-color">
+            <h1
+              data-fill={
+                language.about_home && language.about_home.about_header
+              }
+              className="title body-color"
+            >
               {language.about_home && language.about_home.about_header}
             </h1>
           </div>
@@ -115,7 +121,7 @@ const Home = () => {
               </div>
             </div>
 
-            <Link className="btn d-block">
+            <Link to={"/contact"} onClick={topStarting} className="btn d-block">
               {language.about_home && language.about_home.about_btn}
             </Link>
           </div>
@@ -130,7 +136,12 @@ const Home = () => {
       <main className="center section-color home-services">
         <div className="container">
           <div className="title">
-            <h1 data-fill="Services we provide" className="title section-color">
+            <h1
+              data-fill={
+                language.services && language.services.sevices_home_header
+              }
+              className="title section-color"
+            >
               {language.services && language.services.sevices_home_header}
             </h1>
           </div>
@@ -148,8 +159,16 @@ const Home = () => {
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
-                <ServicesCard.Bottom.StartedLink className="started" />
-                <ServicesCard.Bottom.Details />
+                <ServicesCard.Bottom.StartedLink
+                  className="started"
+                  title={
+                    language.services && language.services.button_getStarted
+                  }
+                  state={language.services && language.services.desktop_header}
+                />
+                <ServicesCard.Bottom.Details
+                  title={language.services && language.services.details}
+                />
               </ServicesCard.Bottom>
             </ServicesCard>
 
@@ -166,8 +185,16 @@ const Home = () => {
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
-                <ServicesCard.Bottom.StartedLink className="started" />
-                <ServicesCard.Bottom.Details />
+                <ServicesCard.Bottom.StartedLink
+                  className="started"
+                  title={
+                    language.services && language.services.button_getStarted
+                  }
+                  state={language.services && language.services.mobile_header}
+                />
+                <ServicesCard.Bottom.Details
+                  title={language.services && language.services.details}
+                />
               </ServicesCard.Bottom>
             </ServicesCard>
 
@@ -177,7 +204,6 @@ const Home = () => {
                   <i className="fa-brands fa-chrome"></i>
                 </ServicesCard.Body.Icon>
                 <ServicesCard.Body.Title>
-                  {" "}
                   {language.services && language.services.websites_header}
                 </ServicesCard.Body.Title>
                 <ServicesCard.Body.Paragraph>
@@ -185,8 +211,16 @@ const Home = () => {
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
-                <ServicesCard.Bottom.StartedLink className="started" />
-                <ServicesCard.Bottom.Details />
+                <ServicesCard.Bottom.StartedLink
+                  className="started"
+                  title={
+                    language.services && language.services.button_getStarted
+                  }
+                  state={language.services && language.services.websites_header}
+                />
+                <ServicesCard.Bottom.Details
+                  title={language.services && language.services.details}
+                />
               </ServicesCard.Bottom>
             </ServicesCard>
 
@@ -203,8 +237,16 @@ const Home = () => {
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
-                <ServicesCard.Bottom.StartedLink className="started" />
-                <ServicesCard.Bottom.Details />
+                <ServicesCard.Bottom.StartedLink
+                  className="started"
+                  title={
+                    language.services && language.services.button_getStarted
+                  }
+                  state={language.services && language.services.server_header}
+                />
+                <ServicesCard.Bottom.Details
+                  title={language.services && language.services.details}
+                />
               </ServicesCard.Bottom>
             </ServicesCard>
 
@@ -221,12 +263,20 @@ const Home = () => {
                 </ServicesCard.Body.Paragraph>
               </ServicesCard.Body>
               <ServicesCard.Bottom>
-                <ServicesCard.Bottom.StartedLink className="started" />
-                <ServicesCard.Bottom.Details />
+                <ServicesCard.Bottom.StartedLink
+                  className="started"
+                  title={
+                    language.services && language.services.button_getStarted
+                  }
+                  state={language.services && language.services.local_header}
+                />
+                <ServicesCard.Bottom.Details
+                  title={language.services && language.services.details}
+                />
               </ServicesCard.Bottom>
             </ServicesCard>
           </div>
-          <Link className="btn">
+          <Link to={"/services"} onClick={topStarting} className="btn">
             {language.services && language.services.button_seeAllServices}
           </Link>
         </div>
@@ -234,13 +284,22 @@ const Home = () => {
       <main className="body-color center">
         <div className="container">
           <div className="title">
-            <h1 className="title body-color" data-fill="our projects">
+            <h1
+              className="title body-color"
+              data-fill={
+                language.projects && language.projects.projects_home_header
+              }
+            >
               {language.projects && language.projects.projects_home_header}
             </h1>
           </div>
           <ProjectsComponent />
 
-          <Link className="btn home-projects">
+          <Link
+            onClick={topStarting}
+            to={"/projects"}
+            className="btn home-projects"
+          >
             {language.projects && language.projects.btn_allProjects}
           </Link>
         </div>

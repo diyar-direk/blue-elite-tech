@@ -1,21 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./about.css";
+import { topStarting } from "../components/Header";
 const AboutUs = () => {
   return (
     <>
-      <main class="responsive-container-block sub-page bigContainer section-color ">
-        <div class="responsive-container-block container">
+      <main className="responsive-container-block sub-page bigContainer section-color ">
+        <div className="responsive-container-block container">
           <div className="title">
             <h1 className="title body-color" data-fill="About Us">
               About Us
             </h1>
           </div>
-          <div class="responsive-container-block textSide">
+          <div className="responsive-container-block textSide">
             <div className="about-info flex">
               <div className="info-first">
-                <p class="text-blk heading">Who Are We?</p>
-                <p class="text-blk subHeading">
+                <p className="text-blk heading">Who Are We?</p>
+                <p className="text-blk subHeading">
                   Blue Elite Tech is a leading company in software development,
                   we are passionate about driving innovation and excellence in
                   the world of software development. Founded with the vision to
@@ -32,13 +33,13 @@ const AboutUs = () => {
       <main className="about-wrapper body-color">
         <div className="spikes"></div>
         <div className="about-flex grid-2 container ">
-          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background1">
-            <div class="cardImgContainer">
+          <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background1">
+            <div className="cardImgContainer">
               <i></i>
             </div>
-            <div class="cardText">
-              <h2 class="text-blk cardHeading">Our Mission</h2>
-              <p class="text-blk cardSubHeading">
+            <div className="cardText">
+              <h2 className="text-blk cardHeading">Our Mission</h2>
+              <p className="text-blk cardSubHeading">
                 Our mission is to deliver high-quality, tailored software
                 solutions that meet the unique needs of our clients. We aim to
                 empower businesses with technology that enhances efficiency,
@@ -46,13 +47,13 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background2">
-            <div class="cardImgContainer">
+          <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background2">
+            <div className="cardImgContainer">
               <i></i>
             </div>
-            <div class="cardText">
-              <h2 class="text-blk cardHeading">Our Team</h2>
-              <p class="text-blk cardSubHeading">
+            <div className="cardText">
+              <h2 className="text-blk cardHeading">Our Team</h2>
+              <p className="text-blk cardSubHeading">
                 Our team comprises skilled professionals with diverse expertise
                 in software development, design, and cybersecurity. With a
                 commitment to continuous learning and innovation, we ensure that
@@ -60,13 +61,13 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background2 ">
-            <div class="cardImgContainer">
+          <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background2 ">
+            <div className="cardImgContainer">
               <i></i>
             </div>
-            <div class="cardText">
-              <h2 class="text-blk cardHeading">What We Do</h2>
-              <p class="text-blk cardSubHeading">
+            <div className="cardText">
+              <h2 className="text-blk cardHeading">What We Do</h2>
+              <p className="text-blk cardSubHeading">
                 Application Development: From desktop to mobile applications, we
                 design and develop custom software that aligns with your
                 business objectives. Web Design: Our team crafts visually
@@ -80,13 +81,13 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background1">
-            <div class="cardImgContainer">
+          <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 background1">
+            <div className="cardImgContainer">
               <i></i>
             </div>
-            <div class="cardText">
-              <h2 class="text-blk cardHeading">Why Choosing Us</h2>
-              <p class="text-blk cardSubHeading">
+            <div className="cardText">
+              <h2 className="text-blk cardHeading">Why Choosing Us</h2>
+              <p className="text-blk cardSubHeading">
                 Expertise: Our experienced team brings a wealth of knowledge and
                 skill to every project. Innovation: We leverage the latest
                 technologies to deliver innovative solutions. Client-Centric: We
@@ -98,11 +99,11 @@ const AboutUs = () => {
           </div>
 
           <div className="btns">
-            <Link>
-              <button class="btn2">Explore our Services</button>
+            <Link onClick={topStarting} to={"/services"}>
+              <button className="btn2">Explore our Services</button>
             </Link>
-            <Link>
-              <button class="btn2">Explore our Services</button>
+            <Link onClick={topStarting} to="/projects">
+              <button className="btn2">explore our projects</button>
             </Link>
           </div>
         </div>

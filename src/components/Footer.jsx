@@ -2,6 +2,7 @@ import React from "react";
 import "./footer.css";
 import { NavLink } from "react-router-dom";
 import Setting from "./Setting";
+import { topStarting } from "./Header";
 const Footer = () => {
   return (
     <footer className="footer center">
@@ -46,15 +47,29 @@ const Footer = () => {
             <Setting position="footer" />
           </div>
           <div>
-            <NavLink to="/">home</NavLink>
-            <NavLink to="/services">our services</NavLink>
-            <NavLink to="/academy">academy</NavLink>
-            <NavLink to="/projects">our projects</NavLink>
+            <NavLink onClick={topStarting} to="/">
+              home
+            </NavLink>
+            <NavLink onClick={topStarting} to="/services">
+              our services
+            </NavLink>
+            <NavLink onClick={topStarting} to="/academy">
+              academy
+            </NavLink>
+            <NavLink onClick={topStarting} to="/projects">
+              our projects
+            </NavLink>
           </div>
           <div>
-            <NavLink to="/contact">contact us</NavLink>
-            <NavLink to={"/join"}>join us</NavLink>
-            <NavLink to={"/about"}>about us</NavLink>
+            <NavLink onClick={topStarting} to="/contact">
+              contact us
+            </NavLink>
+            <NavLink onClick={topStarting} to={"/join"}>
+              join us
+            </NavLink>
+            <NavLink onClick={topStarting} to={"/about"}>
+              about us
+            </NavLink>
           </div>
         </div>
         <div className="copyright center">

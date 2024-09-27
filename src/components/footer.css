@@ -27,6 +27,9 @@ footer .grid-3 > div > a {
 footer .grid-3 > div .icon a:first-child {
   margin-left: 0px;
 }
+body.arabic footer .grid-3 > div .icon a:first-child {
+  margin-right: 0px;
+}
 footer .grid-3 > div .icon a {
   margin-left: 10px;
   color: #777;
@@ -35,6 +38,10 @@ footer .grid-3 > div .icon a {
   height: 30px;
   font-size: 15px;
   border-radius: 2px;
+}
+body.arabic footer .grid-3 > div .icon a {
+  margin-left: 0px;
+  margin-right: 10px;
 }
 footer .grid-3 > div .icon a.twitter:hover {
   background-color: #1da1f2;

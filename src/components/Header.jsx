@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 import "./Header.css";
 import Setting from "./Setting";
@@ -64,9 +64,20 @@ const Header = () => {
     if (window.scrollY >= 250 && location.pathname === "/")
       header.classList.add("active");
     else header.classList.remove("active");
+    if (window.scrollY >= 400) {
+      document.querySelector("i.scroll-to-top").classList.add("visible");
+    } else {
+      document.querySelector("i.scroll-to-top").classList.remove("visible");
+    }
   });
   if (!context) {
     <Loader />;
+  }
+
+  function closeAsid() {
+    const overlay = document.querySelector(".aside-overlay.open");
+    overlay.classList.remove("open");
+    window.scrollTo(0, 0);
   }
 
   return (
@@ -79,16 +90,16 @@ const Header = () => {
             <Logo show={true} />
           </div>
           <div className="links flex-1">
-            <NavLink className="js-class " to="/">
+            <NavLink onClick={topStarting} className="js-class " to="/">
               {language.links && language.links.home}
             </NavLink>
-            <NavLink className="js-class " to="/services">
+            <NavLink onClick={topStarting} className="js-class " to="/services">
               {language.links && language.links.our_services}
             </NavLink>
-            <NavLink className="js-class " to="/academy">
+            <NavLink onClick={topStarting} className="js-class " to="/academy">
               {language.links && language.links.academy}
             </NavLink>
-            <NavLink className="js-class " to="/contact">
+            <NavLink onClick={topStarting} className="js-class " to="/contact">
               {language.links && language.links.contact_us}
             </NavLink>
 
@@ -109,44 +120,65 @@ const Header = () => {
                 document
                   .querySelector(".aside-overlay.open")
                   .classList.remove("open");
+                const langDiv = document.querySelector(
+                  ".setting .language .select.active"
+                );
+                langDiv && langDiv.classList.remove("active");
               }}
             ></i>
           </div>
-          <NavLink to="/">
+          <NavLink onClick={closeAsid} to="/">
             <i className="fa-solid fa-house"></i>
             {language.links && language.links.home}
           </NavLink>
-          <NavLink to="/services">
+          <NavLink onClick={closeAsid} to="/services">
             <i className="fa-solid fa-code"></i>{" "}
             {language.links && language.links.our_services}
           </NavLink>
-          <NavLink to="/academy">
+          <NavLink onClick={closeAsid} to="/academy">
             <i className="fa-solid fa-graduation-cap"></i>{" "}
             {language.links && language.links.academy}
           </NavLink>
-          <NavLink to="/projects">
+          <NavLink onClick={closeAsid} to="/projects">
             <i className="fa-solid fa-diagram-project"></i>{" "}
             {language.links && language.links.our_projects}
           </NavLink>
-          <NavLink to="/contact">
+          <NavLink onClick={closeAsid} to="/contact">
             <i className="fa-solid fa-phone"></i>{" "}
             {language.links && language.links.contact_us}
           </NavLink>
-          <NavLink to={"/join"}>
+          <NavLink onClick={closeAsid} to={"/join"}>
             <i className="fa-solid fa-circle-plus"></i>{" "}
             {language.links && language.links.join_us}
           </NavLink>
-          <NavLink to={"/about"}>
+          <NavLink onClick={closeAsid} to={"/about"}>
             <i className="fa-solid fa-circle-exclamation"></i>{" "}
             {language.links && language.links.about_us}
           </NavLink>
+          <Link to={"/dashboard"}>
+            <i className="fa-solid fa-chart-line"></i> dashboard
+          </Link>
           <div className="aside-setting">
             <Setting mode={true} title={true} position="navbar" />
           </div>
         </aside>
       </div>
+      <i
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        }}
+        class="fa-solid fa-arrow-up scroll-to-top"
+      ></i>
     </>
   );
+};
+
+export const topStarting = () => {
+  window.scrollTo(0, 0);
 };
 
 export default Header;

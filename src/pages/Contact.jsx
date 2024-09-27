@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./contact.css";
 import MapComponent from "../components/MapComponent";
 import ContactComponenet from "../components/ContactComponenet";
+import { useLocation, useParams } from "react-router-dom";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -11,6 +12,13 @@ const Contact = () => {
     services: "",
     message: "",
   });
+  const location = useLocation();
+  const services = location.state;
+  console.log(form);
+
+  useEffect(() => {
+    if (services) setForm({ ...form, services: services.services });
+  }, []);
 
   document.addEventListener("click", () => {
     const selectDiv = document.querySelector(
@@ -51,7 +59,7 @@ const Contact = () => {
             Contact Us
           </h1>
         </div>
-        <div className="contact-page flex">
+        <div className="contact-page  flex">
           <form className="flex-1">
             <h2>Let's get in touch..</h2>
             <label htmlFor="name">full name</label>
@@ -140,13 +148,13 @@ const Contact = () => {
                 >
                   Camera System services
                 </p>
-                <p onClick={selectServices} data-services="SÎMURX Academy">
+                <p onClick={selectServices} data-services="SÎMURX ACADEMY">
                   SÎMURX Academy
                 </p>
               </div>
             </div>
 
-            {form.services === "SÎMURX Academy" && (
+            {form.services === "SÎMURX ACADEMY" && (
               <label
                 onClick={(e) => {
                   e.stopPropagation();
@@ -158,7 +166,7 @@ const Contact = () => {
                 Choose a cours you need
               </label>
             )}
-            {form.services === "SÎMURX Academy" && (
+            {form.services === "SÎMURX ACADEMY" && (
               <div
                 data-input="cours"
                 data-index="1"

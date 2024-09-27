@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./services.css";
 import { useInView } from "react-intersection-observer";
+import { topStarting } from "../../components/Header";
 
 const ServicesCard = ({ children, className }) => {
   const { ref, inView } = useInView({
@@ -41,16 +42,25 @@ ServicesCard.Bottom = ({ children }) => {
     </article>
   );
 };
-ServicesCard.Bottom.StartedLink = ({ className, to }) => {
+ServicesCard.Bottom.StartedLink = ({ className, title, state }) => {
   return (
-    <Link to={to} className={className}>
-      get started
+    <Link
+      onClick={topStarting}
+      to={"/contact"}
+      className={className}
+      state={{ services: state }}
+    >
+      {title}
     </Link>
   );
 };
 
-ServicesCard.Bottom.Details = () => {
-  return <Link to={"/services"}> Details </Link>;
+ServicesCard.Bottom.Details = ({ title }) => {
+  return (
+    <Link onClick={topStarting} to={"/services"}>
+      {title}
+    </Link>
+  );
 };
 
 export default ServicesCard;

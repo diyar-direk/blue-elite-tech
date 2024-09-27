@@ -14,6 +14,7 @@ const Setting = (props) => {
       : context.setTheme(0);
   }
   function openLangDiv(e) {
+    e.stopPropagation();
     document
       .querySelector(
         `div.setting article.select[data-position="${e.target.dataset.position}"]`
@@ -22,10 +23,16 @@ const Setting = (props) => {
   }
   function selectLanguage(e) {
     context.setSelectedLang(e.target.dataset.lang);
+    const langDiv = document.querySelector(".setting .language .select.active");
+    langDiv && langDiv.classList.remove("active");
   }
   if (!context) {
     <Loader />;
   }
+  document.addEventListener("click", () => {
+    const langDiv = document.querySelector(".setting .language .select.active");
+    langDiv && langDiv.classList.remove("active");
+  });
   return (
     <div className="setting flex">
       <div className="language flex-1 relative">

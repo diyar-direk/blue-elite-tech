@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "h1": "test 1",
+      "p": "lorem lorem lorem lorem",
+      "img": "./logo.png"
+    },
+    {
+      "h1": "test 2",
+      "p": "more lorem ipsum text here for the second item",
+      "img": "./logo.png"
+    },
+    {
+      "h1": "test 3",
+      "p": "another lorem ipsum text for the third item",
+      "img": "./logo.png"
+    },
+    {
+      "h1": "test 4",
+      "p": "lorem ipsum continues with more details",
+      "img": "./logo.png"
+    },
+    {
+      "h1": "test 5",
+      "p": "lorem lorem lorem lorem",
+      "img": "./logo.png"
+    },
+    {
+      "h1": "test 6",
+      "p": "more lorem ipsum text here for the second item",
+      "img": "./logo.png"
+    },
+    {
+      "h1": "test 7",
+      "p": "another lorem ipsum text for the third item",
+      "img": "./logo.png"
+    },
+    {
+      "h1": "test 8",
+      "p": "lorem ipsum continues with more details",
+      "img": "./logo.png"
+    }
+  ]
+}
