@@ -48,27 +48,27 @@ const Footer = () => {
           </div>
           <div>
             <NavLink onClick={topStarting} to="/">
-              home
+              {language.links && language.links.home}
             </NavLink>
             <NavLink onClick={topStarting} to="/services">
-              our services
+              {language.links && language.links.our_services}
             </NavLink>
             <NavLink onClick={topStarting} to="/academy">
-              academy
+              {language.links && language.links.academy}
             </NavLink>
             <NavLink onClick={topStarting} to="/projects">
-              our projects
+              {language.links && language.links.our_projects}
             </NavLink>
           </div>
           <div>
             <NavLink onClick={topStarting} to="/contact">
-              contact us
+              {language.links && language.links.contact_us}
             </NavLink>
             <NavLink onClick={topStarting} to={"/join"}>
-              join us
+              {language.links && language.links.join_us}
             </NavLink>
             <NavLink onClick={topStarting} to={"/about"}>
-              about us
+              {language.links && language.links.about_us}
             </NavLink>
           </div>
         </div>

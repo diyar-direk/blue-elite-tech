@@ -1,0 +1,102 @@
+.login-container {
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+}
+.login-container form.login {
+    flex-direction: column;
+    background: var(--body-color);
+    height: 500px;
+    width: 400px;
+    padding: 20px 25px;
+    box-shadow: 0px 3px 5px 5px #0000003d;
+    border-radius: 10px;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    justify-content: space-between;
+}
+body.dark .login-container form.login {
+
+  box-shadow: 0px 4px 8px 5px #ffffff2e;
+
+}
+.login-container form.login .profile-log {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-container form.login .profile-log .icon-background {
+  border-radius: 50%;
+  background: var(--main-color);
+  display: flex;
+  /* align-content: center; */
+  justify-content: center;
+  width: 175px;
+  align-items: center;
+  height: 175px;
+  box-shadow: 0px 4px 8px 5px #0000005e;
+}
+body.dark .login-container form.login .profile-log .icon-background {
+  box-shadow: 0px 4px 8px 5px #ffffff2e;
+}
+.login-container form.login .profile-log .icon-background i {
+  font-size: 100px;
+  color: var(--body-color);
+}
+.login-container form.login .input-wrapper {
+  width: 100%;
+}
+.login-container form.login .input {
+  width: 100%;
+  background: #ff000000;
+  /* height: fit-content; */
+  border-bottom: 1px solid var(--font-color);
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container form.login .input input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--font-color);
+  padding: 4px 13px;
+}
+.login-container form.login .input input::placeholder {
+  font-size: 15px;
+
+  letter-spacing: 2px;
+  color: var(--font-color);
+  opacity: 0.9;
+}
+.login-container form.login .input::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  /* left: -10px; */
+  height: 100%;
+  background-color: #9e9e9e8c;
+  opacity: 0.4;
+  transition: 0.3s;
+}
+.login-container form.login .input input:focus .input::before {
+  width: 100%;
+}
+.login-container form.login .input i {
+  font-size: 21px;
+  color: var(--main-color);
+}
+body.arabic .login-container form.login .input i {
+  position: absolute;
+  right: 5px;
+}
+.login-container form.login button {
+  width: 100%;
+}

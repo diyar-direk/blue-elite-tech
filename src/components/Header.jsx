@@ -171,7 +171,7 @@ const Header = () => {
             behavior: "smooth",
           });
         }}
-        class="fa-solid fa-arrow-up scroll-to-top"
+        className="fa-solid fa-arrow-up scroll-to-top"
       ></i>
     </>
   );

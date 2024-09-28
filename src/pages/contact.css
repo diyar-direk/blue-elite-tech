@@ -49,6 +49,10 @@
   right: 15px;
   pointer-events: none;
 }
+body.arabic .contact-page form div.inp > i {
+  right: auto;
+  left: 15px;
+}
 .contact-page form div.inp > div {
   position: absolute;
   width: 100%;
