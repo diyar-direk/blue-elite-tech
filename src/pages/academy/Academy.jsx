@@ -13,7 +13,12 @@ const Academy = () => {
       <main className="center sub-page academy-page body-color">
         <div className="container">
           <div className="title">
-            <h1 className="title body-color" data-fill="SÎMURX ACADEMY">
+            <h1
+              className="title body-color"
+              data-fill={
+                language.academy && language.academy.academy_section_header
+              }
+            >
               {language.academy && language.academy.academy_section_header}
             </h1>
           </div>
@@ -130,7 +135,10 @@ const Academy = () => {
       <main className="section-color center">
         <div className="container">
           <div className="title">
-            <h1 className="title section-color" data-fill="our courses">
+            <h1
+              className="title section-color"
+              data-fill={language.academy && language.academy.courses_header}
+            >
               {language.academy && language.academy.courses_header}
             </h1>
           </div>
@@ -191,7 +199,10 @@ const Academy = () => {
       <main className="center body-color">
         <div className="container">
           <div className="title">
-            <h1 className="title body-color" data-fill="contact us">
+            <h1
+              className="title body-color"
+              data-fill={language.academy && language.academy.contact_header}
+            >
               {language.academy && language.academy.contact_header}
             </h1>
           </div>

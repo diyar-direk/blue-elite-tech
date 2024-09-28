@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./contact.css";
 import MapComponent from "../components/MapComponent";
 import ContactComponenet from "../components/ContactComponenet";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Context } from "../context/Context";
 import Loader from "../components/Loader";
 import axios from "axios";
@@ -81,7 +81,10 @@ const Contact = () => {
     <main className="center sub-page">
       <div className="container">
         <div className="title">
-          <h1 className="title body-color" data-fill="contact us">
+          <h1
+            className="title body-color"
+            data-fill={language.contact && language.contact.contact_header}
+          >
             {language.contact && language.contact.contact_header}
           </h1>
         </div>

@@ -1,6 +1,6 @@
 {
   "links": {
-    "home": "الرئيسية",
+    "home": "الصفحة الرئيسية",
     "our_services": "خدماتنا",
     "academy": "الأكاديمية",
     "contact_us": "اتصل بنا",
@@ -155,7 +155,7 @@
     "email_placeHolder": "يرجى إدخال بريدك الإلكتروني",
     "show_us_input": "أرنا مهاراتك",
     "uplaod_your_cv_placeHolder": "قم بتحميل سيرتك الذاتية",
-    "service_description": "وصف الخدمة",
+    "service_description": " رسالتك",
     "service_description_placeHolder": "اكتب رسالتك",
     "button_submit": "إرسال"
   },

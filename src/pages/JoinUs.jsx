@@ -8,44 +8,41 @@ const JoinUs = () => {
     name: "",
     phone: "",
     email: "",
-    services: "",
     message: "",
   });
-
+  const [file, setFile] = useState(null);
+  const [fileErr, setFileErr] = useState(false);
   const context = useContext(Context);
   const language = context.language && context.language;
-  const sendEmail = (e) => {
-    e.preventDefault();
-    console.log(form);
-    const body = `
-    name:${form.name}
-    email:${form.email}
-    phone number :${form.phone}
-    message :${form.message}
-    `;
 
-    form.body = body;
-    console.log(form.body);
-
-    // axios
-    //   .post("http://localhost:8000/api/email/send", form)
-    //   .then((res) => console.log("hi"));
-  };
-  document.addEventListener("click", () => {
-    const selectDiv = document.querySelector(
-      ".contact-page form div.inp > div.active"
-    );
-    selectDiv && selectDiv.classList.remove("active");
-  });
   function handelFormChange(e) {
     setForm({ ...form, [e.target.id]: e.target.value });
   }
 
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    if (!file) setFileErr(true);
+    if (form.name && form.phone && form.email && form.message && file) {
+      try {
+        const formData = new FormData();
+        formData.append("name", form.name);
+        formData.append("phone", form.phone);
+        formData.append("email", form.email);
+        formData.append("file", file);
+        formData.append("message", form.message);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
   return (
     <main className="center  sub-page section-color">
       <div className="container">
         <div className="title">
-          <h1 className="title section-color" data-fill="join us">
+          <h1
+            className="title section-color"
+            data-fill={language.join_us && language.join_us.join_us_header}
+          >
             {language.join_us && language.join_us.join_us_header}
           </h1>
         </div>
@@ -98,16 +95,27 @@ const JoinUs = () => {
             />
 
             <label htmlFor="file">
-              {language.join_us && language.join_us.show_us_input}{" "}
+              {language.join_us && language.join_us.show_us_input}
             </label>
             <label className="inp file">
-              {language.join_us && language.join_us.uplaod_your_cv_placeHolder}{" "}
-              <input type="file" required name="file" id="file" />
+              {language.join_us && language.join_us.uplaod_your_cv_placeHolder}
+              <input
+                accept=".pdf, .doc, .docx"
+                onInput={(e) => {
+                  setFile(e.target.files[0]);
+                  setFileErr(false);
+                }}
+                type="file"
+                name="file"
+                id="file"
+              />
               <i className="fa-solid fa-folder-plus"></i>
             </label>
+            {file && <p>uploded file: {file.name} </p>}
+            {fileErr && <p className="error-text">uplaod file to send </p>}
 
             <label htmlFor="message">
-              {language.join_us && language.join_us.service_description}{" "}
+              {language.join_us && language.join_us.service_description}
             </label>
             <textarea
               value={form.message}

@@ -9,10 +9,7 @@ input {
   caret-color: var(--main-color);
   outline: none;
 }
-.no-wrap {
-  display: flex;
-  flex-wrap: nowrap;
-}
+
 a {
   text-decoration: none;
 }
@@ -212,6 +209,13 @@ body.arabic div.title h1.title::before {
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
+}
+.no-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.error-text {
+  color: red;
 }
 
 @media (max-width: 675px) {

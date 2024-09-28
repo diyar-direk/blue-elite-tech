@@ -11,7 +11,10 @@ const AboutUs = () => {
       <main className="responsive-container-block sub-page bigContainer section-color ">
         <div className="responsive-container-block container">
           <div className="title">
-            <h1 className="title body-color" data-fill="About Us">
+            <h1
+              className="title body-color"
+              data-fill={language.about && language.about.about_header}
+            >
               {language.about && language.about.about_header}
             </h1>
           </div>

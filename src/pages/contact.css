@@ -31,6 +31,12 @@
   position: relative;
   margin-bottom: 10px;
 }
+.contact-page form .inp::placeholder {
+  transition: 0.4s;
+}
+.contact-page form .inp:focus::placeholder {
+  opacity: 0;
+}
 .contact-page .leaflet-container {
   width: 100% !important;
 }

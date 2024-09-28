@@ -28,7 +28,10 @@ const AcademyComponent = () => {
     <main className="center section-color">
       <div className="container home-academy wrap flex">
         <div className="title">
-          <h1 className="title section-color" data-fill="academy">
+          <h1
+            className="title section-color"
+            data-fill={language.academy && language.academy.academy_home_header}
+          >
             {language.academy && language.academy.academy_home_header}
           </h1>
         </div>
@@ -84,7 +87,7 @@ const AcademyComponent = () => {
             </article>
           </div>
           <Link onClick={topStarting} to="/academy" className="btn d-block">
-          {language.academy && language.academy.button_seeMore}
+            {language.academy && language.academy.button_seeMore}
           </Link>
         </div>
         <div className={` ${inView && "svg-active"}  flex svg `}>

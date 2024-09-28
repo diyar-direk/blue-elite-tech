@@ -9,7 +9,12 @@ const Services = () => {
     <main className="center sub-page body-color services-page">
       <div className="container">
         <div className="title">
-          <h1 className="title body-color" data-fill="our services ">
+          <h1
+            className="title body-color"
+            data-fill={
+              language.services && language.services.sevices_section_header
+            }
+          >
             {language.services && language.services.sevices_section_header}
           </h1>
         </div>
