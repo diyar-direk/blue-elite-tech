@@ -10,6 +10,9 @@ const PageContext = ({ children }) => {
     fetch(`/${selectedLang}.json`)
       .then((res) => res.json())
       .then((data) => setLanguage(data));
+    selectedLang === "arabic"
+      ? document.body.classList.add("arabic")
+      : document.body.classList.remove("arabic");
   }, [selectedLang]);
 
   useEffect(() => {

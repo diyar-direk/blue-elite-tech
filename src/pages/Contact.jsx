@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./contact.css";
 import MapComponent from "../components/MapComponent";
 import ContactComponenet from "../components/ContactComponenet";
+import { useLocation, useParams } from "react-router-dom";
 import { Context } from "../context/Context";
 import Loader from "../components/Loader";
 
@@ -15,6 +16,13 @@ const Contact = () => {
   });
   const context = useContext(Context);
   const language = context.language && context.language;
+  const location = useLocation();
+  const services = location.state;
+  console.log(form);
+
+  useEffect(() => {
+    if (services) setForm({ ...form, services: services.services });
+  }, []);
 
   document.addEventListener("click", () => {
     const selectDiv = document.querySelector(
@@ -58,7 +66,7 @@ const Contact = () => {
             {language.contact && language.contact.contact_header}
           </h1>
         </div>
-        <div className="contact-page flex">
+        <div className="contact-page  flex">
           <form className="flex-1">
             <label htmlFor="name">
               {" "}
@@ -168,14 +176,13 @@ const Contact = () => {
                   {language.contact &&
                     language.contact.contact_services.camera_system}
                 </p>
-                <p onClick={selectServices} data-services="SÎMURX Academy">
-                  {language.contact &&
-                    language.contact.contact_services.SÎMURX_academy}
+                <p onClick={selectServices} data-services="SÎMURX ACADEMY">
+                  SÎMURX Academy
                 </p>
               </div>
             </div>
 
-            {form.services === "SÎMURX Academy" && (
+            {form.services === "SÎMURX ACADEMY" && (
               <label
                 onClick={(e) => {
                   e.stopPropagation();
@@ -187,7 +194,7 @@ const Contact = () => {
                 Choose a cours you need
               </label>
             )}
-            {form.services === "SÎMURX Academy" && (
+            {form.services === "SÎMURX ACADEMY" && (
               <div
                 data-input="cours"
                 data-index="1"

@@ -8,7 +8,25 @@
   overflow: visible;
   font-size: 30px;
 }
-
+/* .academy-page .slider {
+  padding: 20px;
+  background-color: var(--section-color);
+  margin-top: 40px;
+  border-radius: 6px;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: flex;
+  gap: 20px;
+}
+.academy-page .slider > div {
+  min-width: 300px;
+}
+.academy-page .slider > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
 .academy-page .mission {
   margin-top: 50px;
   align-items: flex-start;
@@ -29,7 +47,10 @@
   font-size: 20px;
   margin-bottom: 5px;
 }
-
+body.arabic .academy-page .mission h2 {
+  padding-left: 0;
+  padding-right: 20px;
+}
 .academy-page .mission h2::before {
   content: "";
   position: absolute;
@@ -41,7 +62,9 @@
   background-color: var(--main-color);
   border-radius: 50%;
 }
-
+body.arabic .academy-page .mission h2::before {
+  right: 0;
+}
 .academy-page .mission p {
   padding-left: 25px;
   margin-bottom: 5px;
@@ -49,11 +72,17 @@
   opacity: 0.9;
   font-weight: 550;
 }
-
+body.arabic .academy-page .mission p {
+  padding-left: 0;
+  padding-right: 25px;
+}
 .academy-page .mission p.count {
   counter-increment: custom-counter;
   position: relative;
   padding-left: 50px;
+}
+body.arabic .academy-page .mission p.count {
+  padding-right: 50px;
 }
 .academy-page .mission p.count::before {
   content: counter(custom-counter) ".";
@@ -61,7 +90,9 @@
   left: 25px;
   font-weight: bold;
 }
-
+body.arabic .academy-page .mission p.count::before {
+  right: 25px;
+}
 .academy-contact > h3 {
   font-weight: 600;
   margin-bottom: 30px;
@@ -150,6 +181,10 @@ body.dark .academy-card {
 .contact-comp .info > div:first-child i {
   color: var(--hover-color);
   margin-right: 10px;
+}
+body.arabic .contact-comp .info > div:first-child i {
+  margin-right: 0px;
+  margin-left: 10px;
 }
 .contact-comp .info > div h3 {
   font-weight: 600;

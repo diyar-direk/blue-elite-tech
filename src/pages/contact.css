@@ -109,6 +109,7 @@ body.dark .join_page.contact-page {
   cursor: pointer;
   text-align: center;
   color: #777;
+  width: 100%;
 }
 .join_page.contact-page form label.inp input {
   display: none;

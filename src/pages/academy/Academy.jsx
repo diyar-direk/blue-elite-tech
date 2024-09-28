@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import "./academy.css";
+import { Link } from "react-router-dom";
 import ContactComponenet from "../../components/ContactComponenet";
 import MapComponent from "../../components/MapComponent";
-import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 
 const Academy = () => {
@@ -17,7 +17,6 @@ const Academy = () => {
               {language.academy && language.academy.academy_section_header}
             </h1>
           </div>
-
           <div className="main">
             <div className="flex">
               <div className="flex-1">
@@ -29,10 +28,37 @@ const Academy = () => {
                 </h4>
               </div>
               <div className="flex-1 center">
-                <img src={require("./academy1.png")} alt="" />
+                <img src={require("./academy1.png")} alt="" loading="lazy" />
               </div>
             </div>
           </div>
+
+          {/* <div className="slider">
+            <div>
+              <img
+                src={require("./academy1.8e16765036fe248a0321.jpg")}
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src={require("./academy2.1a677465b56e39b4500e.jpg")}
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src={require("./academy3.07ee47e15b16e884da6a (1).jpg")}
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                src={require("./academy4.4bccc090d270125d6d70.jpg")}
+                alt=""
+              />
+            </div>
+          </div> */}
 
           <div className="mission grid-2">
             <div className="background">

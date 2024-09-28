@@ -5,6 +5,15 @@ header {
   left: 0;
   z-index: 3;
 }
+body.arabic header {
+  direction: ltr;
+}
+body.arabic header > .container > .links > i {
+  order: 2;
+}
+body.arabic header > .container > .links > a:first-of-type {
+  order: 1;
+}
 header.pages-desgin {
   background: #0000004d;
   backdrop-filter: blur(5px);
@@ -84,7 +93,7 @@ header > .container > .links > a.active::before {
 }
 .aside-overlay {
   height: calc(100vh - 61px);
-  top: 61px;
+  top: 60px;
   position: fixed;
   z-index: -1;
   background: linear-gradient(354deg, #000000de, transparent);
@@ -116,13 +125,15 @@ aside.header-aside img {
 }
 aside.header-aside > div.flex:first-of-type {
   align-items: center;
-  padding: 10px;
+  padding: 10px 15px;
   margin-bottom: 20px;
+  justify-content: space-between;
+}
+body.arabic aside.header-aside > div.flex:first-of-type {
+  flex-direction: row-reverse;
 }
 aside.header-aside > div.flex:first-of-type i {
   cursor: pointer;
-  margin-right: 0;
-  margin-left: auto;
   font-size: 21px;
   color: white;
 }
@@ -148,6 +159,10 @@ aside.header-aside > a.active {
 aside.header-aside > a i {
   margin-right: 10px;
 }
+body.arabic aside.header-aside > a i {
+  margin-right: 0;
+  margin-left: 10px;
+}
 aside.header-aside > .aside-setting {
   position: absolute;
   bottom: 20px;
@@ -155,6 +170,39 @@ aside.header-aside > .aside-setting {
   width: 100%;
 }
 
+i.scroll-to-top {
+  position: fixed;
+  background-color: var(--main-color);
+  color: white;
+  z-index: 2;
+  bottom: 40px;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  right: -10%;
+  overflow: hidden;
+}
+i.scroll-to-top.visible {
+  right: 40px;
+}
+i.scroll-to-top::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--hover-color);
+  z-index: -1;
+  transition: 0.4s;
+}
+i.scroll-to-top:hover::after {
+  width: 100%;
+}
 @media (max-width: 850px) {
   header > .container > .links > a {
     display: none;

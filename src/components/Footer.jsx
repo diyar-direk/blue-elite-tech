@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./footer.css";
 import { NavLink } from "react-router-dom";
 import Setting from "./Setting";
+import { topStarting } from "./Header";
 import { Context } from "../context/Context";
 const Footer = () => {
   const context = useContext(Context);
@@ -46,31 +47,28 @@ const Footer = () => {
             <Setting position="footer" />
           </div>
           <div>
-            <NavLink to="/"> {language.links && language.links.home}</NavLink>
-            <NavLink to="/services">
-              {" "}
-              {language.links && language.links.our_services}
+            <NavLink onClick={topStarting} to="/">
+              home
             </NavLink>
-            <NavLink to="/academy">
-              {language.links && language.links.academy}
+            <NavLink onClick={topStarting} to="/services">
+              our services
             </NavLink>
-            <NavLink to="/project">
-              {" "}
-              {language.links && language.links.our_projects}
+            <NavLink onClick={topStarting} to="/academy">
+              academy
+            </NavLink>
+            <NavLink onClick={topStarting} to="/projects">
+              our projects
             </NavLink>
           </div>
           <div>
-            <NavLink to="/contact">
-              {" "}
-              {language.links && language.links.contact_us}
+            <NavLink onClick={topStarting} to="/contact">
+              contact us
             </NavLink>
-            <NavLink to={"/join"}>
-              {" "}
-              {language.links && language.links.join_us}
+            <NavLink onClick={topStarting} to={"/join"}>
+              join us
             </NavLink>
-            <NavLink to={"/about"}>
-              {" "}
-              {language.links && language.links.about_us}
+            <NavLink onClick={topStarting} to={"/about"}>
+              about us
             </NavLink>
           </div>
         </div>

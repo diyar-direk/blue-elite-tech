@@ -79,6 +79,10 @@ body.dark {
   --section-color: #171717;
   --border-color: #4c4c4c;
 }
+body.arabic {
+  direction: rtl;
+}
+
 .flex-direction {
   flex-direction: column;
 }
@@ -105,6 +109,9 @@ h1.title::before {
   overflow: hidden;
   white-space: nowrap;
 }
+body.arabic h1.title::before {
+  right: 0;
+}
 h1.title:hover::before {
   width: 100%;
 }
@@ -122,16 +129,21 @@ div.title::before {
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 1px;
   left: 0;
   top: 50%;
   background-color: var(--border-color);
+  border: solid 1px;
+  border-color: var(--main-color) transparent;
 }
 div.title h1.title {
   padding: 0 15px;
 }
 div.title h1.title::before {
   left: 15px;
+}
+body.arabic div.title h1.title::before {
+  right: 15px;
 }
 .btn,
 .btn2 {

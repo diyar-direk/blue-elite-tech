@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { topStarting } from "./Header";
 
 const ContactComponenet = ({ children }) => {
   return <div className="contact-comp"> {children} </div>;
@@ -78,9 +79,13 @@ ContactComponenet.Info = ({ children, title, location, showBtn, language }) => {
             </div>
           </article>
           {showBtn && (
-            <Link className="btn2">
-              {" "}
-              {language.academy && language.academy.button_getStarted}
+            <Link
+              state={{ services: "SÎMURX ACADEMY" }}
+              onClick={topStarting}
+              to={`/contact`}
+              className="btn2"
+            >
+              get started
             </Link>
           )}
         </div>

@@ -20,9 +20,17 @@ main.landing::before {
 }
 .landing > .container > div h1 {
   text-transform: capitalize;
-  font-size: 38px;
+  font-size: 35px;
   font-family: "Oxanium", sans-serif;
   font-style: normal;
+  white-space: nowrap;
+  display: flex;
+}
+body.arabic .landing > .container > div h1 {
+  flex-direction: row-reverse;
+}
+.landing > .container > div h1 span {
+  margin: 0 5px;
 }
 .landing > .container > div p {
   width: 80%;
@@ -58,6 +66,10 @@ main:not(.landing) {
   padding-right: 10px;
   color: var(--main-color);
 }
+body.arabic .about-company > div h2 span {
+  padding-left: 10px;
+  padding-right: 0;
+}
 .about-company > div h2 span::before {
   content: "";
   width: 100%;
@@ -69,8 +81,15 @@ main:not(.landing) {
   border-left: solid 1px var(--main-color);
   animation: writer 4s infinite steps(22);
 }
+body.arabic .about-company > div h2 span::before {
+  right: 0;
+  border-left: none;
+  border-right: solid 1px var(--main-color);
+  animation: arabic-writer 4s infinite steps(22);
+}
 .about-company > div > .relative {
   margin: 40px 0;
+  overflow: hidden;
 }
 .about-company > div h3 {
   margin: 10px 0;
@@ -82,6 +101,10 @@ main:not(.landing) {
   padding-left: 30px;
   position: relative;
 }
+body.arabic .about-company > div > .relative > div {
+  padding-left: 0px;
+  padding-right: 30px;
+}
 .about-company > div > .relative > div:not(.before)::before {
   content: "";
   position: absolute;
@@ -91,15 +114,28 @@ main:not(.landing) {
   top: 0;
   left: 0;
 }
+body.arabic .about-company > div > .relative > div:not(.before)::before {
+  right: 0;
+  border-right: 1px var(--border-color) solid;
+  border-left: none;
+}
 .about-company > div > .relative > div.before {
   background-color: var(--body-color);
 }
 .about-company > div > .relative > div.before h2::before {
   border-left: solid 1px var(--border-color);
 }
+body.arabic .about-company > div > .relative > div.before h2::before {
+  border-left: none;
+  border-right: solid 1px var(--border-color);
+}
 .about-company > div > .relative > div h2 {
   padding-left: 20px;
   position: relative;
+}
+body.arabic .about-company > div > .relative > div h2 {
+  padding-right: 20px;
+  padding-left: 0px;
 }
 .about-company > div > .relative > div h2::before {
   content: "";
@@ -111,6 +147,10 @@ main:not(.landing) {
   border-radius: 0px 0px 0px 8px;
   border-bottom: solid 2px var(--border-color);
 }
+body.arabic .about-company > div > .relative > div h2::before {
+  right: -30px;
+  border-radius: 0px 0px 8px 0px;
+}
 .about-company > div > .relative > div h2::after {
   content: "";
   position: absolute;
@@ -121,6 +161,9 @@ main:not(.landing) {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+body.arabic .about-company > div > .relative > div h2::after {
+  right: 0;
 }
 /* about end  */
 
@@ -228,28 +271,33 @@ a.home-projects {
 }
 .home-academy .academy-services > div:hover {
   border: solid 2px var(--body-color);
-  transition-delay: 0.3s;
 }
 .home-academy .academy-services > div::before {
   content: "";
   position: absolute;
-  width: 0;
-  height: 0;
-  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  opacity: 1;
   top: 50%;
-  left: 50%;
-  transition: 0.4s;
+  left: 0;
+  opacity: 0;
+  border-radius: 50%;
+  transition: 0.7s;
   background-color: var(--border-color);
   z-index: -1;
 }
 .home-academy .academy-services > div:hover:before {
-  width: 100%;
-  height: 100%;
+  transform: scale(45);
+  opacity: 1;
 }
 .home-academy .academy-services > div > img {
   width: 40px;
   object-fit: contain;
   margin-right: 20px;
+}
+body.arabic .home-academy .academy-services > div > img {
+  margin-right: 0px;
+  margin-left: 20px;
 }
 .home-academy .academy-services > div h1 {
   color: var(--font-color);
@@ -274,6 +322,15 @@ a.home-projects {
   }
   50% {
     left: 98%;
+  }
+}
+@keyframes arabic-writer {
+  0%,
+  100% {
+    right: 0;
+  }
+  50% {
+    right: 98%;
   }
 }
 

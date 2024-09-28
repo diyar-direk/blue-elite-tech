@@ -1,0 +1,39 @@
+.projects-page .grid-2 {
+  margin: 0;
+}
+.projects-page .grid-2 h3 {
+  font-weight: 500;
+  color: var(--font-color);
+}
+.projects-page .grid-2 h3 a {
+  font-weight: 200;
+  color: var(--main-color);
+}
+.projects-page .grid-2 img {
+  max-width: 400px;
+}
+
+.projects-page .pagination {
+  justify-content: center;
+  gap: 10px;
+  display: flex;
+}
+.projects-page .pagination span {
+  background: var(--section-color);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--font-color);
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0.8;
+  user-select: none;
+}
+
+.projects-page .pagination span.active,
+.projects-page .pagination span:hover {
+  background-color: var(--hover-color);
+  opacity: 1;
+  color: white;
+}

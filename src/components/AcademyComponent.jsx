@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Svg from "../pages/home/Svg";
 import { useInView } from "react-intersection-observer";
+import { topStarting } from "./Header";
 import { Context } from "../context/Context";
 
 const AcademyComponent = () => {
@@ -82,10 +83,8 @@ const AcademyComponent = () => {
               </p>
             </article>
           </div>
-          <Link to="/academy" className="btn d-block">
-            {language.academy && language.academy.button_seeMore}
-            {" "}
-            see more about our academy{" "}
+          <Link onClick={topStarting} to="/academy" className="btn d-block">
+            see more about our academy
           </Link>
         </div>
         <div className={` ${inView && "svg-active"}  flex svg `}>

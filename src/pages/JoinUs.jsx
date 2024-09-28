@@ -85,6 +85,7 @@ const JoinUs = () => {
           </form>
           <div className="image center flex-1">
             <img
+              loading="lazy"
               src={require("./undraw_Engineering_team_a7n2__2_-removebg-preview.png")}
               alt=""
             />
