@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./about.css";
 import { topStarting } from "../components/Header";
+import { Context } from "../context/Context";
 const AboutUs = () => {
+  const context = useContext(Context);
+  const language = context.language && context.language;
   return (
     <>
       <main className="responsive-container-block sub-page bigContainer section-color ">

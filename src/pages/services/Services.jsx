@@ -10,7 +10,7 @@ const Services = () => {
       <div className="container">
         <div className="title">
           <h1 className="title body-color" data-fill="our services ">
-            our services
+            {language.services && language.services.sevices_section_header}
           </h1>
         </div>
         <div className="sevice-info grid-2">
@@ -129,10 +129,12 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-list-check"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title>Qualifying</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {" "}
+                {language.services && language.services.qualifying_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                Providing technical consultations and protection in the areas of
-                developing
+                {language.services && language.services.qualifying_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -145,9 +147,11 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-camera-retro"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title>Camera System</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {language.services && language.services.camera_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                Installing protection networks with surveillance cameras
+                {language.services && language.services.camera_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
@@ -160,9 +164,12 @@ const Services = () => {
               <ServicesCard.Body.Icon>
                 <i className="fa-solid fa-lightbulb"></i>
               </ServicesCard.Body.Icon>
-              <ServicesCard.Body.Title>Warning System</ServicesCard.Body.Title>
+              <ServicesCard.Body.Title>
+                {" "}
+                {language.services && language.services.warning_header}
+              </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-                Establishing early warning systems and sensors upon request
+              {language.services && language.services.warning_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>

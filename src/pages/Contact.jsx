@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./contact.css";
 import MapComponent from "../components/MapComponent";
 import ContactComponenet from "../components/ContactComponenet";
 import { useLocation, useParams } from "react-router-dom";
+import { Context } from "../context/Context";
+import Loader from "../components/Loader";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -12,6 +14,8 @@ const Contact = () => {
     services: "",
     message: "",
   });
+  const context = useContext(Context);
+  const language = context.language && context.language;
   const location = useLocation();
   const services = location.state;
   console.log(form);
@@ -51,29 +55,39 @@ const Contact = () => {
     setForm({ ...form, cours: e.target.dataset.services });
     e.target.parentNode.classList.remove("active");
   }
+  if (!context) {
+    <Loader />;
+  }
   return (
     <main className="center sub-page">
       <div className="container">
         <div className="title">
           <h1 className="title body-color" data-fill="contact us">
-            Contact Us
+            {language.contact && language.contact.contact_header}
           </h1>
         </div>
         <div className="contact-page  flex">
           <form className="flex-1">
-            <h2>Let's get in touch..</h2>
-            <label htmlFor="name">full name</label>
+            <label htmlFor="name">
+              {" "}
+              {language.contact && language.contact.contact_fullName}
+            </label>
             <input
               required
               className="inp"
               type="text"
               id="name"
-              placeholder="please enter full name"
+              placeholder={
+                language.contact &&
+                language.contact.contact_fullName_placeholder
+              }
               value={form.name}
               onInput={handelFormChange}
             />
 
-            <label htmlFor="phone"> phone</label>
+            <label htmlFor="phone">
+              {language.contact && language.contact.contact_Phone}
+            </label>
             <input
               required
               value={form.phone}
@@ -81,10 +95,14 @@ const Contact = () => {
               className="inp"
               type="text"
               id="phone"
-              placeholder="please enter phone number"
+              placeholder={
+                language.contact && language.contact.contact_phone_placeholder
+              }
             />
 
-            <label htmlFor="email"> email</label>
+            <label htmlFor="email">
+              {language.contact && language.contact.contact_Email}
+            </label>
             <input
               required
               value={form.email}
@@ -92,7 +110,9 @@ const Contact = () => {
               className="inp"
               type="email"
               id="email"
-              placeholder="please enter email"
+              placeholder={
+                language.contact && language.contact.contact_email_placeholder
+              }
             />
 
             <label
@@ -113,40 +133,48 @@ const Contact = () => {
               <i className="fa-solid fa-chevron-down"></i>
               <div data-input="services">
                 <p onClick={selectServices} data-services="mobile Application">
-                  mobile Application
+                  {language.contact &&
+                    language.contact.contact_services.mobile_application}
                 </p>
                 <p
                   onClick={selectServices}
                   data-services=" Desktop Application"
                 >
-                  Desktop Application
+                  {language.contact &&
+                    language.contact.contact_services.desktop_application}
                 </p>
                 <p onClick={selectServices} data-services="Websites">
-                  Websites
+                  {language.contact &&
+                    language.contact.contact_services.websites}
                 </p>
                 <p onClick={selectServices} data-services="Server Managemen">
-                  Server Management
+                  {language.contact &&
+                    language.contact.contact_services.server_managment}
                 </p>
                 <p
                   onClick={selectServices}
                   data-services="Local Networks services"
                 >
-                  Local Networks services
+                  {language.contact &&
+                    language.contact.contact_services.local_network}
                 </p>
                 <p onClick={selectServices} data-services="Qualifying services">
-                  Qualifying services
+                  {language.contact &&
+                    language.contact.contact_services.qualifying}
                 </p>
                 <p
                   onClick={selectServices}
                   data-services="Warning System services"
                 >
-                  Warning System services
+                  {language.contact &&
+                    language.contact.contact_services.warning_system}
                 </p>
                 <p
                   onClick={selectServices}
                   data-services="Camera System services"
                 >
-                  Camera System services
+                  {language.contact &&
+                    language.contact.contact_services.camera_system}
                 </p>
                 <p onClick={selectServices} data-services="SÎMURX ACADEMY">
                   SÎMURX Academy
@@ -173,7 +201,9 @@ const Contact = () => {
                 onClick={activeDiv}
                 className="select-services inp"
               >
-                {form.cours ? form.cours : "select cours"}
+                {form.cours
+                  ? form.cours
+                  : language.contact && language.contact.contact_select_course}
                 <i className="fa-solid fa-chevron-down"></i>
                 <div data-input="cours">
                   <p onClick={selectCours} data-services="cours 1">
@@ -189,7 +219,10 @@ const Contact = () => {
               </div>
             )}
 
-            <label htmlFor="message">Service Description</label>
+            <label htmlFor="message">
+              {" "}
+              {language.contact && language.contact.contact_service_description}
+            </label>
             <textarea
               value={form.message}
               onInput={handelFormChange}
@@ -200,15 +233,17 @@ const Contact = () => {
               required
               name="message"
             />
-            <button className="btn2"> submit </button>
+            <button className="btn2">
+              {" "}
+              {language.contact && language.contact.button_submit}
+            </button>
           </form>
           <ContactComponenet>
             <ContactComponenet.Form>
-              <p>
-                We love our customers, so feel free to visit during normal
-                business hours.
-              </p>
-              <ContactComponenet.Info location="blue tech"></ContactComponenet.Info>
+              <ContactComponenet.Info
+                language={language && language}
+                location="blue tech"
+              ></ContactComponenet.Info>
               <MapComponent location="blue tech" />
             </ContactComponenet.Form>
           </ContactComponenet>

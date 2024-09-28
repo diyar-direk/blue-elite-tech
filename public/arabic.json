@@ -109,9 +109,24 @@
     "contact_phone_placeholder": "يرجى إدخال رقم الهاتف",
     "contact_email_placeholder": "يرجى إدخال البريد الإلكتروني",
     "contact_service": "اختر خدمة",
-    "contact_service_placeholder": "يرجى اختيار الخدمة",
+    "contact_services": {
+      "mobile_application": "تطبيقات الجوال",
+      "desktop_application": "تطبيقات سطح المكتب",
+      "websites": "المواقع الإلكترونية",
+      "server_managment": "إدارة الخوادم",
+      "local_network": "خدمات الشبكات المحلية",
+      "qualifying": "خدمات التأهيل",
+      "warning_system": "خدمات أنظمة الإنذار",
+      "camera_system": "خدمات أنظمة الكاميرات",
+      "SÎMURX_academy": "أكاديمية سيموركس"
+    },
+    "contact_choose_course": "يرجى اختيار دورة",
+    "contact_select_course": "اختر دورة",
+
     "contact_service_description": "وصف الخدمة",
-    "contact_service_description_placeholder": "اكتب رسالتك"
+    "contact_service_placeholder": "يرجى اختيار الخدمة",
+    "contact_service_description_placeholder": "اكتب رسالتك",
+    "button_submit": "ارسل"
   },
 
   "about": {

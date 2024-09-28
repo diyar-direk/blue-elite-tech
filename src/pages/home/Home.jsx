@@ -9,6 +9,7 @@ import ParticlesBackground from "../../components/ParticlesBackground";
 import { Context } from "../../context/Context";
 import { topStarting } from "../../components/Header";
 import ServicesCard from "../services/ServicesCard";
+import axios from "axios";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -16,8 +17,10 @@ const Home = () => {
     threshold: 0.5, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
+  //context for language
   const context = useContext(Context);
-  const language = context.language;
+  const language = context.language && context.language;
+  const [projects, setProjects] = useState([]);
   //this might be a problem
   useEffect(() => {
     const imgElements = document.querySelectorAll("img");
@@ -44,6 +47,12 @@ const Home = () => {
       });
     };
   }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/projects")
+      .then((res) => setProjects(res.data.projects));
+  }, []);
+
   if (!context) {
     <Loader />;
   }
@@ -293,7 +302,7 @@ const Home = () => {
               {language.projects && language.projects.projects_home_header}
             </h1>
           </div>
-          <ProjectsComponent />
+          <ProjectsComponent data={projects && projects} />
 
           <Link
             onClick={topStarting}

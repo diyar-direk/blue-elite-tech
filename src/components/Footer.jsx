@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./footer.css";
 import { NavLink } from "react-router-dom";
 import Setting from "./Setting";
 import { topStarting } from "./Header";
+import { Context } from "../context/Context";
 const Footer = () => {
+  const context = useContext(Context);
+  const language = context.language && context.language;
   return (
     <footer className="footer center">
       <div className="container">
@@ -40,10 +43,7 @@ const Footer = () => {
                 <i className="fa-brands fa-linkedin"></i>
               </a>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequuntur, omnis?
-            </p>
+            <p>{language.footer && language.footer.footer_p}</p>
             <Setting position="footer" />
           </div>
           <div>
@@ -73,7 +73,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="copyright center">
-          © 2024 All rights reserved for Blue Elite Tech.
+          {language.footer && language.footer.footer_rights}
         </div>
       </div>
     </footer>

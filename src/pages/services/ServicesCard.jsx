@@ -9,6 +9,7 @@ const ServicesCard = ({ children, className }) => {
     threshold: 0.1, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
+
   return (
     <article
       ref={ref}
