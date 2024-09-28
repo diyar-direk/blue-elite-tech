@@ -84,7 +84,7 @@ const AcademyComponent = () => {
             </article>
           </div>
           <Link onClick={topStarting} to="/academy" className="btn d-block">
-            see more about our academy
+          {language.academy && language.academy.button_seeMore}
           </Link>
         </div>
         <div className={` ${inView && "svg-active"}  flex svg `}>

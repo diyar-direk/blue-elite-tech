@@ -14,13 +14,7 @@ const Services = () => {
           </h1>
         </div>
         <div className="sevice-info grid-2">
-          <h3>
-            Blue Elite Tech is a leading software company known for its
-            innovative solutions and advanced technology services. Founded on
-            the principles of innovation and excellence, we have assembled a
-            team of specialized developers and engineers dedicated to realizing
-            our clients’ vision and meeting their technological needs.
-          </h3>
+          <h3>{language.services && language.services.sevices_section_text}</h3>
           <img loading="lazy" src={require("./about.png")} alt="" />
         </div>
         <div className="grid-3 services">
@@ -138,7 +132,10 @@ const Services = () => {
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink />
+              <ServicesCard.Bottom.StartedLink
+                title={language.services && language.services.button_getStarted}
+                state={language.services && language.services.local_header}
+              />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -155,7 +152,10 @@ const Services = () => {
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink />
+              <ServicesCard.Bottom.StartedLink
+                title={language.services && language.services.button_getStarted}
+                state={language.services && language.services.local_header}
+              />
             </ServicesCard.Bottom>
           </ServicesCard>
 
@@ -169,11 +169,14 @@ const Services = () => {
                 {language.services && language.services.warning_header}
               </ServicesCard.Body.Title>
               <ServicesCard.Body.Paragraph>
-              {language.services && language.services.warning_p}
+                {language.services && language.services.warning_p}
               </ServicesCard.Body.Paragraph>
             </ServicesCard.Body>
             <ServicesCard.Bottom>
-              <ServicesCard.Bottom.StartedLink />
+              <ServicesCard.Bottom.StartedLink
+                title={language.services && language.services.button_getStarted}
+                state={language.services && language.services.local_header}
+              />
             </ServicesCard.Bottom>
           </ServicesCard>
         </div>

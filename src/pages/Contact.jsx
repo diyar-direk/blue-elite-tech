@@ -5,6 +5,7 @@ import ContactComponenet from "../components/ContactComponenet";
 import { useLocation, useParams } from "react-router-dom";
 import { Context } from "../context/Context";
 import Loader from "../components/Loader";
+import axios from "axios";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -13,13 +14,31 @@ const Contact = () => {
     email: "",
     services: "",
     message: "",
+    course: "",
   });
   const context = useContext(Context);
   const language = context.language && context.language;
   const location = useLocation();
   const services = location.state;
-  console.log(form);
+  const sendEmail = (e) => {
+    console.log(form);
+    const body = `
+    name:${form.name}
+    email:${form.email}
+    phone number :${form.phone}
+    service:${form.services}
+   ${form.course && `course: ${form.course}`}
+   message :${form.message}
 
+    `;
+
+    form.body = body;
+    console.log(form.body);
+
+    axios
+      .post("http://localhost:8000/api/email/send", form)
+      .then((res) => console.log("hi"));
+  };
   useEffect(() => {
     if (services) setForm({ ...form, services: services.services });
   }, []);
@@ -52,7 +71,7 @@ const Contact = () => {
     e.target.parentNode.classList.remove("active");
   }
   function selectCours(e) {
-    setForm({ ...form, cours: e.target.dataset.services });
+    setForm({ ...form, course: e.target.dataset.services });
     e.target.parentNode.classList.remove("active");
   }
   if (!context) {
@@ -67,7 +86,7 @@ const Contact = () => {
           </h1>
         </div>
         <div className="contact-page  flex">
-          <form className="flex-1">
+          <form onSubmit={sendEmail} className="flex-1">
             <label htmlFor="name">
               {" "}
               {language.contact && language.contact.contact_fullName}
@@ -121,7 +140,7 @@ const Contact = () => {
                 document.querySelector(".contact-page form div.inp").click();
               }}
             >
-              Choose a Service
+              {language.contact && language.contact.contact_service}
             </label>
             <div
               data-input="services"
@@ -129,49 +148,86 @@ const Contact = () => {
               onClick={activeDiv}
               className="select-services inp"
             >
-              {form.services || "choose services"}
+              {form.services ||
+                `${language.contact && language.contact.contact_service}`}
               <i className="fa-solid fa-chevron-down"></i>
               <div data-input="services">
-                <p onClick={selectServices} data-services="mobile Application">
+                <p
+                  onClick={selectServices}
+                  data-services={
+                    language.contact &&
+                    language.contact.contact_services.mobile_application
+                  }
+                >
                   {language.contact &&
                     language.contact.contact_services.mobile_application}
                 </p>
                 <p
                   onClick={selectServices}
-                  data-services=" Desktop Application"
+                  data-services={
+                    language.contact &&
+                    language.contact.contact_services.desktop_application
+                  }
                 >
                   {language.contact &&
                     language.contact.contact_services.desktop_application}
                 </p>
-                <p onClick={selectServices} data-services="Websites">
+                <p
+                  onClick={selectServices}
+                  data-services={
+                    language.contact &&
+                    language.contact.contact_services.websites
+                  }
+                >
                   {language.contact &&
                     language.contact.contact_services.websites}
                 </p>
-                <p onClick={selectServices} data-services="Server Managemen">
+                <p
+                  onClick={selectServices}
+                  data-services={
+                    language.contact &&
+                    language.contact.contact_services.server_managment
+                  }
+                >
                   {language.contact &&
                     language.contact.contact_services.server_managment}
                 </p>
                 <p
                   onClick={selectServices}
-                  data-services="Local Networks services"
+                  data-services={
+                    language.contact &&
+                    language.contact.contact_services.local_network
+                  }
                 >
                   {language.contact &&
                     language.contact.contact_services.local_network}
                 </p>
-                <p onClick={selectServices} data-services="Qualifying services">
+                <p
+                  onClick={selectServices}
+                  data-services={
+                    language.contact &&
+                    language.contact.contact_services.qualifying
+                  }
+                >
                   {language.contact &&
                     language.contact.contact_services.qualifying}
                 </p>
                 <p
                   onClick={selectServices}
-                  data-services="Warning System services"
+                  data-services={
+                    language.contact &&
+                    language.contact.contact_services.warning_system
+                  }
                 >
                   {language.contact &&
                     language.contact.contact_services.warning_system}
                 </p>
                 <p
                   onClick={selectServices}
-                  data-services="Camera System services"
+                  data-services={
+                    language.contact &&
+                    language.contact.contact_services.camera_system
+                  }
                 >
                   {language.contact &&
                     language.contact.contact_services.camera_system}
@@ -191,7 +247,7 @@ const Contact = () => {
                     .click();
                 }}
               >
-                Choose a cours you need
+                {language.contact && language.contact.contact_select_course}
               </label>
             )}
             {form.services === "SÎMURX ACADEMY" && (
@@ -201,9 +257,9 @@ const Contact = () => {
                 onClick={activeDiv}
                 className="select-services inp"
               >
-                {form.cours
-                  ? form.cours
-                  : language.contact && language.contact.contact_select_course}
+                {form.course
+                  ? form.course
+                  : language.contact && language.contact.contact_choose_course}
                 <i className="fa-solid fa-chevron-down"></i>
                 <div data-input="cours">
                   <p onClick={selectCours} data-services="cours 1">
@@ -227,7 +283,10 @@ const Contact = () => {
               value={form.message}
               onInput={handelFormChange}
               rows={7}
-              placeholder="writ your message"
+              placeholder={
+                language.contact &&
+                language.contact.contact_service_description_placeholder
+              }
               id="message"
               className="inp"
               required

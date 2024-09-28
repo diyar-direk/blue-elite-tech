@@ -74,8 +74,8 @@ const Home = () => {
               </h1>
             ) : context.selectedLang === "arabic" ? (
               <h1>
-                <span className="inside-span"> blue elite tech </span>
                 مرحبًا بكم في شركة
+                <span className="inside-span"> blue elite tech </span>
               </h1>
             ) : (
               <h1>

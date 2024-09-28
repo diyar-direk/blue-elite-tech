@@ -15,7 +15,6 @@ const Courses = () => {
       .then((res) => setData(res.data.courses))
       .catch((error) => console.error("Error fetching data:", error));
   }
-  console.log(searchData);
 
   useEffect(() => {
     fetchData();

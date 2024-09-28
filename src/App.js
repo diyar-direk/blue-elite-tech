@@ -14,6 +14,7 @@ import AddCours from "./pages/dashboard/pages/AddCours";
 import Courses from "./pages/dashboard/pages/Courses";
 import AddProject from "./pages/dashboard/pages/AddProject";
 import Activities from "./pages/dashboard/pages/Activities";
+import Login from "./pages/Login";
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/join" element={<JoinUs />} />
         <Route path="/projects" element={<Project />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="add_cours" element={<AddCours />} />

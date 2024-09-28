@@ -20,14 +20,16 @@ const Header = () => {
     let linkCounter = 0;
 
     if (location.pathname !== "/") {
-      headerLinks.forEach((e, i) => {
-        e.classList.add("services-stable");
-      });
+      headerLinks &&
+        headerLinks.forEach((e, i) => {
+          e.classList.add("services-stable");
+        });
     }
     if (animationDone) {
-      headerLinks.forEach((e, i) => {
-        e.classList.add("services-stable");
-      });
+      headerLinks &&
+        headerLinks.forEach((e, i) => {
+          e.classList.add("services-stable");
+        });
       return;
     }
     const headerInterval = setInterval(() => {
@@ -61,13 +63,14 @@ const Header = () => {
 
   window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
+    const i = document.querySelector("i.scroll-to-top");
     if (window.scrollY >= 250 && location.pathname === "/")
-      header.classList.add("active");
-    else header.classList.remove("active");
+      header && header.classList.add("active");
+    else header && header.classList.remove("active");
     if (window.scrollY >= 400) {
-      document.querySelector("i.scroll-to-top").classList.add("visible");
+      i && i.classList.add("visible");
     } else {
-      document.querySelector("i.scroll-to-top").classList.remove("visible");
+      i && i.classList.remove("visible");
     }
   });
   if (!context) {
@@ -171,7 +174,7 @@ const Header = () => {
             behavior: "smooth",
           });
         }}
-        class="fa-solid fa-arrow-up scroll-to-top"
+        className="fa-solid fa-arrow-up scroll-to-top"
       ></i>
     </>
   );
