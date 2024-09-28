@@ -52,7 +52,6 @@ const Home = () => {
       .get("http://localhost:8000/api/projects")
       .then((res) => setProjects(res.data.projects));
   }, []);
-  console.log(projects);
 
   if (!context) {
     <Loader />;

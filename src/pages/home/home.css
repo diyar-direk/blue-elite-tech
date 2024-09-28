@@ -2,6 +2,7 @@ main.landing {
   height: 100vh;
   position: relative;
   z-index: 1;
+  direction: ltr
 }
 main.landing::before {
   content: "";
@@ -266,8 +267,12 @@ a.home-projects {
   transform: translateX(-122%);
   transition: 0.7s linear;
 }
+body.arabic .home-academy .academy-services > div{
+  transform: translateX(+122%);
+}
+
 .home-academy .academy-services > div.active-academy {
-  transform: translateX(0px);
+  transform: translateX(0px) !important;
 }
 .home-academy .academy-services > div:hover {
   border: solid 2px var(--body-color);
@@ -311,8 +316,12 @@ body.arabic .home-academy .academy-services > div > img {
   transform: translateX(127%);
   transition: 1s linear;
 }
+body.arabic .home-academy .svg{
+  transform: translateX(-127%);
+
+}
 .home-academy .svg-active {
-  transform: translateX(0px);
+  transform: translateX(0px) !important;
 }
 
 @keyframes writer {
