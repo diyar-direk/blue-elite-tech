@@ -138,6 +138,21 @@
     "button_explore_services": "Explore our Services",
     "button_contact_us": "Contact Us"
   },
+  "join_us": {
+    "join_us_header": "Join Us",
+    "join_us_text": "Join us right now!",
+    "full_name_input": "full name",
+    "full_name_placeHolder": "please enter your full name",
+    "phone_input": "phone",
+    "phone_placeHolder": "please enter your phone number",
+    "email_input": "email",
+    "email_placeHolder": "please enter your email address",
+    "show_us_input": "Show us your skills",
+    "uplaod_your_cv_placeHolder": "Upload your CV",
+    "service_description": "Service Description",
+    "service_description_placeHolder": "write your message",
+    "button_submit": "Submit"
+  },
   "footer": {
     "footer_p": "Blue Elite Tech - Transforming Your Vision into Reality.",
     "footer_rights": "© 2024 All rights reserved for Blue Elite Tech."

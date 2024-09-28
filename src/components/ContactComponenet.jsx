@@ -17,7 +17,6 @@ ContactComponenet.Info = ({ children, title, location, showBtn, language }) => {
             </div>
             <div>
               <h3>
-               
                 {language.academy && language.academy.academy_contact_email}
               </h3>
               <a
@@ -85,7 +84,7 @@ ContactComponenet.Info = ({ children, title, location, showBtn, language }) => {
               to={`/contact`}
               className="btn2"
             >
-              get started
+              {language.academy && language.academy.button_getStarted}
             </Link>
           )}
         </div>

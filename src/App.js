@@ -10,6 +10,7 @@ import Project from "./pages/projects/Project";
 import Services from "./pages/services/Services";
 import Academy from "./pages/academy/Academy";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Login from "./pages/Login";
 
 function App() {
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/join" element={<JoinUs />} />
         <Route path="/projects" element={<Project />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
