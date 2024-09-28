@@ -1,0 +1,80 @@
+.main-dashboard form.dashboard-form {
+  width: 70%;
+  margin: 0 auto;
+  padding: 40px 30px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 12px #dedede;
+}
+body.dark .main-dashboard form.dashboard-form {
+  box-shadow: 0 0 12px #222;
+}
+.main-dashboard form.dashboard-form > h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  color: var(--main-color);
+  font-weight: 600;
+}
+.main-dashboard form.dashboard-form .flex {
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.main-dashboard form.dashboard-form .flex > div {
+  flex: 1;
+  min-width: 150px;
+}
+.main-dashboard form.dashboard-form .flex > div.arabic {
+  direction: rtl;
+}
+.main-dashboard form.dashboard-form label {
+  width: fit-content;
+  cursor: text;
+  display: block;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  color: var(--font-color);
+}
+.main-dashboard form.dashboard-form label.w-100 {
+  width: 100%;
+  cursor: auto;
+}
+.main-dashboard form.dashboard-form label.w-100 p {
+  margin-bottom: 10px;
+}
+.main-dashboard form.dashboard-form label input {
+  display: none;
+}
+.main-dashboard form.dashboard-form label > div {
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #777 !important;
+}
+.main-dashboard form.dashboard-form label > div i {
+  margin: 0 5px;
+}
+.main-dashboard form.dashboard-form .inp {
+  padding: 7px 10px;
+  border: solid 1px var(--border-color);
+  resize: none;
+  background-color: var(--section-color);
+  color: var(--font-color);
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.main-dashboard form.dashboard-form .inp:focus {
+  border: solid 1px var(--main-color);
+}
+.main-dashboard form.dashboard-form .inp::placeholder {
+  transition: 0.4s;
+}
+.main-dashboard form.dashboard-form .inp:focus::placeholder {
+  opacity: 0;
+}
+.main-dashboard form.dashboard-form button {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}

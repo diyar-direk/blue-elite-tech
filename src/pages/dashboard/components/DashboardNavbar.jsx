@@ -30,7 +30,9 @@ const DashboardNavbar = () => {
             <Link to={"/"} className="btn2">
               home
             </Link>
-            <div className="btn">log out</div>
+            <div className="btn">
+              log out <i className="fa-solid fa-arrow-right-from-bracket"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -38,24 +40,24 @@ const DashboardNavbar = () => {
         <h3>title</h3>
         <h4 onClick={handelCilck}></h4>
 
-        <NavLink to={"/dashboard/top-news"}>
-          <i className="fa-solid fa-newspaper"></i>
-          <span>link 1</span>
+        <NavLink to={"activities"}>
+          <i className="fa-solid fa-clock-rotate-left"></i>
+          <span>activities</span>
         </NavLink>
 
-        <NavLink to={"/dashboard/add-top-news"}>
+        <NavLink to={"add_project"}>
           <i className="fa-solid fa-circle-plus"></i>
-          <span>link2</span>
+          <span>add project</span>
         </NavLink>
 
-        <NavLink to={"/dashboard/news"}>
-          <i className="fa-regular fa-newspaper"></i>
-          <span>link3</span>
+        <NavLink to={"courses"}>
+          <i className="fa-solid fa-graduation-cap"></i>
+          <span>courses</span>
         </NavLink>
 
-        <NavLink to={"/dashboard/add-news"}>
+        <NavLink to={"add_cours"}>
           <i className="fa-solid fa-plus"></i>
-          <span>lnk 4</span>
+          <span>add cours</span>
         </NavLink>
         <Setting title={true} position="dashboard" mode={true} />
       </aside>

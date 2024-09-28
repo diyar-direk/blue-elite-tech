@@ -10,6 +10,10 @@ import Project from "./pages/projects/Project";
 import Services from "./pages/services/Services";
 import Academy from "./pages/academy/Academy";
 import Dashboard from "./pages/dashboard/Dashboard";
+import AddCours from "./pages/dashboard/pages/AddCours";
+import Courses from "./pages/dashboard/pages/Courses";
+import AddProject from "./pages/dashboard/pages/AddProject";
+import Activities from "./pages/dashboard/pages/Activities";
 
 function App() {
   const location = useLocation();
@@ -27,7 +31,12 @@ function App() {
         <Route path="/join" element={<JoinUs />} />
         <Route path="/projects" element={<Project />} />
 
-        <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="add_cours" element={<AddCours />} />
+          <Route path="courses" element={<Courses />} />
+          <Route path="add_project" element={<AddProject />} />
+          <Route path="activities" element={<Activities />} />
+        </Route>
       </Routes>
       {!isDashboard && <Footer />}
     </div>

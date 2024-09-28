@@ -5,6 +5,14 @@
   box-sizing: border-box;
   font-family: cairo;
 }
+input {
+  caret-color: var(--main-color);
+  outline: none;
+}
+.no-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
 a {
   text-decoration: none;
 }

@@ -86,6 +86,12 @@ aside.dashboard-aside div.setting {
   width: 100%;
   left: 0;
 }
+aside.dashboard-aside div.setting .select {
+  background-color: var(--body-color);
+}
+aside.dashboard-aside .setting .language .select p:not(:first-of-type) {
+  border-top: solid 1px var(--border-color);
+}
 aside.dashboard-aside .setting .mode div {
   background-color: var(--section-color);
   border: solid 2px var(--border-color);
@@ -189,13 +195,13 @@ div.main-dashboard .dashboard-container {
   aside.dashboard-aside div.setting div.select {
     top: -65px;
   }
-  aside.dashboard-aside div.setting div.lang p {
+  aside.dashboard-aside div.setting div.language .select p {
     font-size: 10px;
   }
-  aside.dashboard-aside.active div.setting div.lang {
+  aside.dashboard-aside.active div.setting div.select {
     top: -45px;
   }
-  aside.dashboard-aside.active div.setting div.lang p {
+  aside.dashboard-aside.active div.setting div.select p {
     font-size: 12px;
   }
   aside.dashboard-aside div.setting div.menu-lang {
@@ -220,11 +226,11 @@ div.main-dashboard .dashboard-container {
   div.main-dashboard .dashboard-container.active {
     width: calc(100% - 200px);
   }
-  aside.dashboard-aside div.setting div.theme {
+  aside.dashboard-aside div.setting div.mode {
     width: 38px;
     height: 18px;
   }
-  aside.dashboard-aside div.setting div.theme::before {
+  aside.dashboard-aside div.setting div.mode::before {
     height: 13px;
     width: 13px;
     font-size: 9px;
@@ -235,7 +241,7 @@ div.main-dashboard .dashboard-container {
     text-wrap: nowrap;
     overflow: hidden;
   }
-  aside.dashboard-aside.active div.setting h4 {
+  aside.dashboard-aside.active div.setting p {
     display: block;
     text-wrap: nowrap;
     overflow: hidden;
@@ -275,10 +281,10 @@ div.main-dashboard .dashboard-container {
   div.main-dashboard .dashboard-container.active {
     width: calc(100% - 150px);
   }
-  aside.dashboard-aside div.setting div.lang {
+  aside.dashboard-aside div.setting div.select {
     top: -55px;
   }
-  aside.dashboard-aside div.setting div.lang p {
+  aside.dashboard-aside div.setting div.select p {
     font-size: 8px;
   }
   body.arabic aside.dashboard-aside.active > a span {
