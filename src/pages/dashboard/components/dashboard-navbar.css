@@ -112,7 +112,7 @@ aside.dashboard-aside .setting .language .center i {
   opacity: 0.4;
   color: var(--font-color);
 }
-div.main {
+div.main-dashboard {
   width: 100%;
   min-height: 200px;
   margin-top: 60px;
@@ -121,7 +121,7 @@ div.main {
   min-height: calc(100vh - 60px);
 }
 
-div.main .dashboard-container {
+div.main-dashboard .dashboard-container {
   width: calc(100% - 250px);
   padding: 40px 50px;
 }
@@ -140,7 +140,7 @@ div.main .dashboard-container {
     display: flex;
     align-items: center;
   }
-  div.main .dashboard-container {
+  div.main-dashboard .dashboard-container {
     width: calc(100% - 200px);
     padding: 40px;
   }
@@ -158,7 +158,7 @@ div.main .dashboard-container {
     margin: auto;
   }
 
-  div.main .dashboard-container {
+  div.main-dashboard .dashboard-container {
     width: calc(100% - 65px);
     padding: 40px 30px;
   }
@@ -217,7 +217,7 @@ div.main .dashboard-container {
     text-wrap: nowrap;
     overflow: hidden;
   }
-  div.main .dashboard-container.active {
+  div.main-dashboard .dashboard-container.active {
     width: calc(100% - 200px);
   }
   aside.dashboard-aside div.setting div.theme {
@@ -263,16 +263,16 @@ div.main .dashboard-container {
     margin-left: 4px;
     font-size: 11px;
   }
-  div.main .dashboard-container {
+  div.main-dashboard .dashboard-container {
     width: calc(100% - 55px);
   }
   div.navbar .flex > .btn {
     font-size: 12px;
   }
-  div.main .dashboard-container {
+  div.main-dashboard .dashboard-container {
     padding: 25px 10px;
   }
-  div.main .dashboard-container.active {
+  div.main-dashboard .dashboard-container.active {
     width: calc(100% - 150px);
   }
   aside.dashboard-aside div.setting div.lang {
