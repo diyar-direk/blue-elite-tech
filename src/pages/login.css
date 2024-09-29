@@ -7,6 +7,7 @@
   border-radius: 10px;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
 .login-container form.login > h1 {
   text-transform: capitalize;

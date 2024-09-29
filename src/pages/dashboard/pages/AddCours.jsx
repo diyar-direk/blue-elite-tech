@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../components/dashboard-form.css";
+import Formloading from "../../../components/Formloading";
 const AddCours = () => {
   const [headLine, setHeadline] = useState({
     arabic: "",
@@ -11,6 +12,9 @@ const AddCours = () => {
     english: "",
     kurdish: "",
   });
+  const [image, setImage] = useState(false);
+  const [errimage, setErrImage] = useState(false);
+  const [loading, setLoading] = useState(false);
   function headlineFun(e) {
     setHeadline({ ...headLine, [e.target.name]: e.target.value });
   }
@@ -18,13 +22,26 @@ const AddCours = () => {
   function summaryFun(e) {
     setSummary({ ...summary, [e.target.name]: e.target.value });
   }
-
+  async function submitData(e) {
+    e.preventDefault();
+    if (!image) setErrImage(true);
+    if (image && headLine && summary) {
+      try {
+        const formData = new FormData();
+        formData.append("headline", headLine);
+        formData.append("summary", summary);
+        formData.append("image", image);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
   return (
     <div className="main-dashboard">
       <div className="dashboard-container">
-        <form className="dashboard-form">
+        <form onSubmit={submitData} className="dashboard-form">
           <h2>add a new course</h2>
-
+          {loading && <Formloading />}
           <div className="flex">
             <div>
               <label htmlFor="ku-headline">kurdish headline</label>
@@ -111,11 +128,32 @@ const AddCours = () => {
 
           <label className="w-100" htmlFor="file">
             <p className="lable"> add photo </p>
-            <input className="inp" type="file" name="" id="file" />
+            <input
+              className="inp"
+              onInput={(e) => {
+                setImage(e.target.files[0]);
+                setErrImage(false);
+              }}
+              type="file"
+              name=""
+              id="file"
+              accept="image/*"
+            />
             <div className="inp center">
               choose img <i className="fa-regular fa-images"></i>
             </div>
           </label>
+          {errimage && <p className="error-text"> uploade image to set </p>}
+          {image && (
+            <div className="relative remove">
+              <img
+                src={URL.createObjectURL(image)}
+                loading="lazy"
+                alt="uploaded"
+              />
+              <i className="fa-solid fa-x" onClick={() => setImage(false)}></i>
+            </div>
+          )}
           <button className="btn2"> submit </button>
         </form>
       </div>

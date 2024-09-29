@@ -45,6 +45,11 @@ const DashboardNavbar = () => {
           <span>activities</span>
         </NavLink>
 
+        <NavLink to={"projects"}>
+          <i className="fa-solid fa-diagram-project"></i>
+          <span> projects</span>
+        </NavLink>
+
         <NavLink to={"add_project"}>
           <i className="fa-solid fa-circle-plus"></i>
           <span>add project</span>

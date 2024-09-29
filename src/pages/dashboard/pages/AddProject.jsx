@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../components/dashboard-form.css";
+import Formloading from "../../../components/Formloading";
 const AddProject = () => {
   const [headLine, setHeadline] = useState({
     arabic: "",
@@ -11,6 +12,10 @@ const AddProject = () => {
     english: "",
     kurdish: "",
   });
+  const [linkProject, setLinkProject] = useState("");
+  const [image, setImage] = useState(false);
+  const [errimage, setErrImage] = useState(false);
+  const [loading, setLoading] = useState(false);
   function headlineFun(e) {
     setHeadline({ ...headLine, [e.target.name]: e.target.value });
   }
@@ -18,10 +23,26 @@ const AddProject = () => {
   function summaryFun(e) {
     setSummary({ ...summary, [e.target.name]: e.target.value });
   }
+  async function submitData(e) {
+    e.preventDefault();
+    if (!image) setErrImage(true);
+    if (image && headLine && summary) {
+      try {
+        const formData = new FormData();
+        formData.append("headline", headLine);
+        formData.append("summary", summary);
+        linkProject && formData.append("projectLink", linkProject);
+        formData.append("image", image);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
   return (
     <div className="main-dashboard">
       <div className="dashboard-container">
-        <form className="dashboard-form">
+        <form onClick={submitData} className="dashboard-form relative">
+          {loading && <Formloading />}
           <h2>add new project</h2>
 
           <div className="flex">
@@ -108,18 +129,46 @@ const AddProject = () => {
             </div>
           </div>
           <label htmlFor="link"> project link</label>
-          <input
-            type="text"
-            placeholder="add a link for this project "
-            className="inp"
-          />
+          <div className="relative center  no-wrap">
+            <input
+              type="text"
+              placeholder="add a link for this project "
+              className="inp"
+              onInput={(e) => setLinkProject(e.target.value)}
+              value={linkProject}
+            />
+            <i className="fa-solid fa-link"></i>
+          </div>
+
           <label className="w-100" htmlFor="file">
             <p className="lable"> add photo </p>
-            <input className="inp" type="file" name="" id="file" />
+            <input
+              className="inp"
+              onInput={(e) => {
+                setImage(e.target.files[0]);
+                setErrImage(false);
+              }}
+              type="file"
+              name=""
+              id="file"
+              accept="image/*"
+            />
             <div className="inp center">
               choose img <i className="fa-regular fa-images"></i>
             </div>
           </label>
+          {errimage && <p className="error-text"> uploade image to set </p>}
+          {image && (
+            <div className="relative remove">
+              <img
+                src={URL.createObjectURL(image)}
+                loading="lazy"
+                alt="uploaded"
+              />
+              <i className="fa-solid fa-x" onClick={() => setImage(false)}></i>
+            </div>
+          )}
+
           <button className="btn2"> submit </button>
         </form>
       </div>

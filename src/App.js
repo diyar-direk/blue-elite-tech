@@ -15,6 +15,9 @@ import Courses from "./pages/dashboard/pages/Courses";
 import AddProject from "./pages/dashboard/pages/AddProject";
 import Activities from "./pages/dashboard/pages/Activities";
 import Login from "./pages/Login";
+import Projects from "./pages/dashboard/pages/Projects";
+import Auth from "./auth/Auth";
+import Refresh from "./auth/Refresh";
 
 function App() {
   const location = useLocation();
@@ -33,11 +36,16 @@ function App() {
         <Route path="/projects" element={<Project />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route path="add_cours" element={<AddCours />} />
-          <Route path="courses" element={<Courses />} />
-          <Route path="add_project" element={<AddProject />} />
-          <Route path="activities" element={<Activities />} />
+        <Route element={<Refresh />}>
+          <Route element={<Auth />}>
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="add_cours" element={<AddCours />} />
+              <Route path="courses" element={<Courses />} />
+              <Route path="add_project" element={<AddProject />} />
+              <Route path="Projects" element={<Projects />} />
+              <Route path="activities" element={<Activities />} />
+            </Route>
+          </Route>
         </Route>
       </Routes>
       {!isDashboard && <Footer />}
