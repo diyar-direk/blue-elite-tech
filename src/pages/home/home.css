@@ -2,7 +2,7 @@ main.landing {
   height: 100vh;
   position: relative;
   z-index: 1;
-  direction: ltr
+  direction: ltr;
 }
 main.landing::before {
   content: "";
@@ -49,6 +49,7 @@ body.arabic .landing > .container > div h1 {
 
 .animation-image {
   animation: 1.5s linear infinite alternate img;
+  height: 75%;
 }
 .animation-image svg {
   width: 100%;
@@ -267,7 +268,7 @@ a.home-projects {
   transform: translateX(-122%);
   transition: 0.7s linear;
 }
-body.arabic .home-academy .academy-services > div{
+body.arabic .home-academy .academy-services > div {
   transform: translateX(+122%);
 }
 
@@ -316,9 +317,8 @@ body.arabic .home-academy .academy-services > div > img {
   transform: translateX(127%);
   transition: 1s linear;
 }
-body.arabic .home-academy .svg{
+body.arabic .home-academy .svg {
   transform: translateX(-127%);
-
 }
 .home-academy .svg-active {
   transform: translateX(0px) !important;
@@ -377,17 +377,19 @@ body.arabic .home-academy .svg{
 .flex-100 {
   flex: 100%;
 }
-.flex-100 img {
-  height: 50%;
+.flex-100 div.svg {
+  height: 100%;
   opacity: 0;
   transform: translateY(100%) !important;
 
   object-fit: contain;
+  align-items: center;
 }
-.slide-up-animation img {
+.slide-up-animation div.svg {
   opacity: 1 !important;
   transform: translateY(0%) !important;
-  transition: 0.5s linear;
+  transition: 0.7s linear;
+  align-items: center;
 }
 
 .services-stable {

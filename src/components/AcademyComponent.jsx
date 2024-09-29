@@ -92,7 +92,7 @@ const AcademyComponent = () => {
         </div>
         <div className={` ${inView && "svg-active"}  flex svg `}>
           <div className=" animation-image">
-            <Svg className="svg-image" />
+           <img src={require("../pages/services/about.png")} alt="" />
           </div>
         </div>
       </div>

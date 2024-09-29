@@ -10,16 +10,19 @@ import { Context } from "../../context/Context";
 import { topStarting } from "../../components/Header";
 import ServicesCard from "../services/ServicesCard";
 import axios from "axios";
+import Svg from "./Svg";
+import Rates from "../../components/Rates";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const { ref, inView } = useInView({
-    threshold: 0.5, // 50% of the element is visible
+    threshold: 0.7, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
   //context for language
   const context = useContext(Context);
   const language = context.language && context.language;
+  const selectedLang = context.selectedLang && context.selectedLang;
   const [projects, setProjects] = useState([]);
   //this might be a problem
   useEffect(() => {
@@ -49,7 +52,7 @@ const Home = () => {
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/projects")
+      .get("http://localhost:8000/api/projects?limit=3")
       .then((res) => setProjects(res.data.projects));
   }, []);
 
@@ -116,7 +119,7 @@ const Home = () => {
               <div>
                 <h2>
                   {language.about_home && language.about_home.first_h1}{" "}
-                  <span>lorem ipsum</span>
+                  <span> Blue ELite Tech</span>
                 </h2>
                 <h3>{language.about_home && language.about_home.first_p}</h3>
               </div>
@@ -138,7 +141,11 @@ const Home = () => {
             ref={ref}
             className={`${inView ? "slide-up-animation" : ""}  flex-100 center`}
           >
-            <img loading="lazy" src={require("./icon18.png")} alt="" />
+            <div className={` ${inView && "svg-active"}  flex svg `}>
+              <div className=" animation-image">
+                <Svg className="svg-image" />
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -290,6 +297,7 @@ const Home = () => {
           </Link>
         </div>
       </main>
+      <Rates />
       <main className="body-color center">
         <div className="container">
           <div className="title">
