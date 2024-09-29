@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./contact.css";
 import { Context } from "../context/Context";
+import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 
 const JoinUs = () => {
@@ -14,6 +15,8 @@ const JoinUs = () => {
   const [fileErr, setFileErr] = useState(false);
   const context = useContext(Context);
   const language = context.language && context.language;
+  const [capVal, setCapVal] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   function handelFormChange(e) {
     setForm({ ...form, [e.target.id]: e.target.value });
@@ -23,15 +26,24 @@ const JoinUs = () => {
     e.preventDefault();
     if (!file) setFileErr(true);
     if (form.name && form.phone && form.email && form.message && file) {
+      setLoading(true);
       try {
         const formData = new FormData();
-        formData.append("name", form.name);
-        formData.append("phone", form.phone);
-        formData.append("email", form.email);
+        formData.append("from", form.email);
         formData.append("file", file);
-        formData.append("message", form.message);
+        const body = `
+        name:${form.name}
+        phone number :${form.phone}
+       message :${form.message}
+        `;
+        formData.append("body", body);
+
+        await axios.post("http://localhost:8000/api/email/send", formData);
+        window.location.reload();
       } catch (err) {
         console.log(err);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -46,7 +58,7 @@ const JoinUs = () => {
             {language.join_us && language.join_us.join_us_header}
           </h1>
         </div>
-        <div className="flex contact-page join_page">
+        <div className="flex contact-page join_page relative">
           <form onSubmit={sendEmail} className="flex-1">
             <h2> {language.join_us && language.join_us.join_us_text}</h2>
             <label htmlFor="name">
@@ -111,7 +123,11 @@ const JoinUs = () => {
               />
               <i className="fa-solid fa-folder-plus"></i>
             </label>
-            {file && <p>uploded file: {file.name} </p>}
+            {file && (
+              <p>
+                {language.join_us && language.join_us.uploaded_file} {file.name}{" "}
+              </p>
+            )}
             {fileErr && <p className="error-text">uplaod file to send </p>}
 
             <label htmlFor="message">
@@ -130,7 +146,12 @@ const JoinUs = () => {
               required
               name="message"
             />
-            <button className="btn2">
+
+            <ReCAPTCHA
+              sitekey="6LfsV1IqAAAAAAP-iBfDY9whknwmO36oUgThTvc5"
+              onChange={(val) => setCapVal(val)}
+            />
+            <button disabled={!capVal} className="btn2">
               {language.join_us && language.join_us.button_submit}
             </button>
           </form>

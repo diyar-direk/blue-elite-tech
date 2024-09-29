@@ -14,6 +14,9 @@
 .about-info {
   align-items: center;
 }
+.about-info img {
+  height: 300px; 
+}
 .spikes {
   position: absolute;
   top: 0;

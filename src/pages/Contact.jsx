@@ -5,6 +5,7 @@ import ContactComponenet from "../components/ContactComponenet";
 import { useLocation } from "react-router-dom";
 import { Context } from "../context/Context";
 import Loader from "../components/Loader";
+import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
 
 const Contact = () => {
@@ -18,10 +19,13 @@ const Contact = () => {
   });
   const context = useContext(Context);
   const language = context.language && context.language;
+  const selectedLang = context.selectedLang && context.selectedLang;
   const location = useLocation();
   const services = location.state;
+  const [capVal, setCapVal] = useState(null);
+  const [courses, setCourses] = useState(null);
+
   const sendEmail = (e) => {
-    console.log(form);
     const body = `
     name:${form.name}
     email:${form.email}
@@ -33,14 +37,16 @@ const Contact = () => {
     `;
 
     form.body = body;
-    console.log(form.body);
 
-    axios
-      .post("http://localhost:8000/api/email/send", form)
-      .then((res) => console.log("hi"));
+    axios.post("http://localhost:8000/api/email/send", form);
   };
   useEffect(() => {
     if (services) setForm({ ...form, services: services.services });
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/courses?fields=headline")
+      .then((res) => setCourses(res.data.courses));
   }, []);
 
   document.addEventListener("click", () => {
@@ -265,15 +271,17 @@ const Contact = () => {
                   : language.contact && language.contact.contact_choose_course}
                 <i className="fa-solid fa-chevron-down"></i>
                 <div data-input="cours">
-                  <p onClick={selectCours} data-services="cours 1">
-                    cours 1
-                  </p>
-                  <p onClick={selectCours} data-services="cours 2">
-                    cours 2
-                  </p>
-                  <p onClick={selectCours} data-services="cours 3">
-                    cours 3
-                  </p>
+                  {courses &&
+                    courses.map((e, i) => {
+                      return (
+                        <p
+                          onClick={selectCours}
+                          data-services={e.headline[selectedLang]}
+                        >
+                          {e.headline[selectedLang]}
+                        </p>
+                      );
+                    })}
                 </div>
               </div>
             )}
@@ -295,7 +303,11 @@ const Contact = () => {
               required
               name="message"
             />
-            <button className="btn2">
+            <ReCAPTCHA
+              sitekey="6LfsV1IqAAAAAAP-iBfDY9whknwmO36oUgThTvc5"
+              onChange={(val) => setCapVal(val)}
+            />
+            <button disabled={!capVal} className="btn2">
               {" "}
               {language.contact && language.contact.button_submit}
             </button>
