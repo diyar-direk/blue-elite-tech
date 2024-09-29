@@ -28,7 +28,7 @@ const AboutUs = () => {
                   {language.about && language.about.about_top_p}
                 </p>
               </div>
-              <img loading="lazy" src={require("./home/icon32.png")} alt="" />
+              <img loading="lazy" src={require("./home/icon18.png")} alt="" />
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ const AboutUs = () => {
                 {language.about && language.about.button_explore_services}
               </button>
             </Link>
-            <Link onClick={topStarting} to="/projects">
+            <Link onClick={topStarting} to="/contact">
               <button className="btn2">
                 {language.about && language.about.button_contact_us}
               </button>

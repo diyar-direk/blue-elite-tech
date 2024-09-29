@@ -148,6 +148,8 @@
     "email_placeHolder": "please enter your email address",
     "show_us_input": "Show us your skills",
     "uplaod_your_cv_placeHolder": "Upload your CV",
+    "uploaded_file": "uploded file: ",
+
     "service_description": "Service Description",
     "service_description_placeHolder": "write your message",
     "button_submit": "Submit"

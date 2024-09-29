@@ -20,7 +20,7 @@ const Services = () => {
         </div>
         <div className="sevice-info grid-2">
           <h3>{language.services && language.services.sevices_section_text}</h3>
-          <img loading="lazy" src={require("./about.png")} alt="" />
+          <img loading="lazy" src={require("./img4.png")} alt="" />
         </div>
         <div className="grid-3 services">
           <ServicesCard>

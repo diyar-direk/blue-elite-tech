@@ -1,13 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./academy.css";
 import { Link } from "react-router-dom";
 import ContactComponenet from "../../components/ContactComponenet";
 import MapComponent from "../../components/MapComponent";
 import { Context } from "../../context/Context";
+import { useInView } from "react-intersection-observer";
+import axios from "axios";
 
 const Academy = () => {
   const context = useContext(Context);
   const language = context.language && context.language;
+  const selectedLang = context.selectedLang && context.selectedLang;
+  const [courses, setCourses] = useState([]);
+  const { ref, inView } = useInView({
+    threshold: 0.5, // 50% of the element is visible
+    triggerOnce: true, // Trigger only once
+  });
+  const animateAcademy = () => {
+    const academyDivs = document.querySelectorAll(
+      ".academy-page .mission > div.before-animation "
+    );
+    academyDivs.forEach((e, i) => {
+      setTimeout(() => {
+        e.classList.add("after-animation");
+      }, i * 200); // Adjust the delay (e.g., 1000ms = 1 second) based on the index
+    });
+  };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/courses")
+      .then((res) => setCourses(res.data.courses));
+  }, []);
   return (
     <>
       <main className="center sub-page academy-page body-color">
@@ -24,7 +48,11 @@ const Academy = () => {
           </div>
           <div className="main">
             <div className="flex">
-              <div className="flex-1">
+              <div
+                className={`flex-1 academy-text ${
+                  inView && `academy-text-after `
+                }  `}
+              >
                 <h1 className="title">SÎMURX</h1>
                 <h2>A Beacon of Computer Science and Education</h2>
                 <h3 style={{ color: "#bebe11" }}>Navenda Zanistên Komputerê</h3>
@@ -32,41 +60,19 @@ const Academy = () => {
                   {language.academy && language.academy.academy_section_h4}
                 </h4>
               </div>
-              <div className="flex-1 center">
+              <div
+                className={`flex-1 center academy-logo ${
+                  inView && `academy-logo-after `
+                }`}
+              >
                 <img src={require("./academy1.png")} alt="" loading="lazy" />
               </div>
             </div>
           </div>
 
-          {/* <div className="slider">
-            <div>
-              <img
-                src={require("./academy1.8e16765036fe248a0321.jpg")}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={require("./academy2.1a677465b56e39b4500e.jpg")}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={require("./academy3.07ee47e15b16e884da6a (1).jpg")}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={require("./academy4.4bccc090d270125d6d70.jpg")}
-                alt=""
-              />
-            </div>
-          </div> */}
-
-          <div className="mission grid-2">
-            <div className="background">
+          <div ref={ref} className="mission grid-2">
+            <div className={`background before-animation `}>
+              {inView && animateAcademy()}
               <h2>
                 {language.academy &&
                   language.academy.academy_section_our_mission}
@@ -77,7 +83,7 @@ const Academy = () => {
               </p>
             </div>
 
-            <div>
+            <div className=" before-animation">
               <h2>
                 {language.academy &&
                   language.academy.academy_section_what_we_offer}
@@ -88,7 +94,7 @@ const Academy = () => {
               </p>
             </div>
 
-            <div>
+            <div className=" before-animation">
               <h2>
                 {language.academy && language.academy.academy_section_our_team}
               </h2>
@@ -98,7 +104,7 @@ const Academy = () => {
               </p>
             </div>
 
-            <div className="background">
+            <div className="background before-animation">
               <h2>
                 {language.academy &&
                   language.academy.academy_section_why_simurx}
@@ -117,7 +123,7 @@ const Academy = () => {
               </p>
             </div>
 
-            <div className="background">
+            <div className="background before-animation">
               <h2>
                 {" "}
                 {language.academy &&
@@ -142,57 +148,23 @@ const Academy = () => {
               {language.academy && language.academy.courses_header}
             </h1>
           </div>
-          <article className="academy-card">
-            <div>
-              <img src={require("./sb2.png")} alt="" />
-            </div>
-            <div className="info">
-              <h1>fist cours</h1>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Recusandae non soluta reiciendis esse consectetur provident
-                voluptatem natus nulla cum aspernatur quasi temporibus, possimus
-                reprehenderit sint quos fugiat modi. Minus, optio.
-              </h3>
-              <Link to={""}>
-                {language.academy && language.academy.button_getStarted}
-              </Link>
-            </div>
-          </article>
-          <article className="academy-card">
-            <div>
-              <img src={require("./sb9.png")} alt="" />
-            </div>
-            <div className="info">
-              <h1>second cours</h1>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Recusandae non soluta reiciendis esse consectetur provident
-                voluptatem natus nulla cum aspernatur quasi temporibus, possimus
-                reprehenderit sint quos fugiat modi. Minus, optio.
-              </h3>
-              <Link to={""}>
-                {language.academy && language.academy.button_getStarted}
-              </Link>
-            </div>
-          </article>
-          <article className="academy-card">
-            <div>
-              <img src={require("./course-05.jpg")} alt="" />
-            </div>
-            <div className="info">
-              <h1>third cours</h1>
-              <h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Recusandae non soluta reiciendis esse consectetur provident
-                voluptatem natus nulla cum aspernatur quasi temporibus, possimus
-                reprehenderit sint quos fugiat modi. Minus, optio.
-              </h3>
-              <Link to={""}>
-                {language.academy && language.academy.button_getStarted}
-              </Link>
-            </div>
-          </article>
+
+          {courses.map((e, i) => {
+            return (
+              <article className="academy-card">
+                <div>
+                  <img src={`${e.photo}`} alt="" />
+                </div>
+                <div className="info">
+                  <h1>{e.headline[selectedLang]}</h1>
+                  <h3>{e.summary[selectedLang]}</h3>
+                  <Link to={""}>
+                    {language.academy && language.academy.button_getStarted}
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </main>
 

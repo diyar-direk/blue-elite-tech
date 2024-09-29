@@ -121,6 +121,10 @@ body.dark .join_page.contact-page {
   color: #777;
   width: 100%;
 }
+.join_page.contact-page form p {
+  color: var(--font-color);
+  opacity: 0.7;
+}
 .join_page.contact-page form label.inp input {
   display: none;
 }
