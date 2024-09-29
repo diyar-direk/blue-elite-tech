@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Context } from "../../../context/Context";
 
-const Courses = () => {
+const Projects = () => {
   const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [overlayVisible, setOverlayVisible] = useState(false);
@@ -12,11 +12,10 @@ const Courses = () => {
   const context = useContext(Context);
 
   const selectedLang = context.selectedLang;
-
   function fetchData() {
     axios
-      .get("http://localhost:8000/api/courses")
-      .then((res) => setData(res.data.courses))
+      .get("http://localhost:8000/api/projects")
+      .then((res) => setData(res.data.projects))
       .catch((error) => console.error("Error fetching data:", error));
   }
 
@@ -126,7 +125,7 @@ const Courses = () => {
               <tr>
                 <th></th>
                 <th>headline</th>
-                <th>summary</th>
+                <th>category</th>
                 <th>action</th>
               </tr>
             </thead>
@@ -138,4 +137,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default Projects;
