@@ -64,6 +64,7 @@ body.dark .main-dashboard form.dashboard-form {
   width: 100%;
   margin-bottom: 20px;
   border-radius: 6px;
+  caret-color: var(--main-color);
 }
 .main-dashboard form.dashboard-form .inp:focus {
   border: solid 1px var(--main-color);
@@ -108,4 +109,49 @@ body.dark .main-dashboard form.dashboard-form {
 }
 .main-dashboard form.dashboard-form > div.remove i:hover {
   background: var(--hover-color);
+}
+
+.main-dashboard form.dashboard-form.user .role {
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.main-dashboard form.dashboard-form.user .role .role-select {
+  position: absolute;
+  width: 100%;
+  background-color: var(--section-color);
+  left: 0;
+  bottom: calc(-100% - 40px);
+  z-index: -1;
+  opacity: 0;
+}
+.main-dashboard form.dashboard-form.user .role .role-select.active {
+  opacity: 1;
+  z-index: 1;
+}
+.main-dashboard form.dashboard-form.user .role .role-select p {
+  color: var(--font-color);
+  border-bottom: solid 1px var(--border-color);
+  padding: 5px 20px;
+  background-color: var(--section-color);
+  text-transform: capitalize;
+}
+.main-dashboard form.dashboard-form.user .role .role-select p:hover {
+  background: var(--border-color);
+}
+.main-dashboard form.dashboard-form.user .role i {
+  color: #777;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.main-dashboard form.user div.password i {
+  color: var(--main-color);
+  cursor: pointer;
+  position: absolute;
+}
+.main-dashboard form.user div.password {
+  margin-bottom: 20px;
 }

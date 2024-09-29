@@ -3,50 +3,55 @@ import React, { useContext, useEffect, useState } from "react";
 import "./activities.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Context } from "../../../context/Context";
 
 const Activities = () => {
   const [api, setApi] = useState([]);
   const [dataFltr, setDataFltr] = useState([]);
-  //   useEffect(() => {
-  //     axios
-  //       .get("http://localhost:8000/api/activity", {
-  //         headers: { Authorization: "Bearer " + token },
-  //       })
-  //       .then((res) => {
-  //         setApi(res.data.data);
-  //         setDataFltr(res.data.data);
-  //       });
-  //   }, []);
+  const context = useContext(Context);
+  const token = context.userDetails.token;
+  const selectedLang = context.selectedLang;
 
-  //   const data =
-  //     dataFltr &&
-  //     dataFltr.map((e, i) => {
-  //       const action = e.action;
-  //       const type = e.type;
-  //       const actionVal =
-  //         action === "DELETE"
-  //           ? language.delete
-  //           : action === "UPDATE"
-  //           ? language.update
-  //           : language.create;
-  //       return (
-  //         <article key={i} className={action}>
-  //           <h2>{actionVal}</h2>
-  //           <div className="between">
-  //             <div>
-  //               <p>{e.details}</p>
-  //               <span> {timeAgo(e.timestamp, time)} </span>
-  //             </div>
-  //             <div>
-  //               <p> {e.userId ? e.userId.username : "user not found   "} </p>
-  //               {action !== "DELETE" && type === "news" && (
-  //                 <Link to={`/read/${e.target}`}>{language.btn}</Link>
-  //               )}
-  //             </div>
-  //           </div>
-  //         </article>
-  //       );
-  //     });
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/activity", {
+        headers: { Authorization: "Bearer " + token },
+      })
+      .then((res) => {
+        setApi(res.data.data);
+        setDataFltr(res.data.data);
+      });
+  }, []);
+
+  const data =
+    dataFltr &&
+    dataFltr.map((e, i) => {
+      const action = e.action;
+      const type = e.type;
+      const actionVal =
+        action === "DELETE"
+          ? "delete"
+          : action === "UPDATE"
+          ? "update"
+          : "create";
+      const headLine = e.type !== "user" ? JSON.parse(e.details) : e.details;
+      return (
+        <article key={i} className={action}>
+          <h2>{actionVal}</h2>
+          <div className="between">
+            <div>
+              <p>{e.type === "user" ? headLine : headLine[selectedLang]}</p>
+            </div>
+            <div>
+              <p> {e.userId ? e.userId.username : "user not found   "} </p>
+              {action !== "DELETE" && type === "news" && (
+                <Link to={`/read/${e.target}`}>stn</Link>
+              )}
+            </div>
+          </div>
+        </article>
+      );
+    });
 
   function active(e) {
     const divs = document.querySelectorAll(
@@ -86,7 +91,7 @@ const Activities = () => {
           </div>
         </div>
 
-        {/* {data} */}
+        {data}
       </div>
     </div>
   );

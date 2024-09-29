@@ -30,15 +30,13 @@ div.main-dashboard .dashboard-container article.search i {
 div.table {
   overflow-x: auto;
 }
+
 div.table::-webkit-scrollbar {
-  height: 13px;
-}
-div.table::-webkit-scrollbar {
-  height: 13px;
+  height: 11px;
 }
 div.table::-webkit-scrollbar-thumb {
-  background-color: var(--font-color);
-  border-radius: 5px;
+  background-color: var(--hover-color);
+  border-radius: 2px;
 }
 div.table::-webkit-scrollbar-track {
   background-color: var(--border-color);

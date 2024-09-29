@@ -10,7 +10,7 @@ const Courses = () => {
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const context = useContext(Context);
-
+  const token = context.userDetails.token;
   const selectedLang = context.selectedLang;
 
   function fetchData() {
@@ -48,12 +48,15 @@ const Courses = () => {
 
   const handleConfirmDelete = async () => {
     setOverlayVisible(false);
-    // await axios.delete(`http://localhost:8000/api/news/${selectedItem._id}`, {
-    //   headers: {
-    //     Authorization: "Bearer " + token,
-    //   },
-    // });
-    // fetchData();
+    await axios.delete(
+      `http://localhost:8000/api/courses/${selectedItem._id}`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    fetchData();
   };
 
   const handleCancelDelete = () => {

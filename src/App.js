@@ -18,6 +18,9 @@ import Login from "./pages/Login";
 import Projects from "./pages/dashboard/pages/Projects";
 import Auth from "./auth/Auth";
 import Refresh from "./auth/Refresh";
+import AdminAuth from "./auth/AdminAuth";
+import Users from "./pages/dashboard/pages/Users";
+import AddUser from "./pages/dashboard/pages/AddUser";
 
 function App() {
   const location = useLocation();
@@ -43,7 +46,11 @@ function App() {
               <Route path="courses" element={<Courses />} />
               <Route path="add_project" element={<AddProject />} />
               <Route path="Projects" element={<Projects />} />
-              <Route path="activities" element={<Activities />} />
+              <Route element={<AdminAuth />}>
+                <Route path="activities" element={<Activities />} />
+                <Route path="users" element={<Users />} />
+                <Route path="add_user" element={<AddUser />} />
+              </Route>
             </Route>
           </Route>
         </Route>

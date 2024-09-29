@@ -1,27 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../components/table.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { Context } from "../../../context/Context";
 
-const Projects = () => {
+const Users = () => {
   const [data, setData] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const context = useContext(Context);
+  const language = context.langValue;
   const token = context.userDetails.token;
-  const selectedLang = context.selectedLang;
-  function fetchData() {
+
+  function fetchUsers() {
     axios
-      .get("http://localhost:8000/api/projects")
-      .then((res) => setData(res.data.projects))
+      .get("http://localhost:8000/api/users", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => setData(res.data))
       .catch((error) => console.error("Error fetching data:", error));
   }
 
   useEffect(() => {
-    fetchData();
+    fetchUsers();
   }, []);
+
   useEffect(() => {
     setSearchData(data);
   }, [data]);
@@ -33,8 +38,8 @@ const Projects = () => {
     } else {
       const filteredData = data.filter(
         (item) =>
-          item.headline[selectedLang].toLowerCase().includes(inpValue) ||
-          item.summary[selectedLang].toLowerCase().includes(inpValue)
+          item.username.toLowerCase().includes(inpValue) ||
+          item.role.toLowerCase().includes(inpValue)
       );
       setSearchData(filteredData);
     }
@@ -45,17 +50,14 @@ const Projects = () => {
     setOverlayVisible(true);
   };
 
-  const handleConfirmDelete = async () => {
+  const handleConfirmDelete = () => {
+    axios.delete(`http://localhost:8000/api/users/${selectedItem._id}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    fetchUsers();
     setOverlayVisible(false);
-    await axios.delete(
-      `http://localhost:8000/api/projects/${selectedItem._id}`,
-      {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      }
-    );
-    fetchData();
   };
 
   const handleCancelDelete = () => {
@@ -69,34 +71,28 @@ const Projects = () => {
       setSelectedItem(null);
     } else return false;
   });
-
-  const tableData = searchData.map((item, index) => {
-    return (
-      <tr key={item._id}>
-        <td>{index + 1}</td>
-        <td className="align-left">{item.headline[selectedLang]}</td>
-        <td>{item.summary[selectedLang]}</td>
-        <td>
-          <span data-content={"delete"} onClick={() => handleDeleteClick(item)}>
-            <i className="fa-solid fa-trash"></i>
-          </span>
-          <span data-content="update">
-            <Link
-              to={`${item._id}`}
-              className="fa-regular fa-pen-to-square"
-            ></Link>
-          </span>
-        </td>
-      </tr>
-    );
-  });
+  const tableData = searchData.map((item, index) => (
+    <tr key={item._id}>
+      <td>{index + 1}</td>
+      <td className="align-left">{item.username}</td>
+      <td>{item.role}</td>
+      <td>
+        <span
+          data-content={"language.dashboard.table.delete"}
+          onClick={() => handleDeleteClick(item)}
+        >
+          <i className="fa-solid fa-trash"></i>
+        </span>
+      </td>
+    </tr>
+  ));
 
   return (
     <div className="main-dashboard">
       {overlayVisible && (
         <div className="overlay">
           <div className="content">
-            <h3>are you sh</h3>
+            <h3>are you</h3>
             <div className="center">
               <span className="flex-1 cancel" onClick={handleCancelDelete}>
                 cencel
@@ -111,24 +107,23 @@ const Projects = () => {
       )}
 
       <div className="dashboard-container">
-        <div className="flex">
-          <article className="search center no-wrap">
-            <input
-              onChange={handleSearch}
-              type="text"
-              placeholder="search"
-              className="flex-1"
-            />
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </article>
-        </div>
+        <article className="search no-wrap">
+          <input
+            onChange={handleSearch}
+            type="text"
+            placeholder={language && language.dashboard.table.search}
+            className="flex-1"
+          />
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </article>
+
         <div className="table">
           <table>
             <thead>
               <tr>
                 <th></th>
-                <th>headline</th>
-                <th>category</th>
+                <th>user</th>
+                <th>role</th>
                 <th>action</th>
               </tr>
             </thead>
@@ -140,4 +135,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Users;

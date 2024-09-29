@@ -1,7 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../../components/Logo";
 import "./dashboard-navbar.css";
 import Setting from "../../../components/Setting";
+import Cookies from "universal-cookie";
+import { useContext } from "react";
+import { Context } from "../../../context/Context";
 const DashboardNavbar = () => {
   function handelCilck(e) {
     e.stopPropagation();
@@ -19,6 +22,17 @@ const DashboardNavbar = () => {
     }
   }
 
+  const cookie = new Cookies();
+  const context = useContext(Context);
+  const isAdmin = context.userDetails.isAdmin;
+  const nav = useNavigate();
+  function logOut() {
+    cookie.set("token", "");
+    context.setUserDetails(false);
+    window.location.reload();
+    nav("/");
+  }
+
   return (
     <>
       <div className="navbar center">
@@ -30,20 +44,34 @@ const DashboardNavbar = () => {
             <Link to={"/"} className="btn2">
               home
             </Link>
-            <div className="btn">
+            <div onClick={logOut} className="btn">
               log out <i className="fa-solid fa-arrow-right-from-bracket"></i>
             </div>
           </div>
         </div>
       </div>
       <aside className="dashboard-aside">
-        <h3>title</h3>
+        <h3>Dashboard</h3>
         <h4 onClick={handelCilck}></h4>
 
-        <NavLink to={"activities"}>
-          <i className="fa-solid fa-clock-rotate-left"></i>
-          <span>activities</span>
-        </NavLink>
+        {isAdmin && (
+          <>
+            <NavLink to={"activities"}>
+              <i className="fa-solid fa-clock-rotate-left"></i>
+              <span>activities</span>
+            </NavLink>
+
+            <NavLink to={"users"}>
+              <i className="fa-solid fa-users"></i>
+              <span>users</span>
+            </NavLink>
+
+            <NavLink to={"add_user"}>
+              <i className="fa-solid fa-user-plus"></i>
+              <span>add user</span>
+            </NavLink>
+          </>
+        )}
 
         <NavLink to={"projects"}>
           <i className="fa-solid fa-diagram-project"></i>
