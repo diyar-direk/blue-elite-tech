@@ -3,6 +3,7 @@ import "./contact.css";
 import { Context } from "../context/Context";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
+import Formloading from "../components/Formloading";
 
 const JoinUs = () => {
   const [form, setForm] = useState({
@@ -59,6 +60,8 @@ const JoinUs = () => {
           </h1>
         </div>
         <div className="flex contact-page join_page relative">
+          {loading && <Formloading />}
+
           <form onSubmit={sendEmail} className="flex-1">
             <h2> {language.join_us && language.join_us.join_us_text}</h2>
             <label htmlFor="name">
