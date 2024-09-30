@@ -11,6 +11,7 @@ const Users = () => {
   const context = useContext(Context);
   const language = context.langValue;
   const token = context.userDetails.token;
+  const lang = context.language && context.language;
 
   function fetchUsers() {
     axios
@@ -56,8 +57,8 @@ const Users = () => {
         Authorization: "Bearer " + token,
       },
     });
-    fetchUsers();
     setOverlayVisible(false);
+    fetchUsers();
   };
 
   const handleCancelDelete = () => {
@@ -78,7 +79,7 @@ const Users = () => {
       <td>{item.role}</td>
       <td>
         <span
-          data-content={"language.dashboard.table.delete"}
+          data-content={lang && lang.activity.delete}
           onClick={() => handleDeleteClick(item)}
         >
           <i className="fa-solid fa-trash"></i>
@@ -92,14 +93,14 @@ const Users = () => {
       {overlayVisible && (
         <div className="overlay">
           <div className="content">
-            <h3>are you</h3>
+            <h3>{lang && lang.dashbord_tables.delete_sure}</h3>
             <div className="center">
               <span className="flex-1 cancel" onClick={handleCancelDelete}>
-                cencel
+                {lang && lang.dashbord_tables.cancel}
               </span>
               <span className="flex-1 delete" onClick={handleConfirmDelete}>
                 <i className="fa-solid fa-trash"></i>
-                delete
+                {lang && lang.dashbord_tables.confirm}
               </span>
             </div>
           </div>
@@ -122,9 +123,9 @@ const Users = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>user</th>
-                <th>role</th>
-                <th>action</th>
+                <th>{lang.dashbord_tables && lang.dashbord_tables.user}</th>
+                <th>{lang.dashbord_tables && lang.dashbord_tables.role}</th>
+                <th>{lang.dashbord_tables && lang.dashbord_tables.action}</th>
               </tr>
             </thead>
             <tbody>{tableData}</tbody>

@@ -9,7 +9,7 @@ import Loader from "./Loader";
 const Header = () => {
   const context = useContext(Context);
   const language = context && context.language;
-
+  const userDetails = context.userDetails;
   const location = useLocation();
   const [animationDone, setAnimationDone] = useState(false);
 
@@ -48,9 +48,9 @@ const Header = () => {
   function OpenAsid(e) {
     e.stopPropagation();
     document.querySelector(".aside-overlay").classList.toggle("open");
-    if (document.querySelector(".aside-overlay").classList.contains("open"))
+    if (document.querySelector(".aside-overlay").classList.contains("open")) {
       document.querySelector("header").classList.add("active");
-    else {
+    } else {
       if (window.scrollY < 250) {
         document.querySelector("header").classList.remove("active");
       }
@@ -158,9 +158,12 @@ const Header = () => {
             <i className="fa-solid fa-circle-exclamation"></i>{" "}
             {language.links && language.links.about_us}
           </NavLink>
-          <Link to={"/dashboard"}>
-            <i className="fa-solid fa-chart-line"></i> dashboard
-          </Link>
+          {userDetails.token && (
+            <Link to={"/dashboard"}>
+              <i className="fa-solid fa-chart-line"></i> dashboard
+            </Link>
+          )}
+
           <div className="aside-setting">
             <Setting mode={true} title={true} position="navbar" />
           </div>

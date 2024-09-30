@@ -3,11 +3,11 @@ import "../components/dashboard-form.css";
 import Formloading from "../../../components/Formloading";
 import axios from "axios";
 import { Context } from "../../../context/Context";
-import { useNavigate } from "react-router-dom";
-const AddProject = () => {
+import { useNavigate, useParams } from "react-router-dom";
+const UpdateCours = () => {
   const context = useContext(Context);
-  const language = context.language && context.language;
   const token = context.userDetails.token;
+  const params = useParams();
   const nav = useNavigate();
   const [headLine, setHeadline] = useState({
     arabic: "",
@@ -22,7 +22,15 @@ const AddProject = () => {
   const [image, setImage] = useState(false);
   const [errimage, setErrImage] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [linkProject, setLinkProject] = useState("");
+  const [oldPhoto, setOldPhoto] = useState(false);
+  useState(() => {
+    axios.get(`http://localhost:8000/api/courses/${params.id}`).then((res) => {
+      setHeadline(res.data.course.headline);
+      setSummary(res.data.course.summary);
+      setOldPhoto(res.data.course.photo);
+    });
+  }, []);
+
   function headlineFun(e) {
     setHeadline({ ...headLine, [e.target.name]: e.target.value });
   }
@@ -32,23 +40,24 @@ const AddProject = () => {
   }
   async function submitData(e) {
     e.preventDefault();
-    if (!image) setErrImage(true);
-    if (image && headLine && summary) {
+    const photo = image ? image : oldPhoto;
+
+    if (!photo) setErrImage(true);
+    if (photo && headLine && summary) {
       try {
         setLoading(true);
         const formData = new FormData();
 
         formData.append("headline", JSON.stringify(headLine));
         formData.append("summary", JSON.stringify(summary));
-        formData.append("photo", image);
-        linkProject !== "" && formData.append("projectLink", linkProject);
+        image && formData.append("photo", image);
 
-        const data = await axios.post(
-          "http://localhost:8000/api/projects",
+        const data = await axios.patch(
+          `http://localhost:8000/api/courses/${params.id}`,
           formData,
           { headers: { Authorization: "Bearer " + token } }
         );
-        nav("/dashboard/projects");
+        nav("/dashboard/courses");
       } catch (err) {
         console.log(err);
       } finally {
@@ -60,7 +69,7 @@ const AddProject = () => {
     <div className="main-dashboard">
       <div className="dashboard-container">
         <form onSubmit={submitData} className="dashboard-form relative">
-          <h2> {language.add && language.add.add_new_project}</h2>
+          <h2>add a new course</h2>
           {loading && <Formloading />}
           <div className="flex">
             <div>
@@ -145,29 +154,15 @@ const AddProject = () => {
               />
             </div>
           </div>
-          <label htmlFor="link">
-            {" "}
-            {language.add && language.add.project_link}
-          </label>
-          <div className="relative center  no-wrap">
-            <input
-              type="text"
-              placeholder={
-                language.add && language.add.project_link_placeHolder
-              }
-              className="inp"
-              onInput={(e) => setLinkProject(e.target.value)}
-              value={linkProject}
-            />
-            <i className="fa-solid fa-link"></i>
-          </div>
+
           <label className="w-100" htmlFor="file">
-            <p className="lable">{language.add && language.add.add_photo}</p>
+            <p className="lable"> add photo </p>
             <input
               className="inp"
               onInput={(e) => {
                 setImage(e.target.files[0]);
                 setErrImage(false);
+                setOldPhoto(false);
               }}
               type="file"
               name=""
@@ -175,15 +170,10 @@ const AddProject = () => {
               accept="image/*"
             />
             <div className="inp center">
-              {language.add && language.add.add_photo_placeHolder}{" "}
-              <i className="fa-regular fa-images"></i>
+              choose img <i className="fa-regular fa-images"></i>
             </div>
           </label>
-          {errimage && (
-            <p className="error-text">
-              {language.error && language.error.error_image}
-            </p>
-          )}
+          {errimage && <p className="error-text"> uploade image to set </p>}
           {image && (
             <div className="relative remove">
               <img
@@ -194,14 +184,24 @@ const AddProject = () => {
               <i className="fa-solid fa-x" onClick={() => setImage(false)}></i>
             </div>
           )}
-          <button className="btn2">
-            {" "}
-            {language.add && language.add.button_submit}{" "}
-          </button>
+          {oldPhoto && (
+            <div className="relative remove">
+              <img
+                src={`http://localhost:8000/img/${oldPhoto}`}
+                loading="lazy"
+                alt="uploaded"
+              />
+              <i
+                className="fa-solid fa-x"
+                onClick={() => setOldPhoto(false)}
+              ></i>
+            </div>
+          )}
+          <button className="btn2"> submit </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default AddProject;
+export default UpdateCours;

@@ -2,6 +2,9 @@
   margin-top: 30px;
   align-items: baseline;
 }
+.services-page .grid-2 {
+  row-gap: 0px;
+}
 .services > article {
   background: var(--body-color);
   border-radius: 6px;
@@ -156,5 +159,39 @@ body.arabic .services > article > article a:not(:first-of-type) {
 @media (max-width: 950px) {
   .sevice-info {
     flex-direction: column-reverse;
+  }
+  .services > article i {
+    font-size: 27px;
+  }
+  .services > article h1 {
+    font-size: 20px;
+  }
+  .services > article > article a.started {
+    width: 110px;
+    font-size: 12px;
+  }
+  .services-page h3 {
+    font-size: 16px;
+  }
+  .sevice-info img {
+    height: 240px;
+  }
+}
+
+@media (max-width: 500px) {
+  .services > article h1 {
+    font-size: 17px;
+  }
+  .services > article p {
+    font-size: 13px;
+  }
+  .services > article i {
+    font-size: 25px;
+  }
+  .services-page h3 {
+    font-size: 14px;
+  }
+  .sevice-info img {
+    height: 200px;
   }
 }

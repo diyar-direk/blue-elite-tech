@@ -11,7 +11,6 @@ const Project = (props) => {
     threshold: 0.4, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
-  console.log(props.e);
   return (
     <article ref={ref} className={`${inView && "project-animation"}`}>
       <div className="overlay relative flex">

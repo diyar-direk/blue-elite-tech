@@ -364,6 +364,10 @@ body.arabic .home-academy .svg {
     transform: translateX(0px);
   }
 }
+.vanta-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
 .js-class {
   opacity: 0;
   transform: translateY(-15px);
@@ -404,12 +408,165 @@ body.arabic .home-academy .svg {
 }
 
 @media (max-width: 1000px) {
+  .container {
+    width: 85%;
+  }
   .home-academy .svg {
     display: none;
   }
+  .landing > .container > div {
+    width: 100%;
+  }
+  .landing > .container > div h1 {
+    font-size: 28px;
+  }
+  .landing > .container > div p {
+    font-size: 18px;
+  }
+  .landing > .container > div > div > a {
+    width: 130px;
+    font-size: 13px;
+  }
+  .about-company {
+    flex-wrap: wrap;
+  }
+  .animation-image {
+    height: 100%;
+  }
+
+  .about-company > div > .relative > div h2 {
+    font-size: 20px;
+  }
+  .about-company > div > .relative > div h2::before {
+    top: -20px;
+  }
+  .about-company > div h3 {
+    font-size: 16px;
+  }
+  .home-project > article > .info h1 {
+    font-size: 20px;
+  }
+  .home-project > article > .info p {
+    font-size: 15px;
+  }
+  .home-project > article > .info > a {
+    font-size: 14px;
+  }
 }
 @media (max-width: 600px) {
+  .container {
+    width: 92%;
+  }
+
   .home-academy .academy-services > div.active-academy {
     flex-direction: column;
+  }
+  .home-academy .academy-services > div.active-academy > img {
+    margin: 10px auto;
+  }
+
+  .home-academy .academy-services > div h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .home-academy .academy-services > div p {
+    font-size: 15px;
+    text-align: center;
+  }
+  .landing > .container > div h1 {
+    font-size: 22px;
+  }
+  .landing > .container > div p {
+    font-size: 16px;
+  }
+  .landing > .container > div > div > a {
+    width: 120px;
+  }
+  .about-company > div > .relative > div h2 {
+    font-size: 18px;
+  }
+  .about-company > div > .relative > div h2::after {
+    width: 8px;
+    height: 8px;
+    top: 47%;
+  }
+  .about-company > div h3 {
+    font-size: 14px;
+  }
+  header .logo img {
+    width: 35px;
+  }
+  .aside-overlay {
+    height: calc(100vh - 50px);
+    top: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 95%;
+  }
+  .about-company > div > .relative > div h2 {
+    font-size: 16px;
+    padding-left: 15px;
+  }
+  .about-company > div h3 {
+    font-size: 12px;
+  }
+  .landing > .container > div h1 {
+    font-size: 18px;
+  }
+  .landing > .container > div p {
+    font-size: 14px;
+  }
+  .landing > .container > div > div > a {
+    width: 100px;
+    font-size: 10px;
+  }
+  .landing > .container > div > div {
+    transform: translateY(20px);
+  }
+  .about-company > div > .relative > div h2::after {
+    width: 6px;
+    height: 6px;
+    top: 50%;
+  }
+  .about-company > div > .relative > div h2::before {
+    top: -16px;
+    left: -20px;
+    width: 20px;
+  }
+  .about-company > div > .relative > div {
+    padding-left: 20px;
+  }
+  .home-project > article > .info h1 {
+    font-size: 18px;
+  }
+  .home-project > article > .info p {
+    font-size: 13px;
+  }
+  .home-academy .academy-services > div h1 {
+    font-size: 18px;
+  }
+  .home-academy .academy-services > div p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  .landing > .container > div h1 {
+    font-size: 15px;
+  }
+  .landing > .container > div p {
+    font-size: 13px;
+  }
+  .about-company > div > .relative > div h2 {
+    font-size: 14px;
+  }
+  .home-academy .academy-services > div h1 {
+    font-size: 16px;
+  }
+  .home-academy .academy-services > div p {
+    font-size: 11px;
   }
 }

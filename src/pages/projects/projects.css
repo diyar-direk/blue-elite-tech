@@ -37,3 +37,26 @@
   opacity: 1;
   color: white;
 }
+
+@media (max-width: 700px) {
+  .projects-page .grid-2 h3 {
+    font-size: 15px;
+  }
+  .projects-page .grid-2 img {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .projects-page .grid-2 h3 {
+    font-size: 13px;
+  }
+  .projects-page .pagination span {
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

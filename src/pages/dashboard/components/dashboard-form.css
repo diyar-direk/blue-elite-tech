@@ -40,7 +40,7 @@ body.dark .main-dashboard form.dashboard-form {
   cursor: auto;
 }
 .main-dashboard form.dashboard-form label.w-100 p {
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 }
 .main-dashboard form.dashboard-form label input {
   display: none;
@@ -145,6 +145,10 @@ body.dark .main-dashboard form.dashboard-form {
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+}
+body.arabic .main-dashboard form.dashboard-form.user .role i{
+  right: auto;
+  left: 10px;
 }
 
 .main-dashboard form.user div.password i {

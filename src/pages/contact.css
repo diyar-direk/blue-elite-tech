@@ -1,5 +1,5 @@
 .contact-page {
-  gap: 40px;
+  gap: 30px;
 }
 .contact-page .contact-comp {
   width: 40%;
@@ -113,7 +113,7 @@ body.dark .join_page.contact-page {
   background-color: var(--body-color);
 }
 .join_page.contact-page > div {
-  background-image: linear-gradient(180deg, #07c1eb4b, #07c1eb07);
+  background-image: linear-gradient(180deg, #07c1eb4b, var(--body-color));
 }
 .join_page.contact-page form label.inp {
   cursor: pointer;
@@ -134,4 +134,58 @@ body.dark .join_page.contact-page {
 
 .join_page.contact-page > form > button {
   width: 100%;
+}
+.contact-page .contact-comp .info > div h3.title {
+  display: none;
+}
+@media (max-width: 900px) {
+  .join_page.contact-page {
+    flex-direction: column-reverse;
+  }
+  .join_page.contact-page > div img {
+    height: 220px;
+  }
+}
+@media (max-width: 760px) {
+  .contact-page {
+    flex-direction: column;
+  }
+  .contact-page form button,
+  .contact-page .contact-comp {
+    width: 100%;
+  }
+
+  .contact-page .contact-comp .info > div:first-child {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    justify-content: space-between;
+  }
+  .join_page.contact-page > div img {
+    height: 200px;
+  }
+  .contact-page form > h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-page form label {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+  .contact-page form div.inp {
+    font-size: 12px;
+  }
+  .contact-page form .inp {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+  .join_page.contact-page > div img {
+    height: 140px;
+  }
+  .contact-page form > h2 {
+    font-size: 18px;
+  }
 }

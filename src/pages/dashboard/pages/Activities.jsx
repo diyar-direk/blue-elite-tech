@@ -11,7 +11,7 @@ const Activities = () => {
   const context = useContext(Context);
   const token = context.userDetails.token;
   const selectedLang = context.selectedLang;
-
+  const language = context.language && context.language;
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/activity", {
@@ -34,19 +34,20 @@ const Activities = () => {
           : action === "UPDATE"
           ? "update"
           : "create";
-      const headLine = e.type !== "user" ? JSON.parse(e.details) : e.details;
+
       return (
         <article key={i} className={action}>
           <h2>{actionVal}</h2>
           <div className="between">
             <div>
-              <p>{e.type === "user" ? headLine : headLine[selectedLang]}</p>
+              <p>{e.details[selectedLang]}</p>
             </div>
             <div>
               <p> {e.userId ? e.userId.username : "user not found   "} </p>
-              {action !== "DELETE" && type === "news" && (
-                <Link to={`/read/${e.target}`}>stn</Link>
-              )}
+              {(action !== "DELETE" && type === "course") ||
+                (type === "project" && (
+                  <Link to={`/read/${e.target}`}>stn</Link>
+                ))}
             </div>
           </div>
         </article>
@@ -73,21 +74,21 @@ const Activities = () => {
         <div className="flex">
           <div className="add" data-chose="CREATE" onClick={active}>
             <i className="fa-solid fa-plus"></i>
-            <span>create</span>
+            <span>{language.activity && language.activity.create}</span>
           </div>
 
           <div className="update" data-chose="UPDATE" onClick={active}>
             <i className="fa-solid fa-wrench"></i>
-            <span>update</span>
+            <span>{language.activity && language.activity.update}</span>
           </div>
 
           <div className="delete" data-chose="DELETE" onClick={active}>
             <i className="fa-solid fa-trash-can "></i>
-            <span>delete</span>
+            <span>{language.activity && language.activity.delete}</span>
           </div>
 
           <div className="active" data-chose="all" onClick={active}>
-            <span>show all</span>
+            <span>{language.activity && language.activity.show_all}</span>
           </div>
         </div>
 
