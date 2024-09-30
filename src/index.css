@@ -218,6 +218,12 @@ body.arabic div.title h1.title::before {
   color: red;
 }
 
+@media (max-width: 1000px) {
+  .btn,
+  .btn2 {
+    padding: 8px 10px;
+  }
+}
 @media (max-width: 675px) {
   .grid-3 {
     grid-template-columns: 1fr;

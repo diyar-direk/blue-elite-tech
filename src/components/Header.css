@@ -92,7 +92,7 @@ header > .container > .links > a.active::before {
   width: 100%;
 }
 .aside-overlay {
-  height: calc(100vh - 61px);
+  height: calc(100vh - 60px);
   top: 60px;
   position: fixed;
   z-index: -1;
@@ -202,6 +202,39 @@ i.scroll-to-top::after {
 }
 i.scroll-to-top:hover::after {
   width: 100%;
+}
+@media (max-width: 1000px) {
+  header .logo img {
+    width: 40px;
+  }
+  header > .container > .links > a {
+    font-size: 14px;
+  }
+  header .logo h3 {
+    font-size: 14px;
+  }
+  header .logo h4 {
+    font-size: 12px;
+  }
+  aside.header-aside > a {
+    font-size: 15px;
+  }
+  .aside-overlay {
+    height: calc(100vh - 55px);
+    top: 55px;
+  }
+  header > .container > .links > a::before {
+    bottom: -12px;
+  }
+  .setting p {
+    font-size: 12px;
+  }
+  .setting .language .center i {
+    font-size: 11px;
+  }
+  .setting .language .center span {
+    font-size: 14px;
+  }
 }
 @media (max-width: 850px) {
   header > .container > .links > a {
