@@ -146,6 +146,10 @@ body.dark .main-dashboard form.dashboard-form {
   transform: translateY(-50%);
   pointer-events: none;
 }
+body.arabic .main-dashboard form.dashboard-form.user .role i{
+  right: auto;
+  left: 10px;
+}
 
 .main-dashboard form.user div.password i {
   color: var(--main-color);
