@@ -4,7 +4,7 @@ import Formloading from "../../../components/Formloading";
 import axios from "axios";
 import { Context } from "../../../context/Context";
 import { useNavigate } from "react-router-dom";
-const AddCours = () => {
+const AddProject = () => {
   const context = useContext(Context);
   const token = context.userDetails.token;
   const nav = useNavigate();
@@ -190,4 +190,4 @@ const AddCours = () => {
   );
 };
 
-export default AddCours;
+export default AddProject;

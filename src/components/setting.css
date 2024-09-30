@@ -29,6 +29,7 @@
   left: 0;
   z-index: -1;
   opacity: 0;
+  pointer-events: none;
 }
 body.arabic .setting .language .select {
   right: 0;
@@ -36,6 +37,7 @@ body.arabic .setting .language .select {
 .setting .language .select.active {
   opacity: 1;
   z-index: 1;
+  pointer-events: all;
 }
 .setting .language .select p {
   padding: 8px 10px;
@@ -83,4 +85,36 @@ body.arabic .setting .language .select {
 .setting .mode div.dark::before {
   left: 56%;
   content: "\f186";
+}
+aside.header-aside > .aside-setting .setting > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+@media (max-width: 1000px) {
+  .setting .language .center i {
+    font-size: 11px;
+  }
+  .setting .language .center span {
+    font-size: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .setting p {
+    font-size: 12px;
+  }
+  .setting .language .center i {
+    font-size: 10px;
+  }
+  .setting .language .center span {
+    font-size: 13px;
+  }
+  .setting .mode div {
+    height: 15px;
+  }
+  .setting .mode div::before {
+    width: 10px;
+    height: 10px;
+  }
+  
 }

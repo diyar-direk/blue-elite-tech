@@ -84,3 +84,33 @@ footer .setting .language .center i {
 footer .setting .language .center span {
   color: #ddd;
 }
+@media (max-width: 700px) {
+  footer .grid-3 h1 {
+    font-size: 22px;
+  }
+  footer .grid-3 > div > a {
+    font-size: 15px;
+  }
+  footer .grid-3 > div .icon a {
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+  }
+  footer .grid-3 p {
+    font-size: 13px;
+  }
+  footer .copyright {
+    font-size: 12px;
+  }
+  footer .grid-3 {
+    gap: 10px;
+  }
+}
+@media (max-width: 500px) {
+  footer .grid-3 h1 {
+    font-size: 19px;
+  }
+  footer .grid-3 > div > a {
+    font-size: 13px;
+  }
+}

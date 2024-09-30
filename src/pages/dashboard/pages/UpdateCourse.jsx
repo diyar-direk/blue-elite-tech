@@ -3,10 +3,11 @@ import "../components/dashboard-form.css";
 import Formloading from "../../../components/Formloading";
 import axios from "axios";
 import { Context } from "../../../context/Context";
-import { useNavigate } from "react-router-dom";
-const AddCours = () => {
+import { useNavigate, useParams } from "react-router-dom";
+const UpdateCours = () => {
   const context = useContext(Context);
   const token = context.userDetails.token;
+  const params = useParams();
   const nav = useNavigate();
   const [headLine, setHeadline] = useState({
     arabic: "",
@@ -21,6 +22,15 @@ const AddCours = () => {
   const [image, setImage] = useState(false);
   const [errimage, setErrImage] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [oldPhoto, setOldPhoto] = useState(false);
+  useState(() => {
+    axios.get(`http://localhost:8000/api/courses/${params.id}`).then((res) => {
+      setHeadline(res.data.course.headline);
+      setSummary(res.data.course.summary);
+      setOldPhoto(res.data.course.photo);
+    });
+  }, []);
+
   function headlineFun(e) {
     setHeadline({ ...headLine, [e.target.name]: e.target.value });
   }
@@ -30,23 +40,23 @@ const AddCours = () => {
   }
   async function submitData(e) {
     e.preventDefault();
-    if (!image) setErrImage(true);
-    if (image && headLine && summary) {
+    const photo = image ? image : oldPhoto;
+
+    if (!photo) setErrImage(true);
+    if (photo && headLine && summary) {
       try {
         setLoading(true);
         const formData = new FormData();
-        console.log(headLine);
 
         formData.append("headline", JSON.stringify(headLine));
         formData.append("summary", JSON.stringify(summary));
-        formData.append("photo", image);
+        image && formData.append("photo", image);
 
-        const data = await axios.post(
-          "http://localhost:8000/api/courses",
+        const data = await axios.patch(
+          `http://localhost:8000/api/courses/${params.id}`,
           formData,
           { headers: { Authorization: "Bearer " + token } }
         );
-        console.log(data);
         nav("/dashboard/courses");
       } catch (err) {
         console.log(err);
@@ -152,6 +162,7 @@ const AddCours = () => {
               onInput={(e) => {
                 setImage(e.target.files[0]);
                 setErrImage(false);
+                setOldPhoto(false);
               }}
               type="file"
               name=""
@@ -173,6 +184,19 @@ const AddCours = () => {
               <i className="fa-solid fa-x" onClick={() => setImage(false)}></i>
             </div>
           )}
+          {oldPhoto && (
+            <div className="relative remove">
+              <img
+                src={`http://localhost:8000/img/${oldPhoto}`}
+                loading="lazy"
+                alt="uploaded"
+              />
+              <i
+                className="fa-solid fa-x"
+                onClick={() => setOldPhoto(false)}
+              ></i>
+            </div>
+          )}
           <button className="btn2"> submit </button>
         </form>
       </div>
@@ -180,4 +204,4 @@ const AddCours = () => {
   );
 };
 
-export default AddCours;
+export default UpdateCours;

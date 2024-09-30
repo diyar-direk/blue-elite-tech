@@ -48,9 +48,9 @@ const Header = () => {
   function OpenAsid(e) {
     e.stopPropagation();
     document.querySelector(".aside-overlay").classList.toggle("open");
-    if (document.querySelector(".aside-overlay").classList.contains("open"))
+    if (document.querySelector(".aside-overlay").classList.contains("open")) {
       document.querySelector("header").classList.add("active");
-    else {
+    } else {
       if (window.scrollY < 250) {
         document.querySelector("header").classList.remove("active");
       }

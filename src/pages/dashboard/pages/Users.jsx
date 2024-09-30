@@ -56,8 +56,8 @@ const Users = () => {
         Authorization: "Bearer " + token,
       },
     });
-    fetchUsers();
     setOverlayVisible(false);
+    fetchUsers();
   };
 
   const handleCancelDelete = () => {

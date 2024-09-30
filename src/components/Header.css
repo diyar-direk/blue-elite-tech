@@ -229,15 +229,39 @@ i.scroll-to-top:hover::after {
   .setting p {
     font-size: 12px;
   }
-  .setting .language .center i {
-    font-size: 11px;
-  }
-  .setting .language .center span {
-    font-size: 14px;
-  }
 }
 @media (max-width: 850px) {
   header > .container > .links > a {
     display: none;
+  }
+}
+@media (max-width: 600px) {
+  .aside-overlay aside.header-aside {
+    width: 220px;
+  }
+  header .logo h4 {
+    font-size: 10px;
+  }
+  header .logo h3 {
+    font-size: 12px;
+  }
+  aside.header-aside > a {
+    font-size: 13px;
+  }
+  aside.header-aside img {
+    width: 35px;
+  }
+  aside.header-aside > div.flex:first-of-type i {
+    font-size: 18px;
+  }
+}
+@media (max-width: 500px) {
+  i.scroll-to-top {
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+  }
+  i.scroll-to-top.visible {
+    right: 20px;
   }
 }

@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../components/dashboard-form.css";
 import Formloading from "../../../components/Formloading";
 import axios from "axios";
 import { Context } from "../../../context/Context";
-import { useNavigate } from "react-router-dom";
-const AddCours = () => {
+import { useNavigate, useParams } from "react-router-dom";
+const UpdateProject = () => {
   const context = useContext(Context);
   const token = context.userDetails.token;
+  const params = useParams();
+
   const nav = useNavigate();
   const [headLine, setHeadline] = useState({
     arabic: "",
@@ -21,6 +23,17 @@ const AddCours = () => {
   const [image, setImage] = useState(false);
   const [errimage, setErrImage] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [linkProject, setLinkProject] = useState("");
+  const [oldPhoto, setOldPhoto] = useState(null);
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/projects/${params.id}`).then((res) => {
+      setHeadline(res.data.project.headline);
+      setSummary(res.data.project.summary);
+      res.data.project.projectLink &&
+        setLinkProject(res.data.project.projectLink);
+      setOldPhoto(res.data.project.photo);
+    });
+  }, []);
   function headlineFun(e) {
     setHeadline({ ...headLine, [e.target.name]: e.target.value });
   }
@@ -30,24 +43,25 @@ const AddCours = () => {
   }
   async function submitData(e) {
     e.preventDefault();
-    if (!image) setErrImage(true);
-    if (image && headLine && summary) {
+    const photo = image ? image : oldPhoto;
+
+    if (!photo) setErrImage(true);
+    if (photo && headLine && summary) {
       try {
         setLoading(true);
         const formData = new FormData();
-        console.log(headLine);
 
         formData.append("headline", JSON.stringify(headLine));
         formData.append("summary", JSON.stringify(summary));
-        formData.append("photo", image);
+        image && formData.append("photo", image);
+        linkProject && formData.append("projectLink", linkProject);
 
-        const data = await axios.post(
-          "http://localhost:8000/api/courses",
+        const data = await axios.patch(
+          `http://localhost:8000/api/projects/${params.id}`,
           formData,
           { headers: { Authorization: "Bearer " + token } }
         );
-        console.log(data);
-        nav("/dashboard/courses");
+        nav("/dashboard/projects");
       } catch (err) {
         console.log(err);
       } finally {
@@ -59,7 +73,7 @@ const AddCours = () => {
     <div className="main-dashboard">
       <div className="dashboard-container">
         <form onSubmit={submitData} className="dashboard-form relative">
-          <h2>add a new course</h2>
+          <h2>add a new project</h2>
           {loading && <Formloading />}
           <div className="flex">
             <div>
@@ -144,7 +158,17 @@ const AddCours = () => {
               />
             </div>
           </div>
-
+          <label htmlFor="link"> project link</label>
+          <div className="relative center  no-wrap">
+            <input
+              type="text"
+              placeholder="add a link for this project "
+              className="inp"
+              onInput={(e) => setLinkProject(e.target.value)}
+              value={linkProject}
+            />
+            <i className="fa-solid fa-link"></i>
+          </div>
           <label className="w-100" htmlFor="file">
             <p className="lable"> add photo </p>
             <input
@@ -152,6 +176,7 @@ const AddCours = () => {
               onInput={(e) => {
                 setImage(e.target.files[0]);
                 setErrImage(false);
+                setOldPhoto(false);
               }}
               type="file"
               name=""
@@ -173,6 +198,19 @@ const AddCours = () => {
               <i className="fa-solid fa-x" onClick={() => setImage(false)}></i>
             </div>
           )}
+          {oldPhoto && (
+            <div className="relative remove">
+              <img
+                src={`http://localhost:8000/img/${oldPhoto}`}
+                loading="lazy"
+                alt="uploaded"
+              />
+              <i
+                className="fa-solid fa-x"
+                onClick={() => setOldPhoto(false)}
+              ></i>
+            </div>
+          )}
           <button className="btn2"> submit </button>
         </form>
       </div>
@@ -180,4 +218,4 @@ const AddCours = () => {
   );
 };
 
-export default AddCours;
+export default UpdateProject;

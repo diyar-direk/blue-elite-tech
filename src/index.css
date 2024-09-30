@@ -133,9 +133,8 @@ div.title {
 div.title::before {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 70%;
   height: 1px;
-  left: 0;
   top: 50%;
   background-color: var(--border-color);
   border: solid 1px;
@@ -223,9 +222,38 @@ body.arabic div.title h1.title::before {
   .btn2 {
     padding: 8px 10px;
   }
+  h1.title {
+    font-size: 30px;
+  }
 }
 @media (max-width: 675px) {
   .grid-3 {
     grid-template-columns: 1fr;
+  }
+  div.title {
+    margin-bottom: 0;
+  }
+  h1.title {
+    font-size: 25px;
+  }
+  .btn,
+  .btn2 {
+    font-size: 12px;
+  }
+  div.title::before {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  h1.title {
+    font-size: 22px;
+  }
+
+  div.title h1.title {
+    padding: 0 10px;
+  }
+  div.title h1.title::before {
+    left: 10px;
   }
 }
