@@ -1,13 +1,14 @@
-import React, { useContext, useState } from "react";
-import "../components/dashboard-form.css";
-import Formloading from "../../../components/Formloading";
+import React, { useContext, useEffect, useState } from "react";
+import "../../components/dashboard-form.css";
+import Formloading from "../../../../components/Formloading";
 import axios from "axios";
-import { Context } from "../../../context/Context";
+import { Context } from "../../../../context/Context";
 import { useNavigate, useParams } from "react-router-dom";
-const UpdateCours = () => {
+const UpdateProject = () => {
   const context = useContext(Context);
   const token = context.userDetails.token;
   const params = useParams();
+
   const nav = useNavigate();
   const [headLine, setHeadline] = useState({
     arabic: "",
@@ -22,15 +23,17 @@ const UpdateCours = () => {
   const [image, setImage] = useState(false);
   const [errimage, setErrImage] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [oldPhoto, setOldPhoto] = useState(false);
-  useState(() => {
-    axios.get(`http://localhost:8000/api/courses/${params.id}`).then((res) => {
-      setHeadline(res.data.course.headline);
-      setSummary(res.data.course.summary);
-      setOldPhoto(res.data.course.photo);
+  const [linkProject, setLinkProject] = useState("");
+  const [oldPhoto, setOldPhoto] = useState(null);
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/projects/${params.id}`).then((res) => {
+      setHeadline(res.data.project.headline);
+      setSummary(res.data.project.summary);
+      res.data.project.projectLink &&
+        setLinkProject(res.data.project.projectLink);
+      setOldPhoto(res.data.project.photo);
     });
   }, []);
-
   function headlineFun(e) {
     setHeadline({ ...headLine, [e.target.name]: e.target.value });
   }
@@ -51,13 +54,14 @@ const UpdateCours = () => {
         formData.append("headline", JSON.stringify(headLine));
         formData.append("summary", JSON.stringify(summary));
         image && formData.append("photo", image);
+        linkProject && formData.append("projectLink", linkProject);
 
         const data = await axios.patch(
-          `http://localhost:8000/api/courses/${params.id}`,
+          `http://localhost:8000/api/projects/${params.id}`,
           formData,
           { headers: { Authorization: "Bearer " + token } }
         );
-        nav("/dashboard/courses");
+        nav("/dashboard/projects");
       } catch (err) {
         console.log(err);
       } finally {
@@ -69,7 +73,7 @@ const UpdateCours = () => {
     <div className="main-dashboard">
       <div className="dashboard-container">
         <form onSubmit={submitData} className="dashboard-form relative">
-          <h2>add a new course</h2>
+          <h2>add a new project</h2>
           {loading && <Formloading />}
           <div className="flex">
             <div>
@@ -154,7 +158,17 @@ const UpdateCours = () => {
               />
             </div>
           </div>
-
+          <label htmlFor="link"> project link</label>
+          <div className="relative center  no-wrap">
+            <input
+              type="text"
+              placeholder="add a link for this project "
+              className="inp"
+              onInput={(e) => setLinkProject(e.target.value)}
+              value={linkProject}
+            />
+            <i className="fa-solid fa-link"></i>
+          </div>
           <label className="w-100" htmlFor="file">
             <p className="lable"> add photo </p>
             <input
@@ -204,4 +218,4 @@ const UpdateCours = () => {
   );
 };
 
-export default UpdateCours;
+export default UpdateProject;

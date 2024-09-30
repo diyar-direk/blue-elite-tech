@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import "../components/dashboard-form.css";
-import Formloading from "../../../components/Formloading";
+import "../../components/dashboard-form.css";
+import Formloading from "../../../../components/Formloading";
 import axios from "axios";
-import { Context } from "../../../context/Context";
+import { Context } from "../../../../context/Context";
 import { useNavigate } from "react-router-dom";
-const AddProject = () => {
+const AddCours = () => {
   const context = useContext(Context);
   const language = context.language && context.language;
   const token = context.userDetails.token;
@@ -22,7 +22,6 @@ const AddProject = () => {
   const [image, setImage] = useState(false);
   const [errimage, setErrImage] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [linkProject, setLinkProject] = useState("");
   function headlineFun(e) {
     setHeadline({ ...headLine, [e.target.name]: e.target.value });
   }
@@ -37,18 +36,19 @@ const AddProject = () => {
       try {
         setLoading(true);
         const formData = new FormData();
+        console.log(headLine);
 
         formData.append("headline", JSON.stringify(headLine));
         formData.append("summary", JSON.stringify(summary));
         formData.append("photo", image);
-        linkProject !== "" && formData.append("projectLink", linkProject);
 
         const data = await axios.post(
-          "http://localhost:8000/api/projects",
+          "http://localhost:8000/api/courses",
           formData,
           { headers: { Authorization: "Bearer " + token } }
         );
-        nav("/dashboard/projects");
+        console.log(data);
+        nav("/dashboard/courses");
       } catch (err) {
         console.log(err);
       } finally {
@@ -60,7 +60,7 @@ const AddProject = () => {
     <div className="main-dashboard">
       <div className="dashboard-container">
         <form onSubmit={submitData} className="dashboard-form relative">
-          <h2> {language.add && language.add.add_new_project}</h2>
+          <h2> {language.add && language.add.add_new_course}</h2>
           {loading && <Formloading />}
           <div className="flex">
             <div>
@@ -145,24 +145,9 @@ const AddProject = () => {
               />
             </div>
           </div>
-          <label htmlFor="link">
-            {" "}
-            {language.add && language.add.project_link}
-          </label>
-          <div className="relative center  no-wrap">
-            <input
-              type="text"
-              placeholder={
-                language.add && language.add.project_link_placeHolder
-              }
-              className="inp"
-              onInput={(e) => setLinkProject(e.target.value)}
-              value={linkProject}
-            />
-            <i className="fa-solid fa-link"></i>
-          </div>
+
           <label className="w-100" htmlFor="file">
-            <p className="lable">{language.add && language.add.add_photo}</p>
+            <p className="lable"> {language.add && language.add.add_photo} </p>
             <input
               className="inp"
               onInput={(e) => {
@@ -204,4 +189,4 @@ const AddProject = () => {
   );
 };
 
-export default AddProject;
+export default AddCours;

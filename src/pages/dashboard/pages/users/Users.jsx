@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../components/table.css";
+import "../../components/table.css";
 import axios from "axios";
-import { Context } from "../../../context/Context";
+import { Context } from "../../../../context/Context";
 
 const Users = () => {
   const [data, setData] = useState([]);

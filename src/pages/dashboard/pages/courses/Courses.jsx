@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../components/table.css";
+import "../../components/table.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Context } from "../../../context/Context";
+import { Context } from "../../../../context/Context";
 
 const Courses = () => {
   const [data, setData] = useState([]);

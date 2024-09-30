@@ -10,19 +10,19 @@ import Project from "./pages/projects/Project";
 import Services from "./pages/services/Services";
 import Academy from "./pages/academy/Academy";
 import Dashboard from "./pages/dashboard/Dashboard";
-import AddCours from "./pages/dashboard/pages/AddCours";
-import Courses from "./pages/dashboard/pages/Courses";
-import AddProject from "./pages/dashboard/pages/AddProject";
 import Activities from "./pages/dashboard/pages/Activities";
 import Login from "./pages/Login";
-import Projects from "./pages/dashboard/pages/Projects";
 import Auth from "./auth/Auth";
 import Refresh from "./auth/Refresh";
 import AdminAuth from "./auth/AdminAuth";
-import Users from "./pages/dashboard/pages/Users";
-import AddUser from "./pages/dashboard/pages/AddUser";
-import UpdateProject from "./pages/dashboard/pages/UpdateProject";
-import UpdateCours from "./pages/dashboard/pages/UpdateCourse";
+import Courses from "./pages/dashboard/pages/courses/Courses";
+import UpdateCours from "./pages/dashboard/pages/courses/UpdateCourse";
+import AddCours from "./pages/dashboard/pages/courses/AddCours";
+import Projects from "./pages/dashboard/pages/projects/Projects";
+import UpdateProject from "./pages/dashboard/pages/projects/UpdateProject";
+import AddProject from "./pages/dashboard/pages/projects/AddProject";
+import Users from "./pages/dashboard/pages/users/Users";
+import AddUser from "./pages/dashboard/pages/users/AddUser";
 
 function App() {
   const location = useLocation();
