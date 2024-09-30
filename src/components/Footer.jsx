@@ -7,6 +7,7 @@ import { Context } from "../context/Context";
 const Footer = () => {
   const context = useContext(Context);
   const language = context.language && context.language;
+  const userDetails = context.userDetails;
   return (
     <footer className="footer center">
       <div className="container">
@@ -70,6 +71,11 @@ const Footer = () => {
             <NavLink onClick={topStarting} to={"/about"}>
               {language.links && language.links.about_us}
             </NavLink>
+            {userDetails.token && (
+              <NavLink onClick={topStarting} to={"/dashboard"}>
+                dashboard
+              </NavLink>
+            )}
           </div>
         </div>
         <div className="copyright center">

@@ -11,7 +11,6 @@ import { topStarting } from "../../components/Header";
 import ServicesCard from "../services/ServicesCard";
 import axios from "axios";
 import Svg from "./Svg";
-import Rates from "../../components/Rates";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -21,6 +20,7 @@ const Home = () => {
   });
   //context for language
   const context = useContext(Context);
+
   const language = context.language && context.language;
   const selectedLang = context.selectedLang && context.selectedLang;
   const [projects, setProjects] = useState([]);
@@ -297,7 +297,6 @@ const Home = () => {
           </Link>
         </div>
       </main>
-      <Rates />
       <main className="body-color center">
         <div className="container">
           <div className="title">

@@ -9,7 +9,7 @@ import Loader from "./Loader";
 const Header = () => {
   const context = useContext(Context);
   const language = context && context.language;
-
+  const userDetails = context.userDetails;
   const location = useLocation();
   const [animationDone, setAnimationDone] = useState(false);
 
@@ -158,9 +158,12 @@ const Header = () => {
             <i className="fa-solid fa-circle-exclamation"></i>{" "}
             {language.links && language.links.about_us}
           </NavLink>
-          <Link to={"/dashboard"}>
-            <i className="fa-solid fa-chart-line"></i> dashboard
-          </Link>
+          {userDetails.token && (
+            <Link to={"/dashboard"}>
+              <i className="fa-solid fa-chart-line"></i> dashboard
+            </Link>
+          )}
+
           <div className="aside-setting">
             <Setting mode={true} title={true} position="navbar" />
           </div>

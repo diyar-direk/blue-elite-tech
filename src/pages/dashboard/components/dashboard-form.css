@@ -40,7 +40,7 @@ body.dark .main-dashboard form.dashboard-form {
   cursor: auto;
 }
 .main-dashboard form.dashboard-form label.w-100 p {
-  margin-bottom: 10px;
+  margin: 20px 0 10px;
 }
 .main-dashboard form.dashboard-form label input {
   display: none;
