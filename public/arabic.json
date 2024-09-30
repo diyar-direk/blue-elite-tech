@@ -161,15 +161,54 @@
     "button_submit": "إرسال"
   },
   "login": {
-    "login_header": "",
-    "username_placeHolder": "",
-    "password_placeHolder": "",
-    "button_login": ""
+    "login_header": "تسجيل الدخول",
+    "username_placeHolder": "اسم المستخدم",
+    "password_placeHolder": "كلمة المرور",
+    "button_login": "تسجيل الدخول"
   },
   "dashboard": {
-    "homeLink": "",
-    "logOutLink": "",
-    "ActivityLink": ""
+    "homeLink": "الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "logOutLink": "تسجيل الخروج",
+    "Activities": "الأنشطة",
+    "Users": "المستخدمون",
+    "Add_user": "إضافة مستخدم",
+    "projects": "المشاريع",
+    "add_projects": "إضافة مشروع",
+    "courses": "الدورات",
+    "add_courses": "إضافة دورة"
+  },
+  "activity": {
+    "create": "إنشاء",
+    "update": "تحديث",
+    "delete": "حذف",
+    "show_all": "عرض الكل"
+  },
+  "dashbord_tables": {
+    "user": "اسم المستخدم",
+    "role": "الدور",
+    "action": "الإجراء",
+    "headline": "العنوان",
+    "summary": "الملخص",
+    "delete_sure": "هل أنت متأكد أنك تريد الحذف؟",
+    "confirm": "تأكيد",
+    "cancel": "إلغاء"
+  },
+  "add": {
+    "add_new_course": "إضافة دورة جديدة",
+    "add_new_project": "إضافة مشروع جديد",
+    "username": "اسم المستخدم",
+    "username_placeHolder": "ادخل اسم المستخدم",
+    "role": "الدور",
+    "role_placeHolder": "اختر دورًا",
+    "passowrd": "كلمة المرور",
+    "passowrd_placeHolder": "ادخل كلمة المرور",
+    "passowrd_confirmation": "تأكيد كلمة المرور",
+    "project_link": "رابط المشروع",
+    "project_link_placeHolder": "أضف رابطًا لهذا المشروع",
+    "add_photo": "إضافة صورة",
+    "add_photo_placeHolder": "اختر صورة",
+    "button_submit": "إرسال"
   },
   "footer": {
     "footer_p": "Blue Elite Tech - نحقق رؤيتك التقنية.",

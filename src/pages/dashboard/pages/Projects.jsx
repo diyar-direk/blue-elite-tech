@@ -12,6 +12,8 @@ const Projects = () => {
   const context = useContext(Context);
   const token = context.userDetails.token;
   const selectedLang = context.selectedLang;
+  const language = context.language && context.language;
+
   function fetchData() {
     axios
       .get("http://localhost:8000/api/projects")
@@ -77,10 +79,13 @@ const Projects = () => {
         <td className="align-left">{item.headline[selectedLang]}</td>
         <td>{item.summary[selectedLang]}</td>
         <td>
-          <span data-content={"delete"} onClick={() => handleDeleteClick(item)}>
+          <span
+            data-content={language.activity && language.activity.delete}
+            onClick={() => handleDeleteClick(item)}
+          >
             <i className="fa-solid fa-trash"></i>
           </span>
-          <span data-content="update">
+          <span data-content={language.activity && language.activity.update}>
             <Link
               to={`${item._id}`}
               className="fa-regular fa-pen-to-square"
@@ -96,14 +101,16 @@ const Projects = () => {
       {overlayVisible && (
         <div className="overlay">
           <div className="content">
-            <h3>are you sh</h3>
+            <h3>
+              {language.dashbord_tables && language.dashbord_tables.delete_sure}
+            </h3>
             <div className="center">
               <span className="flex-1 cancel" onClick={handleCancelDelete}>
-                cencel
+                {language.dashbord_tables && language.dashbord_tables.cancel}
               </span>
               <span className="flex-1 delete" onClick={handleConfirmDelete}>
                 <i className="fa-solid fa-trash"></i>
-                delete
+                {language.dashbord_tables && language.dashbord_tables.confirm}
               </span>
             </div>
           </div>
@@ -127,9 +134,16 @@ const Projects = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>headline</th>
-                <th>category</th>
-                <th>action</th>
+                <th>
+                  {language.dashbord_tables &&
+                    language.dashbord_tables.headline}
+                </th>
+                <th>
+                  {language.dashbord_tables && language.dashbord_tables.summary}
+                </th>
+                <th>
+                  {language.dashbord_tables && language.dashbord_tables.action}
+                </th>
               </tr>
             </thead>
             <tbody>{tableData}</tbody>

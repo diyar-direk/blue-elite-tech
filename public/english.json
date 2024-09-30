@@ -156,11 +156,62 @@
     "button_submit": "Submit"
   },
   "login": {
-    "login_header": "",
-    "username_placeHolder": "",
-    "password_placeHolder": "",
+    "login_header": "Login",
+    "username_placeHolder": "User Name",
+    "password_placeHolder": "Password",
     "button_login": "Login"
-
+  },
+  "dashboard": {
+    "homeLink": "Home",
+    "dashboard": "Dashboard",
+    "logOutLink": "Log Out",
+    "Activities": "Activities",
+    "Users": "Users",
+    "Add_user": "Add User",
+    "projects": "Projects",
+    "add_projects": "Add Project",
+    "courses": "Courses",
+    "add_courses": "add Courses"
+  },
+  "activity": {
+    "create": "create",
+    "update": "update",
+    "delete": "delete",
+    "show_all": "Show All"
+  },
+  "dashbord_tables": {
+    "user": "User Name",
+    "role": "Role",
+    "action": "Action",
+    "headline": "Headline",
+    "summary": "Summary",
+    "delete_sure": "Are you sure you want to delete this",
+    "confirm":"Delete",
+    "cancel":"Cancel"
+  },
+  "add": {
+    "add_new_course": "add a new course",
+    "add_new_project": "add a new project",
+    "username": "user name",
+    "username_placeHolder": "user name",
+    "role": "role",
+    "role_placeHolder": "role",
+    "passowrd": "password",
+    "passowrd_placeHolder": "password",
+    "passowrd_confirmation": "password Confirmation",
+    "project_link": "project link",
+    "project_link_placeHolder": "add a link to this project ",
+    "add_photo": "add photo",
+    "add_photo_placeHolder": "choose image",
+    "button_submit": "Submit"
+  },
+  "error": {
+    "error_username": "Invalid username",
+    "error_already_used": "username already used",
+    "error_password": "Invalid password",
+    "error_passwordConfirmation": "doesn't match the password",
+    "error_role": "must have a role",
+    "error_image": "please uplaod  an image"
   },
   "footer": {
     "footer_p": "Blue Elite Tech - Transforming Your Vision into Reality.",

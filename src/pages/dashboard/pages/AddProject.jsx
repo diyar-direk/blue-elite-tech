@@ -6,6 +6,7 @@ import { Context } from "../../../context/Context";
 import { useNavigate } from "react-router-dom";
 const AddCours = () => {
   const context = useContext(Context);
+  const language = context.language && context.language;
   const token = context.userDetails.token;
   const nav = useNavigate();
   const [headLine, setHeadline] = useState({
@@ -59,7 +60,7 @@ const AddCours = () => {
     <div className="main-dashboard">
       <div className="dashboard-container">
         <form onSubmit={submitData} className="dashboard-form relative">
-          <h2>add a new project</h2>
+          <h2> {language.add && language.add.add_new_project}</h2>
           {loading && <Formloading />}
           <div className="flex">
             <div>
@@ -144,11 +145,16 @@ const AddCours = () => {
               />
             </div>
           </div>
-          <label htmlFor="link"> project link</label>
+          <label htmlFor="link">
+            {" "}
+            {language.add && language.add.project_link}
+          </label>
           <div className="relative center  no-wrap">
             <input
               type="text"
-              placeholder="add a link for this project "
+              placeholder={
+                language.add && language.add.project_link_placeHolder
+              }
               className="inp"
               onInput={(e) => setLinkProject(e.target.value)}
               value={linkProject}
@@ -156,7 +162,7 @@ const AddCours = () => {
             <i className="fa-solid fa-link"></i>
           </div>
           <label className="w-100" htmlFor="file">
-            <p className="lable"> add photo </p>
+            <p className="lable">{language.add && language.add.add_photo}</p>
             <input
               className="inp"
               onInput={(e) => {
@@ -169,10 +175,15 @@ const AddCours = () => {
               accept="image/*"
             />
             <div className="inp center">
-              choose img <i className="fa-regular fa-images"></i>
+              {language.add && language.add.add_photo_placeHolder}{" "}
+              <i className="fa-regular fa-images"></i>
             </div>
           </label>
-          {errimage && <p className="error-text"> uploade image to set </p>}
+          {errimage && (
+            <p className="error-text">
+              {language.error && language.error.error_image}
+            </p>
+          )}
           {image && (
             <div className="relative remove">
               <img
@@ -183,7 +194,10 @@ const AddCours = () => {
               <i className="fa-solid fa-x" onClick={() => setImage(false)}></i>
             </div>
           )}
-          <button className="btn2"> submit </button>
+          <button className="btn2">
+            {" "}
+            {language.add && language.add.button_submit}{" "}
+          </button>
         </form>
       </div>
     </div>

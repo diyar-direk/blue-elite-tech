@@ -6,6 +6,8 @@ import Cookies from "universal-cookie";
 import { useContext } from "react";
 import { Context } from "../../../context/Context";
 const DashboardNavbar = () => {
+  //context for language
+
   function handelCilck(e) {
     e.stopPropagation();
     e.target.classList.toggle("close");
@@ -24,6 +26,8 @@ const DashboardNavbar = () => {
 
   const cookie = new Cookies();
   const context = useContext(Context);
+  const language = context.language && context.language;
+
   const isAdmin = context.userDetails.isAdmin;
   const nav = useNavigate();
   function logOut() {
@@ -42,55 +46,55 @@ const DashboardNavbar = () => {
           </div>
           <div className="flex">
             <Link to={"/"} className="btn2">
-              home
+            {language.dashboard && language.dashboard.homeLink}
             </Link>
             <div onClick={logOut} className="btn">
-              log out <i className="fa-solid fa-arrow-right-from-bracket"></i>
+            {language.dashboard && language.dashboard.logOutLink} <i className="fa-solid fa-arrow-right-from-bracket"></i>
             </div>
           </div>
         </div>
       </div>
       <aside className="dashboard-aside">
-        <h3>Dashboard</h3>
+        <h3>{language.dashboard && language.dashboard.dashboard} </h3>
         <h4 onClick={handelCilck}></h4>
 
         {isAdmin && (
           <>
             <NavLink to={"activities"}>
               <i className="fa-solid fa-clock-rotate-left"></i>
-              <span>activities</span>
+              <span>{language.dashboard && language.dashboard.Activities}</span>
             </NavLink>
 
             <NavLink to={"users"}>
               <i className="fa-solid fa-users"></i>
-              <span>users</span>
+              <span>{language.dashboard && language.dashboard.Users}</span>
             </NavLink>
 
             <NavLink to={"add_user"}>
               <i className="fa-solid fa-user-plus"></i>
-              <span>add user</span>
+              <span>{language.dashboard && language.dashboard.Add_user}</span>
             </NavLink>
           </>
         )}
 
         <NavLink to={"projects"}>
           <i className="fa-solid fa-diagram-project"></i>
-          <span> projects</span>
+          <span> {language.dashboard && language.dashboard.projects}</span>
         </NavLink>
 
         <NavLink to={"add_project"}>
           <i className="fa-solid fa-circle-plus"></i>
-          <span>add project</span>
+          <span>{language.dashboard && language.dashboard.add_projects}</span>
         </NavLink>
 
         <NavLink to={"courses"}>
           <i className="fa-solid fa-graduation-cap"></i>
-          <span>courses</span>
+          <span>{language.dashboard && language.dashboard.courses}</span>
         </NavLink>
 
         <NavLink to={"add_cours"}>
           <i className="fa-solid fa-plus"></i>
-          <span>add cours</span>
+          <span>{language.dashboard && language.dashboard.add_courses}</span>
         </NavLink>
         <Setting title={true} position="dashboard" mode={true} />
       </aside>
