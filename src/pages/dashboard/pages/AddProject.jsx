@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../components/dashboard-form.css";
 import Formloading from "../../../components/Formloading";
-const AddProject = () => {
+import axios from "axios";
+import { Context } from "../../../context/Context";
+import { useNavigate } from "react-router-dom";
+const AddCours = () => {
+  const context = useContext(Context);
+  const token = context.userDetails.token;
+  const nav = useNavigate();
   const [headLine, setHeadline] = useState({
     arabic: "",
     english: "",
@@ -12,10 +18,10 @@ const AddProject = () => {
     english: "",
     kurdish: "",
   });
-  const [linkProject, setLinkProject] = useState("");
   const [image, setImage] = useState(false);
   const [errimage, setErrImage] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [linkProject, setLinkProject] = useState("");
   function headlineFun(e) {
     setHeadline({ ...headLine, [e.target.name]: e.target.value });
   }
@@ -28,23 +34,33 @@ const AddProject = () => {
     if (!image) setErrImage(true);
     if (image && headLine && summary) {
       try {
+        setLoading(true);
         const formData = new FormData();
-        formData.append("headline", headLine);
-        formData.append("summary", summary);
-        linkProject && formData.append("projectLink", linkProject);
-        formData.append("image", image);
+
+        formData.append("headline", JSON.stringify(headLine));
+        formData.append("summary", JSON.stringify(summary));
+        formData.append("photo", image);
+        linkProject !== "" && formData.append("projectLink", linkProject);
+
+        const data = await axios.post(
+          "http://localhost:8000/api/projects",
+          formData,
+          { headers: { Authorization: "Bearer " + token } }
+        );
+        nav("/dashboard/projects");
       } catch (err) {
         console.log(err);
+      } finally {
+        setLoading(false);
       }
     }
   }
   return (
     <div className="main-dashboard">
       <div className="dashboard-container">
-        <form onClick={submitData} className="dashboard-form relative">
+        <form onSubmit={submitData} className="dashboard-form relative">
+          <h2>add a new project</h2>
           {loading && <Formloading />}
-          <h2>add new project</h2>
-
           <div className="flex">
             <div>
               <label htmlFor="ku-headline">kurdish headline</label>
@@ -56,7 +72,7 @@ const AddProject = () => {
                 required
                 type="text"
                 id="ku-headline"
-                placeholder="write a project headline"
+                placeholder="write a course headline"
               />
             </div>
             <div>
@@ -69,7 +85,7 @@ const AddProject = () => {
                 required
                 type="text"
                 id="en-headline"
-                placeholder="write a project headline"
+                placeholder="write a course headline"
               />
             </div>
             <div className="arabic">
@@ -82,7 +98,7 @@ const AddProject = () => {
                 required
                 type="text"
                 id="ar-headline"
-                placeholder="اكتب عنوان للمشروع"
+                placeholder="اكتب عنوان الدورة"
               />
             </div>
           </div>
@@ -96,7 +112,7 @@ const AddProject = () => {
                 rows={4}
                 onInput={summaryFun}
                 id="ku-description"
-                placeholder="write a project description"
+                placeholder="write a course description"
                 value={summary.kurdish}
                 name="kurdish"
               />
@@ -109,7 +125,7 @@ const AddProject = () => {
                 onInput={summaryFun}
                 required
                 id="en-description"
-                placeholder="write a project description"
+                placeholder="write a course description"
                 value={summary.english}
                 name="english"
               />
@@ -124,7 +140,7 @@ const AddProject = () => {
                 rows={4}
                 value={summary.arabic}
                 id="ar-description"
-                placeholder="اكتب وصف للمشروع"
+                placeholder="اكتب وصف للدورة"
               />
             </div>
           </div>
@@ -139,7 +155,6 @@ const AddProject = () => {
             />
             <i className="fa-solid fa-link"></i>
           </div>
-
           <label className="w-100" htmlFor="file">
             <p className="lable"> add photo </p>
             <input
@@ -168,7 +183,6 @@ const AddProject = () => {
               <i className="fa-solid fa-x" onClick={() => setImage(false)}></i>
             </div>
           )}
-
           <button className="btn2"> submit </button>
         </form>
       </div>
@@ -176,4 +190,4 @@ const AddProject = () => {
   );
 };
 
-export default AddProject;
+export default AddCours;

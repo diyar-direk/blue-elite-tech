@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../components/dashboard-form.css";
 import Formloading from "../../../components/Formloading";
+import axios from "axios";
+import { Context } from "../../../context/Context";
+import { useNavigate } from "react-router-dom";
 const AddCours = () => {
+  const context = useContext(Context);
+  const token = context.userDetails.token;
+  const nav = useNavigate();
   const [headLine, setHeadline] = useState({
     arabic: "",
     english: "",
@@ -27,19 +33,32 @@ const AddCours = () => {
     if (!image) setErrImage(true);
     if (image && headLine && summary) {
       try {
+        setLoading(true);
         const formData = new FormData();
-        formData.append("headline", headLine);
-        formData.append("summary", summary);
-        formData.append("image", image);
+        console.log(headLine);
+
+        formData.append("headline", JSON.stringify(headLine));
+        formData.append("summary", JSON.stringify(summary));
+        formData.append("photo", image);
+        
+        const data = await axios.post(
+          "http://localhost:8000/api/courses",
+          formData,
+          { headers: { Authorization: "Bearer " + token } }
+        );
+        console.log(data);
+        nav("/dashboard/courses");
       } catch (err) {
         console.log(err);
+      } finally {
+        setLoading(false);
       }
     }
   }
   return (
     <div className="main-dashboard">
       <div className="dashboard-container">
-        <form onSubmit={submitData} className="dashboard-form">
+        <form onSubmit={submitData} className="dashboard-form relative">
           <h2>add a new course</h2>
           {loading && <Formloading />}
           <div className="flex">
@@ -162,3 +181,4 @@ const AddCours = () => {
 };
 
 export default AddCours;
+// "Course validation failed: headline: Cast to Map failed for value "[object Object]" (type string) at path "headline" because of "TypeError", summary: Cast to Map failed for value "[object Object]" (type string) at path "summary" because of "TypeError""

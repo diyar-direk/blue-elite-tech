@@ -34,19 +34,22 @@ const Activities = () => {
           : action === "UPDATE"
           ? "update"
           : "create";
-      const headLine = e.type !== "user" ? JSON.parse(e.details) : e.details;
+      // const headLine = e.type !== "user" ? JSON.parse(e.details) : e.details;
+      console.log(e.details);
+
       return (
         <article key={i} className={action}>
           <h2>{actionVal}</h2>
           <div className="between">
             <div>
-              <p>{e.type === "user" ? headLine : headLine[selectedLang]}</p>
+              <p>{ e.details[selectedLang]}</p>
             </div>
             <div>
               <p> {e.userId ? e.userId.username : "user not found   "} </p>
-              {action !== "DELETE" && type === "news" && (
-                <Link to={`/read/${e.target}`}>stn</Link>
-              )}
+              {(action !== "DELETE" && type === "course") ||
+                (type === "project" && (
+                  <Link to={`/read/${e.target}`}>stn</Link>
+                ))}
             </div>
           </div>
         </article>
