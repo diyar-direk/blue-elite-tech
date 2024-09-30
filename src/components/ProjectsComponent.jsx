@@ -19,7 +19,6 @@ const ProjectsComponent = (props) => {
           return (
             <>
               <Project e={e} />
-            
             </>
           );
         })}

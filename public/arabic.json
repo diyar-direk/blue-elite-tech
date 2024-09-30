@@ -160,7 +160,17 @@
     "service_description_placeHolder": "اكتب رسالتك",
     "button_submit": "إرسال"
   },
-
+  "login": {
+    "login_header": "",
+    "username_placeHolder": "",
+    "password_placeHolder": "",
+    "button_login": ""
+  },
+  "dashboard": {
+    "homeLink": "",
+    "logOutLink": "",
+    "ActivityLink": ""
+  },
   "footer": {
     "footer_p": "Blue Elite Tech - نحقق رؤيتك التقنية.",
     "footer_rights": "جميع الحقوق محفوظة © 2024 بلو إيليت تك"

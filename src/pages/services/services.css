@@ -157,4 +157,14 @@ body.arabic .services > article > article a:not(:first-of-type) {
   .sevice-info {
     flex-direction: column-reverse;
   }
+  .services > article i {
+    font-size: 27px;
+  }
+  .services > article h1 {
+    font-size: 20px;
+  }
+  .services > article > article a.started {
+    width: 110px;
+    font-size: 12px;
+  }
 }

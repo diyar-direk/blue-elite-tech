@@ -154,6 +154,12 @@
     "service_description_placeHolder": "write your message",
     "button_submit": "Submit"
   },
+  "login": {
+    "login_header": "Login",
+    "username_placeHolder": "User Name",
+    "password_placeHolder": "password",
+    "button_login": "Login"
+  },
   "footer": {
     "footer_p": "",
     "footer_rights": ""

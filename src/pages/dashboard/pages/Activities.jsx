@@ -34,8 +34,6 @@ const Activities = () => {
           : action === "UPDATE"
           ? "update"
           : "create";
-      // const headLine = e.type !== "user" ? JSON.parse(e.details) : e.details;
-      console.log(e.details);
 
       return (
         <article key={i} className={action}>

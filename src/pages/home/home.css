@@ -364,6 +364,10 @@ body.arabic .home-academy .svg {
     transform: translateX(0px);
   }
 }
+.vanta-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
 .js-class {
   opacity: 0;
   transform: translateY(-15px);
@@ -404,8 +408,42 @@ body.arabic .home-academy .svg {
 }
 
 @media (max-width: 1000px) {
+  .container {
+    width: 85%;
+  }
   .home-academy .svg {
     display: none;
+  }
+  .landing > .container > div {
+    width: 100%;
+  }
+  .landing > .container > div h1 {
+    font-size: 28px;
+  }
+  .landing > .container > div p {
+    font-size: 18px;
+  }
+  .landing > .container > div > div > a {
+    width: 130px;
+    font-size: 13px;
+  }
+  .about-company {
+    flex-wrap: wrap;
+  }
+  .animation-image {
+    height: 100%;
+  }
+  h1.title {
+    font-size: 30px;
+  }
+  .about-company > div > .relative > div h2 {
+    font-size: 20px;
+  }
+  .about-company > div > .relative > div h2::before {
+    top: -20px;
+  }
+  .about-company > div h3 {
+    font-size: 16px;
   }
 }
 @media (max-width: 600px) {
