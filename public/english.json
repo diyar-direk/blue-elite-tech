@@ -155,6 +155,13 @@
     "service_description_placeHolder": "write your message",
     "button_submit": "Submit"
   },
+  "login": {
+    "login_header": "",
+    "username_placeHolder": "",
+    "password_placeHolder": "",
+    "button_login": "Login"
+
+  },
   "footer": {
     "footer_p": "Blue Elite Tech - Transforming Your Vision into Reality.",
     "footer_rights": "© 2024 All rights reserved for Blue Elite Tech."
