@@ -11,9 +11,9 @@ const Login = () => {
     username: "",
     password: "",
   });
-
   const [loading, setLoading] = useState(false);
   const context = useContext(Context);
+  const language = context.language && context.language;
 
   const nav = useNavigate();
   const cookie = new Cookies();
@@ -59,7 +59,7 @@ const Login = () => {
         <div className="container center login-container">
           <form onSubmit={submitdata} className="login relative flex">
             {loading && <Formloading />}
-            <h1>Login</h1>
+            <h1>{language.login && language.login.homeLink}</h1>
             <div className="profile-log">
               <div className="icon-background">
                 <i className="fa-solid fa-user"></i>
@@ -72,7 +72,10 @@ const Login = () => {
                   onInput={formChange}
                   name="username"
                   type="text"
-                  placeholder="User name"
+                  placeholder={
+                    language.login &&
+                    language.login.username_placeHolder
+                  }
                   required
                 />
                 <i className="fa-solid fa-user"></i>
@@ -86,7 +89,10 @@ const Login = () => {
                   name="password"
                   type="password"
                   className="pass"
-                  placeholder="Password"
+                  placeholder={
+                    language.login &&
+                    language.login.password_placeHolder
+                  }
                   value={form.password}
                   onInput={formChange}
                   required
@@ -94,7 +100,9 @@ const Login = () => {
                 <i className="fa-solid fa-lock"></i>
               </div>
             </div>
-            <button className="btn2 center">Submit</button>
+            <button className="btn2 center">
+              {language.login && language.dashboard.button_login}
+            </button>
           </form>
         </div>
       </main>

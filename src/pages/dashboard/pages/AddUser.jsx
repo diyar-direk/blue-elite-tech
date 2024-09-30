@@ -29,6 +29,7 @@ const AddUser = () => {
   }
 
   const context = useContext(Context);
+  const language = context.language && context.language;
   const token = context.userDetails.token;
   document.body.addEventListener("click", () => {
     const catDiv = document.querySelector(
@@ -96,7 +97,9 @@ const AddUser = () => {
       <div className="dashboard-container center">
         <form className="dashboard-form relative user">
           {loading && <Formloading />}
-          <label htmlFor="user name">user name</label>
+          <label htmlFor="user name">
+            {language.add && language.add.username}
+          </label>
 
           <input
             onInput={(e) => {
@@ -108,11 +111,19 @@ const AddUser = () => {
             type="text"
             id="user name"
             name="user name"
-            placeholder="user name"
+            placeholder={language.add && language.add.username_placeHolder}
           />
 
-          {errorName && <p className="error-text">error name</p>}
-          {usedName && <p className="error-text"> used before </p>}
+          {errorName && (
+            <p className="error-text">
+              {language.add && language.error.error_username}
+            </p>
+          )}
+          {usedName && (
+            <p className="error-text">
+              {language.add && language.error.error_already_used}
+            </p>
+          )}
           <label
             onClick={(e) => {
               e.stopPropagation();
@@ -122,10 +133,11 @@ const AddUser = () => {
             }}
           >
             {" "}
-            role
+            {language.add && language.add.role}
           </label>
           <div onClick={handleClick} className="inp relative role">
-            {role || "role"} <i className="fa-solid fa-chevron-down"></i>
+            {role || (language.add && language.add.role)}{" "}
+            <i className="fa-solid fa-chevron-down"></i>
             <div className="role-select ">
               <p onClick={handelSelect} data-type="admin">
                 admin
@@ -136,9 +148,14 @@ const AddUser = () => {
             </div>
           </div>
 
-          {errorRole && <p className="error">error role</p>}
+          {errorRole && (
+            <p className="error-text">{language.add && language.error.error_role}</p>
+          )}
 
-          <label htmlFor="password">password</label>
+          <label htmlFor="password">
+            {" "}
+            {language.add && language.add.passowrd}
+          </label>
 
           <div className="no-wrap password relative center">
             <input
@@ -150,7 +167,7 @@ const AddUser = () => {
               value={password}
               name="password"
               type="password"
-              placeholder="password"
+              placeholder={language.add && language.add.passowrd}
               id="password"
             ></input>
             <i
@@ -160,9 +177,16 @@ const AddUser = () => {
             ></i>
           </div>
 
-          {errorPassword && <p className="error">error psasword</p>}
+          {errorPassword && (
+            <p className="error-text">
+              {language.add && language.error.error_password}
+            </p>
+          )}
 
-          <label htmlFor="password confirmation">pass conf</label>
+          <label htmlFor="password confirmation">
+            {" "}
+            {language.add && language.add.passowrd_confirmation}
+          </label>
 
           <div className="no-wrap relative password center">
             <input
@@ -174,7 +198,7 @@ const AddUser = () => {
               value={passwordConfirmation}
               name="password confirmation"
               type="password"
-              placeholder="password"
+              placeholder={language.add && language.add.passowrd_confirmation}
               id="password confirmation"
             ></input>
             <i
@@ -184,10 +208,14 @@ const AddUser = () => {
             ></i>
           </div>
 
-          {errorPasswordCon && <p className="error">error pass</p>}
+          {errorPasswordCon && (
+            <p className="error-text">
+              {language.add && language.error.error_passwordConfirmation}
+            </p>
+          )}
 
           <button className="btn2 " onClick={handelSubmit}>
-            submit
+            {language.add && language.add.button_submit}
           </button>
         </form>
       </div>
