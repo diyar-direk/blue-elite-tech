@@ -14,7 +14,7 @@ const Login = () => {
 
   const [loading, setLoading] = useState(false);
   const context = useContext(Context);
-
+  const [wrongData, setWrongData] = useState(false);
   const nav = useNavigate();
   const cookie = new Cookies();
   function showPassword(e) {
@@ -39,6 +39,8 @@ const Login = () => {
         "http://localhost:8000/api/users/login",
         form
       );
+      console.log(res);
+
       cookie.set("token", res.data.token);
       context.setUserDetails({
         token: res.data.token,
@@ -48,6 +50,7 @@ const Login = () => {
       nav("/dashboard");
     } catch (err) {
       console.log(err);
+      if (err.status === 401) setWrongData(true);
     } finally {
       setLoading(false);
     }
@@ -94,6 +97,9 @@ const Login = () => {
                 <i className="fa-solid fa-lock"></i>
               </div>
             </div>
+            {wrongData && (
+              <p className="error-text">wrong password or username </p>
+            )}
             <button className="btn2 center">Submit</button>
           </form>
         </div>
