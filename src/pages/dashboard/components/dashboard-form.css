@@ -94,10 +94,13 @@ body.arabic .main-dashboard form.dashboard-form .no-wrap i {
   right: auto;
   left: 10px;
 }
+
+
 body.arabic .main-dashboard form.dashboard-form .no-wrap .inp {
   padding-left: 30px;
   padding-right: 10px;
 }
+
 .main-dashboard form.dashboard-form > div.remove img {
   margin-bottom: 20px;
 }

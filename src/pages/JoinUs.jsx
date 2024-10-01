@@ -149,11 +149,12 @@ const JoinUs = () => {
               required
               name="message"
             />
-
-            <ReCAPTCHA
-              sitekey="6LfsV1IqAAAAAAP-iBfDY9whknwmO36oUgThTvc5"
-              onChange={(val) => setCapVal(val)}
-            />
+            <div className="captcha">
+              <ReCAPTCHA
+                sitekey="6LfsV1IqAAAAAAP-iBfDY9whknwmO36oUgThTvc5"
+                onChange={(val) => setCapVal(val)}
+              />
+            </div>
             <button disabled={!capVal} className="btn2">
               {language.join_us && language.join_us.button_submit}
             </button>

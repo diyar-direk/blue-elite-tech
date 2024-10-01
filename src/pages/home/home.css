@@ -464,6 +464,9 @@ body.arabic .home-academy .svg {
   .home-academy .academy-services > div.active-academy > img {
     margin: 10px auto;
   }
+  body.arabic .home-academy .academy-services > div.active-academy > img {
+    margin: 10px auto;
+  }
 
   .home-academy .academy-services > div h1 {
     font-size: 20px;
@@ -551,9 +554,21 @@ body.arabic .home-academy .svg {
   .home-academy .academy-services > div p {
     font-size: 13px;
   }
+  .animation-image {
+    height: 200px;
+    animation: none;
+  }
 }
 
 @media (max-width: 380px) {
+  .captcha {
+    transform: scale(0.8);
+  }
+  .captcha div {
+    left: 0 !important;
+    max-width: 200px !important;
+  }
+  
   .landing > .container > div h1 {
     font-size: 15px;
   }
