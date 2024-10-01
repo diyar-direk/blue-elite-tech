@@ -528,6 +528,7 @@ body.arabic .home-academy .svg {
   }
   .landing > .container > div h1 {
     font-size: 18px;
+    white-space: normal;
   }
   .landing > .container > div p {
     font-size: 14px;
