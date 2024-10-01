@@ -137,39 +137,43 @@ const Academy = () => {
           </div>
         </div>
       </main>
+      {courses && courses.length > 1 && (
+        <main className="section-color center">
+          <div className="container">
+            <div className="title">
+              <h1
+                className="title section-color"
+                data-fill={language.academy && language.academy.courses_header}
+              >
+                {language.academy && language.academy.courses_header}
+              </h1>
+            </div>
 
-      <main className="section-color center">
-        <div className="container">
-          <div className="title">
-            <h1
-              className="title section-color"
-              data-fill={language.academy && language.academy.courses_header}
-            >
-              {language.academy && language.academy.courses_header}
-            </h1>
+            {courses &&
+              courses.map((e, i) => {
+                return (
+                  <article className="academy-card">
+                    <div>
+                      <img src={`${e.photo}`} alt="" />
+                    </div>
+                    <div className="info">
+                      <h1>{e.headline[selectedLang]}</h1>
+                      <h3>{e.summary[selectedLang]}</h3>
+                      <Link to={""}>
+                        {language.academy && language.academy.button_getStarted}
+                      </Link>
+                    </div>
+                  </article>
+                );
+              })}
           </div>
-
-          {courses &&
-            courses.map((e, i) => {
-              return (
-                <article className="academy-card">
-                  <div>
-                    <img src={`${e.photo}`} alt="" />
-                  </div>
-                  <div className="info">
-                    <h1>{e.headline[selectedLang]}</h1>
-                    <h3>{e.summary[selectedLang]}</h3>
-                    <Link to={""}>
-                      {language.academy && language.academy.button_getStarted}
-                    </Link>
-                  </div>
-                </article>
-              );
-            })}
-        </div>
-      </main>
-
-      <main className="center body-color">
+        </main>
+      )}{" "}
+      <main
+        className={`center ${
+          courses && courses.length > 1 ? "body-color" : "section-color"
+        }`}
+      >
         <div className="container">
           <div className="title">
             <h1
