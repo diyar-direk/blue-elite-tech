@@ -154,7 +154,10 @@ const Academy = () => {
                 return (
                   <article className="academy-card">
                     <div>
-                      <img src={`${e.photo}`} alt="" />
+                      <img
+                        src={`http://localhost:8000/img/${e.photo}`}
+                        alt=""
+                      />
                     </div>
                     <div className="info">
                       <h1>{e.headline[selectedLang]}</h1>
@@ -177,7 +180,9 @@ const Academy = () => {
         <div className="container">
           <div className="title">
             <h1
-              className="title body-color"
+              className={`title ${
+                courses && courses.length > 1 ? "body-color" : "section-color"
+              }`}
               data-fill={language.academy && language.academy.contact_header}
             >
               {language.academy && language.academy.contact_header}

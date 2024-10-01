@@ -147,7 +147,7 @@ const Services = () => {
           <ServicesCard>
             <ServicesCard.Body>
               <ServicesCard.Body.Icon>
-                <i className="fa-solid fa-camera-retro"></i>
+                <i className="fa-solid fa-user-shield"></i>
               </ServicesCard.Body.Icon>
               <ServicesCard.Body.Title>
                 {language.services && language.services.camera_header}
@@ -167,7 +167,7 @@ const Services = () => {
           <ServicesCard>
             <ServicesCard.Body>
               <ServicesCard.Body.Icon>
-                <i className="fa-solid fa-lightbulb"></i>
+                <i className="fa-solid fa-virus-slash"></i>
               </ServicesCard.Body.Icon>
               <ServicesCard.Body.Title>
                 {" "}

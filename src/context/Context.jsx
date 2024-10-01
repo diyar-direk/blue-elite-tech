@@ -2,8 +2,10 @@ import React, { createContext, useEffect, useState } from "react";
 export const Context = createContext({});
 const PageContext = ({ children }) => {
   const [theme, setTheme] = useState(+localStorage.getItem("theme") || 0);
+  const userLanguage = navigator.language || navigator.userLanguage;
   const [selectedLang, setSelectedLang] = useState(
-    localStorage.getItem("language") || "english"
+    localStorage.getItem("language") ||
+      `${userLanguage.startsWith("ar") ? "arabic" : "english"}`
   );
   const [language, setLanguage] = useState({});
   const [userDetails, setUserDetails] = useState(false);
