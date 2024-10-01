@@ -72,7 +72,7 @@ const Projects = () => {
     } else return false;
   });
 
-  const tableData = searchData.map((item, index) => {
+  const tableData =searchData&& searchData.map((item, index) => {
     return (
       <tr key={item._id}>
         <td>{index + 1}</td>
