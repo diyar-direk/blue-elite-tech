@@ -3,28 +3,28 @@ import ProjectsComponent from "../../components/ProjectsComponent";
 import "./projects.css";
 import { Link } from "react-router-dom";
 import { topStarting } from "../../components/Header";
+import axios from "axios";
 const Project = () => {
   const [allData, setAllData] = useState([]);
+  const [data, setData] = useState([]);
 
   const divsCount = 6;
 
-  const [pagnation, setPagnition] = useState({
-    from: 0,
-    to: divsCount,
-  });
-
-  const data = allData.slice(pagnation.from, pagnation.to);
+  const [pagnation, setPagnition] = useState(1);
 
   useEffect(() => {
-    fetch("test.json")
-      .then((res) => res.json())
-      .then((data) => setAllData(data.data));
-  }, []);
+    axios
+      .get(
+        `http://localhost:8000/api/projects?limit=${divsCount}&page=${pagnation}`
+      )
+      .then((data) => {
+        setAllData(data.data.totalProjects);
+        setData(data.data.projects);
+      });
+  }, [pagnation]);
 
   function spanClick(e) {
-    const from = (e.target.dataset.count - 1) * divsCount;
-    const to = (e.target.dataset.count - 1) * divsCount + divsCount;
-    setPagnition({ from, to });
+    setPagnition(+e.target.dataset.count);
     const allSpan = document.querySelectorAll(
       ".projects-page .pagination span"
     );
@@ -33,7 +33,7 @@ const Project = () => {
   }
 
   function createPagnition() {
-    const AlldivsCount = allData.length;
+    const AlldivsCount = allData;
     const pageCount = Math.ceil(AlldivsCount / divsCount);
     const span = [];
     for (let index = 0; index < pageCount; index++) {
@@ -80,17 +80,11 @@ const Project = () => {
             />
           </div>
         </div>
-        <ProjectsComponent />
+        <ProjectsComponent data={data} />
         <div className="pagination">{createPagnition()}</div>
       </div>
     </main>
   );
 };
-
-/*
-1 2 3
-4 5 6
-7 8 9 
-*/
 
 export default Project;

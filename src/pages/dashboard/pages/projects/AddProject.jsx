@@ -73,7 +73,7 @@ const AddProject = () => {
                 required
                 type="text"
                 id="ku-headline"
-                placeholder="write a course headline"
+                placeholder="write a project headline"
               />
             </div>
             <div>
@@ -86,7 +86,7 @@ const AddProject = () => {
                 required
                 type="text"
                 id="en-headline"
-                placeholder="write a course headline"
+                placeholder="write a project headline"
               />
             </div>
             <div className="arabic">
@@ -99,7 +99,7 @@ const AddProject = () => {
                 required
                 type="text"
                 id="ar-headline"
-                placeholder="اكتب عنوان الدورة"
+                placeholder="اكتب عنوان للمشروع"
               />
             </div>
           </div>
@@ -113,7 +113,7 @@ const AddProject = () => {
                 rows={4}
                 onInput={summaryFun}
                 id="ku-description"
-                placeholder="write a course description"
+                placeholder="write a project description"
                 value={summary.kurdish}
                 name="kurdish"
               />
@@ -126,7 +126,7 @@ const AddProject = () => {
                 onInput={summaryFun}
                 required
                 id="en-description"
-                placeholder="write a course description"
+                placeholder="write a project description"
                 value={summary.english}
                 name="english"
               />
@@ -141,12 +141,11 @@ const AddProject = () => {
                 rows={4}
                 value={summary.arabic}
                 id="ar-description"
-                placeholder="اكتب وصف للدورة"
+                placeholder="اكتب وصف للمشروع"
               />
             </div>
           </div>
           <label htmlFor="link">
-            {" "}
             {language.add && language.add.project_link}
           </label>
           <div className="relative center  no-wrap">
@@ -175,7 +174,7 @@ const AddProject = () => {
               accept="image/*"
             />
             <div className="inp center">
-              {language.add && language.add.add_photo_placeHolder}{" "}
+              {language.add && language.add.add_photo_placeHolder}
               <i className="fa-regular fa-images"></i>
             </div>
           </label>
@@ -195,8 +194,7 @@ const AddProject = () => {
             </div>
           )}
           <button className="btn2">
-            {" "}
-            {language.add && language.add.button_submit}{" "}
+            {language.add && language.add.button_submit}
           </button>
         </form>
       </div>

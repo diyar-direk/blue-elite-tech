@@ -107,7 +107,7 @@ const Login = () => {
             )}
 
             <button className="btn2 center">
-              {language.login && language.dashboard.button_login}
+              {language.login && language.login.button_login}
             </button>
           </form>
         </div>

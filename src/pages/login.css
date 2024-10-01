@@ -113,3 +113,32 @@ body.arabic .login-container form.login .input i {
 .login-container form.login .input:focus-within::after {
   width: 50%;
 }
+
+@media (max-width: 680px) {
+  .login-container form.login {
+    width: 80%;
+  }
+  .login-container form.login .profile-log .icon-background {
+    width: 120px;
+    height: 120px;
+  }
+  .login-container form.login .profile-log .icon-background i {
+    font-size: 50px;
+  }
+  .login-container form.login .input i {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .login-container form.login {
+    width: 100%;
+  }
+  .login-container form.login .profile-log .icon-background {
+    width: 110px;
+    height: 110px;
+  }
+  .login-container form.login .profile-log .icon-background i {
+    font-size: 45px;
+  }
+}

@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./footer.css";
 import { NavLink } from "react-router-dom";
 import Setting from "./Setting";
 import { topStarting } from "./Header";
 import { Context } from "../context/Context";
+import axios from "axios";
 const Footer = () => {
   const context = useContext(Context);
   const language = context.language && context.language;
   const userDetails = context.userDetails;
+  const [projectsLength, setProjectsLength] = useState(0);
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/projects?limit=1").then((res) => {
+      setProjectsLength(res.data.totalProjects);
+    });
+  }, []);
   return (
     <footer className="footer center">
       <div className="container">
@@ -57,9 +64,11 @@ const Footer = () => {
             <NavLink onClick={topStarting} to="/academy">
               {language.links && language.links.academy}
             </NavLink>
-            <NavLink onClick={topStarting} to="/projects">
-              {language.links && language.links.our_projects}
-            </NavLink>
+            {projectsLength > 1 && (
+              <NavLink onClick={topStarting} to="/projects">
+                {language.links && language.links.our_projects}
+              </NavLink>
+            )}
           </div>
           <div>
             <NavLink onClick={topStarting} to="/contact">
@@ -73,7 +82,7 @@ const Footer = () => {
             </NavLink>
             {userDetails.token && (
               <NavLink onClick={topStarting} to={"/dashboard"}>
-                dashboard
+                {language.links && language.links.dashboard}
               </NavLink>
             )}
           </div>

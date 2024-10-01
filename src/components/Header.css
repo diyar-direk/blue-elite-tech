@@ -189,6 +189,14 @@ i.scroll-to-top {
 i.scroll-to-top.visible {
   right: 40px;
 }
+body.arabic i.scroll-to-top {
+  right: auto;
+  left: -10%;
+}
+body.arabic i.scroll-to-top.visible {
+  left: 40px;
+  right: auto;
+}
 i.scroll-to-top::after {
   content: "";
   position: absolute;
@@ -263,5 +271,8 @@ i.scroll-to-top:hover::after {
   }
   i.scroll-to-top.visible {
     right: 20px;
+  }
+  body.arabic i.scroll-to-top.visible {
+    left: 20px;
   }
 }
