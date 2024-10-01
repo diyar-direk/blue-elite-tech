@@ -149,22 +149,23 @@ const Academy = () => {
             </h1>
           </div>
 
-          {courses.map((e, i) => {
-            return (
-              <article className="academy-card">
-                <div>
-                  <img src={`${e.photo}`} alt="" />
-                </div>
-                <div className="info">
-                  <h1>{e.headline[selectedLang]}</h1>
-                  <h3>{e.summary[selectedLang]}</h3>
-                  <Link to={""}>
-                    {language.academy && language.academy.button_getStarted}
-                  </Link>
-                </div>
-              </article>
-            );
-          })}
+          {courses &&
+            courses.map((e, i) => {
+              return (
+                <article className="academy-card">
+                  <div>
+                    <img src={`${e.photo}`} alt="" />
+                  </div>
+                  <div className="info">
+                    <h1>{e.headline[selectedLang]}</h1>
+                    <h3>{e.summary[selectedLang]}</h3>
+                    <Link to={""}>
+                      {language.academy && language.academy.button_getStarted}
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
         </div>
       </main>
 

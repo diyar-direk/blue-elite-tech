@@ -75,10 +75,7 @@ body.dark .login-container form.login .profile-log .icon-background {
   font-size: 18px;
   color: var(--main-color);
 }
-body.arabic .login-container form.login .input i {
-  position: absolute;
-  right: 5px;
-}
+
 .login-container form.login .input i.password {
   cursor: pointer;
   opacity: 0.8;

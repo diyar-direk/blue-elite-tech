@@ -90,6 +90,10 @@ body.dark .main-dashboard form.dashboard-form {
   right: 10px;
   color: #777;
 }
+body.arabic .main-dashboard form.dashboard-form .no-wrap i {
+  right: auto;
+  left: 10px;
+}
 .main-dashboard form.dashboard-form > div.remove img {
   margin-bottom: 20px;
 }
