@@ -5,6 +5,7 @@ import "./Header.css";
 import Setting from "./Setting";
 import { Context } from "../context/Context";
 import Loader from "./Loader";
+import axios from "axios";
 
 const Header = () => {
   const context = useContext(Context);
@@ -12,7 +13,7 @@ const Header = () => {
   const userDetails = context.userDetails;
   const location = useLocation();
   const [animationDone, setAnimationDone] = useState(false);
-
+  const [projectsLength, setProjectsLength] = useState(0);
   useEffect(() => {
     // Check if we are on the home page and animation hasn't run yet
 
@@ -82,6 +83,11 @@ const Header = () => {
     overlay.classList.remove("open");
     window.scrollTo(0, 0);
   }
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/projects?limit=1").then((res) => {
+      setProjectsLength(res.data.totalProjects);
+    });
+  }, []);
 
   return (
     <>
@@ -135,32 +141,35 @@ const Header = () => {
             {language.links && language.links.home}
           </NavLink>
           <NavLink onClick={closeAsid} to="/services">
-            <i className="fa-solid fa-code"></i>{" "}
+            <i className="fa-solid fa-code"></i>
             {language.links && language.links.our_services}
           </NavLink>
           <NavLink onClick={closeAsid} to="/academy">
-            <i className="fa-solid fa-graduation-cap"></i>{" "}
+            <i className="fa-solid fa-graduation-cap"></i>
             {language.links && language.links.academy}
           </NavLink>
-          <NavLink onClick={closeAsid} to="/projects">
-            <i className="fa-solid fa-diagram-project"></i>{" "}
-            {language.links && language.links.our_projects}
-          </NavLink>
+          {projectsLength > 1 && (
+            <NavLink onClick={closeAsid} to="/projects">
+              <i className="fa-solid fa-diagram-project"></i>
+              {language.links && language.links.our_projects}
+            </NavLink>
+          )}
           <NavLink onClick={closeAsid} to="/contact">
-            <i className="fa-solid fa-phone"></i>{" "}
+            <i className="fa-solid fa-phone"></i>
             {language.links && language.links.contact_us}
           </NavLink>
           <NavLink onClick={closeAsid} to={"/join"}>
-            <i className="fa-solid fa-circle-plus"></i>{" "}
+            <i className="fa-solid fa-circle-plus"></i>
             {language.links && language.links.join_us}
           </NavLink>
           <NavLink onClick={closeAsid} to={"/about"}>
-            <i className="fa-solid fa-circle-exclamation"></i>{" "}
+            <i className="fa-solid fa-circle-exclamation"></i>
             {language.links && language.links.about_us}
           </NavLink>
           {userDetails.token && (
             <Link to={"/dashboard"}>
-              <i className="fa-solid fa-chart-line"></i> dashboard
+              <i className="fa-solid fa-chart-line"></i>
+              {language.links && language.links.dashboard}
             </Link>
           )}
 

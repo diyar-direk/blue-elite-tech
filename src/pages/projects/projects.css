@@ -17,6 +17,7 @@
   justify-content: center;
   gap: 10px;
   display: flex;
+  margin-top: 40px;
 }
 .projects-page .pagination span {
   background: var(--section-color);

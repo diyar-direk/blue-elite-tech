@@ -17,7 +17,7 @@ body.dark .main-dashboard form.dashboard-form {
   font-weight: 600;
 }
 .main-dashboard form.dashboard-form .flex {
-  gap: 20px;
+  column-gap: 20px;
   flex-wrap: wrap;
 }
 .main-dashboard form.dashboard-form .flex > div {
@@ -94,6 +94,13 @@ body.arabic .main-dashboard form.dashboard-form .no-wrap i {
   right: auto;
   left: 10px;
 }
+
+
+body.arabic .main-dashboard form.dashboard-form .no-wrap .inp {
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
 .main-dashboard form.dashboard-form > div.remove img {
   margin-bottom: 20px;
 }
@@ -150,7 +157,7 @@ body.arabic .main-dashboard form.dashboard-form .no-wrap i {
   transform: translateY(-50%);
   pointer-events: none;
 }
-body.arabic .main-dashboard form.dashboard-form.user .role i{
+body.arabic .main-dashboard form.dashboard-form.user .role i {
   right: auto;
   left: 10px;
 }
@@ -162,4 +169,44 @@ body.arabic .main-dashboard form.dashboard-form.user .role i{
 }
 .main-dashboard form.user div.password {
   margin-bottom: 20px;
+}
+
+@media (max-width: 1000px) {
+  .main-dashboard form.dashboard-form {
+    width: 100%;
+  }
+  .main-dashboard form.dashboard-form label {
+    font-size: 14px;
+  }
+  .main-dashboard form.dashboard-form .inp {
+    padding: 5px 10px;
+  }
+  .main-dashboard form.dashboard-form .flex > div {
+    min-width: 210px;
+  }
+  .main-dashboard form.dashboard-form > h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-dashboard form.dashboard-form > h2 {
+    font-size: 17px;
+  }
+  .main-dashboard form.dashboard-form label {
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+  .main-dashboard form.dashboard-form .inp {
+    margin-bottom: 10px;
+    padding: 3px 10px;
+    font-size: 13px;
+  }
+  .main-dashboard form.dashboard-form button {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .main-dashboard form.dashboard-form {
+    padding: 20px 10px;
+  }
 }

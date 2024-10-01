@@ -12,8 +12,6 @@ import Academy from "./pages/academy/Academy";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Activities from "./pages/dashboard/pages/Activities";
 import Login from "./pages/Login";
-import Auth from "./auth/Auth";
-import Refresh from "./auth/Refresh";
 import AdminAuth from "./auth/AdminAuth";
 import Courses from "./pages/dashboard/pages/courses/Courses";
 import UpdateCours from "./pages/dashboard/pages/courses/UpdateCourse";
@@ -23,6 +21,8 @@ import UpdateProject from "./pages/dashboard/pages/projects/UpdateProject";
 import AddProject from "./pages/dashboard/pages/projects/AddProject";
 import Users from "./pages/dashboard/pages/users/Users";
 import AddUser from "./pages/dashboard/pages/users/AddUser";
+import Auth from "./auth/Auth";
+import Refresh from "./auth/Refresh";
 
 function App() {
   const location = useLocation();

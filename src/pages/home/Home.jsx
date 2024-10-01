@@ -22,8 +22,8 @@ const Home = () => {
   const context = useContext(Context);
 
   const language = context.language && context.language;
-  const selectedLang = context.selectedLang && context.selectedLang;
   const [projects, setProjects] = useState([]);
+  const [projectsLength, setProjectsLength] = useState(0);
   //this might be a problem
   useEffect(() => {
     const imgElements = document.querySelectorAll("img");
@@ -51,9 +51,10 @@ const Home = () => {
     };
   }, []);
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/projects?limit=3")
-      .then((res) => setProjects(res.data.projects));
+    axios.get("http://localhost:8000/api/projects?limit=3").then((res) => {
+      setProjects(res.data.projects);
+      setProjectsLength(res.data.totalProjects);
+    });
   }, []);
 
   if (!context) {
@@ -62,7 +63,6 @@ const Home = () => {
   if (loading) {
     return <Loader />;
   }
-  //this might be a problem
   return (
     <>
       <ParticlesBackground />
@@ -297,30 +297,34 @@ const Home = () => {
           </Link>
         </div>
       </main>
-      <main className="body-color center">
-        <div className="container">
-          <div className="title">
-            <h1
-              className="title body-color"
-              data-fill={
-                language.projects && language.projects.projects_home_header
-              }
-            >
-              {language.projects && language.projects.projects_home_header}
-            </h1>
-          </div>
-          <ProjectsComponent data={projects && projects} />
+      {projectsLength > 1 && (
+        <main className="body-color center">
+          <div className="container">
+            <div className="title">
+              <h1
+                className="title body-color"
+                data-fill={
+                  language.projects && language.projects.projects_home_header
+                }
+              >
+                {language.projects && language.projects.projects_home_header}
+              </h1>
+            </div>
+            <ProjectsComponent data={projects && projects} />
 
-          <Link
-            onClick={topStarting}
-            to={"/projects"}
-            className="btn home-projects"
-          >
-            {language.projects && language.projects.btn_allProjects}
-          </Link>
-        </div>
-      </main>
-      <AcademyComponent />
+            <Link
+              onClick={topStarting}
+              to={"/projects"}
+              className="btn home-projects"
+            >
+              {language.projects && language.projects.btn_allProjects}
+            </Link>
+          </div>
+        </main>
+      )}
+      <AcademyComponent
+        classStyle={`${projectsLength < 1 ? "body-color" : "section-color"}`}
+      />
     </>
   );
 };

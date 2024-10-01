@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Svg from "../pages/home/Svg";
 import { useInView } from "react-intersection-observer";
 import { topStarting } from "./Header";
 import { Context } from "../context/Context";
 
-const AcademyComponent = () => {
+const AcademyComponent = (props) => {
   const { ref, inView } = useInView({
     threshold: 0.5, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
@@ -25,11 +24,13 @@ const AcademyComponent = () => {
   };
 
   return (
-    <main className="center section-color">
+    <main className={` ${props.classStyle} center section-color`}>
       <div className="container home-academy wrap flex">
         <div className="title">
           <h1
-            className="title section-color"
+            className={` ${
+              props.classStyle ? props.classStyle : "section-color"
+            } title `}
             data-fill={language.academy && language.academy.academy_home_header}
           >
             {language.academy && language.academy.academy_home_header}
@@ -92,7 +93,7 @@ const AcademyComponent = () => {
         </div>
         <div className={` ${inView && "svg-active"}  flex svg `}>
           <div className=" animation-image">
-           <img src={require("../pages/services/about.png")} alt="" />
+            <img src={require("../pages/services/about.png")} alt="" />
           </div>
         </div>
       </div>
