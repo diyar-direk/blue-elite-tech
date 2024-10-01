@@ -20,6 +20,7 @@ const Project = (props) => {
           src={`http://localhost:8000/img/${props.e.photo}`}
           alt=""
         />
+
         <div className="center">
           {props.e.projectLink && (
             <Link to={props.e.projectLink}>

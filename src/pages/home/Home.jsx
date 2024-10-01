@@ -297,7 +297,8 @@ const Home = () => {
           </Link>
         </div>
       </main>
-      {projectsLength > 1 && (
+      {console.log(projectsLength >1)}
+      {projectsLength >= 1 && (
         <main className="body-color center">
           <div className="container">
             <div className="title">

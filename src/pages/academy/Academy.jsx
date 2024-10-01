@@ -6,6 +6,7 @@ import MapComponent from "../../components/MapComponent";
 import { Context } from "../../context/Context";
 import { useInView } from "react-intersection-observer";
 import axios from "axios";
+import { topStarting } from "../../components/Header";
 
 const Academy = () => {
   const context = useContext(Context);
@@ -137,7 +138,7 @@ const Academy = () => {
           </div>
         </div>
       </main>
-      {courses && courses.length > 1 && (
+      {courses && courses.length >= 1 && (
         <main className="section-color center">
           <div className="container">
             <div className="title">
@@ -162,7 +163,14 @@ const Academy = () => {
                     <div className="info">
                       <h1>{e.headline[selectedLang]}</h1>
                       <h3>{e.summary[selectedLang]}</h3>
-                      <Link to={""}>
+                      <Link
+                        onClick={topStarting}
+                        state={{
+                          services: "SÎMURX ACADEMY",
+                          course: e.headline[selectedLang],
+                        }}
+                        to={`/contact`}
+                      >
                         {language.academy && language.academy.button_getStarted}
                       </Link>
                     </div>

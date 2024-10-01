@@ -79,8 +79,8 @@ ContactComponenet.Info = ({ children, title, location, showBtn, language }) => {
           </article>
           {showBtn && (
             <Link
-              state={{ services: "SÎMURX ACADEMY" }}
               onClick={topStarting}
+              state={{ services: "SÎMURX ACADEMY" }}
               to={`/contact`}
               className="btn2"
             >
