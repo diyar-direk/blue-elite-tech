@@ -526,6 +526,9 @@ body.arabic .home-academy .svg {
     font-size: 16px;
     padding-left: 15px;
   }
+  body.arabic .about-company > div > .relative > div h2 {
+    padding-right: 15px;
+  }
   .about-company > div h3 {
     font-size: 12px;
   }
@@ -557,8 +560,14 @@ body.arabic .home-academy .svg {
     left: -20px;
     width: 20px;
   }
+  body.arabic .about-company > div > .relative > div h2::before {
+    right: -20px;
+  }
   .about-company > div > .relative > div {
     padding-left: 20px;
+  }
+  body.arabic .about-company > div > .relative > div {
+    padding-right: 20px;
   }
   .home-project > article > .info h1 {
     font-size: 18px;
