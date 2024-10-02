@@ -22,8 +22,7 @@ const Contact = () => {
   const selectedLang = context.selectedLang && context.selectedLang;
   const location = useLocation();
   const services = location.state;
-  const course = services.course;
-  console.log(services);
+  const course = services && services.course;
   const [capVal, setCapVal] = useState(null);
   const [courses, setCourses] = useState(null);
 
@@ -44,7 +43,6 @@ const Contact = () => {
   };
   useEffect(() => {
     if (services) setForm({ ...form, services: services.services });
-    console.log(course);
 
     if (course)
       setForm({ ...form, services: services.services, course: course });

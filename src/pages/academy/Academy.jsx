@@ -14,7 +14,7 @@ const Academy = () => {
   const selectedLang = context.selectedLang && context.selectedLang;
   const [courses, setCourses] = useState([]);
   const { ref, inView } = useInView({
-    threshold: 0.5, // 50% of the element is visible
+    threshold: 0.3, // 50% of the element is visible
     triggerOnce: true, // Trigger only once
   });
   const animateAcademy = () => {

@@ -43,8 +43,11 @@ body.arabic .landing > .container > div h1 {
   transform: translateY(30px);
 }
 .landing > .container > div > div > a {
-  width: 157px;
+  width: 169px;
   letter-spacing: 2px;
+}
+.landing > .container > div > div > a i {
+  margin: 0 6px;
 }
 body.arabic .landing > .container > div > div > a {
   width: 150px;

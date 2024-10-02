@@ -103,6 +103,9 @@ h1.title {
   text-shadow: 0px 0px 20px #07c1eb52;
   font-weight: 500;
 }
+.leaflet-bottom {
+  display: none;
+}
 h1.title::before {
   content: attr(data-fill);
   position: absolute;
