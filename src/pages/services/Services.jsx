@@ -139,7 +139,7 @@ const Services = () => {
             <ServicesCard.Bottom>
               <ServicesCard.Bottom.StartedLink
                 title={language.services && language.services.button_getStarted}
-                state={language.services && language.services.local_header}
+                state={language.services && language.services.qualifying_header}
               />
             </ServicesCard.Bottom>
           </ServicesCard>
@@ -159,7 +159,7 @@ const Services = () => {
             <ServicesCard.Bottom>
               <ServicesCard.Bottom.StartedLink
                 title={language.services && language.services.button_getStarted}
-                state={language.services && language.services.local_header}
+                state={language.services && language.services.camera_header}
               />
             </ServicesCard.Bottom>
           </ServicesCard>
@@ -180,7 +180,7 @@ const Services = () => {
             <ServicesCard.Bottom>
               <ServicesCard.Bottom.StartedLink
                 title={language.services && language.services.button_getStarted}
-                state={language.services && language.services.local_header}
+                state={language.services && language.services.warning_header}
               />
             </ServicesCard.Bottom>
           </ServicesCard>

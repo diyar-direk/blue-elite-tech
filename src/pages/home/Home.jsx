@@ -89,11 +89,11 @@ const Home = () => {
             )}
             <p>{language.landing && language.landing.landing_p}</p>
             <div className="flex">
-              <Link onClick={topStarting} to={`/contact`} className="btn2">
+              <Link onClick={topStarting} to={`/contact`} className="btn2 ">
                 {language.landing && language.landing.first_button}
                 <i className="fa-solid fa-phone"></i>
               </Link>
-              <Link to={`/join`} onClick={topStarting} className="btn">
+              <Link to={`/join`} onClick={topStarting} className="btn center">
                 {language.landing && language.landing.second_button}
               </Link>
             </div>

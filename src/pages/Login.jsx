@@ -40,7 +40,6 @@ const Login = () => {
         "http://localhost:8000/api/users/login",
         form
       );
-      console.log(res);
 
       cookie.set("token", res.data.token);
       context.setUserDetails({
@@ -51,7 +50,8 @@ const Login = () => {
       nav("/dashboard");
     } catch (err) {
       console.log(err);
-      if (err.status === 401) setWrongData(true);
+      if (err.status === 401) setWrongData("wrong password or username");
+      else setWrongData("Network Error");
     } finally {
       setLoading(false);
     }
@@ -63,7 +63,7 @@ const Login = () => {
         <div className="container center login-container">
           <form onSubmit={submitdata} className="login relative flex">
             {loading && <Formloading />}
-            <h1>{language.login && language.login.homeLink}</h1>
+            <h1>{language.login && language.login.login_header}</h1>
             <div className="profile-log">
               <div className="icon-background">
                 <i className="fa-solid fa-user"></i>
@@ -102,9 +102,7 @@ const Login = () => {
                 <i className="fa-solid fa-lock"></i>
               </div>
             </div>
-            {wrongData && (
-              <p className="error-text">wrong password or username </p>
-            )}
+            {wrongData && <p className="error-text">{wrongData} </p>}
 
             <button className="btn2 center">
               {language.login && language.login.button_login}

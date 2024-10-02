@@ -36,7 +36,6 @@ const AddCours = () => {
       try {
         setLoading(true);
         const formData = new FormData();
-        console.log(headLine);
 
         formData.append("headline", JSON.stringify(headLine));
         formData.append("summary", JSON.stringify(summary));
@@ -47,7 +46,7 @@ const AddCours = () => {
           formData,
           { headers: { Authorization: "Bearer " + token } }
         );
-        console.log(data);
+
         nav("/dashboard/courses");
       } catch (err) {
         console.log(err);

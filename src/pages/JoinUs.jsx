@@ -115,10 +115,22 @@ const JoinUs = () => {
             <label className="inp file">
               {language.join_us && language.join_us.uplaod_your_cv_placeHolder}
               <input
-                accept=".pdf, .doc, .docx"
+                accept=".pdf,.doc,.docx"
                 onInput={(e) => {
-                  setFile(e.target.files[0]);
-                  setFileErr(false);
+                  const file = e.target.files[0];
+                  if (file) {
+                    const isValid = [
+                      "application/pdf",
+                      "application/msword",
+                      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    ].includes(file.type);
+                    if (isValid) {
+                      setFile(file);
+                      setFileErr(false);
+                    } else {
+                      setFileErr(true);
+                    }
+                  }
                 }}
                 type="file"
                 name="file"
@@ -131,7 +143,7 @@ const JoinUs = () => {
                 {language.join_us && language.join_us.uploaded_file} {file.name}{" "}
               </p>
             )}
-            {fileErr && <p className="error-text">uplaod file to send </p>}
+            {fileErr && <p className="error-text">please upload your cv </p>}
 
             <label htmlFor="message">
               {language.join_us && language.join_us.service_description}

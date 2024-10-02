@@ -1,3 +1,6 @@
+.setting {
+  align-items: flex-start;
+}
 .setting p {
   font-size: 13px;
   margin-bottom: 5px;
@@ -55,7 +58,7 @@ body.arabic .setting .language .select {
   width: 40px;
   height: 18px;
   border: 2px solid #505051;
-  background-color: #312d2d;
+  background-color: #312d2d6b;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
@@ -116,5 +119,4 @@ aside.header-aside > .aside-setting .setting > div {
     width: 10px;
     height: 10px;
   }
-  
 }

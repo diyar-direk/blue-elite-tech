@@ -431,7 +431,7 @@ body.arabic .home-academy .svg {
     font-size: 18px;
   }
   .landing > .container > div > div > a {
-    width: 136px;
+    width: 148px;
     font-size: 13px;
   }
   body.arabic .landing > .container > div > div > a {
@@ -493,7 +493,7 @@ body.arabic .home-academy .svg {
     font-size: 16px;
   }
   .landing > .container > div > div > a {
-    width: 136px;
+    width: 148px;
   }
   body.arabic .landing > .container > div > div > a {
     width: 110px;
@@ -531,16 +531,18 @@ body.arabic .home-academy .svg {
   }
   .landing > .container > div h1 {
     font-size: 18px;
+    white-space: normal;
   }
   .landing > .container > div p {
     font-size: 14px;
   }
   .landing > .container > div > div > a {
-    width: 115px;
+    width: 127px;
+    padding: 8px;
     font-size: 10px;
   }
   body.arabic .landing > .container > div > div > a {
-    width: 90px;
+    width: 92px;
   }
   .landing > .container > div > div {
     transform: translateY(20px);
@@ -551,7 +553,7 @@ body.arabic .home-academy .svg {
     top: 50%;
   }
   .about-company > div > .relative > div h2::before {
-    top: -16px;
+    top: -15px;
     left: -20px;
     width: 20px;
   }

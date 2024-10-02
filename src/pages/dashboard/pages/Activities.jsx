@@ -43,11 +43,7 @@ const Activities = () => {
               <p>{e.details[selectedLang]}</p>
             </div>
             <div>
-              <p> {e.userId ? e.userId.username : "user not found   "} </p>
-              {(action !== "DELETE" && type === "course") ||
-                (type === "project" && (
-                  <Link to={`/read/${e.target}`}>stn</Link>
-                ))}
+              <p> {e.userId ? e.userId.username : "user not found"} </p>
             </div>
           </div>
         </article>

@@ -217,7 +217,24 @@ body.arabic div.title h1.title::before {
   flex-wrap: nowrap;
 }
 .error-text {
-  color: red;
+  color: rgb(255, 0, 0) !important;
+  font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--hover-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--border-color);
 }
 
 @media (max-width: 1000px) {

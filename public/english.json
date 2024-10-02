@@ -24,7 +24,7 @@
     "first_p": "Blue Elite boasts extensive experience in software development, supported by a dedicated team of specialized experts with deep industry knowledge. Our team is skilled in delivering innovative solutions across diverse platforms,",
     "second_h1": "Why Blue Elite Tech?",
     "second_p": "At Blue Elite, we take pride in partnering with our clients to become an integral part of their journey towards success. Contact us today to explore how we can collaborate to drive your business forward through innovative software solutions.",
-    "third_h1": "In the World of Technology Introducing Blue Elite Tech",
+    "third_h1": "In the World of Technology  Blue Elite Tech",
     "third_p": "In the modern age of technology, software development has become essential for business success and goal achievement. Stepping into the spotlight is Blue Elite, a trusted partner",
     "about_btn": "Contact Us"
   },
@@ -113,8 +113,8 @@
       "server_managment": "Server Management",
       "local_network": "Local Networks services",
       "qualifying": "Qualifying services",
-      "warning_system": "Warning System services",
-      "camera_system": "Camera System services",
+      "warning_system": "Penetration Testing Service",
+      "camera_system": "cybersecurity services",
       "SÎMURX_academy": "SÎMURX Academy"
     },
     "contact_choose_course": "Choose a course you need",
@@ -161,6 +161,11 @@
     "username_placeHolder": "User Name",
     "password_placeHolder": "Password",
     "button_login": "Login"
+  },
+  "project_page":{
+    "title":"Our Projects",
+    "paragraph":"Our company offers a wide range of services, including desktop applications, mobile applications, website development, server management, LAN setup, and IT qualification. Below is a selection of projects that demonstrate our expertise in these fields. You can also see our services"
+    ,"link":"from here ..."
   },
   "dashboard": {
     "homeLink": "Home",

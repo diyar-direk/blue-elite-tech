@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProjectsComponent from "../../components/ProjectsComponent";
 import "./projects.css";
 import { Link } from "react-router-dom";
 import { topStarting } from "../../components/Header";
 import axios from "axios";
+import { Context } from "../../context/Context";
 const Project = () => {
   const [allData, setAllData] = useState([]);
   const [data, setData] = useState([]);
 
   const divsCount = 6;
+  const context = useContext(Context);
+  const language = context && context.language;
 
   const [pagnation, setPagnition] = useState(1);
 
@@ -55,20 +58,19 @@ const Project = () => {
     <main className=" projects-page center sub-page">
       <div className="container">
         <div className="title">
-          <h1 className="title body-color" data-fill="our projects">
-            Our Projects
+          <h1
+            className="title body-color"
+            data-fill={language.project_page && language.project_page.title}
+          >
+            {language.project_page && language.project_page.title}
           </h1>
         </div>
         <div className="grid-2">
           <div>
             <h3>
-              Our company offers a wide range of services, including desktop
-              applications, mobile applications, website development, server
-              management, LAN setup, and IT qualification. Below is a selection
-              of projects that demonstrate our expertise in these fields. You
-              can also see our services{" "}
+              {language.project_page && language.project_page.paragraph}{" "}
               <Link to={"/services"} onClick={topStarting}>
-                from here...
+                {language.project_page && language.project_page.link}
               </Link>
             </h3>
           </div>
