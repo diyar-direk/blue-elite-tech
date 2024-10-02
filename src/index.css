@@ -74,7 +74,7 @@ body {
   --main-color: #07c1eb;
   --border-color: #83838340;
   --hover-color: #1088a3;
-  --section-color: #f2f2f2;
+  --section-color: #f7f8fa;
   background-color: var(--body-color);
   overflow-x: hidden;
 }
