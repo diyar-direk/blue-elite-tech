@@ -284,4 +284,7 @@ body.arabic div.title h1.title::before {
   div.title h1.title::before {
     left: 10px;
   }
+  body.arabic div.title h1.title::before {
+    right: 10px;
+  }
 }
