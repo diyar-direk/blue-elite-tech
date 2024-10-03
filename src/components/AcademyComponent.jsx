@@ -87,7 +87,7 @@ const AcademyComponent = (props) => {
               </p>
             </article>
           </div>
-          <Link onClick={topStarting} to="/academy" className="btn d-block">
+          <Link onClick={topStarting} to="/our_academy" className="btn d-block">
             {language.academy && language.academy.button_seeMore}
           </Link>
         </div>

@@ -89,11 +89,15 @@ const Home = () => {
             )}
             <p>{language.landing && language.landing.landing_p}</p>
             <div className="flex">
-              <Link onClick={topStarting} to={`/contact`} className="btn2 ">
+              <Link onClick={topStarting} to={`/contact_us`} className="btn2 ">
                 {language.landing && language.landing.first_button}
                 <i className="fa-solid fa-phone"></i>
               </Link>
-              <Link to={`/join`} onClick={topStarting} className="btn center">
+              <Link
+                to={`/join_us`}
+                onClick={topStarting}
+                className="btn center"
+              >
                 {language.landing && language.landing.second_button}
               </Link>
             </div>
@@ -133,7 +137,11 @@ const Home = () => {
               </div>
             </div>
 
-            <Link to={"/contact"} onClick={topStarting} className="btn d-block">
+            <Link
+              to={"/contact_us"}
+              onClick={topStarting}
+              className="btn d-block"
+            >
               {language.about_home && language.about_home.about_btn}
             </Link>
           </div>
@@ -314,7 +322,7 @@ const Home = () => {
 
             <Link
               onClick={topStarting}
-              to={"/projects"}
+              to={"/our_projects"}
               className="btn home-projects"
             >
               {language.projects && language.projects.btn_allProjects}

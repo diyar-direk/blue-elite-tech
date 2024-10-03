@@ -169,7 +169,7 @@ const Academy = () => {
                           services: "SÎMURX ACADEMY",
                           course: e.headline[selectedLang],
                         }}
-                        to={`/contact`}
+                        to={`/contact_us`}
                       >
                         {language.academy && language.academy.button_getStarted}
                       </Link>

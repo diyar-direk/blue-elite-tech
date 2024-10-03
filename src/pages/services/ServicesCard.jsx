@@ -47,7 +47,7 @@ ServicesCard.Bottom.StartedLink = ({ className, title, state }) => {
   return (
     <Link
       onClick={topStarting}
-      to={"/contact"}
+      to={"/contact_us"}
       className={className}
       state={{ services: state }}
     >
@@ -58,7 +58,7 @@ ServicesCard.Bottom.StartedLink = ({ className, title, state }) => {
 
 ServicesCard.Bottom.Details = ({ title }) => {
   return (
-    <Link onClick={topStarting} to={"/services"}>
+    <Link onClick={topStarting} to={"/our_services"}>
       {title}
     </Link>
   );

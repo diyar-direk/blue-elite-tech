@@ -58,26 +58,26 @@ const Footer = () => {
             <NavLink onClick={topStarting} to="/">
               {language.links && language.links.home}
             </NavLink>
-            <NavLink onClick={topStarting} to="/services">
+            <NavLink onClick={topStarting} to="/our_services">
               {language.links && language.links.our_services}
             </NavLink>
-            <NavLink onClick={topStarting} to="/academy">
+            <NavLink onClick={topStarting} to="/our_academy">
               {language.links && language.links.academy}
             </NavLink>
             {projectsLength > 1 && (
-              <NavLink onClick={topStarting} to="/projects">
+              <NavLink onClick={topStarting} to="/our_projects">
                 {language.links && language.links.our_projects}
               </NavLink>
             )}
           </div>
           <div>
-            <NavLink onClick={topStarting} to="/contact">
+            <NavLink onClick={topStarting} to="/contact_us">
               {language.links && language.links.contact_us}
             </NavLink>
-            <NavLink onClick={topStarting} to={"/join"}>
+            <NavLink onClick={topStarting} to={"/join_us"}>
               {language.links && language.links.join_us}
             </NavLink>
-            <NavLink onClick={topStarting} to={"/about"}>
+            <NavLink onClick={topStarting} to={"/about_us"}>
               {language.links && language.links.about_us}
             </NavLink>
             {userDetails.token && (

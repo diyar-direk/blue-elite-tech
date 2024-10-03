@@ -81,7 +81,7 @@ ContactComponenet.Info = ({ children, title, location, showBtn, language }) => {
             <Link
               onClick={topStarting}
               state={{ services: "SÎMURX ACADEMY" }}
-              to={`/contact`}
+              to={`/contact_us`}
               className="btn2"
             >
               {language.academy && language.academy.button_getStarted}
@@ -98,5 +98,5 @@ ContactComponenet.Info = ({ children, title, location, showBtn, language }) => {
 ContactComponenet.Form = ({ children }) => {
   return <div className="form">{children}</div>;
 };
-// 37.04506821799898, 41.22529714364288
+
 export default ContactComponenet;

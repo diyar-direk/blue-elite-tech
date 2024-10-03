@@ -32,13 +32,13 @@ function App() {
       {!isDashboard && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/academy" element={<Academy />} />
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/our_services" element={<Services />} />
+        <Route path="/our_academy" element={<Academy />} />
+        <Route path="/about_us" element={<AboutUs />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/join" element={<JoinUs />} />
-        <Route path="/projects" element={<Project />} />
+        <Route path="/contact_us" element={<Contact />} />
+        <Route path="/join_us" element={<JoinUs />} />
+        <Route path="/our_projects" element={<Project />} />
         <Route path="/login" element={<Login />} />
 
         <Route element={<Refresh />}>

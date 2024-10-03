@@ -69,7 +69,7 @@ const Project = () => {
           <div>
             <h3>
               {language.project_page && language.project_page.paragraph}{" "}
-              <Link to={"/services"} onClick={topStarting}>
+              <Link to={"/our_services"} onClick={topStarting}>
                 {language.project_page && language.project_page.link}
               </Link>
             </h3>

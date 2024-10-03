@@ -102,13 +102,25 @@ const Header = () => {
             <NavLink onClick={topStarting} className="js-class " to="/">
               {language.links && language.links.home}
             </NavLink>
-            <NavLink onClick={topStarting} className="js-class " to="/services">
+            <NavLink
+              onClick={topStarting}
+              className="js-class "
+              to="/our_services"
+            >
               {language.links && language.links.our_services}
             </NavLink>
-            <NavLink onClick={topStarting} className="js-class " to="/academy">
+            <NavLink
+              onClick={topStarting}
+              className="js-class "
+              to="/our_academy"
+            >
               {language.links && language.links.academy}
             </NavLink>
-            <NavLink onClick={topStarting} className="js-class " to="/contact">
+            <NavLink
+              onClick={topStarting}
+              className="js-class "
+              to="/contact_us"
+            >
               {language.links && language.links.contact_us}
             </NavLink>
 
@@ -141,29 +153,29 @@ const Header = () => {
               <i className="fa-solid fa-house"></i>
               {language.links && language.links.home}
             </NavLink>
-            <NavLink onClick={closeAsid} to="/services">
+            <NavLink onClick={closeAsid} to="/our_services">
               <i className="fa-solid fa-code"></i>
               {language.links && language.links.our_services}
             </NavLink>
-            <NavLink onClick={closeAsid} to="/academy">
+            <NavLink onClick={closeAsid} to="/our_academy">
               <i className="fa-solid fa-graduation-cap"></i>
               {language.links && language.links.academy}
             </NavLink>
             {projectsLength > 1 && (
-              <NavLink onClick={closeAsid} to="/projects">
+              <NavLink onClick={closeAsid} to="/our_projects">
                 <i className="fa-solid fa-diagram-project"></i>
                 {language.links && language.links.our_projects}
               </NavLink>
             )}
-            <NavLink onClick={closeAsid} to="/contact">
+            <NavLink onClick={closeAsid} to="/contact_us">
               <i className="fa-solid fa-phone"></i>
               {language.links && language.links.contact_us}
             </NavLink>
-            <NavLink onClick={closeAsid} to={"/join"}>
+            <NavLink onClick={closeAsid} to={"/join_us"}>
               <i className="fa-solid fa-circle-plus"></i>
               {language.links && language.links.join_us}
             </NavLink>
-            <NavLink onClick={closeAsid} to={"/about"}>
+            <NavLink onClick={closeAsid} to={"/about_us"}>
               <i className="fa-solid fa-circle-exclamation"></i>
               {language.links && language.links.about_us}
             </NavLink>

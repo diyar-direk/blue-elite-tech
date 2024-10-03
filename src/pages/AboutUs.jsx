@@ -91,12 +91,12 @@ const AboutUs = () => {
           </div>
 
           <div className="btns">
-            <Link onClick={topStarting} to={"/services"}>
+            <Link onClick={topStarting} to={"/our_services"}>
               <button className="btn2">
                 {language.about && language.about.button_explore_services}
               </button>
             </Link>
-            <Link onClick={topStarting} to="/contact">
+            <Link onClick={topStarting} to="/contact_us">
               <button className="btn2">
                 {language.about && language.about.button_contact_us}
               </button>
